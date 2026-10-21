@@ -10,14 +10,14 @@ import { SobreResumo } from "@/components/home/SobreResumo";
 import { BarraProntaEntrega } from "@/components/cta/BarraProntaEntrega";
 import { CtaFinal } from "@/components/cta/CtaFinal";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildMetadata, faqJsonLd } from "@/lib/seo";
+import { TITLE_DEFAULT, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { VIDEOS } from "@/lib/media";
 import { SITE } from "@/lib/site";
 import { FAQ_HOME } from "@/lib/faq";
 
-/** O layout aplica o template "%s | Pacheco Solar" — o title aqui vai sem o sufixo. */
+/** O template "%s | Pacheco Solar" do layout não vale para a própria página raiz: título completo aqui. */
 export const metadata = buildMetadata({
-  title: "Estruturas metálicas para energia solar",
+  title: TITLE_DEFAULT,
   description: SITE.descricao,
   path: "/",
 });

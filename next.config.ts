@@ -1,0 +1,33 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  cacheComponents: true,
+  partialPrefetching: true,
+  turbopack: {
+    root: __dirname,
+    rules: {
+      "*.css": {
+        loaders: ["@tailwindcss/turbopack"],
+        as: "*.css",
+      },
+    },
+  },
+  images: {
+    // AVIF primeiro: ~30–40% menor que WebP nas fotos de obra
+    formats: ["image/avif", "image/webp"],
+    // Next 16 exige declarar qualities não-default; 60 nos heros sob overlay
+    qualities: [60, 75, 85],
+    minimumCacheTTL: 2678400, // 31 dias — regra: trocou o arquivo, troca o nome
+  },
+  async headers() {
+    return [
+      {
+        // Assets estáticos (fotos, vídeos, manuais): imutáveis por nome de arquivo
+        source: "/(images|videos|manuais)/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+    ];
+  },
+};
+
+export default nextConfig;

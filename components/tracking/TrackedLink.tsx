@@ -8,11 +8,13 @@ type Kind =
   | { kind: "social"; rede: string }
   | { kind: "maps" }
   | { kind: "download"; arquivo: string }
-  | { kind: "nav"; destino: string };
+  /** Só âncoras na mesma página; rota interna (/obras…) usa <LinkInterno> (next/link + prefetch) */
+  | { kind: "nav"; destino: `#${string}` };
 
 /**
  * Link comum com evento no clique: tel:, mailto:, rede social, mapa, download
- * de manual ou navegação interna. Para WhatsApp use <WaButton>.
+ * de manual ou âncora na mesma página. Para WhatsApp use <WaButton>; para
+ * rotas internas use <LinkInterno> (evita reload completo do documento).
  */
 export function TrackedLink({
   track,

@@ -2,8 +2,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
-import { TrackedLink } from "@/components/tracking/TrackedLink";
-import { buttonClasses } from "@/components/ui/Button";
+import { LinkInterno } from "@/components/tracking/LinkInterno";
 import { VEDACAP_CROSS } from "@/content/telhado";
 import { imageProps } from "@/lib/media";
 
@@ -16,7 +15,7 @@ export function VedacapCross() {
       <Container className="relative grid items-center gap-8 py-16 sm:py-20 lg:grid-cols-12">
         <Reveal className="lg:col-span-3">
           <div className="mx-auto w-28 sm:w-36 lg:mx-0 lg:w-40">
-            <Image {...logo} sizes="(min-width: 1024px) 160px, 144px" className="h-auto w-full" />
+            <Image {...logo} alt={logo.alt} sizes="(min-width: 1024px) 160px, 144px" className="h-auto w-full" />
           </div>
         </Reveal>
         <div className="lg:col-span-9">
@@ -33,15 +32,10 @@ export function VedacapCross() {
           </Reveal>
           <Reveal delay={240}>
             <div className="mt-7">
-              <TrackedLink
-                href={VEDACAP_CROSS.href}
-                ctaId="vedacap-cross-conhecer"
-                track={{ kind: "nav", destino: VEDACAP_CROSS.href }}
-                className={buttonClasses("primary", "lg")}
-              >
+              <LinkInterno href={VEDACAP_CROSS.href} ctaId="vedacap-cross-conhecer" variant="primary" size="lg">
                 {VEDACAP_CROSS.link}
                 <ArrowRight className="size-5" aria-hidden />
-              </TrackedLink>
+              </LinkInterno>
             </div>
           </Reveal>
         </div>

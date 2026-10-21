@@ -21,7 +21,7 @@ const MAX_EDGE = {
   "solo-dupla": 2000,
   "solo-linear": 1200,
   fazenda: 1200,
-  "obras-cocalinho": 2000,
+  "obras-fazenda-01": 2000,
   "obras-lineares": 2000,
   logos: 1200,
   lucas: 1600,

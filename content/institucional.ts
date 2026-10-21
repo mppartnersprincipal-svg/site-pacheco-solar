@@ -40,7 +40,7 @@ export const PALAVRAS_CHAVE = ["Agilidade", "Qualidade", "Compromisso"] as const
 export const HISTORIA = {
   /** Reescrita mínima em 3ª pessoa do texto do briefing (sem dados novos). */
   texto:
-    "Há cerca de 7 anos, Lucas Pacheco era sócio de uma empresa que realizava instalação de energia solar. Vendo a dificuldade de encontrar produtos de qualidade ou empresas que realmente atendem os prazos e se interessam em resolver os desafios enfrentados nas obras referentes a estruturas fotovoltaicas, fundou a Pacheco Solar para se tornar um parceiro estratégico 100% focado no integrador. Desde então a Pacheco Solar vem se especializando cada vez mais, trazendo tecnologia e inovação para levar as melhores soluções de estruturas para os integradores de todo o Brasil.",
+    "Antes de fundar a Pacheco Solar, Lucas Pacheco era sócio de uma empresa que realizava instalação de energia solar. Vendo a dificuldade de encontrar produtos de qualidade ou empresas que realmente atendem os prazos e se interessam em resolver os desafios enfrentados nas obras referentes a estruturas fotovoltaicas, fundou a Pacheco Solar para se tornar um parceiro estratégico 100% focado no integrador. Desde então a Pacheco Solar vem se especializando cada vez mais, trazendo tecnologia e inovação para levar as melhores soluções de estruturas para os integradores de todo o Brasil.",
   fonte: "briefing360 (storytelling)",
   anoFundacao: "[PREENCHER ano de fundação]",
   posVenda: "No pós-venda, o próprio fundador entra em contato para saber como foi a experiência.",
@@ -135,7 +135,11 @@ export const MAPA_DOR_SOLUCAO = [
 export const PROCESSO_COMPRA = [
   { titulo: "Você pede o orçamento no WhatsApp", texto: "Diga o tipo de obra e a quantidade de módulos. [PREENCHER: checklist do comercial]" },
   { titulo: "Apresenta ao seu cliente final", texto: "O integrador mostra o orçamento para o cliente dele analisar." },
-  { titulo: "Aprovação", texto: "Com a aprovação, o pedido entra em produção ou sai da pronta entrega." },
+  {
+    titulo: "Aprovação",
+    texto:
+      "Com a aprovação, o pedido entra em produção — ou, quando há disponibilidade em pronta entrega (na maior parte do tempo), segue direto para a expedição. Consulte a disponibilidade.",
+  },
   { titulo: "Expedição e entrega rápida", texto: "O material fica organizado e separado aguardando transporte. Entrega rápida, principalmente em Goiás." },
 ] as const;
 

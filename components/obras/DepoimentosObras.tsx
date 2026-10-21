@@ -41,7 +41,7 @@ export function DepoimentosObras() {
         {FLAGS.parceiros ? (
           <>
             <TrilhoDivisor className="my-14" />
-            <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-laranja">{DEPOIMENTOS_OBRAS.parceirosTitulo}</p>
+            <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-laranja-texto">{DEPOIMENTOS_OBRAS.parceirosTitulo}</p>
             <ul className="flex flex-wrap items-center gap-x-10 gap-y-4">
               {PARCEIROS.map((p) => (
                 <li key={p} className="font-display text-xl font-bold tracking-wide text-aco">

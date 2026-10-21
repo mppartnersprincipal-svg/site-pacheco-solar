@@ -79,7 +79,7 @@ export function TabelaKitTitan({ variantes, colunas }: TabelaKitTitanProps) {
                       <span className="mr-2 font-mono text-[11px] text-aco">{String(i + 1).padStart(2, "0")}</span>
                       {c.nome}
                       {c.nota ? (
-                        <sup className="ml-1 font-mono text-[10px] text-laranja" aria-label="ver nota">
+                        <sup className="ml-1 font-mono text-[10px] text-laranja-texto" aria-label="ver nota">
                           *
                         </sup>
                       ) : null}
@@ -95,7 +95,7 @@ export function TabelaKitTitan({ variantes, colunas }: TabelaKitTitanProps) {
       </div>
 
       {notas.length ? (
-        <ul className="mt-4 space-y-1.5 border-t border-linha pt-3 font-mono text-[11px] leading-relaxed text-laranja">
+        <ul className="mt-4 space-y-1.5 border-t border-linha pt-3 font-mono text-[11px] leading-relaxed text-laranja-texto">
           {notas.map((n) => (
             <li key={n.nome}>
               * {n.nome}: {n.nota}

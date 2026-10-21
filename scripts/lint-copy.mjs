@@ -21,11 +21,15 @@ const PROIBIDOS = [
   [/\bcarport\b/i, "Carport está em estudo — não publicar"],
   [/\b(pratyc|isoeste|hiper estruturas|metal light|ccm estruturas)\b/i, "não citar concorrentes"],
   [/conta de luz/i, "não prometer economia na conta de luz"],
-  [/\bfabricamos\b[^.]*\b(titan|telhado)\b/i, 'não afirmar "fabricamos" para a Linha Titan sem confirmação'],
+  [/\bfabricamos\b/i, '"fabricamos" só em /sobre (content/sobre.ts e SITE_ATUAL.sobre2) — nunca para a Linha Titan'],
 ];
 
-/** Fora dos arquivos de dados, a frase de pronta entrega precisa da ressalva. */
-const PRONTA_ENTREGA_SEM_RESSALVA = /pronta entrega(?![^.\n]*(maior parte do tempo|consult))/i;
+/** Exceções por arquivo/linha: a frase literal do site atual ("Fabricamos estruturas…") só vive em /sobre. */
+function excecao(rel, line, re) {
+  if (re.source !== "\\bfabricamos\\b") return false;
+  const arquivo = rel.replace(/\\/g, "/");
+  return arquivo === "content/sobre.ts" || (arquivo === "content/institucional.ts" && /sobre2|Fabricamos estruturas metálicas robustas/.test(line));
+}
 
 const achados = [];
 const pendencias = [];
@@ -56,7 +60,7 @@ async function lint(file) {
     // ignora linhas de comentário que documentam a própria regra
     const ehComentario = /^\s*(\/\/|\*|\/\*)/.test(line);
     for (const [re, motivo] of PROIBIDOS) {
-      if (re.test(line) && !ehComentario && !/lint-copy/.test(rel)) achados.push({ rel, n: i + 1, motivo, line: line.trim() });
+      if (re.test(line) && !ehComentario && !/lint-copy/.test(rel) && !excecao(rel, line, re)) achados.push({ rel, n: i + 1, motivo, line: line.trim() });
     }
     const m = line.match(/\[PREENCHER[^\]]*\]/g);
     if (m) for (const x of m) pendencias.push({ rel, n: i + 1, texto: x });

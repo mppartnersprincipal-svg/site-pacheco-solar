@@ -116,7 +116,7 @@ export const VARIANTES_TITAN: VarianteTitan[] = [
     slug: "ceramico",
     nome: "Telhado cerâmico",
     nomeCurto: "Cerâmico",
-    descricao: "Perfil de alumínio, haste estrutural e grampos — sem manual publicado no acervo.",
+    descricao: "Perfil de alumínio, haste estrutural e grampos intermediário e final.",
     componentes: [
       { nome: "Perfil de alumínio" },
       { nome: "Haste estrutural" },
@@ -163,7 +163,7 @@ export const VARIANTES_TITAN: VarianteTitan[] = [
     componentes: [
       { nome: "Mini-trilho (alto)", qtdLayout4: 10, material: "alumínio" },
       { nome: "Parafuso brocante", qtdLayout4: 40, material: "inox" },
-      { nome: "Espuma EPDM de vedação", qtdLayout4: 1 },
+      { nome: "Espuma EPDM de vedação", nota: "Página Componentes do manual: 1 unidade (não consta no Projeto Executivo)" },
       {
         nome: "Grampo intermediário",
         qtdLayout4: 6,

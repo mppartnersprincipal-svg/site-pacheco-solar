@@ -94,7 +94,7 @@ export const MATERIAIS_TITAN = {
   // fonte: briefing para Claude (materiais escopados à Linha Titan) + renders do acervo
   eyebrow: "MATERIAIS · LINHA TITAN",
   titulo: "Materiais da Linha Titan.",
-  subtitulo: "Close-ups dos renders da Linha Titan com os materiais citados no briefing.",
+  subtitulo: "Alumínio estrutural 6005, parafusos em aço inox e mini trilhos com ventilação — os materiais da Linha Titan.",
   itens: [
     { imagem: "telhado/titan-grampo-intermediario" as MediaKey, legenda: TITAN.materiais[0].nome, alt: "Render de grampo intermediário fixando módulos no perfil de alumínio da Linha Titan" },
     { imagem: "telhado/titan-fibrocimento-close" as MediaKey, legenda: TITAN.materiais[1].nome, alt: "Render do perfil Titan em telhado de fibrocimento com haste estrutural e parafuso" },

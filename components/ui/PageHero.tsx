@@ -54,19 +54,19 @@ export function PageHero({
       ) : null}
       <Container className={cn("relative py-20 sm:py-28", render && "grid items-center gap-10 lg:grid-cols-12")}>
         <div className={cn(render && "lg:col-span-7")}>
-          <Reveal>
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja">{eyebrow}</p>
+          <Reveal imediato>
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja-texto">{eyebrow}</p>
           </Reveal>
-          <Reveal delay={80}>
+          <Reveal imediato delay={80}>
             <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.02] sm:text-5xl lg:text-6xl">{title}</h1>
           </Reveal>
           {subtitle ? (
-            <Reveal delay={160}>
+            <Reveal imediato delay={160}>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-aco sm:text-lg">{subtitle}</p>
             </Reveal>
           ) : null}
           {placas?.length ? (
-            <Reveal delay={220}>
+            <Reveal imediato delay={220}>
               <div className="mt-6 flex flex-wrap gap-2">
                 {placas.map((p) => (
                   <PlacaIdentificacao key={p} size="sm">
@@ -77,13 +77,13 @@ export function PageHero({
             </Reveal>
           ) : null}
           {children ? (
-            <Reveal delay={280}>
+            <Reveal imediato delay={280}>
               <div className="mt-8 flex flex-wrap gap-3">{children}</div>
             </Reveal>
           ) : null}
         </div>
         {image && render ? (
-          <Reveal delay={200} className="lg:col-span-5">
+          <Reveal imediato delay={200} className="lg:col-span-5">
             <div className="chanfro bg-placa-clara p-2">
               <Image
                 src={image.src}

@@ -22,7 +22,7 @@ export function DorSolucao() {
         <Reveal delay={80}>
           <blockquote className="relative mx-auto mt-14 max-w-4xl chanfro border-l-4 border-laranja bg-chapa px-6 py-8 sm:px-10 sm:py-10">
             <IconGrampo aria-hidden className="absolute top-5 right-5 size-8 text-laranja/40" />
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-laranja">{DOR_SOLUCAO.fechoRotulo}</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-laranja-texto">{DOR_SOLUCAO.fechoRotulo}</p>
             <p className="mt-3 max-w-3xl font-display text-2xl font-bold leading-[1.1] text-branco sm:text-3xl lg:text-4xl">{DOR_SOLUCAO.fecho}</p>
             <div className="mt-8">
               <WaButton linha="engenharia" ctaId="dor-solucao-engenharia" posicao="dor-solucao" variant="primary">

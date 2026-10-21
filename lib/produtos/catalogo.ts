@@ -124,9 +124,9 @@ export const VEDACAP = {
     "Capa em aluzinco que protege a cabeça do parafuso autobrocante e a arruela de vedação do sol e da chuva em telhado metálico.",
   argumentos: [
     { titulo: "Mesmo material da telha", texto: "Sem corrosão galvânica e com a mesma dilatação da telha metálica." },
-    { titulo: "Aplicação simples com cola PU", texto: "Não usar silicone." },
+    { titulo: "Aplicação simples com cola PU", texto: "Não adianta silicone, fita ou massa: todos são orgânicos, todos ressecam pelo mesmo motivo." },
     { titulo: "Indicado para telhados metálicos e estruturas solares", texto: "Protege a fixação que o integrador assinou na garantia." },
-    { titulo: "Custa menos de 1% do valor da obra", texto: "Seguro contra retrabalho do telhadista e contra a goteira que aparece anos depois." },
+    { titulo: "Custa menos de 1% do valor da obra", texto: "E protege a garantia de 25 anos que o integrador assinou." },
   ],
   problema: "A borracha de vedação do parafuso resseca em cerca de 10 anos. Ela racha, abre uma fresta e a chuva entra pelo furo.",
   versoes: [
@@ -135,9 +135,9 @@ export const VEDACAP = {
     { id: "preto", nome: "Preto", cor: "preto" as const, swatch: "bg-preto border border-linha" },
   ],
   publicos: [
-    { id: "integrador", nome: "Integrador solar", texto: "Protege a fixação da estrutura em telhado metálico e a garantia que você assinou.", linha: "vedacap" as const },
-    { id: "telhadista", nome: "Telhadista", texto: "Seguro contra retrabalho: acabamento que não volta para a obra.", linha: "vedacap-telhadista" as const },
-    { id: "lojista", nome: "Lojista de material de construção", texto: "Venda casada: parafuso, cola PU e Vedacap. Tabela de atacado pelo WhatsApp.", linha: "vedacap-lojista" as const },
+    { id: "integrador", nome: "Integrador solar", texto: "Toda instalação solar em telhado metálico usa parafuso autobrocante que perfura a telha. O Vedacap protege a cabeça do parafuso e a borracha de vedação — e a garantia de 25 anos que você assinou.", linha: "vedacap" as const },
+    { id: "telhadista", nome: "Telhadista", texto: "Quando a borracha do parafuso abre, é você quem sobe no telhado de novo. O Vedacap protege essa borracha do sol: seu seguro contra retrabalho.", linha: "vedacap-telhadista" as const },
+    { id: "lojista", nome: "Lojista de material de construção", texto: "Todo cliente que compra parafuso autobrocante para telhado metálico precisa de proteção. Tabela de atacado pelo WhatsApp.", linha: "vedacap-lojista" as const },
   ],
   prontaEntrega: "Temos o Vedacap a pronta entrega.",
   passoAPasso: "[PREENCHER: passo a passo oficial de aplicação]",

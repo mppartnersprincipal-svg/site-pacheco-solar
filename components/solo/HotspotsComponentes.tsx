@@ -23,6 +23,8 @@ export interface PinComponente {
   /** Posição em % da largura/altura da foto */
   x: number;
   y: number;
+  /** true só para peças da lista oficial de itens avulsos (abre a mensagem de item avulso) */
+  avulso: boolean;
 }
 
 interface HotspotsComponentesProps {
@@ -32,15 +34,35 @@ interface HotspotsComponentesProps {
   rotuloLista: string;
   rotuloComponente: string;
   ctaItem: string;
+  /** CTA para peças que não são avulsas: orçamento da estrutura (linha "solo") */
+  ctaEstrutura: string;
+  notaEstrutura: string;
   className?: string;
+}
+
+/** CTA do pin: item avulso (lista oficial) ou orçamento da estrutura de solo. */
+function CtaPin({ pin, ctaItem, ctaEstrutura, prefixo, className }: { pin: PinComponente; ctaItem: string; ctaEstrutura: string; prefixo: string; className?: string }) {
+  if (pin.avulso) {
+    return (
+      <WaButton linha="avulso" mensagem={mensagemItem(pin.nome)} item={pin.nome} ctaId={`${prefixo}-${slugify(pin.nome)}`} posicao="componentes-solo" size="md" className={className}>
+        {ctaItem}
+      </WaButton>
+    );
+  }
+  return (
+    <WaButton linha="solo" item={pin.nome} ctaId={`${prefixo}-${slugify(pin.nome)}`} posicao="componentes-solo" size="md" variant="secondary" className={className}>
+      {ctaEstrutura}
+    </WaButton>
+  );
 }
 
 /**
  * Pins numerados sobre a foto real (posições em %) com popover "Pedir este
- * item" (WhatsApp, linha avulso). Pulso CSS só no pin ativo. No mobile a
- * lista numerada abaixo da foto faz o papel do popover.
+ * item" (WhatsApp, linha avulso) só para peças da lista oficial de avulsos;
+ * perfil e estaca abrem o orçamento da estrutura (linha "solo"). Pulso CSS só
+ * no pin ativo. No mobile a lista numerada abaixo da foto faz o papel do popover.
  */
-export function HotspotsComponentes({ foto, pins, nota, rotuloLista, rotuloComponente, ctaItem, className }: HotspotsComponentesProps) {
+export function HotspotsComponentes({ foto, pins, nota, rotuloLista, rotuloComponente, ctaItem, ctaEstrutura, notaEstrutura, className }: HotspotsComponentesProps) {
   const [ativo, setAtivo] = useState<number | null>(null);
   const baseId = useId();
 
@@ -67,6 +89,8 @@ export function HotspotsComponentes({ foto, pins, nota, rotuloLista, rotuloCompo
                 baseId={baseId}
                 rotuloComponente={rotuloComponente}
                 ctaItem={ctaItem}
+                ctaEstrutura={ctaEstrutura}
+                notaEstrutura={notaEstrutura}
                 onToggle={() => setAtivo(ativo === i ? null : i)}
                 onClose={() => setAtivo(null)}
               />
@@ -99,19 +123,12 @@ export function HotspotsComponentes({ foto, pins, nota, rotuloLista, rotuloCompo
                 <span className="font-display text-lg font-semibold text-branco">{pin.nome}</span>
                 <IconGrampo className={cn("ml-auto size-5 shrink-0 text-aco transition-transform", selecionado && "rotate-45 text-laranja")} />
               </button>
-              <div className="acordeao-painel" data-aberto={selecionado}>
+              {/* inert: o painel fechado some da ordem de tabulação (o WaButton é um <a>) */}
+              <div className="acordeao-painel" data-aberto={selecionado} inert={!selecionado}>
                 <div className="px-2">
                   <div className="pt-3 pb-2">
-                    <WaButton
-                      linha="avulso"
-                      mensagem={mensagemItem(pin.nome)}
-                      item={pin.nome}
-                      ctaId={`hotspot-lista-${slugify(pin.nome)}`}
-                      posicao="componentes-solo"
-                      size="md"
-                    >
-                      {ctaItem}
-                    </WaButton>
+                    {!pin.avulso ? <p className="mb-3 font-mono text-xs uppercase tracking-[0.14em] text-aco">{notaEstrutura}</p> : null}
+                    <CtaPin pin={pin} ctaItem={ctaItem} ctaEstrutura={ctaEstrutura} prefixo="hotspot-lista" />
                   </div>
                 </div>
               </div>
@@ -130,11 +147,13 @@ interface PinProps {
   baseId: string;
   rotuloComponente: string;
   ctaItem: string;
+  ctaEstrutura: string;
+  notaEstrutura: string;
   onToggle: () => void;
   onClose: () => void;
 }
 
-function Pin({ pin, index, ativo, baseId, rotuloComponente, ctaItem, onToggle, onClose }: PinProps) {
+function Pin({ pin, index, ativo, baseId, rotuloComponente, ctaItem, ctaEstrutura, notaEstrutura, onToggle, onClose }: PinProps) {
   const popoverId = `${baseId}-popover-${index}`;
   const style = useSpring({
     opacity: ativo ? 1 : 0,
@@ -180,20 +199,12 @@ function Pin({ pin, index, ativo, baseId, rotuloComponente, ctaItem, onToggle, o
           acima ? "bottom-6" : "top-6"
         )}
         aria-hidden={!ativo}
+        inert={!ativo}
       >
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-laranja">{pin.numero} · {rotuloComponente}</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-laranja-texto">{pin.numero} · {rotuloComponente}</p>
         <p className="mt-1 font-display text-base font-semibold text-branco">{pin.nome}</p>
-        <WaButton
-          linha="avulso"
-          mensagem={mensagemItem(pin.nome)}
-          item={pin.nome}
-          ctaId={`hotspot-${slugify(pin.nome)}`}
-          posicao="componentes-solo"
-          size="md"
-          className="mt-3 w-full"
-        >
-          {ctaItem}
-        </WaButton>
+        {!pin.avulso ? <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-aco">{notaEstrutura}</p> : null}
+        <CtaPin pin={pin} ctaItem={ctaItem} ctaEstrutura={ctaEstrutura} prefixo="hotspot" className="mt-3 w-full" />
       </animated.div>
     </div>
   );

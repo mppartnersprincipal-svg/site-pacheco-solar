@@ -77,7 +77,7 @@ export function VedacapCorte({ versoes, rotulos, toggleSem, toggleCom, corLabel,
     <figure className="chanfro border border-branco/10 bg-fundo/70 p-4 sm:p-5">
       <figcaption className="mb-3 flex items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-aco">
         <span>{titulo}</span>
-        <span aria-live="polite" className={cn(com ? "text-laranja" : "text-aco")}>
+        <span aria-live="polite" className={cn(com ? "text-laranja-texto" : "text-aco")}>
           {com ? toggleCom : toggleSem}
         </span>
       </figcaption>
@@ -264,7 +264,7 @@ export function VedacapCorte({ versoes, rotulos, toggleSem, toggleCom, corLabel,
           })}
         </div>
       </div>
-      <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-laranja">{legenda}</p>
+      <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-laranja-texto">{legenda}</p>
     </figure>
   );
 }

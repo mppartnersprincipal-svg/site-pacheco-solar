@@ -43,7 +43,7 @@ export function EstacaTimeline({ passos, className }: { passos: Passo[]; classNa
               <span aria-hidden className="absolute top-0 left-0 flex size-6 items-center justify-center lg:left-0">
                 <span className="size-6 rounded-full border-2 border-laranja bg-fundo" />
               </span>
-              <span className="font-mono text-xs text-laranja">{p.numero ?? String(i + 1).padStart(2, "0")}</span>
+              <span className="font-mono text-xs text-laranja-texto">{p.numero ?? String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-1 font-display text-lg font-semibold text-branco">{p.titulo}</h3>
               {p.texto ? <p className="mt-2 text-sm leading-relaxed text-aco">{p.texto}</p> : null}
             </animated.li>

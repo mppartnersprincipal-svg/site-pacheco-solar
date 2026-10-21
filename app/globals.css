@@ -18,6 +18,7 @@
   /* Marca */
   --color-laranja: #d35400;        /* primária: CTA, selos, destaques, trilho ativo */
   --color-laranja-hover: #d65522;  /* IDV 2021 — hover/active */
+  --color-laranja-texto: #f0661a;  /* texto laranja < 18px bold (eyebrows, rótulos mono, links): ≈5,5:1 sobre #1C1C1C e ≈4,8:1 sobre #26282B */
   --color-laranja-claro: #f2a93b;  /* ponta amarela do gradiente da logo — só arco solar/OG [PREENCHER hex exato] */
   --color-navy: #1a4b8c;           /* blocos técnicos, badge Linha Titan, Vedacap */
   --color-azul-idv: #0686a4;       /* ≤5%: anel de foco, links no corpo */
@@ -49,6 +50,12 @@
     0% { transform: scale(1); opacity: 0.45; }
     70% { transform: scale(1.45); opacity: 0; }
     100% { transform: scale(1.45); opacity: 0; }
+  }
+  /* Entrada da primeira dobra (heros): CSS puro, o HTML já chega visível para quem não roda JS */
+  --animate-entrada: entrada 600ms ease-out both;
+  @keyframes entrada {
+    from { opacity: 0; transform: translate3d(0, 16px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
   }
 }
 
@@ -150,6 +157,7 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;

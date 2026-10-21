@@ -20,16 +20,16 @@ export function HeroTelhado() {
       <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-fundo via-fundo/70 to-transparent" />
       <Container className="relative grid items-center gap-10 py-20 sm:py-28 lg:grid-cols-12">
         <div className="lg:col-span-7">
-          <Reveal>
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja">{HERO_TELHADO.eyebrow}</p>
+          <Reveal imediato>
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja-texto">{HERO_TELHADO.eyebrow}</p>
           </Reveal>
-          <Reveal delay={80}>
+          <Reveal imediato delay={80}>
             <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.02] sm:text-5xl lg:text-6xl">{HERO_TELHADO.titulo}</h1>
           </Reveal>
-          <Reveal delay={160}>
+          <Reveal imediato delay={160}>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-aco sm:text-lg">{HERO_TELHADO.subtitulo}</p>
           </Reveal>
-          <Reveal delay={220}>
+          <Reveal imediato delay={220}>
             <div className="mt-6 flex flex-wrap gap-2">
               {HERO_TELHADO.placas.map((p, i) => (
                 <PlacaIdentificacao key={p} size="sm" variant={i === HERO_TELHADO.placas.length - 1 ? "navy" : "contorno"}>
@@ -38,7 +38,7 @@ export function HeroTelhado() {
               ))}
             </div>
           </Reveal>
-          <Reveal delay={280}>
+          <Reveal imediato delay={280}>
             <div className="mt-8 flex flex-wrap gap-3">
               <WaButton linha="telhado" ctaId="hero-telhado" posicao="hero">
                 {HERO_TELHADO.cta}
@@ -46,9 +46,9 @@ export function HeroTelhado() {
             </div>
           </Reveal>
         </div>
-        <Reveal delay={200} className="lg:col-span-5">
+        <Reveal imediato delay={200} className="lg:col-span-5">
           <figure className="chanfro bg-placa-clara p-2">
-            <Image {...render} priority sizes="(min-width: 1024px) 40vw, 100vw" className="h-auto w-full" />
+            <Image {...render} alt={render.alt} priority sizes="(min-width: 1024px) 40vw, 100vw" className="h-auto w-full" />
             <figcaption className="px-2 pt-2 pb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-preto/60">
               Linha Titan · Telhado metálico · Render
             </figcaption>

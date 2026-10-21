@@ -41,7 +41,7 @@ export function IsopletaVento({ degraus, nota, rotulos }: IsopletaVentoProps) {
 
   return (
     <div>
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja">{rotulos.titulo}</p>
+      <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja-texto">{rotulos.titulo}</p>
       <div className="mt-4 grid gap-6 sm:grid-cols-12 sm:items-end">
         <div className="sm:col-span-8">
           <svg viewBox={`0 0 ${LARGURA} ${ALTURA}`} role="img" aria-label={`${rotulos.titulo}: ${degraus.map((d) => `${d.faixa} ${d.distanciaM} ${rotulos.unidade}`).join("; ")}`} className="h-auto w-full">

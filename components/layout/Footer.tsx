@@ -116,7 +116,7 @@ export function Footer({ logo }: { logo: Logo }) {
             rel="noopener noreferrer"
             ctaId="footer-mapa"
             track={{ kind: "maps" }}
-            className={`mt-3 inline-block text-sm font-semibold text-laranja underline-offset-4 hover:underline`}
+            className={`mt-3 inline-block text-sm font-semibold text-laranja-texto underline-offset-4 hover:underline`}
           >
             Abrir no Google Maps
           </TrackedLink>

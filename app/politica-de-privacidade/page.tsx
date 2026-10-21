@@ -23,9 +23,9 @@ export default function PoliticaDePrivacidadePage() {
     <article className="bg-fundo">
       <Container className="py-20 sm:py-28">
         <header className="max-w-prose">
-          <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja">LGPD · Lei nº 13.709/2018</p>
+          <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja-texto">LGPD · Lei nº 13.709/2018</p>
           <h1 className="font-display text-4xl font-bold leading-[1.02] sm:text-5xl">{PRIVACIDADE_TITULO}</h1>
-          <p className="mt-6 text-base leading-relaxed text-aco sm:text-lg">{PRIVACIDADE_INTRO}</p>
+          <p className="mt-6 text-base leading-relaxed text-branco/85 sm:text-lg">{PRIVACIDADE_INTRO}</p>
         </header>
 
         <div className="mt-12 flex max-w-prose flex-col gap-12 border-t border-linha pt-12">
@@ -36,12 +36,12 @@ export default function PoliticaDePrivacidadePage() {
                 {s.titulo}
               </h2>
               {s.paragrafos.map((p) => (
-                <p key={p} className="mt-4 text-base leading-relaxed text-aco">
+                <p key={p} className="mt-4 text-base leading-relaxed text-branco/85">
                   {p}
                 </p>
               ))}
               {s.lista ? (
-                <ul className="mt-4 flex flex-col gap-2 pl-5 text-base leading-relaxed text-aco marker:text-laranja">
+                <ul className="mt-4 flex flex-col gap-2 pl-5 text-base leading-relaxed text-branco/85 marker:text-laranja">
                   {s.lista.map((item) => (
                     <li key={item} className="list-disc">
                       {item}
@@ -49,7 +49,7 @@ export default function PoliticaDePrivacidadePage() {
                   ))}
                 </ul>
               ) : null}
-              {s.id === "seus-direitos" ? <p className="mt-4 text-base leading-relaxed text-aco">{PRIVACIDADE_DIREITOS_CONTATO}</p> : null}
+              {s.id === "seus-direitos" ? <p className="mt-4 text-base leading-relaxed text-branco/85">{PRIVACIDADE_DIREITOS_CONTATO}</p> : null}
             </section>
           ))}
         </div>

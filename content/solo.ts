@@ -50,17 +50,24 @@ export const COMPONENTES_SOLO = {
   subtitulo: "Precisa só da peça? Vendemos itens avulsos.", // fonte: plano (componentes-solo)
   foto: "solo-dupla/img-3966" as MediaKey,
   fotoAlt: "Perfis de aço e cabeamento sob os módulos de uma estrutura de solo dupla",
-  /** Posições aproximadas (% da foto) — [PREENCHER validação do Lucas] */
+  /**
+   * Posições aproximadas (% da foto) — [PREENCHER validação do Lucas].
+   * `avulso` = true só para peças da lista oficial (ITENS_AVULSOS: clipe de fixação e grampos);
+   * perfil e estaca são componentes da estrutura e nunca abrem a mensagem de item avulso.
+   */
   pins: [
-    { numero: "01", nome: SOLO.componentes[0], x: 50, y: 42 },
-    { numero: "02", nome: SOLO.componentes[1], x: 30, y: 30 },
-    { numero: "03", nome: SOLO.componentes[2], x: 68, y: 26 },
-    { numero: "04", nome: SOLO.componentes[3], x: 46, y: 80 },
+    { numero: "01", nome: SOLO.componentes[0], x: 50, y: 42, avulso: false },
+    { numero: "02", nome: SOLO.componentes[1], x: 30, y: 30, avulso: true },
+    { numero: "03", nome: SOLO.componentes[2], x: 68, y: 26, avulso: true },
+    { numero: "04", nome: SOLO.componentes[3], x: 46, y: 80, avulso: false },
   ],
   nota: "Nomes e posições das peças: [PREENCHER validação do Lucas]",
   rotuloLista: "Componentes da estrutura de solo",
   rotuloComponente: "Componente",
   ctaItem: "Pedir este item",
+  /** Peças que não são avulsas: CTA de orçamento da estrutura (linha "solo") */
+  ctaEstrutura: "Orçamento da estrutura de solo",
+  notaEstrutura: "Componente da estrutura [PREENCHER validação do Lucas]",
   linkAvulsos: { label: "Ver todos os itens avulsos", href: `${ROTAS.kits}#itens-avulsos` },
 } as const;
 
@@ -71,7 +78,7 @@ export const AMBIENTE_AGRESSIVO = {
   subtitulo: SOLO.ambienteAgressivo,
   bullets: [
     { titulo: "Fazendas com amônia e agrotóxico", texto: "Ambientes agressivos são uma das dores do integrador em obra rural." }, // fonte: briefingClaude (dores da persona)
-    { titulo: "Material premium (liga estrutural + inox)", texto: "Aço de qualidade premium, ideal para ambientes com atmosfera agressiva e zonas rurais." }, // fonte: briefingClaude (pilar Segurança) + siteAtual
+    { titulo: "Aço de qualidade premium", texto: "Aço de qualidade premium, ideal para ambientes com atmosfera agressiva e zonas rurais." }, // fonte: siteAtual (diferencial 03) — materiais 6005/inox são só da Linha Titan
     { titulo: "Engenharia própria e suporte técnico", texto: "Fale com quem entende: suporte direto da nossa equipe de engenharia, do pré ao pós-venda." }, // fonte: siteAtual (diferencial 05)
   ],
   fotos: [

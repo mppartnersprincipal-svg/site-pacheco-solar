@@ -71,7 +71,7 @@ export const KIT_COMPLETO = {
 export const ITENS_AVULSOS_SECAO = {
   // fonte: blueprint (catalogo-avulsos) + CLAUDE.md do cliente (lista oficial)
   eyebrow: "02 · ITENS AVULSOS",
-  titulo: "Faltou peça? A gente tem.",
+  titulo: "Faltou peça? Vendemos avulso.",
   sub: "Placas de Identificação, parafusos grampos e muito mais.", // fonte: siteAtual (literal)
   filtros: [
     { id: "todos", label: "Todos" },
@@ -82,7 +82,7 @@ export const ITENS_AVULSOS_SECAO = {
   ctaItem: "Pedir este item · quantidade: ___",
   fotoPendente: "[PREENCHER foto]",
   notaRender: "recorte de render",
-  aviso: "Somente os itens desta lista são vendidos avulsos. Mini trilho, Chapa L e espuma EPDM são componentes de kit.",
+  aviso: "Precisa de outro componente (mini trilho, Chapa L, espuma EPDM)? Consulte a disponibilidade pelo WhatsApp. [PREENCHER: política de venda avulsa desses componentes]",
 } as const;
 
 export const UM_FORNECEDOR = {

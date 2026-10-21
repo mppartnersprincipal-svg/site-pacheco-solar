@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { animated, useInView, useSprings } from "@react-spring/web";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -48,12 +48,10 @@ export type KitExplodidoProps = {
  */
 export function KitExplodido({ tipo, rotulos, className }: KitExplodidoProps) {
   const [ref, inView] = useInView({ once: true, amount: 0.4 });
-  const [montado, setMontado] = useState(false);
+  /** null = segue a entrada na tela; true/false = escolha manual pelo botão */
+  const [manual, setManual] = useState<boolean | null>(null);
+  const montado = manual ?? inView;
   const camadas = CAMADAS[tipo];
-
-  useEffect(() => {
-    if (inView) setMontado(true);
-  }, [inView]);
 
   const springs = useSprings(
     camadas.length,
@@ -187,7 +185,7 @@ export function KitExplodido({ tipo, rotulos, className }: KitExplodidoProps) {
           variant="secondary"
           size="md"
           aria-pressed={montado}
-          onClick={() => setMontado((m) => !m)}
+          onClick={() => setManual(!montado)}
           className="lg:hidden"
         >
           {montado ? rotulos.explodir : rotulos.montar}
@@ -196,7 +194,7 @@ export function KitExplodido({ tipo, rotulos, className }: KitExplodidoProps) {
           variant="ghost"
           size="md"
           aria-pressed={montado}
-          onClick={() => setMontado((m) => !m)}
+          onClick={() => setManual(!montado)}
           className="hidden lg:inline-flex"
         >
           {montado ? rotulos.explodir : rotulos.montar}

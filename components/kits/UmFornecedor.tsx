@@ -25,7 +25,7 @@ export function UmFornecedor() {
             <ConvergenciaFornecedores rotuloDestino={UM_FORNECEDOR.direita.rotulo} className="mx-auto max-w-md lg:max-w-none" />
           </Reveal>
           <Reveal delay={160} className="lg:col-span-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-laranja">{UM_FORNECEDOR.direita.rotulo}</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-laranja-texto">{UM_FORNECEDOR.direita.rotulo}</p>
             <p className="mt-3 font-display text-xl font-semibold leading-snug text-branco sm:text-2xl">{UM_FORNECEDOR.direita.texto}</p>
             <div className="mt-8">
               <WaButton linha="kit" ctaId="um-fornecedor-centralizar" posicao="um-fornecedor">

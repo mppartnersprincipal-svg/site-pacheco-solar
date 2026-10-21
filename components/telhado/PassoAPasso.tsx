@@ -60,9 +60,10 @@ export function PassoAPasso({ etapas, nota, rotulos }: PassoAPassoProps) {
         ))}
       </div>
 
-      <ol className="relative mt-8 grid gap-8 lg:grid-cols-3 lg:gap-6">
-        {/* Perfil horizontal ligando as etapas (desktop) */}
+      {/* Perfil horizontal ligando as etapas (desktop) — fora do <ol>, cujo conteúdo é só <li> */}
+      <div className="relative mt-8">
         <div aria-hidden className="absolute top-5 right-0 left-0 hidden h-0.5 bg-linha lg:block" />
+        <ol className="relative grid gap-8 lg:grid-cols-3 lg:gap-6">
         {trail.map((style, i) => {
           const etapa = etapas[i];
           const passos = etapa.todos ?? etapa[tipo] ?? [];
@@ -70,7 +71,7 @@ export function PassoAPasso({ etapas, nota, rotulos }: PassoAPassoProps) {
           return (
             <animated.li key={etapa.titulo} style={style} className="relative lg:pt-12">
               {/* Estaca numerada */}
-              <span className="relative z-10 inline-flex size-10 items-center justify-center border-2 border-laranja bg-fundo font-mono text-sm font-medium text-laranja lg:absolute lg:top-0 lg:left-0">
+              <span className="relative z-10 inline-flex size-10 items-center justify-center border-2 border-laranja bg-fundo font-mono text-sm font-medium text-laranja-texto lg:absolute lg:top-0 lg:left-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mt-4 font-display text-xl font-bold sm:text-2xl lg:mt-0">{etapa.titulo}</h3>
@@ -78,7 +79,7 @@ export function PassoAPasso({ etapas, nota, rotulos }: PassoAPassoProps) {
               <ol className="mt-4 space-y-3">
                 {passos.map((p, j) => (
                   <li key={p} className="flex gap-3 text-sm leading-relaxed text-branco/90">
-                    <span className="shrink-0 font-mono text-xs text-laranja tabular">
+                    <span className="shrink-0 font-mono text-xs text-laranja-texto tabular">
                       {i + 1}.{j + 1}
                     </span>
                     {p}
@@ -88,7 +89,8 @@ export function PassoAPasso({ etapas, nota, rotulos }: PassoAPassoProps) {
             </animated.li>
           );
         })}
-      </ol>
+        </ol>
+      </div>
 
       <p className="mt-10 border-l-2 border-laranja pl-4 text-sm leading-relaxed text-aco">{nota}</p>
     </div>

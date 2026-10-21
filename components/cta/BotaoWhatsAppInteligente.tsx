@@ -8,16 +8,25 @@ import { readUtms, trackWhatsAppClick } from "@/lib/analytics";
 import { MENSAGENS, comRef, waLink, type Linha } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
-const ROTULOS: Partial<Record<Linha, string>> = {
+/** Rótulo por linha — Record completo: uma linha nova em lib/whatsapp.ts sem rótulo falha no TypeScript. */
+const ROTULOS: Record<Linha, string> = {
   geral: "Pedir orçamento",
   solo: "Orçamento de solo",
+  "solo-linear": "Orçamento de solo",
+  "solo-dupla": "Orçamento de solo",
   telhado: "Orçamento Titan",
+  "telhado-ceramico": "Orçamento Titan",
+  "telhado-fibrocimento": "Orçamento Titan",
+  "telhado-metalico": "Orçamento Titan",
   kit: "Pedir kit completo",
   avulso: "Pedir item avulso",
   vedacap: "Pedir Vedacap",
   "vedacap-lojista": "Tabela de atacado",
+  "vedacap-telhadista": "Pedir Vedacap",
   engenharia: "Falar com a engenharia",
   "pronta-entrega": "Consultar pronta entrega",
+  obra: "Quero uma obra assim",
+  equipe: "Falar com a equipe",
 };
 
 /**
@@ -32,15 +41,23 @@ export function BotaoWhatsAppInteligente() {
   const [hidden, setHidden] = useState(false);
   const [ref, setRef] = useState<string | undefined>(undefined);
 
+  // Troca de rota volta ao estado inicial (ajuste de estado derivado de prop, durante o render)
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setLinha("geral");
+    setHidden(false);
+  }
+
   useEffect(() => {
-    setRef(readUtms().utm_campaign);
-    const t = window.setTimeout(() => setVisible(true), 600);
+    const t = window.setTimeout(() => {
+      setRef(readUtms().utm_campaign);
+      setVisible(true);
+    }, 600);
     return () => window.clearTimeout(t);
   }, []);
 
   useEffect(() => {
-    setLinha("geral");
-    setHidden(false);
     let io: IntersectionObserver | null = null;
     const timer = window.setTimeout(() => {
       const sections = Array.from(document.querySelectorAll<HTMLElement>("section[data-linha]"));
@@ -75,7 +92,7 @@ export function BotaoWhatsAppInteligente() {
     transform: show ? "translate3d(0,0,0)" : "translate3d(0,24px,0)",
     config: { tension: 220, friction: 24 },
   });
-  const rotulo = ROTULOS[linha] ?? ROTULOS.geral;
+  const rotulo = ROTULOS[linha];
   const href = waLink(comRef(MENSAGENS[linha], ref));
   const onClick = () => trackWhatsAppClick({ cta_id: "flutuante", posicao: "flutuante", linha });
 

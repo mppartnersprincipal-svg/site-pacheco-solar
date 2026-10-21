@@ -28,7 +28,7 @@ export function FichaTecnica() {
         <div className="grid gap-px bg-linha lg:grid-cols-12">
           {/* Torque */}
           <div className="bg-superficie px-5 py-7 sm:px-8 lg:col-span-4">
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja">{r.torque}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja-texto">{r.torque}</p>
             <ul className="mt-5 space-y-5">
               {TITAN.torque.map((t) => (
                 <li key={t.parafuso} className="border-l-2 border-laranja pl-4">
@@ -50,7 +50,7 @@ export function FichaTecnica() {
 
           {/* Regras por variante */}
           <div className="bg-superficie px-5 py-7 sm:px-8 lg:col-span-6">
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja">{r.regras}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja-texto">{r.regras}</p>
             <dl className="mt-4 space-y-4">
               {regrasPorVariante.map((v) => (
                 <div key={v.id}>
@@ -69,7 +69,7 @@ export function FichaTecnica() {
           {/* Ferramentas e cuidados */}
           <div className="grid gap-8 bg-superficie px-5 py-7 sm:grid-cols-2 sm:px-8 lg:col-span-6">
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja">{r.ferramentas}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja-texto">{r.ferramentas}</p>
               <ul className="mt-4 space-y-2">
                 {TITAN.ferramentas.map((f, i) => (
                   <li key={f} className="flex gap-3 text-sm text-branco/90">
@@ -80,7 +80,7 @@ export function FichaTecnica() {
               </ul>
             </div>
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja">{r.cuidados}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-laranja-texto">{r.cuidados}</p>
               <ul className="mt-4 space-y-2">
                 {TITAN.cuidados.map((c) => (
                   <li key={c} className="flex gap-3 text-sm leading-relaxed text-aco">

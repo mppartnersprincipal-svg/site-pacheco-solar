@@ -185,7 +185,7 @@ export function GaleriaObras({ fotos, filtros, rotuloFiltros, rotuloLista, light
                 type="button"
                 onClick={() => mover(-1)}
                 aria-label={lightbox.anterior}
-                className="flex size-11 cursor-pointer items-center justify-center border border-linha bg-fundo/80 text-branco transition-colors hover:border-laranja hover:text-laranja focus-visible:outline-2 focus-visible:outline-azul-idv"
+                className="flex size-11 cursor-pointer items-center justify-center border border-linha bg-fundo/80 text-branco transition-colors hover:border-laranja hover:text-laranja-texto focus-visible:outline-2 focus-visible:outline-azul-idv"
               >
                 <ChevronLeft className="size-5" aria-hidden />
               </button>
@@ -193,7 +193,7 @@ export function GaleriaObras({ fotos, filtros, rotuloFiltros, rotuloLista, light
                 type="button"
                 onClick={() => mover(1)}
                 aria-label={lightbox.proxima}
-                className="flex size-11 cursor-pointer items-center justify-center border border-linha bg-fundo/80 text-branco transition-colors hover:border-laranja hover:text-laranja focus-visible:outline-2 focus-visible:outline-azul-idv"
+                className="flex size-11 cursor-pointer items-center justify-center border border-linha bg-fundo/80 text-branco transition-colors hover:border-laranja hover:text-laranja-texto focus-visible:outline-2 focus-visible:outline-azul-idv"
               >
                 <ChevronRight className="size-5" aria-hidden />
               </button>

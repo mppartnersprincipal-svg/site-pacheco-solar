@@ -3,7 +3,14 @@
  * (briefings, site atual, manuais, CLAUDE.md do cliente). Cada resposta vira
  * um link "Perguntar isso no WhatsApp" e alimenta o Schema FAQPage.
  */
+import { SITE } from "@/lib/site";
+
 export type Faq = { pergunta: string; resposta: string; fonte: string };
+
+/** Só perguntas com resposta confirmada: nada com [PREENCHER] vai para o accordion nem para o FAQPage. */
+export function faqPublicavel<T extends { resposta: string }>(items: T[]): T[] {
+  return items.filter((i) => !/\[PREENCHER/.test(i.resposta));
+}
 
 export const FAQ_HOME: Faq[] = [
   {
@@ -24,7 +31,7 @@ export const FAQ_HOME: Faq[] = [
   },
   {
     pergunta: "Vocês vendem placas solares?",
-    resposta: "Não. Fabricamos e comercializamos estruturas metálicas para sistemas fotovoltaicos: a base estrutural do projeto solar.",
+    resposta: "Não. A Pacheco Solar não vende placa solar: vende a base estrutural do projeto — estruturas metálicas para sistemas fotovoltaicos.",
     fonte: "briefing para Claude",
   },
   {
@@ -41,7 +48,7 @@ export const FAQ_HOME: Faq[] = [
   {
     pergunta: "Como eu peço um orçamento?",
     resposta:
-      "Pelo WhatsApp (62) 4101-8101, em horário comercial. Você pede o orçamento, apresenta ao seu cliente final e, com a aprovação, o material segue para expedição e entrega.",
+      `Pelo WhatsApp ${SITE.telefone.display}, em horário comercial. Você pede o orçamento, apresenta ao seu cliente final e, com a aprovação, o material segue para expedição e entrega.`,
     fonte: "briefing 360º (processo de compra)",
   },
 ];
@@ -126,8 +133,8 @@ export const FAQ_KITS: Faq[] = [
 
 export const FAQ_VEDACAP: Faq[] = [
   {
-    pergunta: "Posso usar silicone para aplicar o Vedacap?",
-    resposta: "Não. A aplicação é simples, com cola PU.",
+    pergunta: "Silicone não resolve a goteira do parafuso?",
+    resposta: "Não adianta silicone, fita ou massa: todos são orgânicos, todos ressecam pelo mesmo motivo. O Vedacap é uma capa em aluzinco, com aplicação simples com cola PU.",
     fonte: "roteiros Vedacap",
   },
   {
@@ -142,12 +149,12 @@ export const FAQ_VEDACAP: Faq[] = [
   },
   {
     pergunta: "Quais cores existem?",
-    resposta: "Três versões: aluzinco natural, branco e preto, para combinar com qualquer telhado.",
+    resposta: "Três versões: aluzinco natural, branco e preto, para combinar com a cor da telha metálica.",
     fonte: "roteiros Vedacap",
   },
   {
     pergunta: "Qual o preço? Tem tabela de atacado?",
-    resposta: "Preços e tabela de atacado para lojistas só pelo WhatsApp (62) 4101-8101.",
+    resposta: `Preços e tabela de atacado para lojistas só pelo WhatsApp ${SITE.telefone.display}.`,
     fonte: "CLAUDE.md do cliente",
   },
   {
@@ -170,7 +177,7 @@ export const FAQ_CONTATO: Faq[] = [
   },
   {
     pergunta: "Tem formulário de orçamento?",
-    resposta: "O atendimento é pelo WhatsApp (62) 4101-8101 ou pelo e-mail adm@pachecosolar.com.br.",
+    resposta: `O atendimento é pelo WhatsApp ${SITE.telefone.display} ou pelo e-mail ${SITE.email}.`,
     fonte: "decisão do projeto (CTA único)",
   },
 ];

@@ -44,7 +44,7 @@ export function ListaDeMateriais({ variantes, rotulos }: ListaDeMateriaisProps) 
 
   return (
     <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-      <div className="lg:col-span-7">
+      <div className="min-w-0 lg:col-span-7">
         {/* Toggle segmentado */}
         <div role="group" aria-label="Tipo de telhado" className="inline-flex border border-linha bg-superficie p-1">
           {variantes.map((v) => (
@@ -69,7 +69,7 @@ export function ListaDeMateriais({ variantes, rotulos }: ListaDeMateriaisProps) 
               {rotulos.caption} — {ativa.nome}.
             </caption>
             <thead>
-              <tr className="border-b border-laranja font-mono text-[11px] uppercase tracking-[0.16em] text-laranja">
+              <tr className="border-b border-laranja font-mono text-[11px] uppercase tracking-[0.16em] text-laranja-texto">
                 <th scope="col" className="py-3 pr-4 font-medium">{rotulos.colunas.item}</th>
                 <th scope="col" className="py-3 pr-4 font-medium">{rotulos.colunas.material}</th>
                 <th scope="col" className="py-3 pr-4 text-right font-medium">{rotulos.colunas.qtd}</th>

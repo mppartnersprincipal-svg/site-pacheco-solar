@@ -104,7 +104,7 @@ export function VariantesSolo({ itens, rotuloTablist, rotuloConfiguracao, legend
             hidden={i !== ativo}
             className="mt-8"
           >
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-laranja">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-laranja-texto">
               {String(i + 1).padStart(2, "0")} · {rotuloConfiguracao}
             </p>
             <h3 className="mt-2 font-display text-3xl font-bold leading-tight sm:text-4xl">{v.nome}</h3>

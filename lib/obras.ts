@@ -18,18 +18,18 @@ export type FotoObra = {
 };
 
 export const FOTOS_OBRAS: FotoObra[] = [
-  { key: "obras-cocalinho/cocalinho-285cf49e", alt: "Usina de solo em pasto com fileiras de módulos", tipo: "fazenda", legenda: "Usina de solo em fazenda" },
-  { key: "obras-cocalinho/cocalinho-18b8ca3e", alt: "Estacas e perfis montados em fazenda", tipo: "fazenda", legenda: "Estrutura montada em fazenda", retrato: true },
-  { key: "obras-cocalinho/cocalinho-546da35f", alt: "Módulos fixados na estrutura de solo", tipo: "fazenda", legenda: "Módulos fixados", retrato: true },
-  { key: "obras-cocalinho/cocalinho-9cca7157", alt: "Fileira de módulos em usina de solo", tipo: "fazenda", legenda: "Fileira em operação", retrato: true },
-  { key: "obras-cocalinho/cocalinho-1bda315d", alt: "Vista da usina de solo em fazenda", tipo: "fazenda", legenda: "Usina de solo" },
-  { key: "obras-cocalinho/cocalinho-f833c097", alt: "Detalhe da estrutura de solo em fazenda", tipo: "fazenda", legenda: "Detalhe da estrutura" },
+  { key: "obras-fazenda-01/foto-285cf49e", alt: "Usina de solo em pasto com fileiras de módulos", tipo: "fazenda", legenda: "Usina de solo em fazenda" },
+  { key: "obras-fazenda-01/foto-18b8ca3e", alt: "Estacas e perfis montados em fazenda", tipo: "fazenda", legenda: "Estrutura montada em fazenda", retrato: true },
+  { key: "obras-fazenda-01/foto-546da35f", alt: "Módulos fixados na estrutura de solo", tipo: "fazenda", legenda: "Módulos fixados", retrato: true },
+  { key: "obras-fazenda-01/foto-9cca7157", alt: "Fileira de módulos em usina de solo", tipo: "fazenda", legenda: "Fileira de módulos", retrato: true },
+  { key: "obras-fazenda-01/foto-1bda315d", alt: "Vista da usina de solo em fazenda", tipo: "fazenda", legenda: "Usina de solo" },
+  { key: "obras-fazenda-01/foto-f833c097", alt: "Detalhe da estrutura de solo em fazenda", tipo: "fazenda", legenda: "Detalhe da estrutura" },
   { key: "solo-dupla/img-2713", alt: "Estrutura de solo dupla em usina com brita", tipo: "solo-dupla", legenda: "Solo dupla · usina com brita", retrato: true },
   { key: "solo-dupla/img-3966", alt: "Perfis de aço e cabeamento sob os módulos", tipo: "solo-dupla", legenda: "Solo dupla · por baixo dos módulos", retrato: true },
-  { key: "solo-dupla/img-3977", alt: "Estrutura de solo dupla com módulos bifaciais", tipo: "solo-dupla", legenda: "Solo dupla · módulos bifaciais", retrato: true },
+  { key: "solo-dupla/img-3977", alt: "Estrutura de solo dupla com módulos fixados", tipo: "solo-dupla", legenda: "Solo dupla · módulos fixados", retrato: true },
   { key: "solo-dupla/img-2711", alt: "Fileiras duplas de módulos em usina", tipo: "solo-dupla", legenda: "Solo dupla · fileiras", retrato: true },
   { key: "solo-dupla/img-3963", alt: "Estrutura de solo dupla vista lateral", tipo: "solo-dupla", legenda: "Solo dupla · vista lateral", retrato: true },
-  { key: "solo-dupla/img-1654", alt: "Usina de solo dupla em operação", tipo: "solo-dupla", legenda: "Solo dupla · em operação", retrato: true },
+  { key: "solo-dupla/img-1654", alt: "Usina de solo dupla com módulos fixados", tipo: "solo-dupla", legenda: "Solo dupla · usina", retrato: true },
   { key: "obras-lineares/card-1", alt: "Estacas cravadas e alinhadas para estrutura linear", tipo: "solo-linear", legenda: "Solo linear · estacas cravadas", retrato: true },
   { key: "obras-lineares/card-5", alt: "Fileiras de módulos em estrutura linear", tipo: "solo-linear", legenda: "Solo linear · fileiras prontas" },
   { key: "obras-lineares/card-2", alt: "Montagem da estrutura linear", tipo: "solo-linear", legenda: "Solo linear · montagem" },
@@ -42,10 +42,10 @@ export const FOTOS_OBRAS: FotoObra[] = [
   { key: "fazenda/fazenda-03", alt: "Estrutura de solo em fazenda", tipo: "fazenda", legenda: "Fazenda · estrutura" },
 ];
 
-/** Par antes/depois (mesmo local, verificado no acervo) — Cocalinho. */
+/** Par antes/depois (mesmo local, verificado no acervo) — obra em fazenda (pasta obras-fazenda-01; nome real só com FLAGS.citarObraCocalinho). */
 export const ANTES_DEPOIS = {
-  antes: { key: "obras-cocalinho/cocalinho-18b8ca3e" as MediaKey, alt: "Antes: estacas e perfis montados" },
-  depois: { key: "obras-cocalinho/cocalinho-546da35f" as MediaKey, alt: "Depois: módulos fixados na estrutura" },
+  antes: { key: "obras-fazenda-01/foto-18b8ca3e" as MediaKey, alt: "Antes: estacas e perfis montados" },
+  depois: { key: "obras-fazenda-01/foto-546da35f" as MediaKey, alt: "Depois: módulos fixados na estrutura" },
   legenda: "Da estaca ao módulo · obra em fazenda [PREENCHER local]",
 };
 

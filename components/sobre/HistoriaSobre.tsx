@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -7,7 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Parallax } from "@/components/motion/Parallax";
 import { EstacaTimeline } from "@/components/nicho/EstacaTimeline";
 import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
-import { TrackedLink } from "@/components/tracking/TrackedLink";
+import { LinkInterno } from "@/components/tracking/LinkInterno";
 import { img } from "@/lib/media";
 import { ROTAS } from "@/lib/site";
 import { SOBRE_HERO, SOBRE_HISTORIA, SOBRE_MARCOS } from "@/content/sobre";
@@ -28,18 +27,13 @@ export function HistoriaSobre() {
           <div className="lg:col-span-7">
             <SectionHeading eyebrow={SOBRE_HISTORIA.eyebrow} title={SOBRE_HISTORIA.titulo} destaque="na obra" className="mb-8 sm:mb-10" />
             <Reveal delay={120}>
-              <p className="max-w-prose text-base leading-relaxed text-aco sm:text-lg">{SOBRE_HISTORIA.texto}</p>
+              <p className="max-w-prose text-base leading-relaxed text-branco/85 sm:text-lg">{SOBRE_HISTORIA.texto}</p>
             </Reveal>
             <Reveal delay={200}>
-              <TrackedLink
-                href={ROTAS.obras}
-                ctaId="historia-ver-obras"
-                track={{ kind: "nav", destino: ROTAS.obras }}
-                className="mt-8 inline-flex min-h-11 items-center gap-2 font-display font-semibold text-laranja underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv"
-              >
+              <LinkInterno href={ROTAS.obras} ctaId="historia-ver-obras" variant="texto" className="mt-8 text-laranja-texto">
                 {SOBRE_HISTORIA.linkObras}
                 <ArrowRight className="size-4" aria-hidden />
-              </TrackedLink>
+              </LinkInterno>
             </Reveal>
           </div>
 
@@ -49,6 +43,7 @@ export function HistoriaSobre() {
                 <div className="chanfro relative aspect-[4/5] overflow-hidden border border-linha bg-chapa">
                   <Image
                     {...foto}
+                    alt={foto.alt}
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
                     quality={75}

@@ -51,7 +51,7 @@ export function ComoTrabalhamos() {
         <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <Reveal>
-              <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja">{SOBRE_COMO_TRABALHAMOS.forcasTitulo}</p>
+              <p className="mb-4 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja-texto">{SOBRE_COMO_TRABALHAMOS.forcasTitulo}</p>
             </Reveal>
             <ul className="flex flex-col gap-3">
               {FORCAS.map((f, i) => (

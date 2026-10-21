@@ -26,7 +26,7 @@ export function ComoPedir() {
               <ol className="divide-y divide-linha">
                 {COMO_PEDIR.checklist.map((item, i) => (
                   <li key={item} className="flex items-center gap-4 px-6 py-4 sm:px-7">
-                    <span className="flex size-8 shrink-0 items-center justify-center border border-laranja/60 font-mono text-xs text-laranja tabular">
+                    <span className="flex size-8 shrink-0 items-center justify-center border border-laranja/60 font-mono text-xs text-laranja-texto tabular">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="font-display text-base font-semibold text-branco sm:text-lg">{item}</span>

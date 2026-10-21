@@ -4,7 +4,7 @@ import { ChapaCard } from "@/components/ui/ChapaCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { WaButton } from "@/components/cta/WaButton";
-import { TrackedLink } from "@/components/tracking/TrackedLink";
+import { LinkInterno } from "@/components/tracking/LinkInterno";
 import { IconGrampo, IconKit } from "@/components/icons";
 import { TabelaKitTitan } from "@/components/kits/TabelaKitTitan";
 import { KIT_COMPLETO } from "@/content/kits";
@@ -53,21 +53,16 @@ export function KitCompleto() {
 
           <Reveal delay={120} className="lg:col-span-7">
             <ChapaCard numero="4 MÓDULOS" className="h-full">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-laranja">{exemplo.eyebrow}</p>
+              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-laranja-texto">{exemplo.eyebrow}</p>
               <h3 className="mt-2 font-display text-xl font-semibold text-branco sm:text-2xl">{exemplo.titulo}</h3>
               <div className="mt-6">
                 <TabelaKitTitan variantes={exemplo.variantes} colunas={exemplo.colunas} />
               </div>
               <p className="mt-5 text-xs leading-relaxed text-aco">{exemplo.rodape}</p>
-              <TrackedLink
-                href={exemplo.linkTelhado.href}
-                ctaId="kit-completo-ver-titan"
-                track={{ kind: "nav", destino: exemplo.linkTelhado.href }}
-                className="mt-4 inline-flex min-h-11 items-center gap-2 font-display text-sm font-semibold text-laranja underline-offset-4 hover:underline"
-              >
+              <LinkInterno href={exemplo.linkTelhado.href} ctaId="kit-completo-ver-titan" variant="texto" className="mt-4 text-sm text-laranja-texto">
                 {exemplo.linkTelhado.label}
                 <ArrowRight className="size-4" aria-hidden />
-              </TrackedLink>
+              </LinkInterno>
             </ChapaCard>
           </Reveal>
         </div>

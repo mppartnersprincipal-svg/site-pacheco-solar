@@ -78,14 +78,25 @@ export function SeletorTelhado({ variantes, rotulos }: SeletorTelhadoProps) {
     setIndicador({ x: el.offsetLeft - lista.scrollLeft, w: el.offsetWidth });
   }, [ativo]);
 
+  // scroll/resize agendados em requestAnimationFrame (mesmo padrão de lib/hooks/useScrollProgress.ts):
+  // nada de layout read + setState por evento de scroll do tablist
   useEffect(() => {
     medir();
-    window.addEventListener("resize", medir);
+    let agendado = false;
+    const agendar = () => {
+      if (agendado) return;
+      agendado = true;
+      requestAnimationFrame(() => {
+        agendado = false;
+        medir();
+      });
+    };
+    window.addEventListener("resize", agendar);
     const lista = listaRef.current;
-    lista?.addEventListener("scroll", medir, { passive: true });
+    lista?.addEventListener("scroll", agendar, { passive: true });
     return () => {
-      window.removeEventListener("resize", medir);
-      lista?.removeEventListener("scroll", medir);
+      window.removeEventListener("resize", agendar);
+      lista?.removeEventListener("scroll", agendar);
     };
   }, [medir]);
 
@@ -219,7 +230,7 @@ export function SeletorTelhado({ variantes, rotulos }: SeletorTelhadoProps) {
             <h3 className="font-display text-2xl font-bold leading-tight sm:text-3xl">{v.nome}</h3>
             <p className="mt-3 text-base leading-relaxed text-aco">{v.descricao}</p>
 
-            <p className="mt-7 flex items-baseline justify-between gap-3 font-mono text-xs uppercase tracking-[0.18em] text-laranja">
+            <p className="mt-7 flex items-baseline justify-between gap-3 font-mono text-xs uppercase tracking-[0.18em] text-laranja-texto">
               {rotulos.componentes}
               <span className="text-aco/70 normal-case tracking-normal">{rotulos.quantidade}</span>
             </p>
@@ -236,7 +247,7 @@ export function SeletorTelhado({ variantes, rotulos }: SeletorTelhadoProps) {
               ))}
             </ul>
 
-            <p className="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-laranja">{rotulos.regras}</p>
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-laranja-texto">{rotulos.regras}</p>
             <ul className="mt-2 space-y-2">
               {v.regras.map((r) => (
                 <li key={r} className="flex gap-3 text-sm leading-relaxed text-branco/90">

@@ -17,7 +17,7 @@ export function MapaPresenca({ className, legenda = "Aparecida de Goiânia/GO" }
   return (
     <figure className={cn("relative chanfro border border-linha bg-chapa grade-modulos p-4 sm:p-6", className)}>
       <svg viewBox="0 0 400 410" role="img" aria-labelledby="mapa-presenca-titulo" className="mx-auto h-auto w-full max-w-md">
-        <title id="mapa-presenca-titulo">Mapa do Brasil com a Pacheco Solar marcada em {legenda}, no centro do país</title>
+        <title id="mapa-presenca-titulo">{`Mapa do Brasil com a Pacheco Solar marcada em ${legenda}, no centro do país`}</title>
         <defs>
           <pattern id="mapa-grade" width="24" height="24" patternUnits="userSpaceOnUse">
             <path d="M24 0H0V24" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-branco/10" />

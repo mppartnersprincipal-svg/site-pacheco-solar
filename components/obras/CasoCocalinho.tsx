@@ -19,7 +19,7 @@ export function CasoCocalinho() {
   const etapas = SEQUENCIA_MONTAGEM.map((e) => ({ ...imageProps(e.key, e.alt), etapa: e.etapa }));
 
   return (
-    <section id="caso-cocalinho" data-linha="obra" className="bg-superficie">
+    <section id="caso-fazenda" data-linha="obra" className="bg-superficie">
       <Container className="py-20 sm:py-28">
         <SectionHeading eyebrow={CASO_COCALINHO.eyebrow} title={CASO_COCALINHO.titulo} subtitle={CASO_COCALINHO.subtitulo} destaque="módulo" />
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
@@ -27,12 +27,12 @@ export function CasoCocalinho() {
             <AntesDepoisEstaca antes={antes} depois={depois} legenda={CASO_COCALINHO.legenda} ladoALado />
           </Reveal>
           <Reveal delay={120} className="lg:col-span-5">
-            <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-laranja">{CASO_COCALINHO.sequenciaTitulo}</p>
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-laranja-texto">{CASO_COCALINHO.sequenciaTitulo}</p>
             <SequenciaMontagem etapas={etapas} />
           </Reveal>
         </div>
         <Reveal delay={200} className="mt-10">
-          <WaButton linha="obra" ctaId="caso-cocalinho-obra-parecida" posicao="caso-cocalinho">
+          <WaButton linha="obra" ctaId="caso-fazenda-obra-parecida" posicao="caso-fazenda">
             {CASO_COCALINHO.cta}
           </WaButton>
         </Reveal>

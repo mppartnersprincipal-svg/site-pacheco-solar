@@ -26,7 +26,7 @@ export function MissaoVisaoProposito() {
                   {b.rotulo}
                 </PlacaIdentificacao>
                 <h3 className="sr-only">{b.rotulo}</h3>
-                <p className="mt-6 text-base leading-relaxed text-aco">{b.texto}</p>
+                <p className="mt-6 text-base leading-relaxed text-branco/85">{b.texto}</p>
               </ChapaCard>
             </Reveal>
           ))}

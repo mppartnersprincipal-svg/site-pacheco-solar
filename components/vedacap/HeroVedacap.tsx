@@ -24,7 +24,7 @@ export function HeroVedacap({ logo }: HeroVedacapProps) {
       <div aria-hidden className="pointer-events-none absolute -bottom-32 left-[-10%] size-[22rem] rounded-full aluzinco opacity-[0.08] blur-3xl" />
       <Container className="relative grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-12">
         <div className="lg:col-span-6">
-          <Reveal>
+          <Reveal imediato>
             <Image
               src={logo.src}
               alt={VEDACAP_HERO.logoAlt}
@@ -37,19 +37,19 @@ export function HeroVedacap({ logo }: HeroVedacapProps) {
               className="h-auto w-[120px] sm:w-[140px]"
             />
           </Reveal>
-          <Reveal delay={60}>
+          <Reveal imediato delay={60}>
             <p className="mt-6 mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-branco/80">{VEDACAP_HERO.eyebrow}</p>
           </Reveal>
-          <Reveal delay={120}>
+          <Reveal imediato delay={120}>
             <h1 className="max-w-2xl font-display text-4xl font-bold leading-[1.02] text-branco sm:text-5xl lg:text-6xl">
               <span className="sr-only">{VEDACAP_HERO.nomeSrOnly}</span>
               {VEDACAP_HERO.headline}
             </h1>
           </Reveal>
-          <Reveal delay={180}>
+          <Reveal imediato delay={180}>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-branco/80 sm:text-lg">{VEDACAP_HERO.sub}</p>
           </Reveal>
-          <Reveal delay={240}>
+          <Reveal imediato delay={240}>
             <div className="mt-6 flex flex-wrap gap-2">
               {VEDACAP_HERO.placas.map((p) => (
                 <PlacaIdentificacao key={p} size="sm" variant={placaVariant(p)}>
@@ -58,7 +58,7 @@ export function HeroVedacap({ logo }: HeroVedacapProps) {
               ))}
             </div>
           </Reveal>
-          <Reveal delay={300}>
+          <Reveal imediato delay={300}>
             <div className="mt-8">
               <WaButton linha="vedacap" ctaId="hero-vedacap" posicao="hero">
                 {VEDACAP_HERO.cta}
@@ -66,7 +66,7 @@ export function HeroVedacap({ logo }: HeroVedacapProps) {
             </div>
           </Reveal>
         </div>
-        <Reveal delay={220} className="lg:col-span-6">
+        <Reveal imediato delay={220} className="lg:col-span-6">
           <VedacapCorte
             versoes={VEDACAP.versoes}
             rotulos={VEDACAP_HERO.corte.rotulos}

@@ -21,7 +21,7 @@ const FOTOS_CAMPO = 6;
  * legenda não cita cliente nem cidade e a nota de autorização fica visível.
  */
 export function SoloEmCampo() {
-  const fotos = FOTOS_OBRAS.filter((f) => f.tipo === "fazenda" && f.key.startsWith("obras-cocalinho/"))
+  const fotos = FOTOS_OBRAS.filter((f) => f.tipo === "fazenda" && f.key.startsWith("obras-fazenda-01/"))
     .slice(0, FOTOS_CAMPO)
     .map((f) => ({ ...imageProps(f.key, f.alt), legenda: f.legenda, retrato: f.retrato === true }));
 

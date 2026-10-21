@@ -59,8 +59,8 @@ export default function KitsEItensAvulsosPage() {
         name: i.nome,
         description: `${i.nome} — item avulso para estrutura solar (${i.uso === "ambos" ? "solo e telhado" : i.uso}).`,
         image: i.imagem ? img(i.imagem).src : linhaAvulsos ? img(linhaAvulsos.imagem).src : OG_IMAGE,
-        path: `${ROTAS.kits}#itens-avulsos`,
-        sku: i.slug,
+        // sem `sku`: o slug da URL não é código de produto real (códigos do ERP: [PREENCHER])
+        path: `${ROTAS.kits}#itens-avulsos-${i.slug}`,
         category: "Itens avulsos",
       })
     ),

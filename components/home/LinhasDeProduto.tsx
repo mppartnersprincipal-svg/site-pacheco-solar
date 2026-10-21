@@ -7,7 +7,7 @@ import { PlacaIdentificacao } from "@/components/cta/PlacaIdentificacao";
 import { WaButton } from "@/components/cta/WaButton";
 import { Reveal } from "@/components/motion/Reveal";
 import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
-import { LinkInterno } from "@/components/home/LinkInterno";
+import { LinkInterno } from "@/components/tracking/LinkInterno";
 import { LINHAS, type LinhaProduto } from "@/lib/produtos/catalogo";
 import { imageProps } from "@/lib/media";
 import { LINHAS_SECAO } from "@/content/home";

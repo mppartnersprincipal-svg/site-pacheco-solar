@@ -5,7 +5,7 @@ import { WaButton } from "@/components/cta/WaButton";
 import { Reveal } from "@/components/motion/Reveal";
 import { Parallax } from "@/components/motion/Parallax";
 import { ArcoSolar } from "@/components/nicho/ArcoSolar";
-import { LinkInterno } from "@/components/home/LinkInterno";
+import { LinkInterno } from "@/components/tracking/LinkInterno";
 import { SOBRE_RESUMO } from "@/content/home";
 
 /**
@@ -24,7 +24,7 @@ export function SobreResumo() {
               <p className="max-w-2xl text-base leading-relaxed text-branco/85 sm:text-lg">{SOBRE_RESUMO.historia}</p>
             </Reveal>
             <Reveal delay={140}>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-aco sm:text-lg">{SOBRE_RESUMO.sobre1}</p>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-branco/85 sm:text-lg">{SOBRE_RESUMO.sobre1}</p>
             </Reveal>
             <Reveal delay={200}>
               <dl className="mt-8 grid grid-cols-2 gap-4 border-y border-linha py-5 font-mono text-xs uppercase tracking-[0.14em] sm:grid-cols-3">

@@ -17,7 +17,8 @@ export function GaleriaEmCampo({ clipes, className }: { clipes: Clipe[]; classNa
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
-    setAuto(window.innerWidth >= 768 && !reduce && !saveData);
+    const raf = requestAnimationFrame(() => setAuto(window.innerWidth >= 768 && !reduce && !saveData));
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return (
@@ -31,38 +32,34 @@ export function GaleriaEmCampo({ clipes, className }: { clipes: Clipe[]; classNa
   );
 }
 
+/** Orçamento de performance do blueprint: no máximo 2 clipes tocando ao mesmo tempo (em toda a página). */
 const MAX_TOCANDO = 2;
-let tocando = 0;
+/** Fonte da verdade = eventos nativos do <video> (playing/pause/ended), não o estado React. */
+const tocando = new Set<HTMLVideoElement>();
 
 function ClipeEmCampo({ clipe, auto }: { clipe: Clipe; auto: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  const [reported, setReported] = useState(false);
+  const reportedRef = useRef(false);
 
   const report = (trigger: "auto" | "tap") => {
-    if (reported) return;
-    setReported(true);
+    if (reportedRef.current) return;
+    reportedRef.current = true;
     trackVideoPlay({ video_id: clipe.id, trigger });
   };
 
+  // IO criado uma única vez por modo; lê el.paused e o Set em vez do estado `playing`
   useEffect(() => {
     const el = ref.current;
     if (!el || !auto) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-          if (tocando >= MAX_TOCANDO || playing) return;
-          tocando++;
-          el.play().then(() => {
-            setPlaying(true);
-            report("auto");
-          }).catch(() => {
-            tocando--;
-          });
-        } else if (playing) {
+        const visivel = entry.isIntersecting && entry.intersectionRatio >= 0.6;
+        if (visivel) {
+          if (!el.paused || tocando.size >= MAX_TOCANDO) return;
+          el.play().then(() => report("auto")).catch(() => {});
+        } else if (!el.paused) {
           el.pause();
-          tocando = Math.max(0, tocando - 1);
-          setPlaying(false);
         }
       },
       { threshold: [0, 0.6] }
@@ -70,23 +67,29 @@ function ClipeEmCampo({ clipe, auto }: { clipe: Clipe; auto: boolean }) {
     io.observe(el);
     return () => {
       io.disconnect();
-      if (playing) tocando = Math.max(0, tocando - 1);
+      if (!el.paused) el.pause();
+      tocando.delete(el);
     };
+    // `report` só depende de refs/props estáveis
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [auto, playing]);
+  }, [auto]);
 
   const toggle = () => {
     const el = ref.current;
     if (!el) return;
-    if (el.paused) {
-      el.play().then(() => {
-        setPlaying(true);
-        report("tap");
-      }).catch(() => {});
-    } else {
-      el.pause();
-      setPlaying(false);
-    }
+    if (el.paused) el.play().then(() => report("tap")).catch(() => {});
+    else el.pause();
+  };
+
+  const onPlaying = () => {
+    const el = ref.current;
+    if (el) tocando.add(el);
+    setPlaying(true);
+  };
+  const onParado = () => {
+    const el = ref.current;
+    if (el) tocando.delete(el);
+    setPlaying(false);
   };
 
   return (
@@ -100,6 +103,9 @@ function ClipeEmCampo({ clipe, auto }: { clipe: Clipe; auto: boolean }) {
         poster={clipe.poster}
         width={clipe.width}
         height={clipe.height}
+        onPlaying={onPlaying}
+        onPause={onParado}
+        onEnded={onParado}
         className="aspect-[9/16] w-full object-cover"
         aria-label={clipe.legenda}
       >

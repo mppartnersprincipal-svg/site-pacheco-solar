@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,20 +23,32 @@ function Badge({ children }: { children: React.ReactNode }) {
   );
 }
 
+const semInscricao = () => () => {};
+const montadoNoCliente = () => true;
+const montadoNoServidor = () => false;
+
 export function Header({ logo }: { logo: Logo }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(semInscricao, montadoNoCliente, montadoNoServidor);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => setMounted(true), []);
+  // Troca de rota fecha o drawer (ajuste de estado derivado de prop, durante o render)
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setOpen(false);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
+    const raf = requestAnimationFrame(onScroll);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   // Drawer: Esc fecha, foco vai para o botão de fechar e volta ao fechar
@@ -55,8 +67,6 @@ export function Header({ logo }: { logo: Logo }) {
       prev?.focus();
     };
   }, [open]);
-
-  useEffect(() => setOpen(false), [pathname]);
 
   const transitions = useTransition(open, {
     from: { opacity: 0, x: 100 },

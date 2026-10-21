@@ -23,7 +23,7 @@ export function VersoesVedacap() {
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="font-display text-xl font-semibold text-branco">{v.nome}</h3>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-laranja">{VEDACAP_VERSOES.fotoPendente}</p>
+                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-laranja-texto">{VEDACAP_VERSOES.fotoPendente}</p>
                   <div className="mt-auto pt-5">
                     <WaButton
                       linha="vedacap"

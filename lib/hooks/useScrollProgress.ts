@@ -19,11 +19,13 @@ export function useScrollProgress<T extends HTMLElement>(minWidth = 1024) {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const wide = window.innerWidth >= minWidth;
     if (reduce || !wide) {
-      setEnabled(false);
-      setProgress(1);
-      return;
+      const raf = requestAnimationFrame(() => {
+        setEnabled(false);
+        setProgress(1);
+      });
+      return () => cancelAnimationFrame(raf);
     }
-    setEnabled(true);
+    const rafEnable = requestAnimationFrame(() => setEnabled(true));
     let scheduled = false;
     const measure = () => {
       scheduled = false;
@@ -38,10 +40,11 @@ export function useScrollProgress<T extends HTMLElement>(minWidth = 1024) {
       scheduled = true;
       requestAnimationFrame(measure);
     };
-    measure();
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
+      cancelAnimationFrame(rafEnable);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };

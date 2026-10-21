@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
-import { animated, useTrail } from "@react-spring/web";
 import { WaButton } from "@/components/cta/WaButton";
 import { PlacaIdentificacao } from "@/components/cta/PlacaIdentificacao";
 import { TrackedLink } from "@/components/tracking/TrackedLink";
@@ -30,13 +29,15 @@ interface HeroVideoProps {
 type Modo = "ssr" | "poster" | "mobile" | "desktop";
 
 const MQ_DESKTOP = "(min-width: 768px)";
-const ITENS_TRAIL = 5; // eyebrow → h1 → sub → CTAs → placas
+/** Stagger da primeira dobra (eyebrow → h1 → sub → CTAs → placas) em @keyframes CSS: o HTML já chega visível. */
+const ENTRADA = [0, 60, 120, 180, 240].map((ms) => ({ animationDelay: `${ms}ms` }));
 
 /**
  * Hero da home com o vídeo vertical real (acervo SOLO DUPLA). SSR entrega só os
  * posters (next/image priority = LCP); após montar decide: reduced-motion ou
  * saveData → poster; <768px → vídeo 9:16 de fundo; ≥768px → painel 4:5.
- * Entrada do texto em useTrail (só transform/opacity).
+ * Entrada do texto por CSS (animate-entrada, só transform/opacity) — nada fica
+ * com opacity 0 à espera da hidratação.
  */
 export function HeroVideo({ mobile, desktop }: HeroVideoProps) {
   const [modo, setModo] = useState<Modo>("ssr");
@@ -44,23 +45,16 @@ export function HeroVideo({ mobile, desktop }: HeroVideoProps) {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
-    if (reduce || saveData) {
-      setModo("poster");
-      return;
-    }
     const mq = window.matchMedia(MQ_DESKTOP);
-    const aplicar = () => setModo(mq.matches ? "desktop" : "mobile");
-    aplicar();
+    const aplicar = () => setModo(reduce || saveData ? "poster" : mq.matches ? "desktop" : "mobile");
+    // Decisão após a hidratação (um frame), nunca síncrona dentro do efeito
+    const raf = requestAnimationFrame(aplicar);
     mq.addEventListener("change", aplicar);
-    return () => mq.removeEventListener("change", aplicar);
+    return () => {
+      cancelAnimationFrame(raf);
+      mq.removeEventListener("change", aplicar);
+    };
   }, []);
-
-  const trail = useTrail(ITENS_TRAIL, {
-    from: { opacity: 0, transform: "translate3d(0,22px,0)" },
-    to: { opacity: 1, transform: "translate3d(0,0,0)" },
-    delay: 60,
-    config: { tension: 230, friction: 28 },
-  });
 
   return (
     <section id="hero" data-linha="geral" className="relative overflow-hidden bg-fundo grade-modulos">
@@ -82,16 +76,16 @@ export function HeroVideo({ mobile, desktop }: HeroVideoProps) {
 
       <Container className="relative flex min-h-[calc(100svh-4rem)] flex-col justify-end pt-28 pb-16 md:grid md:min-h-0 md:grid-cols-12 md:items-center md:gap-10 md:py-20 lg:py-28">
         <div className="md:col-span-7">
-          <animated.p style={trail[0]} className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-laranja sm:text-xs">
+          <p style={ENTRADA[0]} className="animate-entrada mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-laranja-texto sm:text-xs">
             {HERO.eyebrow}
-          </animated.p>
-          <animated.h1 style={trail[1]} className="max-w-3xl font-display text-[2.5rem] font-bold leading-[1.02] sm:text-5xl lg:text-6xl xl:text-7xl">
+          </p>
+          <h1 style={ENTRADA[1]} className="animate-entrada max-w-3xl font-display text-[2.5rem] font-bold leading-[1.02] sm:text-5xl lg:text-6xl xl:text-7xl">
             {HERO.titulo}
-          </animated.h1>
-          <animated.p style={trail[2]} className="mt-5 max-w-2xl text-base leading-relaxed text-branco/85 sm:text-lg">
+          </h1>
+          <p style={ENTRADA[2]} className="animate-entrada mt-5 max-w-2xl text-base leading-relaxed text-branco/85 sm:text-lg">
             {HERO.subtitulo}
-          </animated.p>
-          <animated.div style={trail[3]} className="mt-8 flex flex-wrap items-center gap-3">
+          </p>
+          <div style={ENTRADA[3]} className="animate-entrada mt-8 flex flex-wrap items-center gap-3">
             <WaButton ctaId="hero-primario" posicao="hero" linha="geral">
               {HERO.ctaPrimario}
             </WaButton>
@@ -104,8 +98,8 @@ export function HeroVideo({ mobile, desktop }: HeroVideoProps) {
               {HERO.ctaSecundario}
               <ArrowDown className="size-4" aria-hidden />
             </TrackedLink>
-          </animated.div>
-          <animated.div style={trail[4]} className="mt-8">
+          </div>
+          <div style={ENTRADA[4]} className="animate-entrada mt-8">
             <ul className="flex flex-wrap gap-2" aria-label="Diferenciais">
               {HERO.placas.map((p) => (
                 <li key={p}>
@@ -119,12 +113,12 @@ export function HeroVideo({ mobile, desktop }: HeroVideoProps) {
                 href={`tel:${HERO.microcopy.telefoneE164}`}
                 ctaId="hero-telefone"
                 track={{ kind: "phone", phone: HERO.microcopy.telefone }}
-                className="inline-flex min-h-11 items-center text-branco underline-offset-4 hover:text-laranja hover:underline"
+                className="inline-flex min-h-11 items-center text-branco underline-offset-4 hover:text-laranja-texto hover:underline"
               >
                 {HERO.microcopy.telefone}
               </TrackedLink>
             </p>
-          </animated.div>
+          </div>
         </div>
 
         {/* Desktop: painel 4:5 emoldurado em chapa chanfrada */}
@@ -148,7 +142,7 @@ export function HeroVideo({ mobile, desktop }: HeroVideoProps) {
             <figcaption className="mt-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.16em] text-aco">
               <span>{HERO.legendaVideo}</span>
               <span aria-hidden className="h-px flex-1 mx-4 bg-linha" />
-              <span className="text-laranja">● REC</span>
+              <span className="text-laranja-texto">● REC</span>
             </figcaption>
           </figure>
         </div>

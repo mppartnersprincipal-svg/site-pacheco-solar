@@ -9,7 +9,7 @@ import { VEDACAP_APLICACAO } from "@/content/vedacap";
 import { mensagemPergunta } from "@/lib/whatsapp";
 
 /**
- * Seção "aplicacao": aviso em chapa laranja ("Não usar silicone."), passo a
+ * Seção "aplicacao": aviso em chapa laranja (frase do roteiro sobre silicone/fita/massa), passo a
  * passo oficial ainda PREENCHER (visível) e nota de indicação.
  */
 export function AplicacaoVedacap() {
@@ -41,11 +41,11 @@ export function AplicacaoVedacap() {
           </div>
           <Reveal delay={120} className="lg:col-span-7">
             <ChapaCard numero="PASSO A PASSO" className="h-full">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-laranja">Passo a passo oficial</p>
+              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-laranja-texto">Passo a passo oficial</p>
               <ol className="mt-5 space-y-3">
                 <li className="flex items-start gap-4">
                   <span className="flex size-9 shrink-0 items-center justify-center chanfro-sm border border-linha font-mono text-xs text-aco">01</span>
-                  <p className="pt-1.5 font-mono text-sm leading-relaxed text-laranja">{VEDACAP_APLICACAO.passoAPasso}</p>
+                  <p className="pt-1.5 font-mono text-sm leading-relaxed text-laranja-texto">{VEDACAP_APLICACAO.passoAPasso}</p>
                 </li>
               </ol>
             </ChapaCard>

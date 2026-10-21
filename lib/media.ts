@@ -30,9 +30,9 @@ export const CLIPES = [
   { id: "solo-dupla-1651", legenda: "Solo dupla · vista geral da usina" },
   { id: "solo-dupla-2715", legenda: "Solo dupla · detalhe da fixação" },
   { id: "solo-dupla-2716", legenda: "Solo dupla · estrutura em campo" },
-  { id: "solo-dupla-3956", legenda: "Solo dupla · módulos bifaciais" },
+  { id: "solo-dupla-3956", legenda: "Solo dupla · módulos fixados" },
   { id: "solo-dupla-3957", legenda: "Solo dupla · perfis de aço" },
   { id: "solo-dupla-3958", legenda: "Solo dupla · close dos perfis" },
   { id: "solo-dupla-3959", legenda: "Solo dupla · fixação dos módulos" },
-  { id: "solo-dupla-3960", legenda: "Solo dupla · usina em operação" },
+  { id: "solo-dupla-3960", legenda: "Solo dupla · vista geral" },
 ].map((c) => ({ ...c, mp4: `/videos/${c.id}.mp4`, webm: `/videos/${c.id}.webm`, poster: `/videos/${c.id}.webp`, width: 540, height: 960 }));

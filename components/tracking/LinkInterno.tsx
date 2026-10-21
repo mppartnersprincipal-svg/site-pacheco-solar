@@ -23,7 +23,7 @@ interface LinkInternoProps {
 export function LinkInterno({ href, ctaId, variant = "secondary", size = "lg", className, children }: LinkInternoProps) {
   const classes =
     variant === "texto"
-      ? cn("inline-flex min-h-11 items-center gap-2 font-display font-semibold text-branco underline-offset-4 hover:text-laranja hover:underline", className)
+      ? cn("inline-flex min-h-11 items-center gap-2 font-display font-semibold text-branco underline-offset-4 hover:text-laranja-texto hover:underline", className)
       : cn(buttonClasses(variant, size), className);
   return (
     <Link href={href} data-cta={ctaId} className={classes} onClick={() => trackNavigation({ destino: href, origem: ctaId })}>

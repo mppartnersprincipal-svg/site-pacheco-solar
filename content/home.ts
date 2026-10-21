@@ -70,7 +70,7 @@ export const DOR_SOLUCAO = {
 export const DIFERENCIAIS_SECAO = {
   eyebrow: "POR QUE ESCOLHER A PACHECO SOLAR",
   titulo: "Fornecedor que resolve, não complica.",
-  subtitulo: "Os seis diferenciais do site da Pacheco Solar, lidos como uma ficha de especificação.",
+  subtitulo: "Agilidade, qualidade e compromisso — do pré ao pós-venda.", // fonte: PALAVRAS_CHAVE + diferencial 05 (site atual)
 } as const;
 
 // ----------------------------------------------------------- 7. como-funciona
@@ -90,7 +90,7 @@ export const PROVA_SOCIAL = {
   etiqueta: "DEPOIMENTO",
   depoimentos: DEPOIMENTOS,
   /** Pareamento nome↔texto inferido pela ordem do site atual: [PREENCHER confirmar] */
-  notaDepoimentos: "Depoimentos publicados no site atual da Pacheco Solar.",
+  notaDepoimentos: "Depoimentos de clientes da Pacheco Solar.",
   quemResponde: {
     eyebrow: "QUEM RESPONDE",
     nome: `${SITE.fundador}, fundador`,
@@ -117,7 +117,7 @@ export const CONTADORES: ReadonlyArray<{ rotulo: string; valor: number | null; p
 export const OBJECOES = {
   eyebrow: "ANTES DE FECHAR",
   titulo: "O que todo integrador pergunta antes de fechar.",
-  subtitulo: "Respostas curtas, só com o que a Pacheco Solar afirma. Se faltar algo, pergunte direto no WhatsApp.",
+  subtitulo: "Respostas diretas de quem entende da obra. Se faltar algo, pergunte no WhatsApp.",
 } as const;
 
 // ------------------------------------------------------------ 10. sobre-resumo

@@ -16,7 +16,7 @@ export const HERO_OBRAS = {
   titulo: "Obras realizadas",
   subtitulo: "Mais obra entregue, menos dor de cabeça. Estruturas de solo em usinas e fazendas pelo Brasil.",
   placas: ["Solo Linear", "Solo Dupla", "Fazenda", "Entrega em todo o Brasil"],
-  imagem: "obras-cocalinho/cocalinho-285cf49e" as MediaKey,
+  imagem: "obras-fazenda-01/foto-285cf49e" as MediaKey,
   imagemAlt: "Usina de solo em pasto com fileiras de módulos fotovoltaicos",
   cta: "Quero uma estrutura como essa",
   linkSolo: { label: "Ver estruturas de solo", href: ROTAS.solo },

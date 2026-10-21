@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { faqPublicavel } from "@/lib/faq";
 import { SITE, SITE_URL } from "@/lib/site";
 
 export const SITE_NAME = SITE.nome;
@@ -94,7 +95,8 @@ export function faqJsonLd(items: Array<{ pergunta: string; resposta: string }>) 
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: items.map((i) => ({
+    // Nenhuma resposta com [PREENCHER] vai para o dado estruturado (mesma regra do AccordionObjecoes)
+    mainEntity: faqPublicavel(items).map((i) => ({
       "@type": "Question",
       name: i.pergunta,
       acceptedAnswer: { "@type": "Answer", text: i.resposta },

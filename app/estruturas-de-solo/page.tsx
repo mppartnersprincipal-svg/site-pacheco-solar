@@ -102,9 +102,11 @@ export default function EstruturasDeSoloPage() {
             rotuloLista={COMPONENTES_SOLO.rotuloLista}
             rotuloComponente={COMPONENTES_SOLO.rotuloComponente}
             ctaItem={COMPONENTES_SOLO.ctaItem}
+            ctaEstrutura={COMPONENTES_SOLO.ctaEstrutura}
+            notaEstrutura={COMPONENTES_SOLO.notaEstrutura}
           />
           <div className="mt-10">
-            <Link href={COMPONENTES_SOLO.linkAvulsos.href} className="inline-flex min-h-11 items-center gap-2 font-display font-semibold text-laranja underline-offset-4 hover:underline">
+            <Link href={COMPONENTES_SOLO.linkAvulsos.href} className="inline-flex min-h-11 items-center gap-2 font-display font-semibold text-laranja-texto underline-offset-4 hover:underline">
               {COMPONENTES_SOLO.linkAvulsos.label}
               <ArrowRight className="size-4" aria-hidden />
             </Link>

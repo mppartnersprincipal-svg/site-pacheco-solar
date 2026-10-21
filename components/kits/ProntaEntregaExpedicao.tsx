@@ -31,7 +31,7 @@ export function ProntaEntregaExpedicao({ foto }: ProntaEntregaExpedicaoProps) {
                 blurDataURL={foto.blurDataURL}
                 className="object-cover"
               />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-fundo via-fundo/80 to-transparent px-5 pt-14 pb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-laranja">
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-fundo via-fundo/80 to-transparent px-5 pt-14 pb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-laranja-texto">
                 {PRONTA_ENTREGA_SECAO.fotoLegenda}
               </figcaption>
             </figure>

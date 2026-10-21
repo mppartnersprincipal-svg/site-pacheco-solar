@@ -38,7 +38,7 @@ export function SequenciaMontagem({ etapas, className }: { etapas: Etapa[]; clas
           const e = etapas[idx];
           return (
             <animated.div style={style} className="absolute inset-0">
-              <Image src={e.src} alt={e.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" placeholder={e.blurDataURL ? "blur" : undefined} blurDataURL={e.blurDataURL} className="object-cover" />
+              <Image src={e.src} alt={e.alt} fill quality={60} sizes="(min-width: 1024px) 50vw, 100vw" placeholder={e.blurDataURL ? "blur" : undefined} blurDataURL={e.blurDataURL} className="object-cover" />
             </animated.div>
           );
         })}

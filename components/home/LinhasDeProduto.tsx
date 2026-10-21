@@ -68,6 +68,7 @@ function CardLinha({ item, grande }: { item: LinhaProduto; grande: boolean }) {
           alt={foto.alt}
           width={foto.width}
           height={foto.height}
+          quality={60}
           placeholder={isVedacap ? undefined : foto.placeholder}
           blurDataURL={isVedacap ? undefined : foto.blurDataURL}
           sizes={grande ? "(min-width: 1280px) 580px, (min-width: 768px) 50vw, 82vw" : "(min-width: 1280px) 380px, (min-width: 768px) 50vw, 82vw"}

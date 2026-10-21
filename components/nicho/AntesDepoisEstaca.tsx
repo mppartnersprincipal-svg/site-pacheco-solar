@@ -33,7 +33,7 @@ export function AntesDepoisEstaca({
       <figure className={cn("grid gap-3 sm:grid-cols-2", className)}>
         {[antes, depois].map((f, i) => (
           <div key={i} className="relative chanfro overflow-hidden bg-superficie">
-            <Image src={f.src} alt={f.alt} width={f.width} height={f.height} placeholder={f.blurDataURL ? "blur" : undefined} blurDataURL={f.blurDataURL} sizes="(min-width: 640px) 50vw, 100vw" className="h-full w-full object-cover" />
+            <Image src={f.src} alt={f.alt} width={f.width} height={f.height} quality={60} placeholder={f.blurDataURL ? "blur" : undefined} blurDataURL={f.blurDataURL} sizes="(min-width: 640px) 50vw, 100vw" className="h-full w-full object-cover" />
             <span className="absolute top-3 left-3 bg-fundo/80 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-branco">{i === 0 ? "Antes" : "Depois"}</span>
           </div>
         ))}
@@ -59,9 +59,9 @@ export function AntesDepoisEstaca({
         }}
         onPointerMove={(e) => e.buttons === 1 && update(e.clientX)}
       >
-        <Image src={depois.src} alt={depois.alt} fill sizes="(min-width: 1024px) 60vw, 100vw" placeholder={depois.blurDataURL ? "blur" : undefined} blurDataURL={depois.blurDataURL} className="object-cover" />
+        <Image src={depois.src} alt={depois.alt} fill quality={60} sizes="(min-width: 1024px) 60vw, 100vw" placeholder={depois.blurDataURL ? "blur" : undefined} blurDataURL={depois.blurDataURL} className="object-cover" />
         <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-          <Image src={antes.src} alt={antes.alt} fill sizes="(min-width: 1024px) 60vw, 100vw" placeholder={antes.blurDataURL ? "blur" : undefined} blurDataURL={antes.blurDataURL} className="object-cover" />
+          <Image src={antes.src} alt={antes.alt} fill quality={60} sizes="(min-width: 1024px) 60vw, 100vw" placeholder={antes.blurDataURL ? "blur" : undefined} blurDataURL={antes.blurDataURL} className="object-cover" />
         </div>
         <span className="absolute top-3 left-3 bg-fundo/80 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-branco">Antes</span>
         <span className="absolute top-3 right-3 bg-fundo/80 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-branco">Depois</span>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Play } from "lucide-react";
 import { trackVideoPlay } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -94,19 +95,29 @@ function ClipeEmCampo({ clipe, auto }: { clipe: Clipe; auto: boolean }) {
 
   return (
     <figure className="group relative chanfro-sm overflow-hidden bg-superficie">
+      {/* Poster como <Image> lazy (otimizado e só perto da viewport): o atributo poster do <video>
+          é baixado pelo navegador no carregamento da página e competia com a imagem do hero (LCP). */}
+      <Image
+        src={clipe.poster}
+        alt=""
+        width={clipe.width}
+        height={clipe.height}
+        quality={60}
+        sizes="(min-width: 1024px) 288px, (min-width: 640px) 256px, 62vw"
+        className={cn("absolute inset-0 h-full w-full object-cover transition-opacity duration-300", playing ? "opacity-0" : "opacity-100")}
+      />
       <video
         ref={ref}
         muted
         loop
         playsInline
         preload="none"
-        poster={clipe.poster}
         width={clipe.width}
         height={clipe.height}
         onPlaying={onPlaying}
         onPause={onParado}
         onEnded={onParado}
-        className="aspect-[9/16] w-full object-cover"
+        className="relative aspect-[9/16] w-full object-cover"
         aria-label={clipe.legenda}
       >
         <source src={clipe.mp4} type="video/mp4" />

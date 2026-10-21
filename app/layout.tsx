@@ -15,7 +15,8 @@ import "./globals.css";
 
 const jost = Jost({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-jost", display: "swap" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-inter", display: "swap" });
-const plexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-plex-mono", display: "swap" });
+// Sem preload: a mono só aparece em eyebrows/legendas e não precisa disputar banda com a imagem do hero (LCP)
+const plexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-plex-mono", display: "swap", preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -29,6 +29,8 @@ interface HeroVideoProps {
 type Modo = "ssr" | "poster" | "mobile" | "desktop";
 
 const MQ_DESKTOP = "(min-width: 768px)";
+/** Folga após o evento load antes de montar o vídeo do hero */
+const ATRASO_VIDEO_MS = 800;
 /** Stagger da primeira dobra (eyebrow → h1 → sub → CTAs → placas) em @keyframes CSS: o HTML já chega visível. */
 const ENTRADA = [0, 60, 120, 180, 240].map((ms) => ({ animationDelay: `${ms}ms` }));
 
@@ -41,6 +43,21 @@ const ENTRADA = [0, 60, 120, 180, 240].map((ms) => ({ animationDelay: `${ms}ms` 
  */
 export function HeroVideo({ mobile, desktop }: HeroVideoProps) {
   const [modo, setModo] = useState<Modo>("ssr");
+  /** O <video> (1,5 MB) só entra depois do load da página + folga, para não disputar banda com o poster (LCP). */
+  const [videoLiberado, setVideoLiberado] = useState(false);
+
+  useEffect(() => {
+    let timer = 0;
+    const liberar = () => {
+      timer = window.setTimeout(() => setVideoLiberado(true), ATRASO_VIDEO_MS);
+    };
+    if (document.readyState === "complete") liberar();
+    else window.addEventListener("load", liberar, { once: true });
+    return () => {
+      window.removeEventListener("load", liberar);
+      window.clearTimeout(timer);
+    };
+  }, []);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -69,7 +86,7 @@ export function HeroVideo({ mobile, desktop }: HeroVideoProps) {
           quality={60}
           className="object-cover object-center"
         />
-        {modo === "mobile" ? <VideoLoop fonte={mobile} className="absolute inset-0 h-full w-full object-cover object-center" /> : null}
+        {modo === "mobile" && videoLiberado ? <VideoLoop fonte={mobile} className="absolute inset-0 h-full w-full object-cover object-center" /> : null}
         <div className="absolute inset-0 vinheta" />
         <div className="absolute inset-0 bg-gradient-to-t from-fundo via-fundo/80 to-fundo/20" />
       </div>
@@ -135,7 +152,7 @@ export function HeroVideo({ mobile, desktop }: HeroVideoProps) {
                   quality={75}
                   className="object-cover"
                 />
-                {modo === "desktop" ? <VideoLoop fonte={desktop} className="absolute inset-0 h-full w-full object-cover" /> : null}
+                {modo === "desktop" && videoLiberado ? <VideoLoop fonte={desktop} className="absolute inset-0 h-full w-full object-cover" /> : null}
                 <div aria-hidden className="absolute inset-0 vinheta opacity-60" />
               </div>
             </div>
@@ -161,7 +178,6 @@ function VideoLoop({ fonte, className }: { fonte: FonteVideo; className?: string
       loop
       playsInline
       preload="metadata"
-      poster={fonte.poster}
       width={fonte.width}
       height={fonte.height}
       aria-label={HERO.videoAria}

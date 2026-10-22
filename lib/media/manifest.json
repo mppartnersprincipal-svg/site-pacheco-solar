@@ -79,6 +79,14 @@
     "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAA4BaJbACdADxHduaZwAAzjlJbLb0sV+gm2e0ojpqBh/Q99xVB2SOt0b0EL8pgH3c7xyD6hMR/+njEcNVLTXqR4AA",
     "alt": ""
   },
+  "logos/pacheco-branco": {
+    "src": "/images/logos/pacheco-branco.webp",
+    "width": 1200,
+    "height": 616,
+    "bytes": 19336,
+    "blurDataURL": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSGIAAAABgGNb2/HqiW2U7mzbNquUttNrBmmdDCFTTO6dQURMAP6RopIJvpK6vWZLHGiZsuyaT+NpO/fZQxx47z6Dk/F+fuZm5ckFiKujuV7Kmuo4VrZpEOCwGWwmm0xjcnhMFhO/A1ZQOCBGAAAA0AEAnQEqEAAIAAOAWiWkAA+ITahVRYAA/swAHX0oBRkhtANMo/NxrymZiYOPmGDWlL9/mSscBKMQ8YNk3dtVeWaVnCgAAA==",
+    "alt": ""
+  },
   "logos/pacheco-gradiente": {
     "src": "/images/logos/pacheco-gradiente.webp",
     "width": 682,
@@ -285,6 +293,22 @@
     "height": 2000,
     "bytes": 294086,
     "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoJABAAA4BaJbACdH8AGBiyxDwAAMp2hXVYmF363mgIIFcb8TqYneiWXgrzfBa95Z5fMv29d5awOH4i6EF9WAAA",
+    "alt": ""
+  },
+  "obras-telhado/telhado-ceramico": {
+    "src": "/images/obras-telhado/telhado-ceramico.webp",
+    "width": 720,
+    "height": 1600,
+    "bytes": 167996,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoHABAAA4BaJaACdAD0u1nIl4kqAAD8guc2IKaUilVkai2JNVw4k7SfJeBZmOwFuxZeeALogiyonuerJJZ59iczkLP4tiZKr0AAAA==",
+    "alt": ""
+  },
+  "obras-telhado/telhado-metalico": {
+    "src": "/images/obras-telhado/telhado-metalico.webp",
+    "width": 720,
+    "height": 1600,
+    "bytes": 105264,
+    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoHABAAA4BaJZQAAuZoKgAA3mfmqoGSyDJ6TiSfnQvrGVaksFfYhQuT5eAAAA==",
     "alt": ""
   },
   "solo-dupla/59bd3a31-78f4-4145-87e1-fb206f04d63c": {

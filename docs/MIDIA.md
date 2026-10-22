@@ -17,20 +17,21 @@ Abra `docs/midia/sheet-<clipe>.jpg` para escolher os trechos:
 | solo-dupla-2716 | 7 s | `docs/midia/sheet-solo-dupla-2716.jpg` |
 | solo-dupla-2715 · 3959 | 5 s | `docs/midia/sheet-solo-dupla-<n>.jpg` |
 
-## Hero (provisório — trocar após aprovação)
+## Hero (vídeo institucional — 22/10/2026)
 
-Hoje o hero usa **IMG_1638, dos 2 s aos 14 s** (`HERO` em `scripts/media/encode-videos.mjs`):
+Fonte: `assets-src/videos/hero-final.mp4` (enviado pelo Lucas em "Vídeo Heroe/Pacheco Solar.mp4"), 1280×720, 25,7 s, 30 fps, com áudio. Cenas: fachada/escritório (0–10 s), fábrica (10–20 s), usina ao pôr do sol (20–25 s). O hero toca o vídeo inteiro em loop, mudo, atrás do texto (desktop e mobile).
 
 | Arquivo | Formato | Uso | Tamanho |
 |---|---|---|---|
-| `public/videos/hero-mobile.mp4/.webm` + `.webp` | 9:16 · 720×1280 | fundo full-bleed no celular | 1,45 MB (mp4) |
-| `public/videos/hero-desktop.mp4/.webm` + `.webp` | 4:5 · 864×1080 | painel ao lado do texto no desktop (recomendado) | 1,83 MB (mp4) |
-| `public/videos/hero-wide.mp4/.webm` + `.webp` | 16:9 · 1280×720 | **opção B**: fundo full-bleed no desktop com corte central (descarta 2/3 do quadro) | 1,56 MB (mp4) |
+| `public/videos/hero.mp4/.webm` | 16:9 · 1280×720 · 24 fps | telas ≥ 768px | 2,66 MB / 3,35 MB |
+| `public/videos/hero-mobile.mp4/.webm` | 16:9 · 854×480 | telas < 768px | 1,06 MB / 1,51 MB |
+| `public/videos/hero.webp` | 1280×720, frame de 21,5 s (usina) | poster/LCP dos dois tamanhos | 64 KB |
 
-**Decisão do Pedro:** (a) manter o painel 4:5 no desktop ou (b) usar o `hero-wide` como fundo; (c) qual clipe/trecho vira o hero (ou montagem de 2–3 trechos de 4 s).
+Para trocar o corte: editar `HERO = { file, start, dur, poster }` em `scripts/media/encode-videos.mjs` e rodar `node scripts/media/encode-videos.mjs --only=hero --force`.
 
-Para trocar: editar `HERO = { file, start, dur }` no script e rodar `node scripts/media/encode-videos.mjs --only=hero --force`.
-Para uma montagem de vários trechos: gerar cada trecho com `--only=hero` em arquivos separados e concatenar com o ffmpeg (`-filter_complex xfade`), ou pedir o corte à Camille e salvar como `assets-src/videos/hero-final.mov`.
+## Fotos vindas do protótipo Lovable (22/10/2026)
+
+Com autorização do Pedro, do preview `id-preview--5a1a5713-….lovable.app`: `obras-telhado/telhado-metalico.jpg` e `telhado-ceramico.jpg` (720×1600, comprimidas — pedir originais em alta ao Lucas [PREENCHER]) e `logos/pacheco-branco.png` (logo branca usada no header/footer). A foto recortada do Lucas (`assets/fundador-*.png`) não pôde ser baixada (o preview exige sessão): salvar manualmente em `assets-src/images/lucas/fundador-recorte.png` e rodar o otimizador — o bloco "Fundador" da home usa a chave `lucas/fundador-recorte` automaticamente quando ela existir no manifesto.
 
 ## Galeria "estrutura em campo"
 

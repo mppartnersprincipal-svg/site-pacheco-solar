@@ -2,9 +2,8 @@
  * Codifica os .mov (4K verticais, H.264) do acervo para a web.
  * Entrada: ../assets-src/videos/solo-dupla-img_XXXX.mov
  * Saída:   public/videos/<nome>.{mp4,webm,webp}  (clipes 9:16 540×960, ≤ 8 s)
- *          public/videos/hero-mobile.*  (9:16 720×1280, 12 s)  — provisório: IMG_1638
- *          public/videos/hero-desktop.* (4:5 864×1080, 12 s)   — recorte central do mesmo trecho
- *          public/videos/hero-wide.*    (16:9 1280×720, 12 s)  — opção B (corte central) para o Pedro avaliar
+ *          public/videos/hero.{mp4,webm,webp}   (16:9 1280×720, loop de 26 s) — vídeo institucional (hero-final.mp4)
+ *          public/videos/hero-mobile.{mp4,webm}  (16:9 854×480) — mesmo vídeo para telas < 768px
  *          docs/midia/sheet-<nome>.jpg  (contact sheet, 1 frame a cada 2 s) para aprovação dos cortes
  * Uso: node scripts/media/encode-videos.mjs [--only=hero|clips|sheets] [--force]
  */
@@ -20,8 +19,11 @@ const DOCS = path.resolve(ROOT, "docs/midia");
 const only = (process.argv.find((a) => a.startsWith("--only=")) ?? "--only=all").split("=")[1];
 const FORCE = process.argv.includes("--force");
 
-/** Trechos provisórios do hero (início em segundos) — trocar após o contact sheet. */
-const HERO = { file: "solo-dupla-img_1638.mov", start: 2, dur: 12 };
+/**
+ * Hero: vídeo institucional 16:9 enviado pelo Lucas (22/10/2026), 1280×720, 25,7 s.
+ * Loop inteiro, sem áudio; poster no frame da usina ao pôr do sol (≈ 21,5 s).
+ */
+const HERO = { file: "hero-final.mp4", start: 0, dur: 26, poster: 21.5 };
 const CLIP_DUR = 8;
 
 await fs.mkdir(OUT, { recursive: true });
@@ -47,14 +49,19 @@ function vf(w, h) {
   return `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h},fps=24,format=yuv420p`;
 }
 
-async function encode({ input, start = 0, dur, w, h, base, crfMp4, crfWebm }) {
+async function encode({ input, start = 0, dur, w, h, base, crfMp4, crfWebm, posterAt = start + 1, semPoster = false }) {
   const mp4 = path.join(OUT, `${base}.mp4`);
   const webm = path.join(OUT, `${base}.webm`);
   const poster = path.join(OUT, `${base}.webp`);
   const trim = ["-ss", String(start), "-t", String(dur)];
   if (FORCE || !(await exists(mp4))) run([...trim, "-i", input, "-vf", vf(w, h), ...H264, "-crf", String(crfMp4), mp4], `${base}.mp4`);
   if (FORCE || !(await exists(webm))) run([...trim, "-i", input, "-vf", vf(w, h), ...VP9, "-crf", String(crfWebm), webm], `${base}.webm`);
-  if (FORCE || !(await exists(poster))) run(["-ss", String(start + 1), "-i", input, "-frames:v", "1", "-vf", `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h}`, "-c:v", "libwebp", "-quality", "75", poster], `${base}.webp`);
+  if (semPoster) {
+    const sizes = await Promise.all([mp4, webm].map(async (p) => ((await fs.stat(p)).size / 1048576).toFixed(2)));
+    console.log(`${base}: mp4 ${sizes[0]} MB · webm ${sizes[1]} MB`);
+    return;
+  }
+  if (FORCE || !(await exists(poster))) run(["-ss", String(posterAt), "-i", input, "-frames:v", "1", "-vf", `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h}`, "-c:v", "libwebp", "-quality", "75", poster], `${base}.webp`);
   const sizes = await Promise.all([mp4, webm, poster].map(async (p) => ((await fs.stat(p)).size / 1048576).toFixed(2)));
   console.log(`${base}: mp4 ${sizes[0]} MB · webm ${sizes[1]} MB · poster ${sizes[2]} MB`);
 }
@@ -74,9 +81,9 @@ if (only === "all" || only === "sheets") {
 
 if (only === "all" || only === "hero") {
   const input = path.join(SRC, HERO.file);
-  await encode({ input, start: HERO.start, dur: HERO.dur, w: 720, h: 1280, base: "hero-mobile", crfMp4: 30, crfWebm: 35 });
-  await encode({ input, start: HERO.start, dur: HERO.dur, w: 864, h: 1080, base: "hero-desktop", crfMp4: 29, crfWebm: 34 });
-  await encode({ input, start: HERO.start, dur: HERO.dur, w: 1280, h: 720, base: "hero-wide", crfMp4: 29, crfWebm: 34 });
+  // hero.webp (1280×720) é o poster/LCP dos dois tamanhos; o mobile usa o mesmo poster
+  await encode({ input, start: HERO.start, dur: HERO.dur, w: 1280, h: 720, base: "hero", crfMp4: 28, crfWebm: 33, posterAt: HERO.poster });
+  await encode({ input, start: HERO.start, dur: HERO.dur, w: 854, h: 480, base: "hero-mobile", crfMp4: 30, crfWebm: 35, semPoster: true });
 }
 
 if (only === "all" || only === "clips") {

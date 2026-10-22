@@ -40,6 +40,15 @@ export const FOTOS_OBRAS: FotoObra[] = [
   { key: "fazenda/fazenda-02", alt: "Perfis sendo montados em fazenda", tipo: "fazenda", legenda: "Fazenda · montagem dos perfis" },
   { key: "fazenda/fazenda-01", alt: "Estacas cravadas em fazenda", tipo: "fazenda", legenda: "Fazenda · estacas cravadas", retrato: true },
   { key: "fazenda/fazenda-03", alt: "Estrutura de solo em fazenda", tipo: "fazenda", legenda: "Fazenda · estrutura" },
+  { key: "obras-telhado/telhado-metalico", alt: "Linha Titan em telhado metálico, mini trilhos fixados antes dos módulos", tipo: "telhado", legenda: "Titan · telhado metálico", retrato: true },
+  { key: "obras-telhado/telhado-ceramico", alt: "Linha Titan em telhado cerâmico, perfis fixados sobre as telhas", tipo: "telhado", legenda: "Titan · telhado cerâmico", retrato: true },
+];
+
+/** Três obras da home (solo + os dois telhados). Fotos de telhado: enviadas pelo Lucas via protótipo (22/10/2026), originais em alta [PREENCHER]. */
+export const OBRAS_DESTAQUE: FotoObra[] = [
+  { key: "obras-fazenda-01/foto-285cf49e", alt: "Usina de solo em pasto com fileiras de módulos", tipo: "fazenda", legenda: "Solo · fazenda" },
+  { key: "obras-telhado/telhado-metalico", alt: "Linha Titan em telhado metálico, mini trilhos fixados antes dos módulos", tipo: "telhado", legenda: "Titan · telhado metálico", retrato: true },
+  { key: "obras-telhado/telhado-ceramico", alt: "Linha Titan em telhado cerâmico, perfis fixados sobre as telhas", tipo: "telhado", legenda: "Titan · telhado cerâmico", retrato: true },
 ];
 
 /** Par antes/depois (mesmo local, verificado no acervo) — obra em fazenda (pasta obras-fazenda-01; nome real só com FLAGS.citarObraCocalinho). */

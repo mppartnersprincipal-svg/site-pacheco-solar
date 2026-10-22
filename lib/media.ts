@@ -10,16 +10,21 @@ export function img(key: MediaKey): MediaEntry {
   return m;
 }
 
+/** Variante tolerante: null quando a foto ainda não entrou no acervo (ex.: fotos do Lucas [PREENCHER]). */
+export function imgOpcional(key: string): MediaEntry | null {
+  return (manifest as Record<string, MediaEntry>)[key] ?? null;
+}
+
 /** Props prontas para <Image> (src, width, height, placeholder blur). */
 export function imageProps(key: MediaKey, alt: string) {
   const m = img(key);
   return { src: m.src, width: m.width, height: m.height, alt, placeholder: "blur" as const, blurDataURL: m.blurDataURL };
 }
 
+/** Hero da home: vídeo institucional 16:9 (hero-final.mp4, 26 s em loop). O poster 1280×720 serve aos dois tamanhos. */
 export const VIDEOS = {
-  heroMobile: { mp4: "/videos/hero-mobile.mp4", webm: "/videos/hero-mobile.webm", poster: "/videos/hero-mobile.webp", width: 720, height: 1280 },
-  heroDesktop: { mp4: "/videos/hero-desktop.mp4", webm: "/videos/hero-desktop.webm", poster: "/videos/hero-desktop.webp", width: 864, height: 1080 },
-  heroWide: { mp4: "/videos/hero-wide.mp4", webm: "/videos/hero-wide.webm", poster: "/videos/hero-wide.webp", width: 1280, height: 720 },
+  hero: { mp4: "/videos/hero.mp4", webm: "/videos/hero.webm", poster: "/videos/hero.webp", width: 1280, height: 720 },
+  heroMobile: { mp4: "/videos/hero-mobile.mp4", webm: "/videos/hero-mobile.webm", poster: "/videos/hero.webp", width: 854, height: 480 },
 } as const;
 
 /** Clipes da galeria "estrutura em campo" (9:16, 540×960, ≤ 8 s). Legendas: [PREENCHER cidade/UF]. */

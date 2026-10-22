@@ -25,6 +25,7 @@ const MAX_EDGE = {
   "obras-lineares": 2000,
   logos: 1200,
   lucas: 1600,
+  "obras-telhado": 1600,
 };
 
 const manifest = {};

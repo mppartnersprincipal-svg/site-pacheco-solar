@@ -2,13 +2,12 @@
 
 Gerado por `node scripts/lint-copy.mjs`. Cada item é um dado que o site NÃO inventa e que precisa de confirmação do cliente (Lucas) via Pedro.
 
-Total: 84
+Total: 83
 
 - `content\contato.ts:24` — [PREENCHER confirmar horário e agendamento]
 - `content\contato.ts:66` — [PREENCHER]
 - `content\contato.ts:76` — [PREENCHER: confirmar com o comercial]
 - `content\home.ts:7` — [PREENCHER]
-- `content\home.ts:54` — [PREENCHER foto do Lucas Pacheco]
 - `content\home.ts:93` — [PREENCHER]
 - `content\home.ts:95` — [PREENCHER]
 - `content\home.ts:96` — [PREENCHER]

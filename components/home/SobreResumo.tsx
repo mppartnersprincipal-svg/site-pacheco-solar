@@ -9,9 +9,9 @@ import { imgOpcional } from "@/lib/media";
 import { SOBRE_RESUMO } from "@/content/home";
 
 /**
- * Seção 4 — o fundador. Esquerda: foto recortada do Lucas sobre um disco ciano
- * com o arco solar laranja (enquanto a foto não entra no acervo, o disco fica
- * com as iniciais); direita: H2 + história literal do briefing + 1 link.
+ * Seção 4 — o fundador. Esquerda: retrato do Lucas (estúdio, 2:3) em card 4:5
+ * com o disco ciano e o arco solar laranja por trás; direita: H2 + história
+ * literal do briefing + 1 link. Sem a foto no manifesto, mostra as iniciais.
  */
 export function SobreResumo() {
   const foto = imgOpcional(SOBRE_RESUMO.fotoKey);
@@ -23,31 +23,33 @@ export function SobreResumo() {
       <Container className="relative py-20 sm:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <figure className="relative mx-auto w-full max-w-[400px]">
-              <div className="relative aspect-square">
-                <div className="absolute inset-[8%] rounded-full bg-ciano" />
-                <ArcoSolar className="absolute inset-x-[-2%] top-[-1%] z-10 h-[56%] w-[104%] text-laranja" espessura={4} />
-                <div className="absolute inset-x-[8%] top-[-10%] bottom-[8%] z-20 overflow-hidden rounded-b-full">
-                  {foto ? (
-                    <Image
-                      src={foto.src}
-                      alt={SOBRE_RESUMO.fotoAlt}
-                      width={foto.width}
-                      height={foto.height}
-                      sizes="(min-width: 1024px) 400px, 80vw"
-                      className="mx-auto h-full w-auto object-contain object-bottom"
-                    />
-                  ) : (
-                    <span className="flex h-full items-end justify-center pb-[18%] font-display text-7xl font-extrabold text-tinta/80" aria-hidden>
-                      LP
-                    </span>
-                  )}
-                </div>
+            <figure className="relative mx-auto w-full max-w-[420px]">
+              {/* Acentos atrás da foto: disco ciano e arco solar laranja */}
+              <div aria-hidden className="absolute -bottom-6 -left-6 size-44 rounded-full bg-ciano/90" />
+              <ArcoSolar className="absolute -top-8 -right-4 h-40 w-[80%] text-laranja" espessura={4} />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-linha bg-chapa">
+                {foto ? (
+                  <Image
+                    src={foto.src}
+                    alt={SOBRE_RESUMO.fotoAlt}
+                    fill
+                    quality={75}
+                    placeholder="blur"
+                    blurDataURL={foto.blurDataURL}
+                    sizes="(min-width: 1024px) 420px, 90vw"
+                    className="object-cover object-[50%_15%]"
+                  />
+                ) : (
+                  <span className="flex h-full items-center justify-center font-display text-7xl font-extrabold text-branco/20" aria-hidden>
+                    LP
+                  </span>
+                )}
+                <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-tinta/80 to-transparent" />
+                <figcaption className="absolute bottom-5 left-5">
+                  <p className="font-display text-xl font-bold leading-tight text-branco">{SOBRE_RESUMO.fundador}</p>
+                  <p className="text-sm text-branco/75">{SOBRE_RESUMO.fundadorRotulo}</p>
+                </figcaption>
               </div>
-              <figcaption className="absolute bottom-[8%] left-0 rounded-xl border border-linha bg-tinta/90 px-4 py-3 backdrop-blur-sm">
-                <p className="font-display text-lg font-bold leading-tight text-branco">{SOBRE_RESUMO.fundador}</p>
-                <p className="text-xs text-aco">{SOBRE_RESUMO.fundadorRotulo}</p>
-              </figcaption>
             </figure>
           </Reveal>
 

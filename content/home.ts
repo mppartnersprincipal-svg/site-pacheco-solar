@@ -51,8 +51,8 @@ export const SOBRE_RESUMO = {
   historia: HISTORIA.texto,
   fundador: SITE.fundador,
   fundadorRotulo: "Fundador · Pacheco Solar",
-  /** Foto recortada do Lucas: [PREENCHER foto do Lucas Pacheco] (lib/media: lucas/fundador-recorte) */
-  fotoKey: "lucas/fundador-recorte",
+  /** Retrato de estúdio do Lucas (assets-src/images/lucas/fundador-lucas.jpg, 22/10/2026) */
+  fotoKey: "lucas/fundador-lucas",
   fotoAlt: "Lucas Pacheco, fundador da Pacheco Solar",
   ctaSobre: "Conhecer a Pacheco",
   ctaSobreHref: ROTAS.sobre,

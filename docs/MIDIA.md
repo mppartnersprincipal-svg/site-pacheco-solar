@@ -31,7 +31,7 @@ Para trocar o corte: editar `HERO = { file, start, dur, poster }` em `scripts/me
 
 ## Fotos vindas do protótipo Lovable (22/10/2026)
 
-Com autorização do Pedro, do preview `id-preview--5a1a5713-….lovable.app`: `obras-telhado/telhado-metalico.jpg` e `telhado-ceramico.jpg` (720×1600, comprimidas — pedir originais em alta ao Lucas [PREENCHER]) e `logos/pacheco-branco.png` (logo branca usada no header/footer). A foto recortada do Lucas (`assets/fundador-*.png`) não pôde ser baixada (o preview exige sessão): salvar manualmente em `assets-src/images/lucas/fundador-recorte.png` e rodar o otimizador — o bloco "Fundador" da home usa a chave `lucas/fundador-recorte` automaticamente quando ela existir no manifesto.
+Com autorização do Pedro, do preview `id-preview--5a1a5713-….lovable.app`: `obras-telhado/telhado-metalico.jpg` e `telhado-ceramico.jpg` (720×1600, comprimidas — pedir originais em alta ao Lucas [PREENCHER]) e `logos/pacheco-branco.png` (logo branca usada no header/footer). A foto recortada do Lucas do Lovable não pôde ser baixada (o preview exige sessão); no lugar entrou o retrato de estúdio enviado pelo Pedro em 22/10/2026 (`assets-src/images/lucas/fundador-lucas.jpg`, 2496×3744), usado em card 4:5 no bloco "Fundador" da home (chave `lucas/fundador-lucas`). Decisão do Pedro: as fotos de telhado ficam as do Lovable mesmo.
 
 ## Galeria "estrutura em campo"
 

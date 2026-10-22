@@ -111,6 +111,14 @@
     "blurDataURL": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4WAoAAAAQAAAADAAADwAAQUxQSF0AAAANcBvbtqrsi7u7RfRACdRMBZo7Dbi7PPk/gwYiYgL4V0FAo12i0ACiAfzp3Me/27xAdKO97EbOzVZnJqIT12CxMvYcbqAYDUkuUquNoEFdFXxAALSIFi0oFxpA88sAVlA4IDwAAADwAQCdASoNABAAA4BaJaQADrADMn9ajwAA/ucgJdXPp7jqFuZ4PvInjDC4jrcC/4Ex8fuiK1h9ekoAAAA=",
     "alt": ""
   },
+  "lucas/fundador-lucas": {
+    "src": "/images/lucas/fundador-lucas.webp",
+    "width": 1067,
+    "height": 1600,
+    "bytes": 21446,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoLABAAA4BaJaQAAvqoUF9AAP7c0lijokFfvVEX8/gSkQZUl5vzT3lxXw0m5gyJ9oDgAA==",
+    "alt": ""
+  },
   "obras-fazenda-01/foto-18b8ca3e": {
     "src": "/images/obras-fazenda-01/foto-18b8ca3e.webp",
     "width": 2000,

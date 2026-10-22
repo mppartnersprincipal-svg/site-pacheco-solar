@@ -32,7 +32,7 @@ export function AntesDepoisEstaca({
     return (
       <figure className={cn("grid gap-3 sm:grid-cols-2", className)}>
         {[antes, depois].map((f, i) => (
-          <div key={i} className="relative chanfro overflow-hidden bg-superficie">
+          <div key={i} className="relative rounded-2xl overflow-hidden bg-superficie">
             <Image src={f.src} alt={f.alt} width={f.width} height={f.height} quality={60} placeholder={f.blurDataURL ? "blur" : undefined} blurDataURL={f.blurDataURL} sizes="(min-width: 640px) 50vw, 100vw" className="h-full w-full object-cover" />
             <span className="absolute top-3 left-3 bg-fundo/80 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-branco">{i === 0 ? "Antes" : "Depois"}</span>
           </div>
@@ -52,7 +52,7 @@ export function AntesDepoisEstaca({
     <figure className={className}>
       <div
         ref={ref}
-        className="relative aspect-[3/2] w-full touch-pan-y select-none chanfro overflow-hidden bg-superficie"
+        className="relative aspect-[3/2] w-full touch-pan-y select-none rounded-2xl overflow-hidden bg-superficie"
         onPointerDown={(e) => {
           (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
           update(e.clientX);

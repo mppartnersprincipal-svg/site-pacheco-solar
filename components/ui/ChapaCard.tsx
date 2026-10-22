@@ -1,9 +1,8 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Cartão-padrão do site: "chapa" #26282B com cantos chanfrados (corte de perfil),
- * borda 1px e numeração mono opcional (01–06). Sem sombra animada: só a borda
- * muda no hover (transition de cor).
+ * Cartão-padrão do site: "chapa" petróleo com cantos arredondados, borda 1px e
+ * numeração opcional (01–06). No hover só a borda muda e o card sobe 2px.
  */
 export function ChapaCard({
   numero,
@@ -24,9 +23,9 @@ export function ChapaCard({
   return (
     <Tag
       className={cn(
-        "relative chanfro border p-6 transition-colors duration-200 sm:p-7",
+        "relative rounded-2xl border p-6 transition-[border-color,transform] duration-200 sm:p-7",
         claro ? "border-placa-clara/60 bg-placa-clara text-preto" : "border-linha bg-chapa text-branco",
-        interactive && "hover:border-laranja",
+        interactive && "hover:-translate-y-0.5 hover:border-laranja/60",
         className
       )}
     >
@@ -34,8 +33,8 @@ export function ChapaCard({
         <span
           aria-hidden
           className={cn(
-            "pointer-events-none absolute top-4 right-5 font-mono text-xs tracking-[0.2em]",
-            claro ? "text-preto/40" : "text-aco/70"
+            "pointer-events-none absolute top-4 right-5 font-mono text-xs font-semibold tracking-[0.2em]",
+            claro ? "text-preto/40" : "text-laranja-texto"
           )}
         >
           {numero}

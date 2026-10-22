@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { IconKit } from "@/components/icons";
 import { DEPOIMENTOS_OBRAS } from "@/content/obras";
 import { FLAGS } from "@/config/feature-flags";
@@ -19,7 +18,7 @@ export function DepoimentosObras() {
         <ul className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {DEPOIMENTOS.map((d, i) => (
             <Reveal key={d.nome} as="li" delay={i * 70} className="w-[82vw] shrink-0 snap-start sm:w-auto">
-              <blockquote className="relative flex h-full flex-col chanfro border border-linha bg-chapa p-6 sm:p-7">
+              <blockquote className="relative flex h-full flex-col rounded-2xl border border-linha bg-chapa p-6 sm:p-7">
                 <div className="mb-5 flex items-center justify-between border-b border-dashed border-linha pb-4 font-mono text-[11px] uppercase tracking-[0.16em] text-aco">
                   <span className="flex items-center gap-2">
                     <IconKit className="size-4 text-laranja" />
@@ -40,7 +39,6 @@ export function DepoimentosObras() {
 
         {FLAGS.parceiros ? (
           <>
-            <TrilhoDivisor className="my-14" />
             <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-laranja-texto">{DEPOIMENTOS_OBRAS.parceirosTitulo}</p>
             <ul className="flex flex-wrap items-center gap-x-10 gap-y-4">
               {PARCEIROS.map((p) => (

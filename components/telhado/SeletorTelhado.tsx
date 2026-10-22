@@ -195,7 +195,7 @@ export function SeletorTelhado({ variantes, rotulos }: SeletorTelhadoProps) {
         >
           {/* Render geral + close-up sobreposto */}
           <div className="relative lg:col-span-7">
-            <figure className="chanfro bg-placa-clara p-2">
+            <figure className="rounded-2xl bg-placa-clara p-2">
               <Image
                 src={v.renderGeral.src}
                 width={v.renderGeral.width}
@@ -210,7 +210,7 @@ export function SeletorTelhado({ variantes, rotulos }: SeletorTelhadoProps) {
                 Linha Titan · {v.nome} · Render
               </figcaption>
             </figure>
-            <figure className="chanfro-sm absolute right-3 bottom-10 w-[38%] border border-linha bg-chapa p-1.5 shadow-[0_12px_32px_rgb(0_0_0/0.45)] sm:right-5 sm:bottom-12 sm:w-[34%]">
+            <figure className="rounded-xl absolute right-3 bottom-10 w-[38%] border border-linha bg-chapa p-1.5 shadow-[0_12px_32px_rgb(0_0_0/0.45)] sm:right-5 sm:bottom-12 sm:w-[34%]">
               <Image
                 src={v.renderClose.src}
                 width={v.renderClose.width}

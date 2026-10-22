@@ -66,7 +66,7 @@ export function VariantesSolo({ itens, rotuloTablist, rotuloConfiguracao, legend
     <div className={cn("grid items-start gap-10 lg:grid-cols-12 lg:gap-12", className)}>
       {/* Coluna de texto */}
       <div className="lg:col-span-5">
-        <div role="tablist" aria-label={rotuloTablist} className="inline-flex chanfro-sm border border-linha bg-superficie p-1">
+        <div role="tablist" aria-label={rotuloTablist} className="inline-flex rounded-xl border border-linha bg-superficie p-1">
           {itens.map((v, i) => {
             const selecionada = i === ativo;
             return (
@@ -85,7 +85,7 @@ export function VariantesSolo({ itens, rotuloTablist, rotuloConfiguracao, legend
                 onKeyDown={onKeyDown}
                 className={cn(
                   "inline-flex min-h-11 cursor-pointer items-center gap-2 px-5 font-display text-sm font-semibold tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
-                  selecionada ? "chanfro-sm bg-laranja text-preto" : "text-aco hover:text-branco"
+                  selecionada ? "rounded-xl bg-laranja text-preto" : "text-aco hover:text-branco"
                 )}
               >
                 {i === 0 ? <IconTrilho className="size-4" /> : <IconEstaca className="size-4" />}
@@ -127,7 +127,7 @@ export function VariantesSolo({ itens, rotuloTablist, rotuloConfiguracao, legend
 
       {/* Foto com crossfade */}
       <div className="lg:col-span-7">
-        <figure className="relative chanfro overflow-hidden border border-linha bg-superficie">
+        <figure className="relative rounded-2xl overflow-hidden border border-linha bg-superficie">
           <div className="relative aspect-[4/5] w-full sm:aspect-[4/3] lg:aspect-[5/4]">
             {transicoes((style, idx) => {
               const v = itens[idx];

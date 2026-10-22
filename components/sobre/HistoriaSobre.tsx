@@ -5,7 +5,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { Parallax } from "@/components/motion/Parallax";
 import { EstacaTimeline } from "@/components/nicho/EstacaTimeline";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { LinkInterno } from "@/components/tracking/LinkInterno";
 import { img } from "@/lib/media";
 import { ROTAS } from "@/lib/site";
@@ -21,7 +20,6 @@ export function HistoriaSobre() {
   const foto = { src: m.src, alt: SOBRE_HERO.fotoAlt, placeholder: "blur" as const, blurDataURL: m.blurDataURL };
   return (
     <section id="historia" data-linha="equipe" className="relative bg-superficie">
-      <TrilhoDivisor className="absolute top-0 right-0 left-0" />
       <Container className="py-20 sm:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
@@ -40,7 +38,7 @@ export function HistoriaSobre() {
           <Reveal delay={160} className="lg:col-span-5">
             <Parallax amount={12}>
               <figure className="relative">
-                <div className="chanfro relative aspect-[4/5] overflow-hidden border border-linha bg-chapa">
+                <div className="rounded-2xl relative aspect-[4/5] overflow-hidden border border-linha bg-chapa">
                   <Image
                     {...foto}
                     alt={foto.alt}
@@ -55,7 +53,7 @@ export function HistoriaSobre() {
                     {SOBRE_HISTORIA.legendaFoto}
                   </figcaption>
                 </div>
-                <p className="chanfro-sm mt-3 inline-block border border-dashed border-linha px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-aco">
+                <p className="rounded-xl mt-3 inline-block border border-dashed border-linha px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-aco">
                   {SOBRE_HERO.fotoLucas}
                 </p>
               </figure>

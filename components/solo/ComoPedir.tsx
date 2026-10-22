@@ -4,7 +4,6 @@ import { ChapaCard } from "@/components/ui/ChapaCard";
 import { Reveal } from "@/components/motion/Reveal";
 import { WaButton } from "@/components/cta/WaButton";
 import { EstacaTimeline } from "@/components/nicho/EstacaTimeline";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { IconGrampo } from "@/components/icons";
 import { COMO_PEDIR } from "@/content/solo";
 import { PROCESSO_COMPRA } from "@/content/institucional";
@@ -44,7 +43,6 @@ export function ComoPedir() {
           </Reveal>
         </div>
 
-        <TrilhoDivisor className="my-14 sm:my-20" ativo />
 
         <Reveal>
           <h3 className="mb-10 font-display text-2xl font-bold sm:text-3xl">{COMO_PEDIR.processoTitulo}</h3>

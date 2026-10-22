@@ -48,7 +48,7 @@ export function AmbienteAgressivo() {
 
           <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:col-span-7">
             <Reveal className="col-span-2">
-              <figure className="relative chanfro overflow-hidden border border-linha bg-fundo">
+              <figure className="relative rounded-2xl overflow-hidden border border-linha bg-fundo">
                 <div className="relative aspect-[16/10] w-full">
                   <Image
                     src={principal.src}
@@ -67,7 +67,7 @@ export function AmbienteAgressivo() {
             </Reveal>
             {secundarias.map((f, i) => (
               <Reveal key={f.src} delay={120 + i * 80}>
-                <figure className="relative chanfro-sm overflow-hidden border border-linha bg-fundo">
+                <figure className="relative rounded-xl overflow-hidden border border-linha bg-fundo">
                   <div className="relative aspect-[4/5] w-full">
                     <Image src={f.src} alt={f.alt} fill sizes="(min-width: 1024px) 28vw, 50vw" placeholder="blur" blurDataURL={f.blurDataURL} className="object-cover" />
                   </div>

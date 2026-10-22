@@ -103,7 +103,7 @@ export function ListaDeMateriais({ variantes, rotulos }: ListaDeMateriaisProps) 
       </div>
 
       <div className="lg:col-span-5">
-        <div className="chanfro border border-linha bg-superficie p-4 sm:p-6">
+        <div className="rounded-2xl border border-linha bg-superficie p-4 sm:p-6">
           <KitExplodido key={tipo} tipo={tipo} rotulos={rotulos.explodido} />
         </div>
       </div>

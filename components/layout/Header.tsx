@@ -17,7 +17,7 @@ type Logo = { src: string; width: number; height: number };
 
 function Badge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="bg-laranja px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-preto">
+    <span className="rounded-full bg-laranja px-1.5 py-0.5 font-sans text-[10px] font-bold uppercase tracking-wider text-branco">
       {children}
     </span>
   );
@@ -27,6 +27,11 @@ const semInscricao = () => () => {};
 const montadoNoCliente = () => true;
 const montadoNoServidor = () => false;
 
+/**
+ * Header fixo: logo branca | navegação centralizada | CTA em pílula. Fundo
+ * petróleo translúcido com blur; a linha laranja do topo é uma barra de
+ * progresso de leitura em CSS puro (.progresso-scroll).
+ */
 export function Header({ logo }: { logo: Logo }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -80,22 +85,21 @@ export function Header({ logo }: { logo: Logo }) {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 border-b border-linha/60 bg-fundo/90 backdrop-blur-sm transition-shadow",
-        scrolled && "shadow-lg shadow-black/30"
+        "sticky top-0 z-40 border-b border-linha bg-fundo/75 backdrop-blur-md transition-shadow",
+        scrolled && "shadow-lg shadow-tinta/40"
       )}
     >
-      {/* Trilho laranja de 2px — motivo do perfil */}
-      <div aria-hidden className="h-0.5 w-full bg-laranja" />
+      <div aria-hidden className="progresso-scroll h-0.5 w-full bg-laranja" />
       <Container
         className={cn(
-          "flex items-center justify-between gap-4 transition-[padding] duration-300",
+          "grid grid-cols-[auto_1fr_auto] items-center gap-4 transition-[padding] duration-300",
           scrolled ? "py-2.5" : "py-4"
         )}
       >
         <Link
           href={ROTAS.home}
           aria-label="Pacheco Solar, página inicial"
-          className="shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azul-idv"
+          className="shrink-0 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azul-idv"
         >
           <Image
             src={logo.src}
@@ -103,12 +107,12 @@ export function Header({ logo }: { logo: Logo }) {
             width={logo.width}
             height={logo.height}
             priority
-            className={cn("h-auto transition-[width] duration-300", scrolled ? "w-32" : "w-36 sm:w-40")}
+            className={cn("h-auto transition-[width] duration-300", scrolled ? "w-28" : "w-32 sm:w-36")}
           />
         </Link>
 
-        <nav aria-label="Navegação principal" className="hidden lg:block">
-          <ul className="flex items-center gap-6">
+        <nav aria-label="Navegação principal" className="hidden justify-center lg:flex">
+          <ul className="flex items-center gap-7">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
@@ -116,10 +120,10 @@ export function Header({ logo }: { logo: Logo }) {
                   aria-current={isActive(link.href) ? "page" : undefined}
                   onClick={() => trackNavigation({ destino: link.href, origem: "header" })}
                   className={cn(
-                    "relative inline-flex items-center gap-1.5 py-1 font-display text-sm font-medium tracking-wide transition-colors hover:text-branco focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azul-idv",
+                    "relative inline-flex items-center gap-1.5 py-1 font-sans text-sm font-medium transition-colors hover:text-branco focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azul-idv",
                     isActive(link.href)
-                      ? "text-branco after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:bg-laranja"
-                      : "text-aco"
+                      ? "text-branco after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-laranja"
+                      : "text-branco/75"
                   )}
                 >
                   {link.label}
@@ -130,9 +134,9 @@ export function Header({ logo }: { logo: Logo }) {
           </ul>
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2">
-          <WaButton ctaId="header-whatsapp" posicao="header" size="md" className="max-sm:hidden">
-            WhatsApp
+        <div className="flex shrink-0 items-center justify-end gap-2">
+          <WaButton ctaId="header-whatsapp" posicao="header" size="md" withIcon={false} className="max-sm:hidden">
+            Pedir orçamento
           </WaButton>
           <WaButton ctaId="header-whatsapp-mobile" posicao="header" size="md" className="px-3! sm:hidden">
             <span className="sr-only">WhatsApp</span>
@@ -142,7 +146,7 @@ export function Header({ logo }: { logo: Logo }) {
             onClick={() => setOpen(true)}
             aria-label="Abrir menu"
             aria-expanded={open}
-            className="inline-flex size-11 cursor-pointer items-center justify-center text-branco transition-colors hover:bg-branco/10 focus-visible:outline-2 focus-visible:outline-azul-idv lg:hidden"
+            className="inline-flex size-11 cursor-pointer items-center justify-center rounded-full text-branco transition-colors hover:bg-branco/10 focus-visible:outline-2 focus-visible:outline-azul-idv lg:hidden"
           >
             <Menu className="size-6" aria-hidden />
           </button>
@@ -158,7 +162,7 @@ export function Header({ logo }: { logo: Logo }) {
                   type="button"
                   aria-label="Fechar menu"
                   tabIndex={-1}
-                  className="absolute inset-0 bg-fundo/70 backdrop-blur-sm"
+                  className="absolute inset-0 bg-tinta/70 backdrop-blur-sm"
                   onClick={() => setOpen(false)}
                 />
                 <animated.div
@@ -169,13 +173,13 @@ export function Header({ logo }: { logo: Logo }) {
                   className="absolute inset-y-0 right-0 flex w-full max-w-xs flex-col border-l border-linha bg-superficie p-6"
                 >
                   <div className="mb-8 flex items-center justify-between">
-                    <Image src={logo.src} alt="Pacheco Solar" width={logo.width} height={logo.height} className="h-auto w-32" />
+                    <Image src={logo.src} alt="Pacheco Solar" width={logo.width} height={logo.height} className="h-auto w-28" />
                     <button
                       ref={closeRef}
                       type="button"
                       onClick={() => setOpen(false)}
                       aria-label="Fechar menu"
-                      className="inline-flex size-11 cursor-pointer items-center justify-center text-branco hover:bg-branco/10 focus-visible:outline-2 focus-visible:outline-azul-idv"
+                      className="inline-flex size-11 cursor-pointer items-center justify-center rounded-full text-branco hover:bg-branco/10 focus-visible:outline-2 focus-visible:outline-azul-idv"
                     >
                       <X className="size-6" aria-hidden />
                     </button>
@@ -191,8 +195,8 @@ export function Header({ logo }: { logo: Logo }) {
                               setOpen(false);
                             }}
                             className={cn(
-                              "flex items-center justify-between px-3 py-3 font-display text-lg font-medium transition-colors hover:bg-branco/5 focus-visible:outline-2 focus-visible:outline-azul-idv",
-                              isActive(link.href) ? "border-l-2 border-laranja text-branco" : "text-aco hover:text-branco"
+                              "flex items-center justify-between rounded-xl px-3 py-3 font-sans text-lg font-semibold transition-colors hover:bg-branco/5 focus-visible:outline-2 focus-visible:outline-azul-idv",
+                              isActive(link.href) ? "bg-branco/5 text-branco" : "text-branco/75 hover:text-branco"
                             )}
                           >
                             {link.label}
@@ -205,7 +209,7 @@ export function Header({ logo }: { logo: Logo }) {
                   <WaButton ctaId="menu-mobile-whatsapp" posicao="menu-mobile" className="w-full">
                     Pedir orçamento no WhatsApp
                   </WaButton>
-                  <p className="mt-3 text-center font-mono text-xs text-aco">
+                  <p className="mt-3 text-center text-xs text-aco">
                     {SITE.telefone.display} · {SITE.horario}
                   </p>
                 </animated.div>

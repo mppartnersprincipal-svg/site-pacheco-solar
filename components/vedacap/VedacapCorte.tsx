@@ -74,7 +74,7 @@ export function VedacapCorte({ versoes, rotulos, toggleSem, toggleCom, corLabel,
   const trincas = useSpring({ opacity: com ? 0 : 1, config: { tension: 200, friction: 24 } });
 
   return (
-    <figure className="chanfro border border-branco/10 bg-fundo/70 p-4 sm:p-5">
+    <figure className="rounded-2xl border border-branco/10 bg-fundo/70 p-4 sm:p-5">
       <figcaption className="mb-3 flex items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-aco">
         <span>{titulo}</span>
         <span aria-live="polite" className={cn(com ? "text-laranja-texto" : "text-aco")}>
@@ -223,7 +223,7 @@ export function VedacapCorte({ versoes, rotulos, toggleSem, toggleCom, corLabel,
             aria-pressed={!com}
             onClick={() => setCom(false)}
             className={cn(
-              "min-h-11 flex-1 chanfro-sm px-3 font-display text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
+              "min-h-11 flex-1 rounded-xl px-3 font-display text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
               !com ? "bg-branco text-preto" : "border border-branco/30 text-branco hover:border-branco/60"
             )}
           >
@@ -234,7 +234,7 @@ export function VedacapCorte({ versoes, rotulos, toggleSem, toggleCom, corLabel,
             aria-pressed={com}
             onClick={() => setCom(true)}
             className={cn(
-              "min-h-11 flex-1 chanfro-sm px-3 font-display text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
+              "min-h-11 flex-1 rounded-xl px-3 font-display text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
               com ? "bg-laranja text-preto" : "border border-branco/30 text-branco hover:border-branco/60"
             )}
           >
@@ -254,11 +254,11 @@ export function VedacapCorte({ versoes, rotulos, toggleSem, toggleCom, corLabel,
                 title={v.nome}
                 onClick={() => setCor(v.id)}
                 className={cn(
-                  "flex size-11 items-center justify-center chanfro-sm border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
+                  "flex size-11 items-center justify-center rounded-xl border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
                   on ? "border-laranja" : "border-branco/20 hover:border-branco/50"
                 )}
               >
-                <span aria-hidden className={cn("block size-6 chanfro-sm", v.swatch)} />
+                <span aria-hidden className={cn("block size-6 rounded-xl", v.swatch)} />
               </button>
             );
           })}

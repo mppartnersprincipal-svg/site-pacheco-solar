@@ -18,7 +18,7 @@ export function FichaTecnica() {
 
   return (
     <Reveal>
-      <div className="chanfro border border-linha bg-superficie">
+      <div className="rounded-2xl border border-linha bg-superficie">
         {/* Bloco-título (carimbo de prancha) */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-linha px-5 py-4 sm:px-8">
           <p className="font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-branco sm:text-xs">{DADOS_TECNICOS.blocoTitulo}</p>

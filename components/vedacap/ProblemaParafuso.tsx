@@ -27,7 +27,7 @@ export function ProblemaParafuso() {
           {VEDACAP_PROBLEMA.cards.map((c, i) => (
             <Reveal key={c.id} as="li" delay={i * 90} className="flex">
               <ChapaCard numero={String(i + 1).padStart(2, "0")} className="flex w-full flex-col">
-                <span className="flex size-12 items-center justify-center chanfro-sm bg-navy text-branco">
+                <span className="flex size-12 items-center justify-center rounded-xl bg-navy text-branco">
                   <Icone tipo={c.icone} className="size-6" />
                 </span>
                 <h3 className="mt-5 font-display text-xl font-semibold leading-snug text-branco">{c.titulo}</h3>

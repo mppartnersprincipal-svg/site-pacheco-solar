@@ -25,7 +25,7 @@ export function ParaQuem() {
             return (
               <Reveal key={p.id} as="li" delay={i * 90} className="flex">
                 <ChapaCard numero={String(i + 1).padStart(2, "0")} className="flex w-full flex-col" interactive>
-                  <span className={lojista ? "flex size-12 items-center justify-center chanfro-sm bg-navy text-branco" : "flex size-12 items-center justify-center chanfro-sm bg-laranja text-preto"}>
+                  <span className={lojista ? "flex size-12 items-center justify-center rounded-xl bg-navy text-branco" : "flex size-12 items-center justify-center rounded-xl bg-laranja text-preto"}>
                     <Icone className="size-6" />
                   </span>
                   <h3 className="mt-5 font-display text-xl font-semibold leading-snug text-branco">{p.nome}</h3>

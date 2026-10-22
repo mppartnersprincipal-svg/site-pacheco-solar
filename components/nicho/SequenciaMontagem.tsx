@@ -33,7 +33,7 @@ export function SequenciaMontagem({ etapas, className }: { etapas: Etapa[]; clas
 
   return (
     <div ref={ref} className={cn("grid gap-4", className)}>
-      <div className="relative aspect-[4/3] w-full chanfro overflow-hidden bg-superficie">
+      <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-superficie">
         {transitions((style, idx) => {
           const e = etapas[idx];
           return (

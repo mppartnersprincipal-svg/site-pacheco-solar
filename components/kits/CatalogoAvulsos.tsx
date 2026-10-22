@@ -57,7 +57,7 @@ export function CatalogoAvulsos({ itens }: CatalogoAvulsosProps) {
               aria-pressed={on}
               onClick={() => setFiltro(f.id as Filtro)}
               className={cn(
-                "min-h-11 chanfro-sm px-5 font-display text-sm font-semibold tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
+                "min-h-11 rounded-xl px-5 font-display text-sm font-semibold tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
                 on ? "bg-laranja text-preto" : "border border-linha text-branco hover:border-aco"
               )}
             >
@@ -76,7 +76,7 @@ export function CatalogoAvulsos({ itens }: CatalogoAvulsosProps) {
           if (!item) return null;
           return (
             <animated.li key={item.slug} style={style} className="flex">
-              <article className="group flex w-full flex-col chanfro border border-linha bg-chapa transition-colors hover:border-laranja">
+              <article className="group flex w-full flex-col rounded-2xl border border-linha bg-chapa transition-colors hover:border-laranja">
                 <div className="relative aspect-square w-full overflow-hidden bg-placa-clara">
                   {item.imagem ? (
                     <Image

@@ -49,7 +49,7 @@ export function HeroKits({ render }: HeroKitsProps) {
           </Reveal>
         </div>
         <Reveal imediato delay={200} className="lg:col-span-5">
-          <figure className="chanfro bg-placa-clara p-2">
+          <figure className="rounded-2xl bg-placa-clara p-2">
             <Image
               src={render.src}
               alt={KITS_HERO.imagemAlt}

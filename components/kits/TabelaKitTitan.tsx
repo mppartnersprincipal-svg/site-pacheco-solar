@@ -42,7 +42,7 @@ export function TabelaKitTitan({ variantes, colunas }: TabelaKitTitanProps) {
               aria-pressed={on}
               onClick={() => setAtiva(v.id)}
               className={cn(
-                "min-h-11 chanfro-sm px-4 font-display text-sm font-semibold tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
+                "min-h-11 rounded-xl px-4 font-display text-sm font-semibold tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
                 on ? "bg-laranja text-preto" : "border border-linha text-branco hover:border-aco"
               )}
             >

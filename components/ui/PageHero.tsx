@@ -7,8 +7,9 @@ import { cn } from "@/lib/utils";
 type Img = { src: string; width: number; height: number; blurDataURL?: string };
 
 /**
- * Hero das páginas internas: foto real (overlay só na área de texto, nunca
- * duotone) ou render em card claro; eyebrow mono, H1, sub, placas e CTAs.
+ * Hero das páginas internas: foto real full-bleed com o gradiente do hero
+ * (escuro à esquerda, foto respirando à direita) ou render em card claro;
+ * eyebrow laranja, H1 display, sub curto, selos em pílula e CTAs.
  */
 export function PageHero({
   eyebrow,
@@ -33,7 +34,7 @@ export function PageHero({
   render?: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden bg-fundo grade-modulos">
+    <section className="relative overflow-hidden bg-fundo">
       {image && !render ? (
         <>
           <Image
@@ -48,21 +49,23 @@ export function PageHero({
             className="object-cover"
             style={{ objectPosition: imagePosition }}
           />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-fundo via-fundo/85 to-fundo/30" />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-fundo via-transparent to-fundo/40" />
+          <div aria-hidden className="absolute inset-0 gradiente-hero" />
+          <div aria-hidden className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-fundo to-transparent" />
         </>
-      ) : null}
-      <Container className={cn("relative py-20 sm:py-28", render && "grid items-center gap-10 lg:grid-cols-12")}>
+      ) : (
+        <div aria-hidden className="absolute inset-0 brilho opacity-60" />
+      )}
+      <Container className={cn("relative py-24 sm:py-32", render && "grid items-center gap-10 lg:grid-cols-12")}>
         <div className={cn(render && "lg:col-span-7")}>
           <Reveal imediato>
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja-texto">{eyebrow}</p>
+            <p className="mb-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-laranja-texto">{eyebrow}</p>
           </Reveal>
           <Reveal imediato delay={80}>
-            <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.02] sm:text-5xl lg:text-6xl">{title}</h1>
+            <h1 className="max-w-3xl font-display text-5xl font-extrabold leading-[0.98] sm:text-6xl lg:text-7xl">{title}</h1>
           </Reveal>
           {subtitle ? (
             <Reveal imediato delay={160}>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-aco sm:text-lg">{subtitle}</p>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-branco/80 sm:text-lg">{subtitle}</p>
             </Reveal>
           ) : null}
           {placas?.length ? (
@@ -84,7 +87,7 @@ export function PageHero({
         </div>
         {image && render ? (
           <Reveal imediato delay={200} className="lg:col-span-5">
-            <div className="chanfro bg-placa-clara p-2">
+            <div className="overflow-hidden rounded-2xl bg-placa-clara p-2">
               <Image
                 src={image.src}
                 alt={imageAlt ?? ""}
@@ -94,7 +97,7 @@ export function PageHero({
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 placeholder={image.blurDataURL ? "blur" : undefined}
                 blurDataURL={image.blurDataURL}
-                className="h-auto w-full"
+                className="h-auto w-full rounded-xl"
               />
             </div>
           </Reveal>

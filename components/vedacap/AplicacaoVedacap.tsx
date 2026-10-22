@@ -20,7 +20,7 @@ export function AplicacaoVedacap() {
           <div className="lg:col-span-5">
             <SectionHeading eyebrow={VEDACAP_APLICACAO.eyebrow} title={VEDACAP_APLICACAO.titulo} destaque="cola PU" className="mb-6 sm:mb-8" />
             <Reveal delay={80}>
-              <p role="note" className="inline-flex items-center gap-3 chanfro-sm bg-laranja px-5 py-3.5 font-display text-lg font-semibold text-preto">
+              <p role="note" className="inline-flex items-center gap-3 rounded-xl bg-laranja px-5 py-3.5 font-display text-lg font-semibold text-preto">
                 <Ban className="size-5 shrink-0" aria-hidden strokeWidth={2} />
                 {VEDACAP_APLICACAO.aviso}
               </p>
@@ -44,7 +44,7 @@ export function AplicacaoVedacap() {
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-laranja-texto">Passo a passo oficial</p>
               <ol className="mt-5 space-y-3">
                 <li className="flex items-start gap-4">
-                  <span className="flex size-9 shrink-0 items-center justify-center chanfro-sm border border-linha font-mono text-xs text-aco">01</span>
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-xl border border-linha font-mono text-xs text-aco">01</span>
                   <p className="pt-1.5 font-mono text-sm leading-relaxed text-laranja-texto">{VEDACAP_APLICACAO.passoAPasso}</p>
                 </li>
               </ol>

@@ -5,7 +5,6 @@ import { PlacaIdentificacao } from "@/components/cta/PlacaIdentificacao";
 import { WaButton } from "@/components/cta/WaButton";
 import { Reveal } from "@/components/motion/Reveal";
 import { EstacaTimeline } from "@/components/nicho/EstacaTimeline";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { FORCAS } from "@/content/institucional";
 import { SOBRE_COMO_TRABALHAMOS, SOBRE_SETORES } from "@/content/sobre";
 
@@ -18,7 +17,6 @@ export function ComoTrabalhamos() {
   const { fotosLegendas, fotosPlaceholder } = SOBRE_COMO_TRABALHAMOS;
   return (
     <section id="como-trabalhamos" data-linha="equipe" className="relative bg-fundo">
-      <TrilhoDivisor ativo className="absolute top-0 right-0 left-0" />
       <Container className="py-20 sm:py-28">
         <SectionHeading eyebrow={SOBRE_COMO_TRABALHAMOS.eyebrow} title={SOBRE_COMO_TRABALHAMOS.titulo} subtitle={SOBRE_COMO_TRABALHAMOS.paragrafo} />
 
@@ -33,7 +31,7 @@ export function ComoTrabalhamos() {
         <ul className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label={fotosPlaceholder}>
           {fotosLegendas.map((legenda, i) => (
             <Reveal key={legenda} as="li" delay={i * 80}>
-              <div className="chanfro flex aspect-[4/3] flex-col justify-between border border-dashed border-linha bg-superficie p-4 vinheta">
+              <div className="rounded-2xl flex aspect-[4/3] flex-col justify-between border border-dashed border-linha bg-superficie p-4 vinheta">
                 <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-aco">
                   <span>{String(i + 1).padStart(2, "0")}</span>
                   <Camera className="size-4" aria-hidden />

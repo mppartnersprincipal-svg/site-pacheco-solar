@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/utils";
 
-/** Cabeçalho de seção: eyebrow mono + H2 display + subtítulo. */
+/** Cabeçalho de seção: eyebrow laranja em caixa-alta + H2 display grande + subtítulo curto. */
 export function SectionHeading({
   eyebrow,
   title,
@@ -22,20 +22,20 @@ export function SectionHeading({
   return (
     <Reveal className={cn("mb-10 max-w-3xl sm:mb-14", align === "center" ? "mx-auto text-center" : "text-left", className)}>
       {eyebrow ? (
-        <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-laranja-texto">{eyebrow}</p>
+        <p className="mb-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-laranja-texto">{eyebrow}</p>
       ) : null}
-      <h2 className="font-display text-3xl font-bold leading-[1.05] sm:text-4xl lg:text-5xl">
+      <h2 className="font-display text-4xl font-bold leading-[1.02] sm:text-5xl lg:text-6xl">
         {parts ? (
           <>
             {parts[0]}
-            <span className="text-laranja">{destaque}</span>
+            <span className="text-laranja-texto">{destaque}</span>
             {parts.slice(1).join(destaque)}
           </>
         ) : (
           title
         )}
       </h2>
-      {subtitle ? <p className="mt-4 max-w-2xl text-base leading-relaxed text-aco sm:text-lg">{subtitle}</p> : null}
+      {subtitle ? <p className="mt-5 max-w-2xl text-base leading-relaxed text-aco sm:text-lg">{subtitle}</p> : null}
     </Reveal>
   );
 }

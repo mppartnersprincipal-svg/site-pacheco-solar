@@ -53,10 +53,11 @@ Site institucional multi-página da Pacheco Solar (indústria de estruturas met�
 
 ```
 app/                       rotas: / · estruturas-de-solo · estruturas-para-telhado · kits-e-itens-avulsos · vedacap · obras · sobre · contato · politica-de-privacidade
-components/layout/         Header, MobileDrawer, Footer, SmoothScroll, CookieBanner
-components/cta/            WaButton, BotaoWhatsAppInteligente, BarraProntaEntrega, PlacaIdentificacao
-components/motion/         Reveal, Counter, Parallax, Marquee (react-spring)
-components/nicho/          componentes do nicho (TrilhoDivisor, ArcoSolar, GradeModulos, TrilhoDorSolucao, EstacaTimeline, GaleriaEmCampo, AntesDepoisEstaca, SequenciaMontagem, SeletorTelhado, HotspotsComponentes, FichaTecnica, IsopletaVento, ListaDeMateriais, CatalogoAvulsos, VedacapCorte, AccordionObjecoes)
+components/layout/         Header (logo branca, nav central, CTA pílula, barra de progresso CSS), Footer (3 colunas), SmoothScroll, CookieBanner
+components/cta/            WaButton, BotaoWhatsAppInteligente, CtaFinal (faixa ciano), PlacaIdentificacao (pílula)
+components/motion/         Reveal, Counter, Parallax (react-spring)
+components/nicho/          ArcoSolar, EstacaTimeline (internas), GaleriaEmCampo, AntesDepoisEstaca, SequenciaMontagem, AccordionObjecoes
+components/home/           HeroVideo (vídeo 16:9 full-bleed), Proposito, LinhasDeProduto (3 cards + faixa Vedacap), SobreResumo, ObrasDestaque, Diferenciais, ComoFunciona, ProvaSocial
 components/tracking/       TrackingProvider (GTM + Consent Mode v2 + page_view + UTMs + scroll + section_view)
 components/seo/            JsonLd
 components/ui/             Button, Container, SectionHeading, PageHero, ChapaCard
@@ -66,7 +67,7 @@ lib/produtos/*.ts          catálogo tipado (solo, titan, kits, avulsos, vedacap
 lib/media/manifest.json    gerado por scripts/media/optimize-images.mjs (src, width, height, blurDataURL)
 content/*.ts               copy por página com campo fonte e marcações [PREENCHER]
 config/                    feature-flags.ts, pronta-entrega.ts
-public/images · public/videos · public/manuais   gerados a partir de ../assets-src (fora do repo)
+public/images · public/videos · public/manuais   gerados a partir de ../assets-src (fora do repo); hero = ../assets-src/videos/hero-final.mp4
 scripts/media/             optimize-images.mjs, encode-videos.mjs · scripts/lint-copy.mjs
 docs/                      MIDIA.md (cortes/contact sheets), TRACKING.md, PENDENCIAS.md
 ```
@@ -75,18 +76,18 @@ docs/                      MIDIA.md (cortes/contact sheets), TRACKING.md, PENDEN
 
 ## Design
 
+Direção de 22/10/2026 ("melhor dos dois mundos": referência Lovable do Lucas + nosso conteúdo). Tokens em `app/globals.css` (`@theme`, valores em oklch); os nomes dos tokens são os de sempre.
+
 | Elemento | Valor |
 |----------|-------|
-| Fonte display | Jost 600/700 (equivalente livre de Futura Md BT) |
-| Fonte corpo | Inter 400/500 (equivalente livre de Gotham Book) |
-| Fonte técnica | IBM Plex Mono (dados, legendas, numeração) |
-| Cor primária | #D35400 (laranja) · hover #D65522 (IDV 2021) |
-| Secundária | #1A4B8C (navy — blocos técnicos, Vedacap) |
-| Fundo | #0F0F10 · superfície #1C1C1C · chapa #26282B · linha #3A3D42 |
-| Texto | #FFFFFF · secundário #9AA3AD |
-| Estilo | Dark industrial premium; motivos do nicho (trilho, grampo, arco solar, grade de módulos, estaca, chanfro, placa de identificação) |
-
----
+| Fonte display | Archivo 600/700/800 (`font-display`) |
+| Fonte corpo | Manrope 400–700 (`font-sans`; `font-mono` é alias da Manrope para eyebrows/legendas em caixa-alta) |
+| Fundo | petróleo `fundo` oklch(24% .045 215) · `superficie` 20% · `chapa` 29% (cards) · `tinta` 17% (footer, gradiente do hero) |
+| Primária | `laranja` oklch(58% .19 38) (CTAs, texto branco) · `laranja-texto` oklch(72% .17 45) (eyebrows, destaques de título) |
+| Secundária | `ciano` oklch(66% .11 220) (faixa de fechamento, nomes, foco) · `navy` oklch(40% .08 220) (blocos técnicos, Vedacap) |
+| Texto | `branco` · `aco` oklch(75% .03 215) |
+| Formas | cantos arredondados (`rounded-2xl` em cards, pílulas em botões e selos) — o chanfro foi aposentado |
+| Home | 9 blocos, uma frase por bloco, nenhum `[PREENCHER]` visível (`semPendencia()` em `lib/utils.ts`) |
 
 ## SEO
 

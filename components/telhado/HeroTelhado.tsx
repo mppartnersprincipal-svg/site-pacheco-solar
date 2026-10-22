@@ -47,7 +47,7 @@ export function HeroTelhado() {
           </Reveal>
         </div>
         <Reveal imediato delay={200} className="lg:col-span-5">
-          <figure className="chanfro bg-placa-clara p-2">
+          <figure className="rounded-2xl bg-placa-clara p-2">
             <Image {...render} alt={render.alt} priority sizes="(min-width: 1024px) 40vw, 100vw" className="h-auto w-full" />
             <figcaption className="px-2 pt-2 pb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-preto/60">
               Linha Titan · Telhado metálico · Render

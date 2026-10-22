@@ -100,7 +100,7 @@ export function GaleriaObras({ fotos, filtros, rotuloFiltros, rotuloLista, light
                 setAberta(null);
               }}
               className={cn(
-                "inline-flex min-h-11 shrink-0 cursor-pointer items-center gap-2 chanfro-sm border px-4 font-display text-sm font-semibold tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
+                "inline-flex min-h-11 shrink-0 cursor-pointer items-center gap-2 rounded-xl border px-4 font-display text-sm font-semibold tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv",
                 ativo ? "border-laranja bg-laranja text-preto" : "border-linha bg-transparent text-aco hover:border-aco hover:text-branco"
               )}
             >
@@ -122,7 +122,7 @@ export function GaleriaObras({ fotos, filtros, rotuloFiltros, rotuloLista, light
                     type="button"
                     onClick={(e) => abrir(i, e.currentTarget)}
                     aria-label={`${lightbox.rotulo}: ${f.legenda}`}
-                    className="group relative block w-full cursor-zoom-in chanfro-sm overflow-hidden border border-linha bg-superficie text-left transition-colors hover:border-laranja focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv"
+                    className="group relative block w-full cursor-zoom-in rounded-xl overflow-hidden border border-linha bg-superficie text-left transition-colors hover:border-laranja focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-idv"
                   >
                     <Image
                       src={f.src}
@@ -171,7 +171,7 @@ export function GaleriaObras({ fotos, filtros, rotuloFiltros, rotuloLista, light
                 sizes="100vw"
                 placeholder={atual.blurDataURL ? "blur" : undefined}
                 blurDataURL={atual.blurDataURL}
-                className="mx-auto max-h-[78dvh] w-auto max-w-full chanfro object-contain"
+                className="mx-auto max-h-[78dvh] w-auto max-w-full rounded-2xl object-contain"
               />
             </div>
             <figcaption className="mt-4 flex w-full flex-wrap items-center justify-between gap-3 font-mono text-xs uppercase tracking-[0.14em] text-aco">

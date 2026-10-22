@@ -23,7 +23,7 @@ export function PorQueAluzinco({ render }: PorQueAluzincoProps) {
             <ol className="divide-y divide-linha border-y border-linha">
               {VEDACAP_ALUZINCO.argumentos.map((a, i) => (
                 <Reveal key={a.titulo} as="li" delay={i * 80} className="grid grid-cols-[3rem_1fr] gap-4 py-5 sm:grid-cols-[4rem_1fr]">
-                  <span className="flex h-12 items-center justify-center chanfro-sm bg-navy font-mono text-sm font-medium text-branco sm:h-14">
+                  <span className="flex h-12 items-center justify-center rounded-xl bg-navy font-mono text-sm font-medium text-branco sm:h-14">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -35,7 +35,7 @@ export function PorQueAluzinco({ render }: PorQueAluzincoProps) {
             </ol>
           </div>
           <Reveal delay={160} className="lg:col-span-5 lg:sticky lg:top-24">
-            <figure className="chanfro bg-placa-clara p-2">
+            <figure className="rounded-2xl bg-placa-clara p-2">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
                 <Image
                   src={render.src}

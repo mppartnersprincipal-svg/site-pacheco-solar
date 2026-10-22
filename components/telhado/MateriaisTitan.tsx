@@ -16,7 +16,7 @@ export function MateriaisTitan() {
           const img = imageProps(item.imagem, item.alt);
           return (
             <Reveal key={item.imagem} as="li" delay={i * 90}>
-              <figure className="chanfro bg-placa-clara p-2 text-preto">
+              <figure className="rounded-2xl bg-placa-clara p-2 text-preto">
                 <Image {...img} alt={img.alt} sizes="(min-width: 640px) 33vw, 100vw" className="h-auto w-full" />
                 <figcaption className="flex items-baseline justify-between gap-3 px-2 pt-3 pb-1">
                   <span className="font-display text-base font-semibold">{item.legenda}</span>

@@ -94,7 +94,7 @@ function ClipeEmCampo({ clipe, auto }: { clipe: Clipe; auto: boolean }) {
   };
 
   return (
-    <figure className="group relative chanfro-sm overflow-hidden bg-superficie">
+    <figure className="group relative rounded-xl overflow-hidden bg-superficie">
       {/* Poster como <Image> lazy (otimizado e só perto da viewport): o atributo poster do <video>
           é baixado pelo navegador no carregamento da página e competia com a imagem do hero (LCP). */}
       <Image

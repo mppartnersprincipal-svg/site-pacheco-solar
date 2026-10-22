@@ -16,7 +16,7 @@ export async function QrWhatsApp() {
   });
   return (
     <figure className="hidden lg:block">
-      <div className="chanfro border border-placa-clara/60 bg-placa-clara p-5 text-preto">
+      <div className="rounded-2xl border border-placa-clara/60 bg-placa-clara p-5 text-preto">
         <div
           role="img"
           aria-label={`${CONTATO_HERO.qrTitulo}: ${CONTATO_HERO.qrLegenda}`}

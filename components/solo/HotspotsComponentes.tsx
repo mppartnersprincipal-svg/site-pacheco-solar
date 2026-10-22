@@ -69,7 +69,7 @@ export function HotspotsComponentes({ foto, pins, nota, rotuloLista, rotuloCompo
   return (
     <div className={cn("grid gap-8 lg:grid-cols-12 lg:gap-12", className)}>
       <figure className="lg:col-span-7">
-        <div className="relative chanfro overflow-hidden border border-linha bg-superficie">
+        <div className="relative rounded-2xl overflow-hidden border border-linha bg-superficie">
           <div className="relative aspect-[3/4] w-full">
             <Image
               src={foto.src}
@@ -193,7 +193,7 @@ function Pin({ pin, index, ativo, baseId, rotuloComponente, ctaItem, ctaEstrutur
         aria-label={pin.nome}
         style={style}
         className={cn(
-          "absolute z-10 hidden w-56 chanfro-sm border border-linha bg-chapa p-4 shadow-xl shadow-black/50 lg:block",
+          "absolute z-10 hidden w-56 rounded-xl border border-linha bg-chapa p-4 shadow-xl shadow-black/50 lg:block",
           !ativo && "pointer-events-none",
           esquerda ? "right-6" : "left-6",
           acima ? "bottom-6" : "top-6"

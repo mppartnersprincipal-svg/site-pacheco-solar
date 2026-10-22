@@ -44,7 +44,7 @@ export function CookieBanner() {
         style={style}
         role="region"
         aria-label="Aviso de cookies"
-        className="fixed inset-x-3 bottom-20 z-50 mx-auto max-w-2xl chanfro-sm border border-linha bg-superficie p-4 shadow-2xl shadow-black/50 sm:bottom-6 sm:left-6 sm:mx-0 sm:flex sm:items-center sm:gap-5 sm:p-5"
+        className="fixed inset-x-3 bottom-20 z-50 mx-auto max-w-2xl rounded-xl border border-linha bg-superficie p-4 shadow-2xl shadow-black/50 sm:bottom-6 sm:left-6 sm:mx-0 sm:flex sm:items-center sm:gap-5 sm:p-5"
       >
         <p className="text-sm leading-relaxed text-aco">
           Usamos cookies para medir o desempenho do site e das campanhas. Detalhes na{" "}

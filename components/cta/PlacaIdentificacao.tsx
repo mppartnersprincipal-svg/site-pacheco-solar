@@ -3,9 +3,8 @@ import { cn } from "@/lib/utils";
 type Variant = "laranja" | "contorno" | "navy" | "clara";
 
 /**
- * Badge inspirado no produto "placa de identificação" (item avulso da Pacheco):
- * retângulo com dois furos nos cantos e texto em caixa-alta. Usado como selo
- * (Pronta entrega, Engenharia própria, Entrega em todo o Brasil, Linha Titan, Novo).
+ * Selo em pílula (Pronta entrega, Engenharia própria, Linha Titan, Novo…).
+ * Texto em caixa-alta, borda 1px; a variante laranja é o badge "Novo".
  */
 export function PlacaIdentificacao({
   children,
@@ -19,23 +18,21 @@ export function PlacaIdentificacao({
   size?: "sm" | "md";
 }) {
   const variants: Record<Variant, string> = {
-    laranja: "bg-laranja text-preto border-laranja",
-    contorno: "bg-transparent text-branco border-aco/60",
+    laranja: "bg-laranja text-branco border-laranja",
+    contorno: "bg-branco/10 text-branco border-branco/15 backdrop-blur-sm",
     navy: "bg-navy text-branco border-navy",
     clara: "bg-placa-clara text-preto border-placa-clara",
   };
   return (
     <span
       className={cn(
-        "relative inline-flex items-center gap-2 border font-display font-semibold uppercase tracking-[0.14em]",
+        "inline-flex items-center rounded-full border font-sans font-semibold uppercase tracking-[0.12em]",
         size === "sm" ? "px-3 py-1 text-[10px]" : "px-4 py-1.5 text-xs",
         variants[variant],
         className
       )}
     >
-      <span aria-hidden className="size-1.5 rounded-full bg-current opacity-50" />
       {children}
-      <span aria-hidden className="size-1.5 rounded-full bg-current opacity-50" />
     </span>
   );
 }

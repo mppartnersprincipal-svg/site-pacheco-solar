@@ -15,7 +15,7 @@ export function VersoesVedacap() {
         <ul className="grid gap-4 md:grid-cols-3">
           {VEDACAP_VERSOES.versoes.map((v, i) => (
             <Reveal key={v.id} as="li" delay={i * 90} className="flex">
-              <article className="flex w-full flex-col chanfro border border-linha bg-chapa">
+              <article className="flex w-full flex-col rounded-2xl border border-linha bg-chapa">
                 <div className={cn("relative aspect-[4/3] w-full", v.swatch)} aria-hidden>
                   <span className="absolute top-3 left-3 bg-fundo/85 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-branco">
                     {String(i + 1).padStart(2, "0")} · {v.nome}

@@ -25,7 +25,7 @@ export function KitCompleto() {
               <ul className="space-y-4">
                 {KIT_COMPLETO.bullets.map((b, i) => (
                   <li key={b} className="flex items-start gap-4">
-                    <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center chanfro-sm bg-chapa text-laranja">
+                    <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-xl bg-chapa text-laranja">
                       <IconGrampo className="size-5" />
                     </span>
                     <div>

@@ -15,7 +15,7 @@ const PINO = { x: 248, y: 228 };
 
 export function MapaPresenca({ className, legenda = "Aparecida de Goiânia/GO" }: { className?: string; legenda?: string }) {
   return (
-    <figure className={cn("relative chanfro border border-linha bg-chapa grade-modulos p-4 sm:p-6", className)}>
+    <figure className={cn("relative rounded-2xl border border-linha bg-chapa grade-modulos p-4 sm:p-6", className)}>
       <svg viewBox="0 0 400 410" role="img" aria-labelledby="mapa-presenca-titulo" className="mx-auto h-auto w-full max-w-md">
         <title id="mapa-presenca-titulo">{`Mapa do Brasil com a Pacheco Solar marcada em ${legenda}, no centro do país`}</title>
         <defs>

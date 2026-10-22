@@ -34,7 +34,7 @@ export function SoloEmCampo() {
 
         <ul className="mt-10 grid grid-flow-dense auto-rows-[160px] grid-cols-2 gap-3 sm:auto-rows-[200px] sm:grid-cols-3 sm:gap-4 lg:auto-rows-[240px]">
           {fotos.map((f, i) => (
-            <Reveal key={f.src} as="li" delay={i * 60} className={cn("relative chanfro-sm overflow-hidden border border-linha bg-superficie", f.retrato && "row-span-2")}>
+            <Reveal key={f.src} as="li" delay={i * 60} className={cn("relative rounded-xl overflow-hidden border border-linha bg-superficie", f.retrato && "row-span-2")}>
               <Image src={f.src} alt={f.alt} fill sizes="(min-width: 640px) 33vw, 50vw" placeholder="blur" blurDataURL={f.blurDataURL} className="object-cover" />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-fundo/90 to-transparent px-3 pb-2.5 pt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-branco">
                 {f.legenda}

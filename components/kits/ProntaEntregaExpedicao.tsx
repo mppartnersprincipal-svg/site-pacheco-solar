@@ -21,7 +21,7 @@ export function ProntaEntregaExpedicao({ foto }: ProntaEntregaExpedicaoProps) {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <Reveal className="order-2 lg:order-1 lg:col-span-5">
-            <figure className="relative aspect-[4/5] w-full chanfro overflow-hidden bg-chapa">
+            <figure className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-chapa">
               <Image
                 src={foto.src}
                 alt={PRONTA_ENTREGA_SECAO.fotoAlt}

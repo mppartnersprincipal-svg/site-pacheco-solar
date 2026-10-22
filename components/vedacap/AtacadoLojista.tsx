@@ -16,7 +16,7 @@ export function AtacadoLojista() {
         <Reveal>
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="flex items-start gap-4">
-              <span className="flex size-12 shrink-0 items-center justify-center chanfro-sm bg-branco/10 text-branco">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-branco/10 text-branco">
                 <IconLoja className="size-6" />
               </span>
               <div>

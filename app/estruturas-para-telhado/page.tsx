@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { BarraProntaEntrega } from "@/components/cta/BarraProntaEntrega";
 import { CtaFinal } from "@/components/cta/CtaFinal";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { AccordionObjecoes } from "@/components/nicho/AccordionObjecoes";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { HeroTelhado } from "@/components/telhado/HeroTelhado";
@@ -74,7 +72,6 @@ export default function EstruturasParaTelhadoPage() {
       <JsonLd data={jsonLd} />
 
       <HeroTelhado />
-      <BarraProntaEntrega variante="telhado" />
 
       {/* Seletor de telhado */}
       <section id="seletor-telhado" data-linha="telhado" className="bg-fundo">
@@ -92,7 +89,6 @@ export default function EstruturasParaTelhadoPage() {
         </Container>
       </section>
 
-      <TrilhoDivisor />
 
       {/* Lista de materiais */}
       <section id="lista-de-materiais" data-linha="telhado" className="bg-superficie">
@@ -112,7 +108,6 @@ export default function EstruturasParaTelhadoPage() {
         </Container>
       </section>
 
-      <TrilhoDivisor ativo />
 
       {/* Dados técnicos */}
       <section id="dados-tecnicos-titan" data-linha="telhado" className="bg-fundo grade-modulos">
@@ -122,7 +117,6 @@ export default function EstruturasParaTelhadoPage() {
         </Container>
       </section>
 
-      <TrilhoDivisor />
 
       {/* Passo a passo */}
       <section id="passo-a-passo" data-linha="telhado" className="bg-superficie">
@@ -141,7 +135,6 @@ export default function EstruturasParaTelhadoPage() {
         </Container>
       </section>
 
-      <TrilhoDivisor />
 
       {/* Materiais */}
       <section id="materiais-titan" data-linha="telhado" className="bg-fundo">

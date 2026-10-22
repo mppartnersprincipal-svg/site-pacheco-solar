@@ -1,7 +1,5 @@
 import { JsonLd } from "@/components/seo/JsonLd";
-import { BarraProntaEntrega } from "@/components/cta/BarraProntaEntrega";
 import { CtaFinal } from "@/components/cta/CtaFinal";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { HeroKits } from "@/components/kits/HeroKits";
 import { KitCompleto } from "@/components/kits/KitCompleto";
 import { ItensAvulsos } from "@/components/kits/ItensAvulsos";
@@ -71,13 +69,9 @@ export default function KitsEItensAvulsosPage() {
     <>
       <JsonLd data={jsonLd} />
       <HeroKits render={plain("telhado/titan-grampo-intermediario")} />
-      <BarraProntaEntrega variante="kits" />
       <KitCompleto />
-      <TrilhoDivisor />
       <ItensAvulsos itens={itens} />
-      <TrilhoDivisor ativo />
       <UmFornecedor />
-      <TrilhoDivisor />
       <ProntaEntregaExpedicao foto={plain("solo-dupla/img-2713")} />
       <FaqKits />
       <CtaFinal linha="kit" titulo={KITS_CTA_FINAL.titulo} rotulo={KITS_CTA_FINAL.rotulo} ctaId={KITS_CTA_FINAL.ctaId} />

@@ -7,7 +7,6 @@ import { buttonClasses } from "@/components/ui/Button";
 import { WaButton } from "@/components/cta/WaButton";
 import { CtaFinal } from "@/components/cta/CtaFinal";
 import { GaleriaEmCampo } from "@/components/nicho/GaleriaEmCampo";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { GaleriaObras } from "@/components/obras/GaleriaObras";
 import { CasoCocalinho } from "@/components/obras/CasoCocalinho";
@@ -74,7 +73,6 @@ export default function ObrasPage() {
 
       <CasoCocalinho />
 
-      <TrilhoDivisor />
 
       <section id="videos-obras" data-linha="obra" className="bg-fundo">
         <Container className="py-20 sm:py-28">

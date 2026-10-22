@@ -5,10 +5,8 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buttonClasses } from "@/components/ui/Button";
 import { WaButton } from "@/components/cta/WaButton";
-import { BarraProntaEntrega } from "@/components/cta/BarraProntaEntrega";
 import { CtaFinal } from "@/components/cta/CtaFinal";
 import { AccordionObjecoes } from "@/components/nicho/AccordionObjecoes";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { VariantesSolo } from "@/components/solo/VariantesSolo";
 import { HotspotsComponentes } from "@/components/solo/HotspotsComponentes";
@@ -75,7 +73,6 @@ export default function EstruturasDeSoloPage() {
         </PageHero>
       </section>
 
-      <BarraProntaEntrega variante="solo" />
 
       <section id="variantes-solo" data-linha="solo" className="bg-fundo">
         <Container className="py-20 sm:py-28">
@@ -90,7 +87,6 @@ export default function EstruturasDeSoloPage() {
         </Container>
       </section>
 
-      <TrilhoDivisor />
 
       <section id="componentes-solo" data-linha="solo" className="bg-superficie">
         <Container className="py-20 sm:py-28">

@@ -1,7 +1,5 @@
 import { JsonLd } from "@/components/seo/JsonLd";
-import { BarraProntaEntrega } from "@/components/cta/BarraProntaEntrega";
 import { CtaFinal } from "@/components/cta/CtaFinal";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { HeroVedacap } from "@/components/vedacap/HeroVedacap";
 import { ProblemaParafuso } from "@/components/vedacap/ProblemaParafuso";
 import { PorQueAluzinco } from "@/components/vedacap/PorQueAluzinco";
@@ -50,13 +48,9 @@ export default function VedacapPage() {
     <>
       <JsonLd data={jsonLd} />
       <HeroVedacap logo={logo} />
-      <BarraProntaEntrega variante="vedacap" />
       <ProblemaParafuso />
-      <TrilhoDivisor />
       <PorQueAluzinco render={plain("telhado/titan-metalico-minitrilho-close")} />
-      <TrilhoDivisor ativo />
       <AplicacaoVedacap />
-      <TrilhoDivisor />
       <VersoesVedacap />
       <ParaQuem />
       <FaqVedacap />

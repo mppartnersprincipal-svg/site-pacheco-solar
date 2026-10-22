@@ -94,6 +94,50 @@ export const LINHAS: LinhaProduto[] = [
   },
 ];
 
+/**
+ * Cards da home (22/10/2026): 3 linhas — kits e avulsos viram um card só, como na
+ * página /kits-e-itens-avulsos; o Vedacap entra como faixa "Novo" abaixo dos cards.
+ */
+export type LinhaHome = {
+  id: "solo" | "telhado" | "kits";
+  numero: string;
+  nome: string;
+  frase: string;
+  href: string;
+  imagem: MediaKey;
+  imagemAlt: string;
+};
+
+export const LINHAS_HOME: LinhaHome[] = [
+  {
+    id: "solo",
+    numero: "01",
+    nome: "Estrutura de Solo",
+    frase: "Suporte seguro e eficiente para grandes projetos.", // site atual
+    href: ROTAS.solo,
+    imagem: "solo-dupla/img-3961",
+    imagemAlt: "Estrutura de solo dupla vista por baixo dos módulos, com perfis de aço e brita",
+  },
+  {
+    id: "telhado",
+    numero: "02",
+    nome: "Telhado — Linha Titan",
+    frase: "Soluções adaptáveis para telhados residenciais e comerciais.", // site atual
+    href: ROTAS.telhado,
+    imagem: "obras-telhado/telhado-metalico",
+    imagemAlt: "Linha Titan instalada em telhado metálico, com mini trilhos fixados antes dos módulos",
+  },
+  {
+    id: "kits",
+    numero: "03",
+    nome: "Kits e Itens Avulsos",
+    frase: "Tudo em um só fornecedor.", // briefing para Claude (centralização de compras)
+    href: ROTAS.kits,
+    imagem: "solo-dupla/clamps-01",
+    imagemAlt: "Clipe de fixação e grampo sob módulo em estrutura de solo",
+  },
+];
+
 export type ItemAvulso = {
   slug: string;
   nome: string;

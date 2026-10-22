@@ -1,109 +1,93 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { ChapaCard } from "@/components/ui/ChapaCard";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PlacaIdentificacao } from "@/components/cta/PlacaIdentificacao";
-import { WaButton } from "@/components/cta/WaButton";
 import { Reveal } from "@/components/motion/Reveal";
-import { TrilhoDivisor } from "@/components/nicho/TrilhoDivisor";
 import { LinkInterno } from "@/components/tracking/LinkInterno";
-import { LINHAS, type LinhaProduto } from "@/lib/produtos/catalogo";
+import { LINHAS_HOME, VEDACAP, type LinhaHome } from "@/lib/produtos/catalogo";
 import { imageProps } from "@/lib/media";
+import { ROTAS } from "@/lib/site";
 import { LINHAS_SECAO } from "@/content/home";
-import { cn } from "@/lib/utils";
-
-/** Renders 3D ficam em card claro ("ficha técnica"); fotos reais em chapa escura; Vedacap em navy. */
-const FUNDO_IMAGEM: Record<LinhaProduto["id"], string> = {
-  solo: "bg-superficie",
-  telhado: "bg-placa-clara",
-  kits: "bg-placa-clara",
-  avulsos: "bg-superficie",
-  vedacap: "bg-navy",
-};
-
-/** Grid 12 colunas: 01 e 02 com 6; 03, 04 e 05 com 4 (lg). No md, 2 por linha e o 05 ocupa a largura. */
-const COLUNAS: Record<LinhaProduto["id"], string> = {
-  solo: "md:col-span-6",
-  telhado: "md:col-span-6",
-  kits: "md:col-span-6 lg:col-span-4",
-  avulsos: "md:col-span-6 lg:col-span-4",
-  vedacap: "md:col-span-12 lg:col-span-4",
-};
 
 /**
- * Seção 3 — índice do catálogo (05 linhas). Mobile: carrossel scroll-snap;
- * desktop: grid 12 colunas. Cada card tem "Ver linha" e "Orçamento desta linha".
+ * Seção 3 — 3 cards de foto (solo, telhado, kits e avulsos) + faixa "Novo" do
+ * Vedacap. Mobile: carrossel scroll-snap; desktop: 3 colunas. O card inteiro é
+ * o link para a linha; o orçamento fica no header, no botão flutuante e no fechamento.
  */
 export function LinhasDeProduto() {
+  const vedacapLogo = imageProps("logos/vedacap-branco", "Logo do Vedacap");
   return (
     <section id="linhas-de-produto" data-linha="geral" className="scroll-mt-20 bg-fundo">
       <Container className="py-20 sm:py-28">
         <SectionHeading eyebrow={LINHAS_SECAO.eyebrow} title={LINHAS_SECAO.titulo} destaque="estrutura certa" />
-        <TrilhoDivisor className="mb-10 sm:mb-12" ativo />
         <ul
           aria-label="Linhas de produto"
-          className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mx-0 md:grid md:grid-cols-12 md:overflow-visible md:px-0 md:pb-0 md:gap-5"
+          className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0 md:gap-6"
         >
-          {LINHAS.map((item, i) => (
-            <Reveal key={item.id} as="li" delay={i * 60} className={cn("w-[82vw] max-w-[380px] shrink-0 snap-start md:w-auto md:max-w-none", COLUNAS[item.id])}>
-              <CardLinha item={item} grande={item.id === "solo" || item.id === "telhado"} />
+          {LINHAS_HOME.map((item, i) => (
+            <Reveal key={item.id} as="li" delay={i * 80} className="w-[80vw] max-w-[380px] shrink-0 snap-start md:w-auto md:max-w-none">
+              <CardLinha item={item} />
             </Reveal>
           ))}
         </ul>
+
+        <Reveal delay={240} className="mt-6">
+          <Link
+            href={ROTAS.vedacap}
+            data-cta="card-vedacap"
+            className="group flex flex-col gap-6 overflow-hidden rounded-2xl border border-navy bg-navy p-6 transition-[border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-ciano sm:flex-row sm:items-center sm:justify-between sm:p-8"
+          >
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+              <PlacaIdentificacao variant="laranja" size="sm" className="w-fit">
+                {LINHAS_SECAO.placaNovo}
+              </PlacaIdentificacao>
+              <div>
+                <p className="font-display text-2xl font-bold text-branco sm:text-3xl">{VEDACAP.nome}</p>
+                <p className="mt-1 text-base text-branco/80">{VEDACAP.headline}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-6">
+              <Image src={vedacapLogo.src} alt={vedacapLogo.alt} width={vedacapLogo.width} height={vedacapLogo.height} className="hidden h-14 w-auto opacity-90 lg:block" />
+              <span className="inline-flex items-center gap-2 font-sans font-semibold text-branco">
+                {LINHAS_SECAO.vedacapCta}
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+              </span>
+            </div>
+          </Link>
+        </Reveal>
       </Container>
     </section>
   );
 }
 
-function CardLinha({ item, grande }: { item: LinhaProduto; grande: boolean }) {
+function CardLinha({ item }: { item: LinhaHome }) {
   const foto = imageProps(item.imagem, item.imagemAlt);
-  const isVedacap = item.id === "vedacap";
   return (
-    <ChapaCard as="article" numero={item.numero} interactive className="group flex h-full flex-col">
-      {/* Imagem sangrando até as bordas da chapa (anula o padding do ChapaCard) */}
-      <div className={cn("relative -mx-6 -mt-6 overflow-hidden sm:-mx-7 sm:-mt-7", FUNDO_IMAGEM[item.id], grande ? "aspect-[16/10]" : "aspect-[4/3]")}>
+    <LinkInterno href={item.href} ctaId={`card-${item.id}`} variant="texto" className="group block h-full min-h-0 p-0 hover:no-underline">
+      <article className="relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl border border-linha bg-chapa transition-[border-color,transform] duration-200 group-hover:-translate-y-0.5 group-hover:border-laranja/60">
         <Image
           src={foto.src}
           alt={foto.alt}
-          width={foto.width}
-          height={foto.height}
+          fill
           quality={60}
-          placeholder={isVedacap ? undefined : foto.placeholder}
-          blurDataURL={isVedacap ? undefined : foto.blurDataURL}
-          sizes={grande ? "(min-width: 1280px) 580px, (min-width: 768px) 50vw, 82vw" : "(min-width: 1280px) 380px, (min-width: 768px) 50vw, 82vw"}
-          className={cn(
-            "h-full w-full transition-transform duration-500 ease-out motion-safe:lg:group-hover:scale-[1.03]",
-            isVedacap ? "object-contain p-10" : "object-cover"
-          )}
+          placeholder={foto.placeholder}
+          blurDataURL={foto.blurDataURL}
+          sizes="(min-width: 1280px) 400px, (min-width: 768px) 33vw, 80vw"
+          className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]"
         />
-        {item.novo ? (
-          <PlacaIdentificacao variant="laranja" size="sm" className="absolute top-4 left-4">
-            {LINHAS_SECAO.placaNovo}
-          </PlacaIdentificacao>
-        ) : null}
-        {!isVedacap ? <div aria-hidden className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-chapa to-transparent" /> : null}
-      </div>
-      <div className="flex flex-1 flex-col pt-6 sm:pt-7">
-        <h3 className={cn("font-display font-bold leading-tight text-branco", grande ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl")}>{item.nome}</h3>
-        <p className="mt-2 text-base leading-relaxed text-aco">{item.frase}</p>
-        <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Variantes">
-          {item.chips.map((chip) => (
-            <li key={chip} className="border border-linha px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-aco">
-              {chip}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-6">
-          <WaButton linha={item.linha} ctaId={`card-${item.id}`} posicao="linhas-de-produto" size="md">
-            {LINHAS_SECAO.orcamento}
-          </WaButton>
-          <LinkInterno href={item.href} ctaId={`card-${item.id}-ver`} variant="texto">
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-tinta via-tinta/55 to-tinta/5" />
+        <div className="relative p-6 sm:p-7">
+          <p className="font-sans text-xs font-bold tracking-[0.2em] text-laranja-texto">{item.numero}</p>
+          <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-branco sm:text-3xl">{item.nome}</h3>
+          <p className="mt-2 text-base text-branco/80">{item.frase}</p>
+          <span className="mt-5 inline-flex items-center gap-2 font-sans font-semibold text-branco">
             {LINHAS_SECAO.verLinha}
-            <ArrowRight className="size-4" aria-hidden />
-          </LinkInterno>
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+          </span>
         </div>
-      </div>
-    </ChapaCard>
+      </article>
+    </LinkInterno>
   );
 }

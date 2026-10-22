@@ -1,84 +1,84 @@
 /**
  * Copy da HOME — objetos tipados, cada bloco com a fonte. Os componentes em
  * components/home/ só renderizam o que está aqui; nada de frase nova lá.
- * Fontes: plano aprovado (blueprint "Home — ordem final"), site atual
- * (pachecosolar.com.br), briefing 360º, briefing para Claude, CLAUDE.md do
- * cliente. O que não existe nas fontes fica [PREENCHER].
+ * Fontes: frases de posicionamento e ganchos validados (CLAUDE.md do cliente),
+ * site atual (pachecosolar.com.br), briefing 360º, briefing para Claude.
+ * Versão enxuta de 22/10/2026 (feedback do Lucas: "muita informação"): 9 blocos,
+ * uma frase por bloco, nenhum [PREENCHER] visível ao visitante.
  */
 import { ROTAS, SITE } from "@/lib/site";
-import { ANTES_DEPOIS, DEPOIMENTOS, PARCEIROS } from "@/lib/obras";
-import { HISTORIA, PROMESSA, SITE_ATUAL } from "@/content/institucional";
+import { DEPOIMENTOS } from "@/lib/obras";
+import { HISTORIA, PROPOSITO } from "@/content/institucional";
 
 // ------------------------------------------------------------------ 1. hero
-// fonte: blueprint "Hero (vídeo vertical)" — eyebrow, H1 (site atual), sub, placas, CTAs, microcopy
+// fonte: FRASES_POSICIONAMENTO (H1) + pilares/diferenciais do site atual (sub)
 export const HERO = {
   eyebrow: "ESTRUTURAS METÁLICAS PARA ENERGIA SOLAR · DA INDÚSTRIA PARA SUA OBRA",
-  titulo: SITE_ATUAL.heroTitulo,
+  titulo: "Estrutura que não te deixa na mão.",
+  /** Trecho do título em laranja (última ocorrência) */
+  tituloDestaque: "na mão.",
   subtitulo:
-    "Estrutura que não te deixa na mão. Estruturas para usinas de solo, Linha Titan para telhado, kits completos e itens avulsos. Pronta entrega na maior parte do tempo, engenharia própria e suporte técnico do pré ao pós-venda. Entregamos em todo o Brasil com logística eficiente.",
-  placas: ["Pronta entrega", "Kits completos + avulsos", "Engenharia própria", "Entrega em todo o Brasil"],
+    "Estruturas para usinas de solo, Linha Titan para telhado, kits completos e itens avulsos. Engenharia própria e entrega em todo o Brasil.",
   ctaPrimario: "Pedir orçamento no WhatsApp",
   ctaSecundario: "Ver linhas de produto",
   ctaSecundarioHref: "#linhas-de-produto",
-  /** "Atendimento em horário comercial · (62) 4101-8101" — dados de lib/site.ts */
-  microcopy: { horario: SITE.horario, telefone: SITE.telefone.display, telefoneE164: SITE.telefone.e164 },
-  /** Legenda mono do painel de vídeo (desktop). Local do clipe: [PREENCHER] */
-  legendaVideo: "SOLO DUPLA · [PREENCHER local]",
-  /** Descrição do vídeo para leitores de tela (acervo SOLO DUPLA, dez/2024–mai/2025) */
-  videoAria: "Estrutura de solo dupla da Pacheco Solar montada em usina, com módulos fixados nos perfis de aço",
+  /** Descrição do vídeo institucional para leitores de tela (fachada, fábrica e usina) */
+  videoAria: "Vídeo institucional da Pacheco Solar: fachada da fábrica, equipe na produção das estruturas e usina de solo ao pôr do sol",
+} as const;
+
+// -------------------------------------------------------------- 2. propósito
+// fonte: PROPOSITO (briefing 360º, literal)
+export const PROPOSITO_SECAO = {
+  eyebrow: "NOSSO PROPÓSITO",
+  texto: PROPOSITO.texto,
 } as const;
 
 // ------------------------------------------------------ 3. linhas-de-produto
-// fonte: blueprint (eyebrow) + site atual (H2 = diferencial 04). Cards vêm de LINHAS em lib/produtos/catalogo.ts
+// fonte: site atual (H2 = recorte do diferencial 04). Cards vêm de LINHAS_HOME em lib/produtos/catalogo.ts
 export const LINHAS_SECAO = {
-  eyebrow: "CATÁLOGO · 05 LINHAS",
-  titulo: "Seja qual for o tipo de projeto, temos a estrutura certa, precisa e compatível com o seu layout.",
+  eyebrow: "CATÁLOGO · 03 LINHAS + VEDACAP",
+  titulo: "Seja qual for o projeto, temos a estrutura certa.",
   verLinha: "Ver linha",
-  orcamento: "Orçamento desta linha",
   placaNovo: "Novo",
+  vedacapCta: "Conhecer o Vedacap",
 } as const;
 
-// ----------------------------------------------------- 4. estrutura-em-campo
-// fonte: blueprint (H2 = gancho validado do CLAUDE.md do cliente; sub; legendas TIPO · LOCAL · ANO)
-export const CAMPO = {
-  eyebrow: "PROVA DE CAMPO · SOLO LINEAR E SOLO DUPLA",
+// ------------------------------------------------------------ 4. fundador
+// fonte: blueprint (H2) + HISTORIA (briefing 360º, literal)
+export const SOBRE_RESUMO = {
+  eyebrow: "QUEM ESTÁ POR TRÁS",
+  titulo: "Fundada por quem já esteve na obra.",
+  historia: HISTORIA.texto,
+  fundador: SITE.fundador,
+  fundadorRotulo: "Fundador · Pacheco Solar",
+  /** Foto recortada do Lucas: [PREENCHER foto do Lucas Pacheco] (lib/media: lucas/fundador-recorte) */
+  fotoKey: "lucas/fundador-recorte",
+  fotoAlt: "Lucas Pacheco, fundador da Pacheco Solar",
+  ctaSobre: "Conhecer a Pacheco",
+  ctaSobreHref: ROTAS.sobre,
+} as const;
+
+// ------------------------------------------------------------ 5. obras
+// fonte: gancho validado (CLAUDE.md do cliente). Fotos: OBRAS_DESTAQUE em lib/obras.ts
+export const OBRAS_SECAO = {
+  eyebrow: "PROVA DE CAMPO",
   titulo: "Resistência não é peso, é engenharia.",
-  subtitulo: "Estruturas de solo linear e dupla montadas em usinas e fazendas pelo Brasil.",
-  /** Sufixo das legendas de campo enquanto cidade/UF e ano não forem confirmados (config/feature-flags.ts: legendasComLocal) */
-  legendaLocalAno: "[PREENCHER local] · [PREENCHER ano]",
-  legendaAntesDepois: `${ANTES_DEPOIS.legenda} · [PREENCHER ano]`,
-  tituloAntesDepois: "Da estaca ao módulo",
-  tituloSequencia: "Sequência de montagem",
-  ctaObras: "Ver obras realizadas",
-  ctaObrasHref: ROTAS.obras,
-  ctaWhatsApp: "Quero estrutura para a minha usina",
-} as const;
-
-// ------------------------------------------------------------ 5. dor-solucao
-// fonte: ganchos validados (CLAUDE.md do cliente) + promessa central (briefing para Claude). Pares: MAPA_DOR_SOLUCAO
-export const DOR_SOLUCAO = {
-  eyebrow: "DOR → SOLUÇÃO",
-  titulo: "Projeto parado é prejuízo.",
-  subtitulo: "Fornecedor te deixa na mão por causa de um parafuso?",
-  fecho: PROMESSA,
-  fechoRotulo: "PROMESSA PACHECO SOLAR",
-  cta: "Falar com a engenharia",
+  cta: "Ver todas as obras",
+  ctaHref: ROTAS.obras,
 } as const;
 
 // ------------------------------------------------------------ 6. diferenciais
 // fonte: frase de posicionamento (CLAUDE.md do cliente); itens: DIFERENCIAIS (site atual) em content/institucional.ts
 export const DIFERENCIAIS_SECAO = {
-  eyebrow: "POR QUE ESCOLHER A PACHECO SOLAR",
+  eyebrow: "POR QUE A PACHECO SOLAR",
   titulo: "Fornecedor que resolve, não complica.",
-  subtitulo: "Agilidade, qualidade e compromisso — do pré ao pós-venda.", // fonte: PALAVRAS_CHAVE + diferencial 05 (site atual)
 } as const;
 
 // ----------------------------------------------------------- 7. como-funciona
-// fonte: blueprint (H2) + briefing 360º (processo de compra = PROCESSO_COMPRA; rodapé literal das forças)
+// fonte: blueprint (H2) + briefing 360º (processo de compra = PROCESSO_COMPRA)
 export const COMO_FUNCIONA = {
-  eyebrow: "PROCESSO DE COMPRA · 04 PASSOS",
+  eyebrow: "COMO FUNCIONA",
   titulo: "Do orçamento à expedição, sem burocracia.",
-  rodape: "Desburocratização da informação e rápida solução dos desafios diários.",
   cta: "Começar pelo passo 1",
 } as const;
 
@@ -87,24 +87,10 @@ export const COMO_FUNCIONA = {
 export const PROVA_SOCIAL = {
   eyebrow: "CLIENTES SATISFEITOS EM TODO O BRASIL",
   titulo: "Mais obra entregue, menos dor de cabeça.",
-  etiqueta: "DEPOIMENTO",
   depoimentos: DEPOIMENTOS,
-  /** Pareamento nome↔texto inferido pela ordem do site atual: [PREENCHER confirmar] */
-  notaDepoimentos: "Depoimentos de clientes da Pacheco Solar.",
-  quemResponde: {
-    eyebrow: "QUEM RESPONDE",
-    nome: `${SITE.fundador}, fundador`,
-    texto: HISTORIA.posVenda,
-    fotoPendente: "[PREENCHER foto do Lucas Pacheco]",
-  },
-  parceiros: {
-    eyebrow: "PARCEIROS",
-    nomes: PARCEIROS,
-    /** Logos dos parceiros: [PREENCHER arquivos] (config/feature-flags.ts: parceiros) */
-  },
 } as const;
 
-/** Contadores do site atual — rótulos literais, valores [PREENCHER] (config/feature-flags.ts: contadores). */
+/** Contadores do site atual — rótulos literais, valores [PREENCHER] (config/feature-flags.ts: contadores). Fora da home até ter os números. */
 export const CONTADORES: ReadonlyArray<{ rotulo: string; valor: number | null; prefixo?: string; sufixo?: string }> = [
   { rotulo: "Painéis solares fixados", valor: null }, // fonte: site atual — valor [PREENCHER]
   { rotulo: "Estados atendidos", valor: null }, // fonte: site atual — valor [PREENCHER]
@@ -112,29 +98,8 @@ export const CONTADORES: ReadonlyArray<{ rotulo: string; valor: number | null; p
   { rotulo: "MW instalados pelo Brasil", valor: null, prefixo: "+" }, // fonte: posts/Sebrae ("+25 MW") — confirmar [PREENCHER]
 ];
 
-// ---------------------------------------------------------------- 9. objecoes
-// fonte: blueprint (H2); perguntas/respostas: FAQ_HOME em lib/faq.ts
-export const OBJECOES = {
-  eyebrow: "ANTES DE FECHAR",
-  titulo: "O que todo integrador pergunta antes de fechar.",
-  subtitulo: "Respostas diretas de quem entende da obra. Se faltar algo, pergunte no WhatsApp.",
-} as const;
-
-// ------------------------------------------------------------ 10. sobre-resumo
-// fonte: blueprint (H2) + HISTORIA (briefing 360º) + SITE_ATUAL.sobre1 (site atual); ano [PREENCHER]
-export const SOBRE_RESUMO = {
-  eyebrow: "SOBRE A PACHECO SOLAR",
-  titulo: "Fundada por quem já esteve na obra.",
-  historia: HISTORIA.texto,
-  sobre1: SITE_ATUAL.sobre1,
-  anoFundacaoRotulo: "FUNDAÇÃO",
-  anoFundacao: HISTORIA.anoFundacao,
-  fundador: SITE.fundador,
-  fundadorRotulo: "FUNDADOR",
-  localRotulo: "SEDE",
-  local: `${SITE.endereco.cidade}/${SITE.endereco.uf}`,
-  fotoPendente: "[PREENCHER foto do Lucas Pacheco 4:5]",
-  ctaSobre: "Conhecer a Pacheco",
-  ctaSobreHref: ROTAS.sobre,
-  ctaWhatsApp: "Falar com o time",
+// ------------------------------------------------------------ 9. cta-final
+// fonte: frase de posicionamento + fechamento do site atual (CtaFinal usa os defaults)
+export const CTA_FINAL = {
+  eyebrow: "ORÇAMENTO GRATUITO",
 } as const;

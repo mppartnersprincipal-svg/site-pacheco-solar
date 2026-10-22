@@ -20,3 +20,14 @@ export function slugify(text: string) {
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
+
+/**
+ * Remove marcadores "[PREENCHER…]" de um texto antes de renderizar (a pendência
+ * continua no content/ e em docs/PENDENCIAS.md; só não aparece para o visitante).
+ */
+export function semPendencia(texto: string) {
+  return texto
+    .replace(/\s*\[PREENCHER[^\]]*\]/g, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}

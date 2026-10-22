@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/lint-copy.mjs`. Cada item é um dado que o site NÃO inventa e que precisa de confirmação do cliente (Lucas) via Pedro.
 
-Total: 81
+Total: 78
 
 - `content\contato.ts:24` — [PREENCHER confirmar horário e agendamento]
 - `content\contato.ts:66` — [PREENCHER]
@@ -13,8 +13,7 @@ Total: 81
 - `content\home.ts:96` — [PREENCHER]
 - `content\home.ts:97` — [PREENCHER]
 - `content\home.ts:98` — [PREENCHER]
-- `content\institucional.ts:45` — [PREENCHER ano de fundação]
-- `content\institucional.ts:136` — [PREENCHER: checklist do comercial]
+- `content\institucional.ts:135` — [PREENCHER: checklist do comercial]
 - `content\kits.ts:67` — [PREENCHER composição]
 - `content\kits.ts:83` — [PREENCHER foto]
 - `content\kits.ts:85` — [PREENCHER: política de venda avulsa desses componentes]
@@ -27,8 +26,6 @@ Total: 81
 - `content\obras.ts:69` — [PREENCHER arquivos]
 - `content\privacidade.ts:102` — [PREENCHER revisão jurídica]
 - `content\privacidade.ts:103` — [PREENCHER data]
-- `content\sobre.ts:47` — [PREENCHER ano]
-- `content\sobre.ts:51` — [PREENCHER datas]
 - `content\sobre.ts:76` — [PREENCHER fotos da fábrica, galpão, expedição e equipe]
 - `content\solo.ts:26` — [PREENCHER]
 - `content\solo.ts:46` — [PREENCHER validação do Lucas]

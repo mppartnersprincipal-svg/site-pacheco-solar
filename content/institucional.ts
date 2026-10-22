@@ -42,7 +42,6 @@ export const HISTORIA = {
   texto:
     "Antes de fundar a Pacheco Solar, Lucas Pacheco era sócio de uma empresa que realizava instalação de energia solar. Vendo a dificuldade de encontrar produtos de qualidade ou empresas que realmente atendem os prazos e se interessam em resolver os desafios enfrentados nas obras referentes a estruturas fotovoltaicas, fundou a Pacheco Solar para se tornar um parceiro estratégico 100% focado no integrador. Desde então a Pacheco Solar vem se especializando cada vez mais, trazendo tecnologia e inovação para levar as melhores soluções de estruturas para os integradores de todo o Brasil.",
   fonte: "briefing360 (storytelling)",
-  anoFundacao: "[PREENCHER ano de fundação]",
   posVenda: "No pós-venda, o próprio fundador entra em contato para saber como foi a experiência.",
   posVendaFonte: "briefing360 (pós-venda: 'Proprietário entra em contato para saber como foi a experiência')",
 };

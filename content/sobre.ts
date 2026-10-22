@@ -14,10 +14,10 @@ export const SOBRE_META = {
 };
 
 export const SOBRE_HERO = {
-  // fonte: blueprint (hero-sobre) + SITE_ATUAL.sobre1 + HISTORIA.anoFundacao + PALAVRAS_CHAVE
+  // fonte: blueprint (hero-sobre) + SITE_ATUAL.sobre1 + PALAVRAS_CHAVE (ano de fundação fora, decisão do Pedro 22/10/2026)
   eyebrow: "Quem somos · Indústria de estruturas metálicas para energia solar",
   titulo: "Sobre a Pacheco Solar",
-  subtitulo: `${SITE_ATUAL.sobre1} ${HISTORIA.anoFundacao}`,
+  subtitulo: SITE_ATUAL.sobre1,
   placas: [...PALAVRAS_CHAVE],
   cta: "Falar com a Pacheco",
   fotoAlt: "Estrutura de solo dupla da Pacheco Solar montada em usina fotovoltaica",
@@ -44,11 +44,11 @@ export const SOBRE_MARCOS: Passo[] = [
       "Vendo a dificuldade de encontrar produtos de qualidade ou empresas que realmente atendem os prazos e se interessam em resolver os desafios enfrentados nas obras.",
   },
   {
-    titulo: "Nasce a Pacheco Solar [PREENCHER ano]",
+    titulo: "Nasce a Pacheco Solar",
     texto: "Um parceiro estratégico 100% focado no integrador.",
   },
   {
-    titulo: "Linha Titan e Vedacap [PREENCHER datas]",
+    titulo: "Linha Titan e Vedacap",
     texto: "Tecnologia e inovação para levar as melhores soluções de estruturas para os integradores de todo o Brasil.",
   },
 ];

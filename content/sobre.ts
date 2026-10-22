@@ -2,6 +2,7 @@
  * Copy da página /sobre. Só frases literais de content/institucional.ts,
  * lib/site.ts e do blueprint do plano; o que não existe fica marcado como pendência (PREENCHER).
  */
+import { SITE } from "@/lib/site";
 import { HISTORIA, PALAVRAS_CHAVE, SETORES, SITE_ATUAL } from "@/content/institucional";
 import type { Passo } from "@/components/nicho/EstacaTimeline";
 
@@ -19,8 +20,6 @@ export const SOBRE_HERO = {
   subtitulo: `${SITE_ATUAL.sobre1} ${HISTORIA.anoFundacao}`,
   placas: [...PALAVRAS_CHAVE],
   cta: "Falar com a Pacheco",
-  /** Foto do Lucas não existe no acervo local; o hero usa foto de obra até chegar. */
-  fotoLucas: "[PREENCHER foto do Lucas Pacheco]",
   fotoAlt: "Estrutura de solo dupla da Pacheco Solar montada em usina fotovoltaica",
 };
 
@@ -30,7 +29,11 @@ export const SOBRE_HISTORIA = {
   titulo: "Fundada por quem já esteve na obra.",
   texto: HISTORIA.texto,
   linkObras: "Ver obras",
-  legendaFoto: "Solo dupla · [PREENCHER local]",
+  /** Retrato de estúdio (assets-src/images/lucas/fundador-lucas.jpg, 22/10/2026) */
+  fotoKey: "lucas/fundador-lucas" as const,
+  fotoAlt: "Lucas Pacheco, fundador da Pacheco Solar",
+  fotoNome: SITE.fundador,
+  fotoRotulo: "Fundador · Pacheco Solar",
 };
 
 /** Marcos da timeline — títulos do blueprint; textos são trechos literais de HISTORIA.texto. */

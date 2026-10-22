@@ -8,16 +8,16 @@ import { EstacaTimeline } from "@/components/nicho/EstacaTimeline";
 import { LinkInterno } from "@/components/tracking/LinkInterno";
 import { img } from "@/lib/media";
 import { ROTAS } from "@/lib/site";
-import { SOBRE_HERO, SOBRE_HISTORIA, SOBRE_MARCOS } from "@/content/sobre";
+import { SOBRE_HISTORIA, SOBRE_MARCOS } from "@/content/sobre";
 
 /**
- * História: texto literal do briefing em coluna de leitura, foto de obra ao
- * lado (chanfrada, parallax leve só desktop) e timeline de 3 marcos em estacas.
+ * História: texto literal do briefing em coluna de leitura, retrato do Lucas
+ * ao lado (card 4:5, parallax leve só desktop) e timeline de 3 marcos.
  */
 export function HistoriaSobre() {
   // `fill` dispensa width/height (next/image avisa se os dois forem passados)
-  const m = img("solo-dupla/img-3963");
-  const foto = { src: m.src, alt: SOBRE_HERO.fotoAlt, placeholder: "blur" as const, blurDataURL: m.blurDataURL };
+  const m = img(SOBRE_HISTORIA.fotoKey);
+  const foto = { src: m.src, alt: SOBRE_HISTORIA.fotoAlt, placeholder: "blur" as const, blurDataURL: m.blurDataURL };
   return (
     <section id="historia" data-linha="equipe" className="relative bg-superficie">
       <Container className="py-20 sm:py-28">
@@ -45,17 +45,14 @@ export function HistoriaSobre() {
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
                     quality={75}
-                    className="object-cover"
-                    style={{ objectPosition: "60% 50%" }}
+                    className="object-cover object-[50%_15%]"
                   />
-                  <div aria-hidden className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-fundo/90 to-transparent" />
-                  <figcaption className="absolute bottom-4 left-5 font-mono text-[11px] uppercase tracking-[0.18em] text-branco">
-                    {SOBRE_HISTORIA.legendaFoto}
+                  <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-tinta/80 to-transparent" />
+                  <figcaption className="absolute bottom-5 left-5">
+                    <p className="font-display text-xl font-bold leading-tight text-branco">{SOBRE_HISTORIA.fotoNome}</p>
+                    <p className="text-sm text-branco/75">{SOBRE_HISTORIA.fotoRotulo}</p>
                   </figcaption>
                 </div>
-                <p className="rounded-xl mt-3 inline-block border border-dashed border-linha px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-aco">
-                  {SOBRE_HERO.fotoLucas}
-                </p>
               </figure>
             </Parallax>
           </Reveal>

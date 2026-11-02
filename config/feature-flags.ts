@@ -8,8 +8,8 @@ export const FLAGS = {
   contadores: false,
   /** Faixa de logos PROWATT · SN · MC · ORION — arquivos de logo [PREENCHER] */
   parceiros: false,
-  /** Filtro "Telhado" em /obras — não há fotos reais de telhado instalado [PREENCHER] */
-  filtroTelhadoObras: false,
+  /** Filtro "Telhado" em /projetos-atendidos — fotos reais de telhado metálico e cerâmico (nov/2026) */
+  filtroTelhadoObras: true,
   /** "Atendimento presencial" em /contato — consta no briefing, confirmar [PREENCHER] */
   atendimentoPresencial: false,
   /** Nome do cliente/cidade da obra em destaque (Luca Engenharia · Cocalinho) — autorização [PREENCHER] */

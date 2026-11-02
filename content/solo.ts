@@ -18,9 +18,9 @@ export const HERO_SOLO = {
     "Suporte seguro e eficiente para grandes Projetos. Aço de qualidade premium, ideal para ambientes com atmosfera agressiva e zonas rurais. Pronta entrega na maior parte do tempo.",
   placas: ["Pronta entrega", "Solo Linear", "Solo Dupla", "Entrega em todo o Brasil"],
   imagem: "solo-dupla/img-3961" as MediaKey,
-  imagemAlt: "Estrutura de solo dupla vista por baixo dos módulos, com perfis de aço e brita",
+  imagemAlt: "Estrutura de solo linear vista por baixo dos módulos, com perfis de aço e brita",
   cta: "Pedir orçamento de solo no WhatsApp",
-  linkObras: { label: "Ver obras", href: ROTAS.obras },
+  linkObras: { label: "Ver projetos", href: ROTAS.obras },
 } as const;
 
 /** Variantes — fonte: acervo (fotos Solo Linear / Solo Dupla); especificações [PREENCHER] (plano). */
@@ -49,7 +49,7 @@ export const COMPONENTES_SOLO = {
   titulo: "Da indústria para sua obra: cada peça com nome.",
   subtitulo: "Precisa só da peça? Vendemos itens avulsos.", // fonte: plano (componentes-solo)
   foto: "solo-dupla/img-3966" as MediaKey,
-  fotoAlt: "Perfis de aço e cabeamento sob os módulos de uma estrutura de solo dupla",
+  fotoAlt: "Perfis de aço e cabeamento sob os módulos de uma estrutura de solo linear",
   /**
    * Posições aproximadas (% da foto) — [PREENCHER validação do Lucas].
    * `avulso` = true só para peças da lista oficial (ITENS_AVULSOS: clipe de fixação e grampos);
@@ -94,8 +94,8 @@ export const SOLO_EM_CAMPO = {
   eyebrow: "PROVA DE CAMPO",
   titulo: "Enquanto outros atrasam, você entrega.",
   subtitulo: "Estruturas de solo linear e dupla montadas em usinas e fazendas pelo Brasil.",
-  notaAutorizacao: "Obra em fazenda — cliente e cidade/UF: [PREENCHER autorização para citar a obra]",
-  linkObras: { label: "Ver todas as obras", href: ROTAS.obras },
+  notaAutorizacao: "Projeto em fazenda — cliente e cidade/UF: [PREENCHER autorização para citar o projeto]",
+  linkObras: { label: "Ver projetos atendidos", href: ROTAS.obras },
   cta: "Pedir orçamento de solo",
 } as const;
 

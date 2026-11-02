@@ -50,7 +50,7 @@ export const ROTAS = {
   telhado: "/estruturas-para-telhado",
   kits: "/kits-e-itens-avulsos",
   vedacap: "/vedacap",
-  obras: "/obras",
+  obras: "/projetos-atendidos",
   sobre: "/sobre",
   contato: "/contato",
   privacidade: "/politica-de-privacidade",
@@ -61,7 +61,7 @@ export const NAV_LINKS = [
   { label: "Telhado", href: ROTAS.telhado },
   { label: "Kits e avulsos", href: ROTAS.kits },
   { label: "Vedacap", href: ROTAS.vedacap, badge: "Novo" },
-  { label: "Obras", href: ROTAS.obras },
+  { label: "Projetos", href: ROTAS.obras },
   { label: "Sobre", href: ROTAS.sobre },
   { label: "Contato", href: ROTAS.contato },
 ] as const;
@@ -72,7 +72,7 @@ export const FOOTER_LINKS = [
   { label: "Estruturas para telhado — Linha Titan", href: ROTAS.telhado },
   { label: "Kits completos e itens avulsos", href: ROTAS.kits },
   { label: "Vedacap", href: ROTAS.vedacap },
-  { label: "Obras realizadas", href: ROTAS.obras },
+  { label: "Projetos atendidos", href: ROTAS.obras },
   { label: "Sobre a Pacheco Solar", href: ROTAS.sobre },
   { label: "Contato", href: ROTAS.contato },
 ] as const;

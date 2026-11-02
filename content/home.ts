@@ -63,7 +63,7 @@ export const SOBRE_RESUMO = {
 export const OBRAS_SECAO = {
   eyebrow: "PROVA DE CAMPO",
   titulo: "Resistência não é peso, é engenharia.",
-  cta: "Ver todas as obras",
+  cta: "Ver projetos atendidos",
   ctaHref: ROTAS.obras,
 } as const;
 
@@ -90,13 +90,11 @@ export const PROVA_SOCIAL = {
   depoimentos: DEPOIMENTOS,
 } as const;
 
-/** Contadores do site atual — rótulos literais, valores [PREENCHER] (config/feature-flags.ts: contadores). Fora da home até ter os números. */
-export const CONTADORES: ReadonlyArray<{ rotulo: string; valor: number | null; prefixo?: string; sufixo?: string }> = [
-  { rotulo: "Painéis solares fixados", valor: null }, // fonte: site atual — valor [PREENCHER]
-  { rotulo: "Estados atendidos", valor: null }, // fonte: site atual — valor [PREENCHER]
-  { rotulo: "Toneladas de aço transformados em estruturas", valor: null }, // fonte: site atual — valor [PREENCHER]
-  { rotulo: "MW instalados pelo Brasil", valor: null, prefixo: "+" }, // fonte: posts/Sebrae ("+25 MW") — confirmar [PREENCHER]
-];
+/** Números de prova social confirmados pelo Lucas (WhatsApp, 02/11/2026). */
+export const NUMEROS_PROVA = [
+  { valor: "+3 mil", rotulo: "integradores atendidos" },
+  { valor: "+100 mil", rotulo: "painéis fixados em todo o Brasil" },
+] as const;
 
 // ------------------------------------------------------------ 9. cta-final
 // fonte: frase de posicionamento + fechamento do site atual (CtaFinal usa os defaults)

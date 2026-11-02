@@ -18,7 +18,7 @@ const LINHAS_FOOTER = [
 ] as const;
 
 const INSTITUCIONAL_FOOTER = [
-  { label: "Obras", href: ROTAS.obras },
+  { label: "Projetos atendidos", href: ROTAS.obras },
   { label: "Sobre", href: ROTAS.sobre },
   { label: "Contato", href: ROTAS.contato },
   { label: "Política de Privacidade", href: ROTAS.privacidade },

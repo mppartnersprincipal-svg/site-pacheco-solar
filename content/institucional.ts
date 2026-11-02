@@ -4,36 +4,64 @@
  * - briefingClaude = BRIEFING PARA CLAUDE (estratégico)
  * - siteAtual = pachecosolar.com.br (transcrição de 21/10/2026)
  * - claudeMd = CLAUDE.md do cliente (set/2026)
+ * - manualCultura = DNA CULTURA / Manual Cultural (PDF do Lucas, nov/2026) — substitui missão, visão, propósito e valores do briefing360
  */
 import { ROTAS } from "@/lib/site";
 
 export const MISSAO = {
-  texto:
-    "Ser a base confiável e estratégica para nossos parceiros integradores, oferecendo soluções inovadoras e de excelência em projetos de energia solar em todo o Brasil. Nosso compromisso é priorizar a resolução das demandas de nossos parceiros, fornecendo um atendimento ágil e assertivo, com foco na qualidade, sustentabilidade e na constante busca por soluções que superem expectativas.",
-  fonte: "briefing360",
+  texto: "Produzir soluções confiáveis que aceleram o crescimento da energia renovável.",
+  fonte: "manualCultura",
 };
 
 export const VISAO = {
-  texto:
-    "Ser reconhecida como símbolo de robustez, qualidade e inovação, liderando a fabricação de estruturas para painéis solares no Brasil. Além disso, desempenhar um papel fundamental e de grande impacto na promoção de energia limpa, contribuindo para a sustentabilidade em todo o território nacional.",
-  fonte: "briefing360",
+  texto: "Ser uma das empresas mais influentes na transição energética do Brasil.",
+  fonte: "manualCultura",
 };
 
 export const PROPOSITO = {
-  texto:
-    "Contribuir com o desenvolvimento sustentável, levando estruturas confiáveis para sustentar painéis solares e usinas em cada canto do nosso Brasil.",
-  fonte: "briefing360",
+  texto: "Impulsionar a transição energética, fortalecendo quem constrói o futuro da energia.",
+  fonte: "manualCultura",
 };
 
+/** "Grande meta" do manual de cultura. */
+export const META_2030 = {
+  rotulo: "Grande meta",
+  texto: "Fixar mais de 400 mil painéis com as nossas soluções até 2030.",
+  fonte: "manualCultura",
+};
+
+/** Fechamento do manual de cultura. */
+export const TAGLINE_CULTURA = "Fortalecendo quem constrói a nova energia.";
+
+/** Os 5 valores do manual de cultura (DNA CULTURA, nov/2026), com "fazemos" literais. */
 export const VALORES = [
-  { nome: "Qualidade", texto: "Buscamos constantemente melhorar nossos produtos e serviços, sempre com foco na excelência." },
-  { nome: "Sustentabilidade", texto: "Trabalhamos com energia limpa e renovável, promovendo práticas que respeitem o meio ambiente." },
-  { nome: "Ética", texto: "Atuamos com transparência, honestidade e respeito em todas as nossas ações e relacionamentos." },
-  { nome: "Inovação", texto: "Valorizamos e incentivamos a criatividade e a busca por novas soluções." },
-  { nome: "Compromisso", texto: "Estamos comprometidos com a satisfação dos nossos clientes e o desenvolvimento de soluções eficazes e seguras." },
-  { nome: "Respeito", texto: "Promovemos um ambiente de trabalho respeitoso e colaborativo para todos os nossos colaboradores." },
+  {
+    nome: "Nossa prioridade é o resultado do integrador",
+    texto: "Buscamos a melhor solução para cada projeto e pensamos no impacto na obra e no negócio do cliente.",
+    fazemos: ["Garantimos qualidade, agilidade e resultado", "Facilitamos a vida do integrador", "Pensamos no impacto na obra e no negócio do cliente"],
+  },
+  {
+    nome: "Buscamos solução, não desculpas",
+    texto: "Fazemos o que precisa ser feito com responsabilidade e vamos até o fim.",
+    fazemos: ["Assumimos o problema como donos e vamos até o fim", "Antecipamos problemas e resolvemos com agilidade", "Priorizamos o que é melhor para a empresa e para o time"],
+  },
+  {
+    nome: "Buscamos evolução contínua em tudo que fazemos",
+    texto: "Questionamos constantemente como fazer melhor e corrigimos erros rapidamente.",
+    fazemos: ["Melhoramos processos, produtos e resultados continuamente", "Testamos, ajustamos e evoluímos com velocidade", "Buscamos eficiência e eliminamos desperdícios"],
+  },
+  {
+    nome: "Operamos com rigor, entregamos com excelência",
+    texto: "Seguimos processos e padrões definidos, mesmo quando ninguém está olhando.",
+    fazemos: ["Trabalhamos com segurança em todas as atividades", "Executamos com qualidade, consistência e organização", "Cumprimos prazos e o que foi combinado"],
+  },
+  {
+    nome: "Somos um time de elite. Jogamos para ser os melhores",
+    texto: "Nos comunicamos com clareza e assumimos responsabilidade pelo resultado coletivo.",
+    fazemos: ["Reconhecemos e valorizamos quem entrega resultado", "Ajudamos uns aos outros para alcançar o melhor resultado", "Celebramos conquistas e reconhecemos os resultados do time"],
+  },
 ] as const;
-export const VALORES_FONTE = "briefing360";
+export const VALORES_FONTE = "manualCultura (DNA CULTURA — Manual Cultural, nov/2026)";
 
 export const PALAVRAS_CHAVE = ["Agilidade", "Qualidade", "Compromisso"] as const;
 

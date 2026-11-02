@@ -46,7 +46,7 @@ const VP9 = ["-c:v", "libvpx-vp9", "-b:v", "0", "-row-mt", "1", "-deadline", "go
 
 /** Filtro de recorte/escala para um aspecto alvo a partir do 9:16 original. */
 function vf(w, h) {
-  return `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h},fps=24,format=yuv420p`;
+  return `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h},fps=30,format=yuv420p`;
 }
 
 async function encode({ input, start = 0, dur, w, h, base, crfMp4, crfWebm, posterAt = start + 1, semPoster = false }) {
@@ -82,8 +82,8 @@ if (only === "all" || only === "sheets") {
 if (only === "all" || only === "hero") {
   const input = path.join(SRC, HERO.file);
   // hero.webp (1280×720) é o poster/LCP dos dois tamanhos; o mobile usa o mesmo poster
-  await encode({ input, start: HERO.start, dur: HERO.dur, w: 1280, h: 720, base: "hero", crfMp4: 28, crfWebm: 33, posterAt: HERO.poster });
-  await encode({ input, start: HERO.start, dur: HERO.dur, w: 854, h: 480, base: "hero-mobile", crfMp4: 30, crfWebm: 35, semPoster: true });
+  await encode({ input, start: HERO.start, dur: HERO.dur, w: 1280, h: 720, base: "hero", crfMp4: 22, crfWebm: 30, posterAt: HERO.poster });
+  await encode({ input, start: HERO.start, dur: HERO.dur, w: 854, h: 480, base: "hero-mobile", crfMp4: 25, crfWebm: 32, semPoster: true });
 }
 
 if (only === "all" || only === "clips") {

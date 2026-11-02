@@ -44,7 +44,7 @@ export const MENSAGENS: Record<Linha, string> = {
   "vedacap-telhadista": `${SAUDACAO}. Sou telhadista e quero saber mais sobre o VEDACAP.\nQuantidade aproximada: ___\nCidade/UF: ___`,
   engenharia: `${SAUDACAO} e tenho uma dúvida técnica para a engenharia.\nLinha (solo/telhado/kit/Vedacap): ___\nDúvida: ___`,
   "pronta-entrega": `${SAUDACAO} e quero confirmar disponibilidade em pronta entrega.\nItem (solo / telhado Titan / kit / item avulso / Vedacap): ___\nQuantidade: ___`,
-  obra: `${SAUDACAO} e quero uma estrutura como a da obra que vi no site.\nObra: ___\nQtd de módulos: ___\nCidade/UF: ___`,
+  obra: `${SAUDACAO} e quero uma estrutura como a do projeto que vi no site.\nProjeto: ___\nQtd de módulos: ___\nCidade/UF: ___`,
   equipe: `${SAUDACAO} e quero falar com a equipe da Pacheco Solar.`,
 };
 

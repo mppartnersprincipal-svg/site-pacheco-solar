@@ -110,7 +110,7 @@ export const PRONTA_ENTREGA_SECAO = {
   beneficio: "Menos tempo de espera, mais eficiência no cronograma.",
   ressalva: "Consulte a disponibilidade da sua linha pelo WhatsApp.",
   fotoLegenda: "[PREENCHER foto da expedição]",
-  fotoAlt: "Estrutura de solo dupla em usina com brita — foto provisória até a foto da expedição",
+  fotoAlt: "Estrutura de solo dupla com duas fileiras de módulos — foto provisória até a foto da expedição",
   cta: PRONTA_ENTREGA_CTA,
 } as const;
 

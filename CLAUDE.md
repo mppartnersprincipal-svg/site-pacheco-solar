@@ -52,7 +52,7 @@ Site institucional multi-página da Pacheco Solar (indústria de estruturas met�
 ## Estrutura
 
 ```
-app/                       rotas: / · estruturas-de-solo · estruturas-para-telhado · kits-e-itens-avulsos · vedacap · obras · sobre · contato · politica-de-privacidade
+app/                       rotas: / · estruturas-de-solo · estruturas-para-telhado · kits-e-itens-avulsos · vedacap · projetos-atendidos · sobre · contato · politica-de-privacidade
 components/layout/         Header (logo branca, nav central, CTA pílula, barra de progresso CSS), Footer (3 colunas), SmoothScroll, CookieBanner
 components/cta/            WaButton, BotaoWhatsAppInteligente, CtaFinal (faixa ciano), PlacaIdentificacao (pílula)
 components/motion/         Reveal, Counter, Parallax (react-spring)

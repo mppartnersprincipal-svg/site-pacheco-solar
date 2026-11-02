@@ -23,8 +23,10 @@ Fonte: `assets-src/videos/hero-final.mp4` (enviado pelo Lucas em "Vídeo Heroe/P
 
 | Arquivo | Formato | Uso | Tamanho |
 |---|---|---|---|
-| `public/videos/hero.mp4/.webm` | 16:9 · 1280×720 · 24 fps | telas ≥ 768px | 2,66 MB / 3,35 MB |
-| `public/videos/hero-mobile.mp4/.webm` | 16:9 · 854×480 | telas < 768px | 1,06 MB / 1,51 MB |
+| `public/videos/hero.mp4/.webm` | 16:9 · 1280×720 · 30 fps · crf 22 | telas ≥ 768px | 5,6 MB / 4,9 MB |
+| `public/videos/hero-mobile.mp4/.webm` | 16:9 · 854×480 · crf 25 | telas < 768px | 2,1 MB / 2,3 MB |
+
+Reclassificação (Lucas, 02/11/2026): o vídeo original tem só 1280×720 — a nitidez no desktop depende de um arquivo em 1080p ou 4K [PREENCHER vídeo em alta]. Em 02/11 subimos a qualidade (crf 28 → 22, 24 → 30 fps) depois do Lucas reclamar da qualidade.
 | `public/videos/hero.webp` | 1280×720, frame de 21,5 s (usina) | poster/LCP dos dois tamanhos | 64 KB |
 
 Para trocar o corte: editar `HERO = { file, start, dur, poster }` em `scripts/media/encode-videos.mjs` e rodar `node scripts/media/encode-videos.mjs --only=hero --force`.

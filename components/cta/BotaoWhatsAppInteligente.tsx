@@ -25,7 +25,7 @@ const ROTULOS: Record<Linha, string> = {
   "vedacap-telhadista": "Pedir Vedacap",
   engenharia: "Falar com a engenharia",
   "pronta-entrega": "Consultar pronta entrega",
-  obra: "Quero uma obra assim",
+  obra: "Quero um projeto assim",
   equipe: "Falar com a equipe",
 };
 

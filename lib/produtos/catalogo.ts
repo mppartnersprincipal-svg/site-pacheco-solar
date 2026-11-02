@@ -36,7 +36,7 @@ export const LINHAS: LinhaProduto[] = [
     chips: ["Solo Linear", "Solo Dupla", "Zonas rurais"],
     href: ROTAS.solo,
     imagem: "solo-dupla/img-3961",
-    imagemAlt: "Estrutura de solo dupla vista por baixo dos módulos, com perfis de aço e brita",
+    imagemAlt: "Estrutura de solo linear vista por baixo dos módulos, com perfis de aço e brita",
     linha: "solo",
   },
   {
@@ -116,7 +116,7 @@ export const LINHAS_HOME: LinhaHome[] = [
     frase: "Suporte seguro e eficiente para grandes projetos.", // site atual
     href: ROTAS.solo,
     imagem: "solo-dupla/img-3961",
-    imagemAlt: "Estrutura de solo dupla vista por baixo dos módulos, com perfis de aço e brita",
+    imagemAlt: "Estrutura de solo linear vista por baixo dos módulos, com perfis de aço e brita",
   },
   {
     id: "telhado",
@@ -206,7 +206,7 @@ export const SOLO = {
       nome: "Solo Dupla",
       descricao: "[PREENCHER: descrição técnica da configuração dupla]",
       imagem: "solo-dupla/img-2713" as MediaKey,
-      imagemAlt: "Estrutura de solo dupla em usina com brita",
+      imagemAlt: "Estrutura de solo dupla com duas fileiras de módulos",
       linha: "solo-dupla" as const,
     },
   ],

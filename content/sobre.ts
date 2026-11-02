@@ -20,7 +20,7 @@ export const SOBRE_HERO = {
   subtitulo: SITE_ATUAL.sobre1,
   placas: [...PALAVRAS_CHAVE],
   cta: "Falar com a Pacheco",
-  fotoAlt: "Estrutura de solo dupla da Pacheco Solar montada em usina fotovoltaica",
+  fotoAlt: "Estrutura de solo linear da Pacheco Solar montada em usina fotovoltaica",
 };
 
 export const SOBRE_HISTORIA = {
@@ -28,7 +28,7 @@ export const SOBRE_HISTORIA = {
   eyebrow: "História",
   titulo: "Fundada por quem já esteve na obra.",
   texto: HISTORIA.texto,
-  linkObras: "Ver obras",
+  linkObras: "Ver projetos atendidos",
   /** Retrato de estúdio (assets-src/images/lucas/fundador-lucas.jpg, 22/10/2026) */
   fotoKey: "lucas/fundador-lucas" as const,
   fotoAlt: "Lucas Pacheco, fundador da Pacheco Solar",
@@ -61,10 +61,10 @@ export const SOBRE_MVP = {
 };
 
 export const SOBRE_VALORES = {
-  // fonte: blueprint (valores); itens vêm de VALORES (briefing360)
-  eyebrow: "Valores",
-  titulo: "Agilidade, qualidade e compromisso.",
-  subtitulo: "Seis valores que orientam o trabalho da Pacheco Solar com os integradores.",
+  // fonte: manual de cultura (nov/2026); itens vêm de VALORES
+  eyebrow: "Nossos valores",
+  titulo: "Cultura não é o que está escrito, é o que é praticado todos os dias.",
+  subtitulo: "Cinco valores que definem como trabalhamos, como tomamos decisões e como buscamos resultado para o integrador.",
 };
 
 export const SOBRE_COMO_TRABALHAMOS = {

@@ -29,7 +29,7 @@ export const LINHAS: LinhaProduto[] = [
   {
     id: "solo",
     numero: "01",
-    nome: "Estrutura para Usinas de Solo",
+    nome: "Estrutura de Solo para Placa Solar",
     nomeCurto: "Solo",
     frase: "Suporte seguro e eficiente para grandes Projetos",
     fonte: "site atual",
@@ -113,7 +113,7 @@ export const LINHAS_HOME: LinhaHome[] = [
     id: "solo",
     numero: "01",
     nome: "Estrutura de Solo",
-    frase: "Suporte seguro e eficiente para grandes projetos.", // site atual
+    frase: "Estrutura de solo para placa solar, monoposte linear ou dupla, para usinas e fazendas.",
     href: ROTAS.solo,
     imagem: "solo-dupla/img-3961",
     imagemAlt: "Estrutura de solo linear vista por baixo dos módulos, com perfis de aço e brita",
@@ -122,7 +122,7 @@ export const LINHAS_HOME: LinhaHome[] = [
     id: "telhado",
     numero: "02",
     nome: "Telhado — Linha Titan",
-    frase: "Soluções adaptáveis para telhados residenciais e comerciais.", // site atual
+    frase: "Estrutura para painel solar em telhado cerâmico, fibrocimento e metálico, com mini trilho.",
     href: ROTAS.telhado,
     imagem: "obras-telhado/telhado-metalico",
     imagemAlt: "Linha Titan instalada em telhado metálico, com mini trilhos fixados antes dos módulos",
@@ -131,7 +131,7 @@ export const LINHAS_HOME: LinhaHome[] = [
     id: "kits",
     numero: "03",
     nome: "Kits e Itens Avulsos",
-    frase: "Tudo em um só fornecedor.", // briefing para Claude (centralização de compras)
+    frase: "Kit de fixação para placa solar e itens avulsos em um só fornecedor.",
     href: ROTAS.kits,
     imagem: "solo-dupla/clamps-01",
     imagemAlt: "Clipe de fixação e grampo sob módulo em estrutura de solo",
@@ -189,14 +189,14 @@ export const VEDACAP = {
 
 /** Estrutura de solo — fatos do briefing/CLAUDE.md e do acervo fotográfico. */
 export const SOLO = {
-  nome: "Estrutura para Usinas de Solo",
-  eyebrow: "LINHA SOLO · SOLO LINEAR E SOLO DUPLA",
+  nome: "Estrutura de Solo para Placa Solar",
+  eyebrow: "ESTRUTURA DE SOLO · MONOPOSTE LINEAR E DUPLA · USINAS E FAZENDAS",
   frase: "Suporte seguro e eficiente para grandes Projetos",
   variantes: [
     {
       id: "linear",
       nome: "Solo Linear",
-      descricao: "Uma fileira de módulos por estrutura.",
+      descricao: "Estrutura monoposte com uma fileira de módulos: suporte para placa solar no solo em áreas estreitas e propriedades rurais.",
       imagem: "solo-linear/linear-wa-01" as MediaKey,
       imagemAlt: "Estrutura de solo linear com módulos em pasto",
       linha: "solo-linear" as const,
@@ -204,7 +204,7 @@ export const SOLO = {
     {
       id: "dupla",
       nome: "Solo Dupla",
-      descricao: "Duas fileiras de módulos por estrutura, para aproveitar melhor a área da usina.",
+      descricao: "Duas fileiras de módulos por estrutura: estrutura de solo para usina solar de médio e grande porte, com melhor aproveitamento da área.",
       imagem: "solo-dupla/img-2713" as MediaKey,
       imagemAlt: "Estrutura de solo dupla com duas fileiras de módulos",
       linha: "solo-dupla" as const,

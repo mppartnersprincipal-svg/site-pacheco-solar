@@ -13,12 +13,12 @@ import { HISTORIA, PROPOSITO } from "@/content/institucional";
 // ------------------------------------------------------------------ 1. hero
 // fonte: FRASES_POSICIONAMENTO (H1) + pilares/diferenciais do site atual (sub)
 export const HERO = {
-  eyebrow: "ESTRUTURAS METÁLICAS PARA ENERGIA SOLAR · DA INDÚSTRIA PARA SUA OBRA",
+  eyebrow: "ESTRUTURAS METÁLICAS PARA ENERGIA SOLAR · GOIÂNIA · TODO O BRASIL",
   titulo: "Estrutura que não te deixa na mão.",
   /** Trecho do título em laranja (última ocorrência) */
   tituloDestaque: "na mão.",
   subtitulo:
-    "Estruturas para usinas de solo, Linha Titan para telhado, kits completos e itens avulsos. Engenharia própria e entrega em todo o Brasil.",
+    "Estrutura de solo para placa solar, Linha Titan para painel solar em telhado cerâmico, fibrocimento e metálico, kits de fixação e itens avulsos. Fabricante com engenharia própria e entrega em todo o Brasil.",
   ctaPrimario: "Pedir orçamento no WhatsApp",
   ctaSecundario: "Ver linhas de produto",
   ctaSecundarioHref: "#linhas-de-produto",
@@ -37,7 +37,7 @@ export const PROPOSITO_SECAO = {
 // fonte: site atual (H2 = recorte do diferencial 04). Cards vêm de LINHAS_HOME em lib/produtos/catalogo.ts
 export const LINHAS_SECAO = {
   eyebrow: "CATÁLOGO · 03 LINHAS + VEDACAP",
-  titulo: "Seja qual for o projeto, temos a estrutura certa.",
+  titulo: "Seja qual for o projeto, temos a estrutura solar certa.",
   verLinha: "Ver linha",
   placaNovo: "Novo",
   vedacapCta: "Conhecer o Vedacap",

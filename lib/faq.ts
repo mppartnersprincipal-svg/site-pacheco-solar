@@ -61,6 +61,18 @@ export const FAQ_SOLO: Faq[] = [
     fonte: "briefing para Claude + site atual",
   },
   {
+    pergunta: "O que é estrutura monoposte para placa solar?",
+    resposta:
+      "É a estrutura de solo apoiada em uma única estaca cravada por mesa, sem base de concreto. A Pacheco fabrica monoposte em duas configurações: Solo Linear (uma fileira de módulos) e Solo Dupla (duas fileiras).",
+    fonte: "acervo (fotos) + Lucas (02/11/2026)",
+  },
+  {
+    pergunta: "Onde comprar estrutura de solo para energia solar?",
+    resposta:
+      "Direto da Pacheco Solar, indústria de estruturas metálicas em Aparecida de Goiânia/GO. O orçamento é pelo WhatsApp e a entrega é feita em todo o Brasil.",
+    fonte: "lib/site.ts + site atual",
+  },
+  {
     pergunta: "Qual a diferença entre Solo Linear e Solo Dupla?",
     resposta: "Solo Linear tem uma fileira de módulos por estrutura; Solo Dupla tem duas. A engenharia indica a configuração ideal para o seu layout.",
     fonte: "acervo (fotos) + Lucas (02/11/2026)",
@@ -105,6 +117,18 @@ export const FAQ_TELHADO: Faq[] = [
     resposta: "Sim: manuais da Linha Titan para telhado de fibrocimento e telhado metálico, em PDF, nesta página.",
     fonte: "acervo",
   },
+  {
+    pergunta: "Tem suporte para placa solar em telha de zinco ou trapezoidal?",
+    resposta:
+      "Sim. Para telhado metálico (telha de zinco, trapezoidal ou aluzinco) a Linha Titan usa mini trilho de alumínio fixado com parafuso brocante inox e espuma EPDM, sem furar a telha fora do ponto de fixação.",
+    fonte: "manual Linha Titan (telhado metálico)",
+  },
+  {
+    pergunta: "Serve para galpão?",
+    resposta:
+      "Sim. Galpões comerciais e industriais com telha metálica ou de fibrocimento usam a mesma Linha Titan, dimensionada pela engenharia conforme o layout dos módulos.",
+    fonte: "site atual (telhados comerciais) + manuais",
+  },
 ];
 
 export const FAQ_KITS: Faq[] = [
@@ -118,6 +142,18 @@ export const FAQ_KITS: Faq[] = [
     pergunta: "Tem pronta entrega de avulsos?",
     resposta: "Na maior parte do tempo temos pronta entrega. Consulte a disponibilidade pelo WhatsApp.",
     fonte: "briefing 360º",
+  },
+  {
+    pergunta: "Vendem kit mini trilho solar?",
+    resposta:
+      "Sim. O kit da Linha Titan para telhado metálico vem com mini trilhos de alumínio, parafusos brocantes inox, espuma EPDM e grampos intermediários e finais.",
+    fonte: "manual Linha Titan (telhado metálico)",
+  },
+  {
+    pergunta: "Vendem trilho para fixar placa solar avulso?",
+    resposta:
+      "O mini trilho faz parte do kit da Linha Titan. Avulsos são grampos, parafusos brocante inox e martelo, hastes estruturais inox, clipes de fixação de solo e placas de identificação.",
+    fonte: "CLAUDE.md do cliente (lista oficial de avulsos)",
   },
 ];
 

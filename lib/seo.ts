@@ -3,7 +3,7 @@ import { faqPublicavel } from "@/lib/faq";
 import { SITE, SITE_URL } from "@/lib/site";
 
 export const SITE_NAME = SITE.nome;
-export const TITLE_DEFAULT = "Pacheco Solar | Estruturas metálicas para energia solar";
+export const TITLE_DEFAULT = "Pacheco Solar | Estrutura para Placa Solar: Solo e Telhado";
 
 /** Metadata padrão de uma rota (title, description, canonical, OG/Twitter). */
 export function buildMetadata({
@@ -46,7 +46,19 @@ export const ORGANIZATION_JSONLD = {
   "@type": ["Organization", "LocalBusiness"],
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
+  alternateName: ["Solar Pacheco", "Pacheco Energia Solar", "Pacheco Solar Indústria e Comércio"],
   legalName: SITE.razaoSocial,
+  slogan: "Estrutura que não te deixa na mão.",
+  knowsAbout: [
+    "estrutura metálica para energia solar",
+    "estrutura de solo para placa solar",
+    "estrutura monoposte solar",
+    "estrutura para painel solar em telhado",
+    "mini trilho solar",
+    "kit de fixação para placa solar",
+    "suporte para placa solar",
+    "estruturas fotovoltaicas",
+  ],
   url: SITE_URL,
   logo: `${SITE_URL}/images/logos/pacheco-laranja.webp`,
   image: `${SITE_URL}/opengraph-image`,

@@ -14,17 +14,17 @@ import { ROTAS } from "@/lib/site";
 
 export const KITS_SEO = {
   // fonte: blueprint (h1 com keyword) + briefingClaude + CLAUDE.md do cliente (lista oficial de avulsos)
-  title: "Kits Completos e Itens Avulsos para Estrutura Solar",
+  title: "Kit de Fixação para Placa Solar e Itens Avulsos",
   description:
-    "Kit completo para a obra e item avulso para a montagem não parar: grampos intermediários e finais, parafusos brocante inox e martelo, hastes estruturais inox, clipes de fixação e placas de identificação. Na maior parte do tempo temos pronta entrega — consulte a disponibilidade. Entregamos em todo o Brasil.",
+    "Kit de fixação para placa solar (estrutura + mini trilho, parafusos e grampos) e itens avulsos: grampos intermediários e finais, parafuso brocante inox e martelo, hastes estruturais inox, clipes de fixação e placas de identificação. Pronta entrega na maior parte do tempo e entrega em todo o Brasil.",
   path: ROTAS.kits,
 } as const;
 
 export const KITS_HERO = {
   // fonte: blueprint (hero-kits) + briefingClaude (gancho "Fornecedor te deixa na mão por causa de um parafuso?")
   eyebrow: "KITS COMPLETOS · ITENS AVULSOS",
-  titulo: "Kits Completos e Itens Avulsos para Estrutura Solar",
-  sub: "Fornecedor te deixa na mão por causa de um parafuso? Tudo em um só fornecedor: o kit completo para a obra e o item avulso para a montagem não parar. Centralize suas compras.",
+  titulo: "Kit de Fixação para Placa Solar e Itens Avulsos",
+  sub: "Fornecedor te deixa na mão por causa de um parafuso? Kit de estrutura e fixação completo para a obra e item avulso para a montagem não parar: grampos, parafusos, hastes, clipes e placas em um só fornecedor.",
   placas: ["Pronta entrega", "Kit completo", "Itens avulsos"],
   ctaKit: "Pedir kit completo",
   ctaAvulso: "Pedir item avulso",

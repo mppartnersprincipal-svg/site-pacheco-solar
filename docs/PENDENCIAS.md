@@ -7,7 +7,7 @@ Total: 13
 - `content\home.ts:7` — [PREENCHER]
 - `content\telhado.ts:4` — [PREENCHER ...]
 - `lib\faq.ts:10` — [PREENCHER]
-- `lib\seo.ts:98` — [PREENCHER]
+- `lib\seo.ts:110` — [PREENCHER]
 - `lib\utils.ts:25` — [PREENCHER…]
 - `lib\utils.ts:30` — [PREENCHER[^\]
 - `lib\whatsapp.ts:6` — [PREENCHER]

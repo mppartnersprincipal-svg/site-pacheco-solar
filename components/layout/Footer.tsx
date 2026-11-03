@@ -36,7 +36,7 @@ export function Footer({ logo }: { logo: Logo }) {
         <div>
           <Image src={logo.src} alt="Pacheco Solar" width={logo.width} height={logo.height} className="h-auto w-36" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed">
-            Estruturas metálicas para energia solar. Da indústria para sua obra, com entrega em todo o Brasil.
+            Indústria de estruturas metálicas para energia solar em Aparecida de Goiânia/GO: estrutura de solo para placa solar, Linha Titan para telhado, kits de fixação e itens avulsos. Entrega em todo o Brasil.
           </p>
         </div>
 

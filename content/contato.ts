@@ -7,8 +7,8 @@ import type { Linha } from "@/lib/whatsapp";
 
 export const CONTATO_META = {
   // fonte: blueprint (/contato) + lib/site.ts
-  title: "Contato — fale com quem entende",
-  description: `Orçamentos e suporte técnico pelo WhatsApp ${SITE.telefone.display}, em horário comercial. Atalhos por linha (solo, Linha Titan, kits, itens avulsos e Vedacap), endereço em Aparecida de Goiânia/GO e e-mail oficial.`,
+  title: "Contato: orçamento de estrutura solar no WhatsApp",
+  description: `Orçamento de estrutura para placa solar pelo WhatsApp ${SITE.telefone.display}, em horário comercial. Fornecedor de estruturas solares em Aparecida de Goiânia/GO com entrega em todo o Brasil: solo, Linha Titan, kits, itens avulsos e Vedacap.`,
 };
 
 export const CONTATO_HERO = {

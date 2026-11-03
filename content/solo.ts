@@ -15,8 +15,8 @@ export const HERO_SOLO = {
   eyebrow: SOLO.eyebrow,
   titulo: SOLO.nome,
   subtitulo:
-    "Suporte seguro e eficiente para grandes Projetos. Aço de qualidade premium, ideal para ambientes com atmosfera agressiva e zonas rurais. Pronta entrega na maior parte do tempo.",
-  placas: ["Pronta entrega", "Solo Linear", "Solo Dupla", "Entrega em todo o Brasil"],
+    "Estrutura monoposte linear e dupla para usina fotovoltaica, fazenda e zona rural. Aço de qualidade premium, ideal para ambientes com atmosfera agressiva. Pronta entrega na maior parte do tempo.",
+  placas: ["Pronta entrega", "Solo Linear", "Solo Dupla", "Monoposte", "Entrega em todo o Brasil"],
   imagem: "solo-dupla/img-3961" as MediaKey,
   imagemAlt: "Estrutura de solo linear vista por baixo dos módulos, com perfis de aço e brita",
   cta: "Pedir orçamento de solo no WhatsApp",
@@ -26,7 +26,7 @@ export const HERO_SOLO = {
 /** Variantes — fonte: acervo (fotos Solo Linear / Solo Dupla). */
 export const VARIANTES_SOLO = {
   eyebrow: "CONFIGURAÇÕES · 02",
-  titulo: "Duas configurações para o layout da sua usina.",
+  titulo: "Estrutura de solo linear ou dupla para o layout da sua usina.",
   subtitulo: "Seja qual for o tipo de projeto, temos a estrutura certa, precisa e compatível com o seu layout.", // fonte: siteAtual (diferencial 04)
   rotuloTablist: "Configuração da estrutura de solo",
   rotuloConfiguracao: "Configuração",
@@ -124,7 +124,7 @@ export const CTA_FINAL_SOLO = {
 
 /** Metadata — fonte: siteAtual + briefing360 (composição só com frases permitidas). */
 export const META_SOLO = {
-  title: "Estrutura para Usinas de Solo",
+  title: "Estrutura de Solo para Placa Solar: Linear e Dupla",
   description:
-    "Estrutura para usinas de solo nas configurações Solo Linear e Solo Dupla. Aço de qualidade premium, ideal para ambientes com atmosfera agressiva e zonas rurais. Pronta entrega na maior parte do tempo e entrega em todo o Brasil.",
+    "Estrutura de solo para placa solar e usina fotovoltaica: monoposte linear (uma fileira) e dupla (duas fileiras). Aço de qualidade premium para fazendas e ambientes agressivos. Fabricante em Goiânia, pronta entrega na maior parte do tempo e entrega em todo o Brasil.",
 } as const;

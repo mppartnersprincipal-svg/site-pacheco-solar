@@ -14,7 +14,7 @@ import { ROTAS } from "@/lib/site";
 export const HERO_OBRAS = {
   eyebrow: "PROJETOS ATENDIDOS · USINAS DE SOLO E FAZENDAS",
   titulo: "Projetos atendidos",
-  subtitulo: "Mais obra entregue, menos dor de cabeça. Estruturas de solo em usinas e fazendas pelo Brasil.",
+  subtitulo: "Mais obra entregue, menos dor de cabeça. Estruturas para usina solar em solo, fazendas e telhados pelo Brasil.",
   placas: ["Solo Linear", "Solo Dupla", "Fazenda", "Entrega em todo o Brasil"],
   imagem: "obras-fazenda-01/foto-285cf49e" as MediaKey,
   imagemAlt: "Usina de solo em pasto com fileiras de módulos fotovoltaicos",
@@ -78,7 +78,7 @@ export const CTA_FINAL_OBRAS = {
 
 /** Metadata — composição só com frases permitidas (plano + siteAtual). */
 export const META_OBRAS = {
-  title: "Projetos atendidos",
+  title: "Projetos atendidos: usinas de solo e telhados",
   description:
-    "Projetos atendidos pela Pacheco Solar: estruturas de solo linear e dupla montadas em usinas e fazendas pelo Brasil. Fotos, vídeos e depoimentos de clientes.",
+    "Projetos atendidos pela Pacheco Solar: estrutura de solo linear e dupla em usinas fotovoltaicas e fazendas, Linha Titan em telhados metálicos e cerâmicos. Fotos, vídeos e depoimentos de integradores.",
 } as const;

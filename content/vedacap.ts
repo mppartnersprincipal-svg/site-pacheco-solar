@@ -13,7 +13,7 @@ import { ROTAS } from "@/lib/site";
 
 export const VEDACAP_SEO = {
   // fonte: blueprint (h1 com nome do produto) + roteirosVedacap (definição) + prontaEntrega
-  title: "Vedacap — capa em aluzinco para a cabeça do parafuso em telhado metálico",
+  title: "Vedacap: capa para parafuso em telhado metálico",
   description: `${VEDACAP.definicao} Três versões: aluzinco natural, branco e preto. Temos o Vedacap a pronta entrega — consulte a disponibilidade. Aplicação simples com cola PU.`,
   path: ROTAS.vedacap,
   categoria: "Fixação para telhado metálico",

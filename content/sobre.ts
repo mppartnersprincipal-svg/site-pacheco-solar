@@ -8,16 +8,16 @@ import type { Passo } from "@/components/nicho/EstacaTimeline";
 
 export const SOBRE_META = {
   // fonte: blueprint (/sobre) + lib/site.ts (descrição institucional)
-  title: "Sobre a Pacheco Solar",
+  title: "Sobre: indústria de estruturas solares em Goiânia",
   description:
-    "Fundada por quem já esteve na obra: indústria de estruturas metálicas para sistemas fotovoltaicos em Aparecida de Goiânia/GO. Missão, visão, valores, setores e localização estratégica no centro do Brasil.",
+    "Pacheco Solar: fabricante de estruturas metálicas para energia solar em Aparecida de Goiânia/GO, fundada por quem já esteve na obra. Estrutura de solo, Linha Titan para telhado e kits de fixação, com entrega em todo o Brasil.",
 };
 
 export const SOBRE_HERO = {
   // fonte: blueprint (hero-sobre) + SITE_ATUAL.sobre1 + PALAVRAS_CHAVE (ano de fundação fora, decisão do Pedro 22/10/2026)
-  eyebrow: "Quem somos · Indústria de estruturas metálicas para energia solar",
+  eyebrow: "Quem somos · Fabricante de estruturas metálicas para energia solar em Goiânia",
   titulo: "Sobre a Pacheco Solar",
-  subtitulo: SITE_ATUAL.sobre1,
+  subtitulo: `${SITE_ATUAL.sobre1} Indústria de estruturas solares em Aparecida de Goiânia/GO, com entrega em todo o Brasil.`,
   placas: [...PALAVRAS_CHAVE],
   cta: "Falar com a Pacheco",
   fotoAlt: "Estrutura de solo linear da Pacheco Solar montada em usina fotovoltaica",

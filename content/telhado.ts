@@ -12,9 +12,9 @@ import { VEDACAP } from "@/lib/produtos/catalogo";
 
 export const TELHADO_META = {
   // fonte: plano (arquitetura de páginas — h1 com keyword) + site atual + briefing para Claude
-  title: "Estrutura para Telhado — Linha Titan",
+  title: "Estrutura para Painel Solar em Telhado — Linha Titan",
   description:
-    "Soluções adaptáveis para telhados residenciais e comerciais. Linha Titan para telhado cerâmico, de fibrocimento e metálico: alumínio estrutural 6005, parafusos em aço inox e mini trilhos com ventilação. Pronta entrega na maior parte do tempo — consulte a disponibilidade.",
+    "Estrutura para painel solar em telhado cerâmico, fibrocimento e metálico (telha de zinco e trapezoidal). Linha Titan: estrutura de alumínio 6005, parafusos em aço inox, mini trilho com ventilação e kit de fixação completo. Pronta entrega na maior parte do tempo e entrega em todo o Brasil.",
   path: ROTAS.telhado,
   imagem: "telhado/titan-metalico-modulo-transparente" as MediaKey,
   imagemAlt: "Render da Linha Titan em telhado metálico com módulos transparentes mostrando os mini trilhos",
@@ -23,9 +23,9 @@ export const TELHADO_META = {
 export const HERO_TELHADO = {
   // fonte: lib/produtos/titan.ts (eyebrow) + site atual (frase) + briefing para Claude (materiais)
   eyebrow: TITAN.eyebrow,
-  titulo: "Estrutura para Telhado — Linha Titan",
+  titulo: "Estrutura para Painel Solar em Telhado — Linha Titan",
   subtitulo:
-    "Soluções adaptáveis para telhados residenciais e comerciais. Alumínio estrutural 6005, parafusos em aço inox e mini trilhos com ventilação.",
+    "Suporte para placa solar em telha cerâmica, fibrocimento e telhado metálico, para residências, comércios e galpões. Alumínio estrutural 6005, parafusos em aço inox e mini trilho com ventilação.",
   placas: ["Cerâmico", "Fibrocimento", "Metálico", "Manual de instalação"],
   cta: "Pedir orçamento Titan no WhatsApp",
 } as const;
@@ -33,7 +33,7 @@ export const HERO_TELHADO = {
 export const SELETOR_TELHADO = {
   // fonte: blueprint (/estruturas-para-telhado → seletor-telhado)
   eyebrow: "SELETOR · 03 TIPOS DE TELHADO",
-  titulo: "Qual é o telhado da obra?",
+  titulo: "Qual é o telhado da obra: cerâmico, fibrocimento ou metálico?",
   subtitulo: "Escolha o tipo de telhado para ver o render, os componentes do manual e o manual de instalação em PDF.",
   rotuloComponentes: "Componentes",
   rotuloRegras: "Regras do manual",
@@ -93,7 +93,7 @@ export const PASSO_A_PASSO = {
 export const MATERIAIS_TITAN = {
   // fonte: briefing para Claude (materiais escopados à Linha Titan) + renders do acervo
   eyebrow: "MATERIAIS · LINHA TITAN",
-  titulo: "Materiais da Linha Titan.",
+  titulo: "Estrutura de alumínio para painel solar.",
   subtitulo: "Alumínio estrutural 6005, parafusos em aço inox e mini trilhos com ventilação — os materiais da Linha Titan.",
   itens: [
     { imagem: "telhado/titan-grampo-intermediario" as MediaKey, legenda: TITAN.materiais[0].nome, alt: "Render de grampo intermediário fixando módulos no perfil de alumínio da Linha Titan" },

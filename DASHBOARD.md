@@ -85,12 +85,12 @@ seções mostram "Conexão pendente".
 ## Segurança (revisão de 03/11/2026)
 
 - Login: senha única + cookie HMAC. Tentativas erradas: 10 por IP ou 50 no total em 15 min bloqueiam por 15 min
-  (memória da instância). Recomendado: `DASHBOARD_PASSWORD` com 16+ caracteres e regra de rate limit no WAF da
-  Vercel para `/dashboard/login` (ex.: 20 req/min por IP).
+  (memória da instância) + regra do WAF abaixo. Recomendado: `DASHBOARD_PASSWORD` com 16+ caracteres.
 - Logout apaga o cookie, mas um cookie roubado vale até expirar (30 dias). Para revogar todos: trocar
   `DASHBOARD_SECRET` e fazer redeploy.
-- Coletor: sem dado pessoal; limites por instância + Origin do próprio site + teto por sessão. Para abuso
-  distribuído, regra de rate limit no WAF da Vercel em `/api/collect` (ex.: 120 req/min por IP).
+- Coletor: sem dado pessoal; limites por instância + Origin do próprio site + teto por sessão.
+- **WAF da Vercel (criado em 03/11/2026, Firewall → Rules):** `Rate limit - coletor /api/collect` (POST, 120/min por IP,
+  bloqueio de 5 min) e `Rate limit - login do painel` (POST em `/dashboard/login`, 20/min por IP, bloqueio de 15 min).
 - `visitor_id` é criado na primeira visita e apagado se a pessoa escolher "Só o essencial" (mesmo
   comportamento da Sólida).
 

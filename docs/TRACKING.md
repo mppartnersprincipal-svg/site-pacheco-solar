@@ -33,6 +33,8 @@ Todo evento acima também vai para o coletor first-party (`lib/tracker.ts` → `
 
 ## O que o Pedro precisa fazer
 
+> **Status 03/11/2026:** container importado e publicado (gtm.js no ar contém G-BMVXR9D8X9, as 2 conversões do Ads, o Pixel e `percent_scrolled`); conversão do flutuante como secundária; `click_whatsapp` marcado como evento-chave; painel validado. Pendente só a virada de DNS (pachecosolar.com.br ainda responde pelo Apache/WordPress).
+
 1. **Importar o container** `gtm/GTM-WKV5QM3B-importar.json` (gerado em 03/11/2026 com `gtm_container.py` + parâmetros deste site): GTM → Administrador → Importar contêiner → arquivo → espaço de trabalho existente → **Mesclar + Substituir conflitantes** → Visualizar (testar um clique no WhatsApp) → Enviar → Publicar.
    Conteúdo: Google Tag GA4 (`G-BMVXR9D8X9`, `send_page_view=false`), tag de evento GA4 para todos os eventos acima com os parâmetros `cta_id, posicao, linha, item, tipo, section_id, percent_scrolled, phone, email, destino, origem, video_id, file, consent_choice, utm_*`, Vinculador + 2 tags de conversão do Google Ads, Meta Pixel `1253856145352881` (base + PageView por rota + `Contact` em `click_whatsapp`), gatilhos de evento personalizado e de mudança de histórico.
 2. **Conversões do Google Ads** (conta Pacheco Solar, ID `10868283032`, confirmado em 03/11/2026) já estão no JSON: "Clique nos Botões de WhatsApp" (rótulo `YnH_CMSJsPEaEJits74o`) dispara em todo `click_whatsapp`; "Clique Botão Wpp Flutuante" (rótulo `9dSxCLWStfEaEJits74o`) só quando `cta_id = flutuante`. Como o flutuante também conta na primeira, deixar a do flutuante como conversão **secundária** no Ads (Metas → Clique Botão Wpp Flutuante → Otimização de ações) para não contar em dobro nos lances.

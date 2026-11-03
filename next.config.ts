@@ -28,6 +28,17 @@ const nextConfig: NextConfig = {
     qualities: [60, 75, 85],
     minimumCacheTTL: 2678400, // 31 dias — regra: trocou o arquivo, troca o nome
   },
+  // URLs do site WordPress antigo (sitemap de 03/11/2026) → páginas novas. 301 preserva a query
+  // (gclid/UTMs dos anúncios que ainda apontem para as LPs antigas).
+  async redirects() {
+    const home = ["/estruturas", "/estruturas-2025", "/estruturas-2025-jun-25", "/novo-modelo", "/2022/10/04/hello-world", "/category/uncategorized"];
+    return [
+      ...home.map((source) => ({ source, destination: "/", permanent: true })),
+      { source: "/wp-sitemap:rest*.xml", destination: "/sitemap.xml", permanent: true },
+      { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
+      { source: "/feed", destination: "/", permanent: true },
+    ];
+  },
   async headers() {
     return [
       { source: "/:path*", headers: SECURITY_HEADERS },

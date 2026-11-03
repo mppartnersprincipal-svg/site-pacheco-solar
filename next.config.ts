@@ -34,7 +34,8 @@ const nextConfig: NextConfig = {
     const home = ["/estruturas", "/estruturas-2025", "/estruturas-2025-jun-25", "/novo-modelo", "/2022/10/04/hello-world", "/category/uncategorized"];
     return [
       ...home.map((source) => ({ source, destination: "/", permanent: true })),
-      { source: "/wp-sitemap:rest*.xml", destination: "/sitemap.xml", permanent: true },
+      { source: "/wp-sitemap.xml", destination: "/sitemap.xml", permanent: true },
+      { source: "/wp-sitemap-:slug", destination: "/sitemap.xml", permanent: true },
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
       { source: "/feed", destination: "/", permanent: true },
     ];

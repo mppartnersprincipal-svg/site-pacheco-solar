@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
+import { connection } from "next/server";
 import { isLoggedIn } from "@/lib/dashboard/auth";
 import {
   analyticsConfigured,
@@ -39,6 +40,8 @@ import { LiveSection } from "@/components/dashboard/sections/LiveSection";
 import { SectionsSection } from "@/components/dashboard/sections/SectionsSection";
 
 export default async function DashboardPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+  // Sempre dinâmico (datas do período usam o relógio): evita o aviso de prerender do cacheComponents
+  await connection();
   // O proxy.ts já redireciona; esta checagem cobre o caso de o proxy não rodar.
   if (!(await isLoggedIn())) redirect("/dashboard/login");
 

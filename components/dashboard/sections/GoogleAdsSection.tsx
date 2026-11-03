@@ -1,20 +1,13 @@
 import { Banknote, CircleDollarSign, Eye, MousePointerClick, Percent, Target, Wallet } from "lucide-react";
 import type { Range } from "@/lib/analytics-queries";
 import { getGoogleAdsReport } from "@/lib/dashboard/reports";
-import type { GoogleAdsCampaign } from "@/lib/google-ads-types";
+import { CampanhaSelecionada } from "@/components/dashboard/CampanhaSelecionada";
 import { ChartCard } from "@/components/dashboard/ChartCard";
-import { DataTable, type Column } from "@/components/dashboard/DataTable";
 import { EmptyState } from "@/components/dashboard/EmptyState";
 
 const integer = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 });
 const decimal = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 2 });
 const percentage = new Intl.NumberFormat("pt-BR", { style: "percent", maximumFractionDigits: 2 });
-
-const campaignStatuses: Record<string, { label: string; className: string }> = {
-  ENABLED: { label: "Ativa", className: "bg-whatsapp/10 text-[#157a3d]" },
-  PAUSED: { label: "Pausada", className: "bg-surface-alt text-ink-muted" },
-  REMOVED: { label: "Removida", className: "bg-brand-tint text-brand-hover" },
-};
 
 function formatDate(value: string) {
   return value.split("-").reverse().join("/");
@@ -44,25 +37,6 @@ export async function GoogleAdsSection({ range }: { range: Range }) {
     { label: "Conversões", value: decimal.format(totals.conversions), icon: Target, hint: "Conversões registradas no Google Ads" },
     { label: "Custo por conversão", value: formatMoney(totals.costPerConversion), icon: Banknote, hint: "Investimento ÷ conversões" },
   ];
-  const columns: Column<GoogleAdsCampaign>[] = [
-    { key: "name", header: "Campanha", render: (c) => <span className="block min-w-44 font-semibold text-ink">{c.name}</span> },
-    {
-      key: "status",
-      header: "Status",
-      render: (c) => {
-        const status = campaignStatuses[c.status] ?? { label: "Não informado", className: "bg-surface-alt text-ink-muted" };
-        return <span className={`inline-flex rounded-full px-2 py-1 text-xs font-semibold whitespace-nowrap ${status.className}`}>{status.label}</span>;
-      },
-    },
-    { key: "cost", header: "Investimento", align: "right", render: (c) => formatMoney(c.cost) },
-    { key: "impressions", header: "Impressões", align: "right", render: (c) => integer.format(c.impressions) },
-    { key: "clicks", header: "Cliques", align: "right", render: (c) => integer.format(c.clicks) },
-    { key: "ctr", header: "CTR", align: "right", render: (c) => formatPercent(c.ctr) },
-    { key: "cpc", header: "CPC médio", align: "right", render: (c) => formatMoney(c.averageCpc) },
-    { key: "conversions", header: "Conversões", align: "right", render: (c) => decimal.format(c.conversions) },
-    { key: "cpa", header: "Custo / conv.", align: "right", render: (c) => formatMoney(c.costPerConversion) },
-  ];
-
   return (
     <ChartCard id="google-ads" title="Google Ads" description={`Resultados da conta ${report.customer.name || "de anúncios"} · ${report.customer.currencyCode}`}>
       <div className="space-y-5">
@@ -91,7 +65,7 @@ export async function GoogleAdsSection({ range }: { range: Range }) {
         <div>
           <h3 className="mb-3 font-sans text-sm font-bold text-ink">Resultados por campanha</h3>
           {report.campaigns.length ? (
-            <DataTable rows={report.campaigns} rowKey={(c) => c.id} columns={columns} minWidth={1060} dense />
+            <CampanhaSelecionada campanhas={report.campaigns} currencyCode={report.customer.currencyCode} />
           ) : (
             <EmptyState compact title="Nenhuma campanha com resultados no período" hint="Tente ampliar o período para consultar os resultados dos anúncios." />
           )}

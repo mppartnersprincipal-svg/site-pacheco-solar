@@ -13,6 +13,7 @@ node scripts/media/encode-videos.mjs      # ../assets-src/videos → public/vide
 
 - Regras do projeto e estrutura: `CLAUDE.md`
 - Tracking (GTM/GA4/Ads/Pixel): `docs/TRACKING.md`
+- Painel `/dashboard` (coletor Supabase, Google Ads, GA4): `DASHBOARD.md`
 - Mídia e cortes do hero: `docs/MIDIA.md`
 - Pendências com o cliente: `docs/PENDENCIAS.md`
 

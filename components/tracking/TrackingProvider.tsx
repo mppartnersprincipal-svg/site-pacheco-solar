@@ -12,6 +12,7 @@ import {
   trackScroll,
   trackSectionView,
 } from "@/lib/analytics";
+import { initTracker, trackPageView } from "@/lib/tracker";
 
 const SCROLL_MARKS = [25, 50, 75, 100] as const;
 
@@ -24,10 +25,11 @@ export function TrackingProvider() {
   const pathname = usePathname();
   const scrollFired = useRef<Set<number>>(new Set());
 
-  // Consent Mode default (negado) antes do gtm.js + UTMs da entrada
+  // Consent Mode default (negado) antes do gtm.js + UTMs da entrada + coletor first-party
   useEffect(() => {
     pushConsent("default", false);
     captureUtms();
+    initTracker();
     const sync = () => {
       if (readConsent()?.accepted === true) pushConsent("update", true);
     };
@@ -36,7 +38,7 @@ export function TrackingProvider() {
     return () => window.removeEventListener(CONSENT_EVENT, sync);
   }, []);
 
-  // page_view por rota (a tag GA4 no GTM fica com send_page_view = false)
+  // page_view por rota (GTM + coletor; a tag GA4 no GTM fica com send_page_view = false)
   useEffect(() => {
     const id = window.setTimeout(() => {
       window.dataLayer = window.dataLayer || [];
@@ -46,6 +48,7 @@ export function TrackingProvider() {
         page_location: window.location.href,
         page_title: document.title,
       });
+      trackPageView(pathname, document.title);
     }, 0);
     return () => window.clearTimeout(id);
   }, [pathname]);

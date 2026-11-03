@@ -8,7 +8,7 @@
 Página ──dataLayer──▶ GTM ──▶ GA4 (eventos) + Google Ads (conversões) + Meta Pixel
 ```
 
-- GTM carregado por `components/tracking/TrackingProvider.tsx` (next/script, afterInteractive) + `<noscript>` no `app/layout.tsx`.
+- GTM carregado por `components/tracking/TrackingProvider.tsx` (next/script, afterInteractive) + `<noscript>` no `app/(site)/layout.tsx` (o `/dashboard` não carrega GTM).
 - **Consent Mode v2**: `default` negado no primeiro render; o banner (`components/layout/CookieBanner.tsx`) envia `update` concedido ao "Aceitar". O GTM carrega sempre (modo avançado, pings sem cookie). Para carregar só após o aceite (padrão Sólida), condicionar o `<Script>` ao consentimento no `TrackingProvider`.
 - Nenhuma tag direta (`gtag`/`fbq`) no site — tudo dentro do container.
 
@@ -21,7 +21,7 @@ Página ──dataLayer──▶ GTM ──▶ GA4 (eventos) + Google Ads (conve
 | `click_cta` | abas, downloads de manual, mapa, redes | `cta_id`, `tipo`, `valor?` |
 | `click_phone` / `click_email` | tel: / mailto: | `phone` / `email`, `cta_id` |
 | `navigation_click` | links do menu/cards | `destino`, `origem` |
-| `scroll_25` … `scroll_100` | profundidade, uma vez por página | `percent` |
+| `scroll_25` … `scroll_100` | profundidade, uma vez por página | `percent_scrolled` |
 | `section_view` | `<section id>` ≥ 40% visível, uma vez | `section_id` |
 | `video_play` | primeiro play de cada clipe | `video_id`, `trigger` (`auto`/`tap`) |
 | `file_download` | PDF dos manuais | `file` |
@@ -29,21 +29,17 @@ Página ──dataLayer──▶ GTM ──▶ GA4 (eventos) + Google Ads (conve
 
 UTMs (`utm_source/medium/campaign/term/content`, `gclid`, `fbclid`) são lidos na entrada, guardados 30 min em `sessionStorage` (`pacheco-s`) e anexados a todo evento. O botão flutuante acrescenta `ref: <utm_campaign>` ao fim da mensagem do WhatsApp.
 
+Todo evento acima também vai para o coletor first-party (`lib/tracker.ts` → `/api/collect` → Supabase) que alimenta o `/dashboard` — ver `DASHBOARD.md`.
+
 ## O que o Pedro precisa fazer
 
-1. Criar/obter: `GTM-XXXXXXX`, `G-XXXXXXXXXX` (GA4), conversão do Google Ads (`AW-XXXXXXXXX` + rótulo) e o ID do Meta Pixel.
-2. Gerar o container importável:
-   ```bash
-   python ~/.claude/skills/lp-tracking-dashboard/scripts/gtm_container.py \
-     --gtm GTM-XXXXXXX --ga4 G-XXXXXXXXXX --name pachecosolar.com.br \
-     --conv "Clique no WhatsApp|AW-XXXXXXXXX|ROTULO|click_whatsapp" \
-     --out gtm/GTM-XXXXXXX-importar.json
-   ```
-   GTM → Administrador → Importar contêiner → arquivo → espaço de trabalho existente → **Mesclar + Substituir conflitantes** → Visualizar (testar um clique no WhatsApp) → Enviar → Publicar.
-3. Na Google Tag (GA4) do container: `send_page_view = false` (o site envia `page_view` por rota). Adicionar as tags de `scroll_*`, `section_view`, `video_play`, `file_download`, `click_phone` como eventos GA4 se o gerador não as criar.
-4. GA4: marcar `click_whatsapp` como evento-chave. Meta: tag de `Contact` disparada por `click_whatsapp`.
-5. Vercel: variáveis `NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_SITE_URL=https://pachecosolar.com.br` → **redeploy** (variáveis só valem depois de redeploy).
-6. Conferir no ar: `https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXXX` contém `G-…` e `__awct` só depois de publicado.
+1. **Importar o container** `gtm/GTM-WKV5QM3B-importar.json` (gerado em 03/11/2026 com `gtm_container.py` + parâmetros deste site): GTM → Administrador → Importar contêiner → arquivo → espaço de trabalho existente → **Mesclar + Substituir conflitantes** → Visualizar (testar um clique no WhatsApp) → Enviar → Publicar.
+   Conteúdo: Google Tag GA4 (`G-BMVXR9D8X9`, `send_page_view=false`), tag de evento GA4 para todos os eventos acima com os parâmetros `cta_id, posicao, linha, item, tipo, section_id, percent_scrolled, phone, email, destino, origem, video_id, file, consent_choice, utm_*`, Vinculador de conversões do Google Ads, Meta Pixel `1253856145352881` (base + PageView por rota + `Contact` em `click_whatsapp`), gatilhos de evento personalizado e de mudança de histórico.
+2. **Conversão do Google Ads:** o container atual tem a tag `AW-10868283032` (conferir se pertence à conta 518-024-8909). Criar/abrir a conversão "Clique no WhatsApp" e anotar o rótulo; depois gerar de novo com `--conv "Clique no WhatsApp|AW-XXXXXXXXX|ROTULO|click_whatsapp"` ou criar a tag `Google Ads – Conversão` à mão disparada pelo gatilho `CE - Eventos da LP (GA4)` filtrado por `click_whatsapp`.
+3. **Tags antigas no WKV5QM3B** (PixelYourSite): após publicar, pausar/apagar as tags duplicadas de GA4 e o gatilho de `wa.me` antigo (senão `page_view` e conversão contam em dobro). O container `GTM-PFQPFV9` do tema WordPress morre com a troca de DNS — o Pixel já está no WKV5QM3B pelo JSON.
+4. **GA4:** marcar `click_whatsapp` como evento-chave (Administrador → Eventos).
+5. **Vercel:** `NEXT_PUBLIC_GTM_ID` e `NEXT_PUBLIC_SITE_URL` já cadastradas (03/11/2026). Variáveis do painel: tabela em `DASHBOARD.md`. Toda variável nova exige **redeploy**.
+6. Conferir no ar: `https://www.googletagmanager.com/gtm.js?id=GTM-WKV5QM3B` contém `G-BMVXR9D8X9`, `__awct` e `fbq` só depois de publicado (o modo Visualizar usa o workspace).
 
 ## Teste local
 
@@ -53,6 +49,6 @@ npm run dev
 # no console: window.dataLayer  → page_view, section_view, scroll_25..., click_whatsapp com utm_* e cta_id
 ```
 
-## Fase 2 (opcional)
+## Coletor first-party + /dashboard
 
-Coletor first-party + `/dashboard` com login (skill `lp-tracking-dashboard`, modelo `site-solida-transporte`): renomear os eventos do SQL para os nomes acima, permitir dígitos em `NAME_RE` (`scroll_75`) e adicionar o canal `meta_ads` (`lib/attribution.ts` já tem).
+Implementado em 03/11/2026 (modelo Sólida, portado para Next.js 16): `lib/tracker.ts`, `app/api/collect/route.ts`, `supabase/migrations/0001_pacheco_analytics.sql`, `app/(painel)/dashboard`, `lib/analytics-queries.ts`, `components/dashboard/`. Documentação, variáveis e checklist em `DASHBOARD.md`.

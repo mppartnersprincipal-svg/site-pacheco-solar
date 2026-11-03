@@ -18,8 +18,12 @@
  *
  * Consent Mode v2: `default` negado no primeiro render; o GTM carrega sempre
  * (modo avançado — pings sem cookie) e o banner envia `update` ao aceitar.
- * Pedro decide se prefere carregar o GTM só após o aceite (padrão Sólida).
+ *
+ * Todo push no dataLayer (menos page_view, que o TrackingProvider trata) vai
+ * também para o coletor first-party do /dashboard (lib/tracker.ts).
  */
+
+import { collect } from "@/lib/tracker";
 
 declare global {
   interface Window {
@@ -152,6 +156,7 @@ function push(event: string, params: Params) {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event, ...params });
+  collect(event, params);
 }
 
 /** Evento genérico. */
@@ -196,7 +201,7 @@ export function trackSectionView(sectionId: string) {
 }
 
 export function trackScroll(pct: 25 | 50 | 75 | 100) {
-  push(`scroll_${pct}`, withContext({ percent: pct }));
+  push(`scroll_${pct}`, withContext({ percent_scrolled: pct }));
 }
 
 export function trackVideoPlay(p: { video_id: string; trigger: "auto" | "tap" }) {

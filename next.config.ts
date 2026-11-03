@@ -32,6 +32,15 @@ const nextConfig: NextConfig = {
     return [
       { source: "/:path*", headers: SECURITY_HEADERS },
       {
+        // Painel interno: nunca indexar nem guardar em cache
+        source: "/dashboard/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          { key: "Cache-Control", value: "private, no-store" },
+        ],
+      },
+      { source: "/dashboard", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }, { key: "Cache-Control", value: "private, no-store" }] },
+      {
         // Assets estáticos (fotos, vídeos, manuais): imutáveis por nome de arquivo
         source: "/(images|videos|manuais)/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],

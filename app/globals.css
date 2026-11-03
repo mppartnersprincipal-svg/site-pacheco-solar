@@ -32,6 +32,17 @@
   --color-aco: oklch(75% 0.03 215);           /* texto secundário, legendas */
   --color-preto: oklch(17% 0.035 215);        /* texto sobre laranja/placa clara (= tinta) */
 
+  /* Painel /dashboard (tema claro, mesmos nomes do padrão M|P: ink, line, surface, brand-*) */
+  --color-ink: oklch(20% 0.04 215);           /* títulos e números (= petróleo bem escuro) */
+  --color-ink-body: #1f2937;
+  --color-ink-muted: #6b7280;
+  --color-line: #e5e7eb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f4f6f8;
+  --color-brand-action: oklch(58% 0.19 38);   /* = laranja */
+  --color-brand-hover: oklch(52% 0.18 38);
+  --color-brand-tint: oklch(96% 0.03 45);
+
   /* WhatsApp — só no ícone/botão */
   --color-whatsapp: #25d366;
   --color-whatsapp-hover: #1eb958;
@@ -65,6 +76,9 @@
 }
 
 @layer base {
+  /* Painel: fundo claro e títulos escuros (o resto do site é escuro) */
+  [data-painel] { background: var(--color-surface-alt); color: var(--color-ink-body); }
+  [data-painel] h1, [data-painel] h2, [data-painel] h3, [data-painel] h4 { color: var(--color-ink); }
   html {
     scroll-behavior: auto; /* Lenis cuida do smooth scroll */
   }

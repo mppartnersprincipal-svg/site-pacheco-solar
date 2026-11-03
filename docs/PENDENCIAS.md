@@ -16,4 +16,4 @@ Total: 13
 - `components\solo\ComoPedir.tsx:12` — [PREENCHER]
 - `components\solo\VariantesSolo.tsx:41` — [PREENCHER]
 - `components\telhado\ListaDeMateriais.tsx:33` — [PREENCHER]
-- `app\kits-e-itens-avulsos\page.tsx:60` — [PREENCHER]
+- `app\(site)\kits-e-itens-avulsos\page.tsx:60` — [PREENCHER]

@@ -52,24 +52,28 @@ Site institucional multi-página da Pacheco Solar (indústria de estruturas met�
 ## Estrutura
 
 ```
-app/                       rotas: / · estruturas-de-solo · estruturas-para-telhado · kits-e-itens-avulsos · vedacap · projetos-atendidos · sobre · contato · politica-de-privacidade
+app/(site)/                rotas públicas: / · estruturas-de-solo · estruturas-para-telhado · kits-e-itens-avulsos · vedacap · projetos-atendidos · sobre · contato · politica-de-privacidade (layout com header/footer/GTM)
+app/(painel)/dashboard/    painel interno com senha (layout claro, sem GTM) · app/api/collect/ coletor first-party · proxy.ts protege /dashboard
 components/layout/         Header (logo branca, nav central, CTA pílula, barra de progresso CSS), Footer (3 colunas), SmoothScroll, CookieBanner
 components/cta/            WaButton, BotaoWhatsAppInteligente, CtaFinal (faixa ciano), PlacaIdentificacao (pílula)
 components/motion/         Reveal, Counter, Parallax (react-spring)
 components/nicho/          ArcoSolar, EstacaTimeline (internas), GaleriaEmCampo, AntesDepoisEstaca, SequenciaMontagem, AccordionObjecoes
 components/home/           HeroVideo (vídeo 16:9 full-bleed), Proposito, LinhasDeProduto (3 cards + faixa Vedacap), SobreResumo, ObrasDestaque, Diferenciais, ComoFunciona, ProvaSocial
-components/tracking/       TrackingProvider (GTM + Consent Mode v2 + page_view + UTMs + scroll + section_view)
+components/tracking/       TrackingProvider (GTM + Consent Mode v2 + page_view + UTMs + scroll + section_view + initTracker)
+components/dashboard/      painel: KpiGrid, charts (recharts), sections (Google Ads, GA4, botões, jornadas…), LoginForm
 components/seo/            JsonLd
 components/ui/             Button, Container, SectionHeading, PageHero, ChapaCard
 components/{home,solo,telhado,kits,vedacap,sobre,obras,contato}/  seções por página
-lib/site.ts                dados oficiais · lib/whatsapp.ts mensagens · lib/analytics.ts eventos · lib/seo.ts metadata/schema
+lib/site.ts                dados oficiais · lib/whatsapp.ts mensagens · lib/analytics.ts eventos (dataLayer + collect) · lib/seo.ts metadata/schema
+lib/tracker.ts             coletor first-party (browser) · lib/analytics-queries.ts/-types.ts leitura do painel · lib/dashboard/ auth + reports · lib/google-ads-api.ts · lib/ga4-api.ts
+supabase/migrations/       0001_pacheco_analytics.sql (prefixo pacheco_ no projeto compartilhado da M|P) · gtm/ JSON importável
 lib/produtos/*.ts          catálogo tipado (solo, titan, kits, avulsos, vedacap) · lib/faq/*.ts
 lib/media/manifest.json    gerado por scripts/media/optimize-images.mjs (src, width, height, blurDataURL)
 content/*.ts               copy por página com campo fonte e marcações [PREENCHER]
 config/                    feature-flags.ts, pronta-entrega.ts
 public/images · public/videos · public/manuais   gerados a partir de ../assets-src (fora do repo); hero = ../assets-src/videos/hero-final.mp4
 scripts/media/             optimize-images.mjs, encode-videos.mjs · scripts/lint-copy.mjs
-docs/                      MIDIA.md (cortes/contact sheets), TRACKING.md, PENDENCIAS.md
+docs/                      MIDIA.md (cortes/contact sheets), TRACKING.md, PENDENCIAS.md · DASHBOARD.md (painel)
 ```
 
 ---
@@ -121,7 +125,7 @@ node scripts/media/encode-videos.mjs     # ../assets-src/videos → public/video
 - UTMs em `sessionStorage` (`pacheco-s`, 30 min) anexadas a todo evento; `ref: utm_campaign` só na mensagem do botão flutuante.
 - Env: `NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_SITE_URL` (GA4/Pixel/Ads ficam dentro do GTM).
 - Container importável: `gtm/` (gerado com `~/.claude/skills/lp-tracking-dashboard/scripts/gtm_container.py`).
-- Fase 2: coletor first-party + `/dashboard` (skill `lp-tracking-dashboard`).
+- Coletor first-party + `/dashboard` (login por senha, Supabase `pacheco_*`, Google Ads via MCC, GA4 Data API): ver `DASHBOARD.md`. Nunca `gtag`/`fbq` direto; nunca dado pessoal no coletor.
 
 ---
 

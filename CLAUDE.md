@@ -73,7 +73,7 @@ content/*.ts               copy por página com campo fonte e marcações [PREEN
 config/                    feature-flags.ts, pronta-entrega.ts
 public/images · public/videos · public/manuais   gerados a partir de ../assets-src (fora do repo); hero = ../assets-src/videos/hero-final.mp4
 scripts/media/             optimize-images.mjs, encode-videos.mjs · scripts/lint-copy.mjs
-docs/                      MIDIA.md (cortes/contact sheets), TRACKING.md, PENDENCIAS.md · DASHBOARD.md (painel)
+docs/                      MIDIA.md (cortes/contact sheets), TRACKING.md, PENDENCIAS.md, GOLIVE.md (DNS/301) · DASHBOARD.md (painel)
 ```
 
 ---
@@ -131,5 +131,5 @@ node scripts/media/encode-videos.mjs     # ../assets-src/videos → public/video
 
 ## Deploy
 
-- Vercel · branch `main` · domínio pachecosolar.com.br (WordPress fica no ar até o DNS virar).
+- Vercel · branch `main` · domínio pachecosolar.com.br e www (308 → apex) já adicionados ao projeto; DNS ainda na HostGator — ver docs/GOLIVE.md. 301 das URLs do WordPress em next.config.ts.
 - Repo: github.com/mppartnersprincipal-svg/site-pacheco-solar

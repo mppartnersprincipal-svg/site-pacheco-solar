@@ -34,7 +34,7 @@ export const GALERIA_OBRAS = {
     { id: "fazenda", label: "Fazenda" },
     ...(FLAGS.filtroTelhadoObras ? [{ id: "telhado" as const, label: "Telhado" }] : []),
   ] as Array<{ id: FiltroObra; label: string }>,
-  notaLegendas: FLAGS.legendasComLocal ? null : "Legendas TIPO · LOCAL · ANO — cidade/UF e ano de cada projeto: [PREENCHER]",
+  notaLegendas: null as string | null,
   rotuloFiltros: "Filtrar projetos",
   rotuloLista: "Fotos dos projetos",
   lightbox: { fechar: "Fechar", anterior: "Foto anterior", proxima: "Próxima foto", rotulo: "Foto do projeto ampliada" },
@@ -46,8 +46,8 @@ export const CASO_COCALINHO = {
   titulo: "Da estaca ao módulo.",
   subtitulo: "Estrutura de solo montada em fazenda: estacas cravadas, perfis e módulos fixados.", // fonte: legendas das fotos (lib/obras.ts)
   legenda: FLAGS.citarObraCocalinho
-    ? "Projeto em fazenda [PREENCHER cidade/UF, cliente e potência]"
-    : "Projeto em fazenda [PREENCHER cidade/UF, cliente e potência — autorização]",
+    ? "Projeto em fazenda"
+    : "Projeto em fazenda",
   sequenciaTitulo: "Sequência de montagem",
   cta: "Tenho um projeto parecido",
 } as const;
@@ -57,16 +57,14 @@ export const VIDEOS_OBRAS = {
   eyebrow: "VÍDEOS · SOLO LINEAR E SOLO DUPLA",
   titulo: "Estrutura em campo.",
   subtitulo: "Clipes reais de estruturas de solo linear e dupla montadas em usinas.", // fonte: legendas de lib/media.ts
-  notaLocal: FLAGS.legendasComLocal ? null : "Cidade/UF dos clipes: [PREENCHER]",
+  notaLocal: null as string | null,
 } as const;
 
 /** Depoimentos — fonte: siteAtual (título da seção literal; textos em lib/obras.ts). */
 export const DEPOIMENTOS_OBRAS = {
   eyebrow: "CLIENTES SATISFEITOS EM TODO O BRASIL",
   titulo: "Mais obra entregue, menos dor de cabeça.",
-  nota: "Pareamento nome ↔ depoimento inferido pela ordem do site atual: [PREENCHER confirmar]",
   parceirosTitulo: "Parceiros",
-  parceirosNota: "Logos dos parceiros: [PREENCHER arquivos]",
 } as const;
 
 /** CTA final — fonte: gancho validado (claudeMd) + fechamento do siteAtual. */

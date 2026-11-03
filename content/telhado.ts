@@ -38,7 +38,7 @@ export const SELETOR_TELHADO = {
   rotuloComponentes: "Componentes",
   rotuloRegras: "Regras do manual",
   rotuloQuantidade: "Layout de 4 módulos",
-  semManual: "[PREENCHER manual de instalação do telhado cerâmico]",
+  semManual: "Manual do telhado cerâmico: solicite pelo WhatsApp.",
   /** Rótulo do botão de WhatsApp por tipo (vai junto da mensagem de lib/whatsapp.ts) */
   cta: {
     ceramico: "Orçar para telhado cerâmico",

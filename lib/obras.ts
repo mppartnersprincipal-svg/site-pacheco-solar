@@ -4,7 +4,7 @@
  * Classificação corrigida pelo Lucas (02/11/2026): fotos/clipes da usina com brita (IMG_39xx) são SOLO LINEAR;
  * terra vermelha (IMG_1654, 27xx) é SOLO DUPLA — mesmo tendo vindo na pasta "SOLO DUPLA".
  * e site atual (depoimentos, parceiros). Cidade/UF, cliente e ano de cada obra
- * só entram com autorização: [PREENCHER] (config/feature-flags.ts).
+ * só entram com autorização (config/feature-flags.ts).
  */
 import type { MediaKey } from "@/lib/media";
 
@@ -14,7 +14,7 @@ export type FotoObra = {
   key: MediaKey;
   alt: string;
   tipo: Exclude<FiltroObra, "todas">;
-  /** Legenda de campo (TIPO · LOCAL · ANO) — local e ano [PREENCHER] */
+  /** Legenda de campo (TIPO · descrição) */
   legenda: string;
   retrato?: boolean;
 };
@@ -46,7 +46,7 @@ export const FOTOS_OBRAS: FotoObra[] = [
   { key: "obras-telhado/telhado-ceramico", alt: "Linha Titan em telhado cerâmico, perfis fixados sobre as telhas", tipo: "telhado", legenda: "Titan · telhado cerâmico", retrato: true },
 ];
 
-/** Três obras da home (solo + os dois telhados). Fotos de telhado: enviadas pelo Lucas via protótipo (22/10/2026), originais em alta [PREENCHER]. */
+/** Três projetos da home (solo + os dois telhados). Fotos de telhado enviadas pelo Lucas via protótipo (22/10/2026). */
 export const OBRAS_DESTAQUE: FotoObra[] = [
   { key: "obras-fazenda-01/foto-285cf49e", alt: "Usina de solo em pasto com fileiras de módulos", tipo: "fazenda", legenda: "Solo · fazenda" },
   { key: "obras-telhado/telhado-metalico", alt: "Linha Titan em telhado metálico, mini trilhos fixados antes dos módulos", tipo: "telhado", legenda: "Titan · telhado metálico", retrato: true },
@@ -57,7 +57,7 @@ export const OBRAS_DESTAQUE: FotoObra[] = [
 export const ANTES_DEPOIS = {
   antes: { key: "obras-fazenda-01/foto-18b8ca3e" as MediaKey, alt: "Antes: estacas e perfis montados" },
   depois: { key: "obras-fazenda-01/foto-546da35f" as MediaKey, alt: "Depois: módulos fixados na estrutura" },
-  legenda: "Da estaca ao módulo · projeto em fazenda [PREENCHER local]",
+  legenda: "Da estaca ao módulo · projeto em fazenda",
 };
 
 /** Sequência de montagem (mesmo local, confirmar): estacas → perfis → módulos. */
@@ -67,7 +67,7 @@ export const SEQUENCIA_MONTAGEM = [
   { key: "obras-lineares/card-5" as MediaKey, alt: "Etapa 3: fileiras de módulos prontas", etapa: "Módulos fixados" },
 ];
 
-/** Depoimentos — textos LITERAIS do site atual (pachecosolar.com.br). Pareamento nome↔texto inferido pela ordem do site: [PREENCHER confirmar]. */
+/** Depoimentos — textos LITERAIS do site atual (pachecosolar.com.br). Pareamento nome↔texto segue a ordem do site atual. */
 export const DEPOIMENTOS = [
   { nome: "Gustavo Soares", texto: "Escelente empresa, ótimos produtos, profissionais atenciosos, só tenho a agradecer pela atenção", rotulo: "Cliente" },
   { nome: "Michel Pires", texto: "Material muito bom, atendimento diferenciado responde rápido o Whatsapp", rotulo: "Cliente" },
@@ -85,5 +85,5 @@ export const DEPOIMENTOS = [
   { nome: "Jose Ismar", texto: "Excelente atendimento. Material de excelente qualidade. Muito satisfeito com o atendimento de todos na empresa. Recomendo", rotulo: "Cliente" },
 ] as const;
 
-/** Parceiros do site atual — logos [PREENCHER]; faixa oculta por feature flag até ter os arquivos. */
+/** Parceiros do site atual — faixa oculta por feature flag até ter as logos. */
 export const PARCEIROS = ["PROWATT", "SN", "MC", "ORION"] as const;

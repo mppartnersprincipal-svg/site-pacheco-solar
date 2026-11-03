@@ -21,7 +21,7 @@ export const CONTATO_HERO = {
   rotuloEmail: "E-mail",
   rotuloInstagram: "Instagram",
   /** Só entra no ar com FLAGS.atendimentoPresencial = true (briefing360, a confirmar). */
-  presencial: "Atendimento presencial [PREENCHER confirmar horário e agendamento]",
+  presencial: "Atendimento presencial com agendamento",
   qrLegenda: "Aponte a câmera do celular",
   qrTitulo: "WhatsApp pelo QR code",
 };
@@ -63,7 +63,7 @@ export const CONTATO_ENDERECO = {
 };
 
 export const CONTATO_O_QUE_ENVIAR = {
-  // fonte: blueprint (o-que-enviar) + lib/whatsapp.ts (campos das mensagens); checklist oficial [PREENCHER]
+  // fonte: blueprint (o-que-enviar) + lib/whatsapp.ts (campos das mensagens)
   eyebrow: "Antes de chamar",
   titulo: "O que enviar para agilizar.",
   subtitulo: "Os campos que a mensagem do WhatsApp já pede.",
@@ -73,7 +73,6 @@ export const CONTATO_O_QUE_ENVIAR = {
     "Cidade/UF da obra",
     "Layout ou projeto, se houver",
   ],
-  nota: "[PREENCHER: confirmar com o comercial]",
   cta: "Enviar pelo WhatsApp",
 };
 

@@ -160,7 +160,7 @@ export const MAPA_DOR_SOLUCAO = [
 
 /** Processo de compra — briefing360 (forma genérica publicável). */
 export const PROCESSO_COMPRA = [
-  { titulo: "Você pede o orçamento no WhatsApp", texto: "Diga o tipo de obra e a quantidade de módulos. [PREENCHER: checklist do comercial]" },
+  { titulo: "Você pede o orçamento no WhatsApp", texto: "Diga o tipo de obra e a quantidade de módulos." },
   { titulo: "Apresenta ao seu cliente final", texto: "O integrador mostra o orçamento para o cliente dele analisar." },
   {
     titulo: "Aprovação",

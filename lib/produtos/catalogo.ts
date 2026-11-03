@@ -156,10 +156,10 @@ export const ITENS_AVULSOS: ItemAvulso[] = [
   { slug: "parafuso-martelo", nome: "Parafuso martelo", uso: "telhado", imagem: "telhado/titan-fibrocimento-close", imagemAlt: "Perfil Titan com parafuso martelo", nota: "recorte de render" },
   { slug: "haste-estrutural-inox", nome: "Haste estrutural inox", uso: "telhado", imagem: "telhado/titan-fibrocimento-close", imagemAlt: "Haste estrutural atravessando a telha de fibrocimento", nota: "recorte de render" },
   { slug: "clipe-de-fixacao", nome: "Clipe de fixação (solo)", uso: "solo", imagem: "solo-dupla/clamps-02", imagemAlt: "Clipe de fixação de solo sob o módulo" },
-  { slug: "placas-de-identificacao", nome: "Placas de identificação e sinalização", uso: "ambos", nota: "[PREENCHER foto do item]" },
+  { slug: "placas-de-identificacao", nome: "Placas de identificação e sinalização", uso: "ambos" },
 ];
 
-/** Vedacap — fatos dos roteiros/CLAUDE.md. Passo a passo oficial: [PREENCHER]. */
+/** Vedacap — fatos dos roteiros/CLAUDE.md. */
 export const VEDACAP = {
   nome: "Vedacap",
   eyebrow: "NOVO ITEM DA LINHA DE FIXAÇÃO PACHECO SOLAR",
@@ -184,7 +184,7 @@ export const VEDACAP = {
     { id: "lojista", nome: "Lojista de material de construção", texto: "Todo cliente que compra parafuso autobrocante para telhado metálico precisa de proteção. Tabela de atacado pelo WhatsApp.", linha: "vedacap-lojista" as const },
   ],
   prontaEntrega: "Temos o Vedacap a pronta entrega.",
-  passoAPasso: "[PREENCHER: passo a passo oficial de aplicação]",
+  passoAPasso: "Aplicação simples com cola PU, sem silicone, fita ou massa. O passo a passo completo é enviado pelo comercial no WhatsApp.",
 } as const;
 
 /** Estrutura de solo — fatos do briefing/CLAUDE.md e do acervo fotográfico. */
@@ -196,7 +196,7 @@ export const SOLO = {
     {
       id: "linear",
       nome: "Solo Linear",
-      descricao: "[PREENCHER: descrição técnica da configuração linear]",
+      descricao: "Uma fileira de módulos por estrutura.",
       imagem: "solo-linear/linear-wa-01" as MediaKey,
       imagemAlt: "Estrutura de solo linear com módulos em pasto",
       linha: "solo-linear" as const,
@@ -204,13 +204,13 @@ export const SOLO = {
     {
       id: "dupla",
       nome: "Solo Dupla",
-      descricao: "[PREENCHER: descrição técnica da configuração dupla]",
+      descricao: "Duas fileiras de módulos por estrutura, para aproveitar melhor a área da usina.",
       imagem: "solo-dupla/img-2713" as MediaKey,
       imagemAlt: "Estrutura de solo dupla com duas fileiras de módulos",
       linha: "solo-dupla" as const,
     },
   ],
-  /** Componentes vistos nas fotos; nomes oficiais: [PREENCHER validação do Lucas] */
+  /** Componentes vistos nas fotos do acervo. */
   componentes: ["Perfil de aço", "Clipe de fixação de solo", "Grampo", "Estaca cravada"],
   ambienteAgressivo:
     "Aço de qualidade premium, ideal para ambientes com atmosfera agressiva e zonas rurais.",

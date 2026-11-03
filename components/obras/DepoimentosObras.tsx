@@ -35,7 +35,6 @@ export function DepoimentosObras() {
             </Reveal>
           ))}
         </ul>
-        <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-aco">{DEPOIMENTOS_OBRAS.nota}</p>
 
         {FLAGS.parceiros ? (
           <>
@@ -47,7 +46,6 @@ export function DepoimentosObras() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-aco">{DEPOIMENTOS_OBRAS.parceirosNota}</p>
           </>
         ) : null}
       </Container>

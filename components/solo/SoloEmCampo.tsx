@@ -8,7 +8,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import { WaButton } from "@/components/cta/WaButton";
 import { GaleriaEmCampo } from "@/components/nicho/GaleriaEmCampo";
 import { SOLO_EM_CAMPO } from "@/content/solo";
-import { FLAGS } from "@/config/feature-flags";
 import { CLIPES, imageProps } from "@/lib/media";
 import { FOTOS_OBRAS } from "@/lib/obras";
 import { cn } from "@/lib/utils";
@@ -17,7 +16,7 @@ const FOTOS_CAMPO = 6;
 
 /**
  * Prova de campo da linha de solo: clipes reais (GaleriaEmCampo) + grid de 6
- * fotos da obra em fazenda. Enquanto FLAGS.citarObraCocalinho for false, a
+ * fotos do projeto em fazenda. Enquanto a autorização não vier, a
  * legenda não cita cliente nem cidade e a nota de autorização fica visível.
  */
 export function SoloEmCampo() {
@@ -43,9 +42,6 @@ export function SoloEmCampo() {
           ))}
         </ul>
 
-        {!FLAGS.citarObraCocalinho ? (
-          <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-aco">{SOLO_EM_CAMPO.notaAutorizacao}</p>
-        ) : null}
 
         <Reveal delay={200} className="mt-10 flex flex-wrap items-center gap-3">
           <WaButton linha="solo" ctaId="solo-em-campo-orcamento" posicao="solo-em-campo">

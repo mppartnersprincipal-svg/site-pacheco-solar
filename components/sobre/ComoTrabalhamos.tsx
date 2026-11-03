@@ -1,4 +1,3 @@
-import { Camera } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PlacaIdentificacao } from "@/components/cta/PlacaIdentificacao";
@@ -11,10 +10,9 @@ import { SOBRE_COMO_TRABALHAMOS, SOBRE_SETORES } from "@/content/sobre";
 /**
  * Como trabalhamos: h2 e parágrafo literais do site atual, 5 setores em trilho
  * (EstacaTimeline), placeholders tipográficos para as fotos de fábrica
- * (pendência em content/sobre.ts) e as 3 forças do briefing como placas.
+ * e as 3 forças do briefing como placas.
  */
 export function ComoTrabalhamos() {
-  const { fotosLegendas, fotosPlaceholder } = SOBRE_COMO_TRABALHAMOS;
   return (
     <section id="como-trabalhamos" data-linha="equipe" className="relative bg-fundo">
       <Container className="py-20 sm:py-28">
@@ -27,23 +25,6 @@ export function ComoTrabalhamos() {
           <EstacaTimeline passos={SOBRE_SETORES} />
         </div>
 
-        {/* Placeholders das fotos de fábrica/galpão/expedição/equipe */}
-        <ul className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label={fotosPlaceholder}>
-          {fotosLegendas.map((legenda, i) => (
-            <Reveal key={legenda} as="li" delay={i * 80}>
-              <div className="rounded-2xl flex aspect-[4/3] flex-col justify-between border border-dashed border-linha bg-superficie p-4 vinheta">
-                <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-aco">
-                  <span>{String(i + 1).padStart(2, "0")}</span>
-                  <Camera className="size-4" aria-hidden />
-                </div>
-                <div>
-                  <p className="font-display text-lg font-semibold text-branco">{legenda}</p>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-aco/80">{fotosPlaceholder}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </ul>
 
         {/* Forças (SWOT do briefing) */}
         <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:items-end">

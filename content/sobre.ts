@@ -73,8 +73,6 @@ export const SOBRE_COMO_TRABALHAMOS = {
   titulo: SITE_ATUAL.sobre3,
   paragrafo: SITE_ATUAL.sobre2,
   setoresTitulo: "Cinco setores, um só fornecedor.",
-  fotosPlaceholder: "[PREENCHER fotos da fábrica, galpão, expedição e equipe]",
-  fotosLegendas: ["Fábrica", "Galpão", "Expedição", "Equipe"],
   forcasTitulo: "Forças",
   cta: "Falar com o comercial",
 };

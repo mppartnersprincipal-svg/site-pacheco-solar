@@ -35,9 +35,6 @@ export function OQueEnviar() {
                   </li>
                 ))}
               </ol>
-              <p className="mt-6 border-t border-dashed border-linha pt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-aco/80">
-                {CONTATO_O_QUE_ENVIAR.nota}
-              </p>
             </ChapaCard>
           </Reveal>
         </div>

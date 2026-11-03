@@ -4,16 +4,16 @@
  * depois de preencher o conteúdo correspondente em content/.
  */
 export const FLAGS = {
-  /** Contadores (+25 MW, painéis fixados, estados, toneladas) — valores [PREENCHER] */
+  /** Contadores animados (os números confirmados vivem em content/home.ts: NUMEROS_PROVA) */
   contadores: false,
-  /** Faixa de logos PROWATT · SN · MC · ORION — arquivos de logo [PREENCHER] */
+  /** Faixa de logos PROWATT · SN · MC · ORION — só com os arquivos de logo */
   parceiros: false,
   /** Filtro "Telhado" em /projetos-atendidos — fotos reais de telhado metálico e cerâmico (nov/2026) */
   filtroTelhadoObras: true,
-  /** "Atendimento presencial" em /contato — consta no briefing, confirmar [PREENCHER] */
+  /** "Atendimento presencial" em /contato — consta no briefing, não confirmado */
   atendimentoPresencial: false,
-  /** Nome do cliente/cidade da obra em destaque (Luca Engenharia · Cocalinho) — autorização [PREENCHER] */
+  /** Nome do cliente/cidade do projeto em destaque (Luca Engenharia · Cocalinho) — só com autorização */
   citarObraCocalinho: false,
-  /** Legendas com cidade/UF nas fotos e clipes — dados [PREENCHER] */
+  /** Legendas com cidade/UF nas fotos e clipes — só quando houver os dados */
   legendasComLocal: false,
 } as const;

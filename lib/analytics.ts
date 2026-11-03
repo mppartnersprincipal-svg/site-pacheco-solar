@@ -18,7 +18,7 @@
  *
  * Consent Mode v2: `default` negado no primeiro render; o GTM carrega sempre
  * (modo avançado — pings sem cookie) e o banner envia `update` ao aceitar.
- * [PREENCHER] Pedro decide se prefere carregar o GTM só após o aceite (padrão Sólida).
+ * Pedro decide se prefere carregar o GTM só após o aceite (padrão Sólida).
  */
 
 declare global {

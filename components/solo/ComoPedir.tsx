@@ -33,7 +33,6 @@ export function ComoPedir() {
                   </li>
                 ))}
               </ol>
-              <p className="border-t border-linha px-6 py-4 font-mono text-xs uppercase tracking-[0.14em] text-aco sm:px-7">{COMO_PEDIR.nota}</p>
             </ChapaCard>
             <div className="mt-6">
               <WaButton linha="solo" ctaId="como-pedir-enviar-dados" posicao="como-pedir">

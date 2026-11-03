@@ -64,7 +64,7 @@ export const KIT_COMPLETO = {
     rodape: "Quantidades do Projeto Executivo dos manuais da Linha Titan para o layout de 4 módulos.",
     linkTelhado: { label: "Ver a Linha Titan completa", href: ROTAS.telhado },
   },
-  kitSolo: "Kit de solo: [PREENCHER composição]",
+  kitSolo: "Kit de solo: composição definida pelo seu layout, sob consulta no WhatsApp.",
   cta: "Pedir kit completo",
 } as const;
 
@@ -80,9 +80,8 @@ export const ITENS_AVULSOS_SECAO = {
   ],
   usoLabel: { telhado: "Telhado", solo: "Solo", ambos: "Solo · Telhado" },
   ctaItem: "Pedir este item · quantidade: ___",
-  fotoPendente: "[PREENCHER foto]",
   notaRender: "recorte de render",
-  aviso: "Precisa de outro componente (mini trilho, Chapa L, espuma EPDM)? Consulte a disponibilidade pelo WhatsApp. [PREENCHER: política de venda avulsa desses componentes]",
+  aviso: "Precisa de outro componente (mini trilho, Chapa L, espuma EPDM)? Consulte a disponibilidade pelo WhatsApp.",
 } as const;
 
 export const UM_FORNECEDOR = {
@@ -109,8 +108,8 @@ export const PRONTA_ENTREGA_SECAO = {
   expedicao: EXPEDICAO?.texto ?? "O material produzido vai para a expedição, fica organizado e separado aguardando transporte.",
   beneficio: "Menos tempo de espera, mais eficiência no cronograma.",
   ressalva: "Consulte a disponibilidade da sua linha pelo WhatsApp.",
-  fotoLegenda: "[PREENCHER foto da expedição]",
-  fotoAlt: "Estrutura de solo dupla com duas fileiras de módulos — foto provisória até a foto da expedição",
+  fotoLegenda: "Solo dupla · duas fileiras de módulos",
+  fotoAlt: "Estrutura de solo dupla com duas fileiras de módulos",
   cta: PRONTA_ENTREGA_CTA,
 } as const;
 

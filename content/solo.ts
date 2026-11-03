@@ -23,7 +23,7 @@ export const HERO_SOLO = {
   linkObras: { label: "Ver projetos", href: ROTAS.obras },
 } as const;
 
-/** Variantes — fonte: acervo (fotos Solo Linear / Solo Dupla); especificações [PREENCHER] (plano). */
+/** Variantes — fonte: acervo (fotos Solo Linear / Solo Dupla). */
 export const VARIANTES_SOLO = {
   eyebrow: "CONFIGURAÇÕES · 02",
   titulo: "Duas configurações para o layout da sua usina.",
@@ -43,7 +43,7 @@ export const VARIANTES_SOLO = {
   })),
 } as const;
 
-/** Componentes — fonte: SOLO.componentes (acervo); nomes oficiais e posições [PREENCHER validação do Lucas]; frase dos avulsos: plano. */
+/** Componentes — fonte: SOLO.componentes (acervo); frase dos avulsos: plano. */
 export const COMPONENTES_SOLO = {
   eyebrow: "COMPONENTES · ITENS AVULSOS",
   titulo: "Da indústria para sua obra: cada peça com nome.",
@@ -51,7 +51,7 @@ export const COMPONENTES_SOLO = {
   foto: "solo-dupla/img-3966" as MediaKey,
   fotoAlt: "Perfis de aço e cabeamento sob os módulos de uma estrutura de solo linear",
   /**
-   * Posições aproximadas (% da foto) — [PREENCHER validação do Lucas].
+   * Posições aproximadas (% da foto).
    * `avulso` = true só para peças da lista oficial (ITENS_AVULSOS: clipe de fixação e grampos);
    * perfil e estaca são componentes da estrutura e nunca abrem a mensagem de item avulso.
    */
@@ -61,13 +61,13 @@ export const COMPONENTES_SOLO = {
     { numero: "03", nome: SOLO.componentes[2], x: 68, y: 26, avulso: true },
     { numero: "04", nome: SOLO.componentes[3], x: 46, y: 80, avulso: false },
   ],
-  nota: "Nomes e posições das peças: [PREENCHER validação do Lucas]",
+  nota: "Toque em cada ponto para ver a peça.",
   rotuloLista: "Componentes da estrutura de solo",
   rotuloComponente: "Componente",
   ctaItem: "Pedir este item",
   /** Peças que não são avulsas: CTA de orçamento da estrutura (linha "solo") */
   ctaEstrutura: "Orçamento da estrutura de solo",
-  notaEstrutura: "Componente da estrutura [PREENCHER validação do Lucas]",
+  notaEstrutura: "Componente da estrutura",
   linkAvulsos: { label: "Ver todos os itens avulsos", href: `${ROTAS.kits}#itens-avulsos` },
 } as const;
 
@@ -94,17 +94,15 @@ export const SOLO_EM_CAMPO = {
   eyebrow: "PROVA DE CAMPO",
   titulo: "Enquanto outros atrasam, você entrega.",
   subtitulo: "Estruturas de solo linear e dupla montadas em usinas e fazendas pelo Brasil.",
-  notaAutorizacao: "Projeto em fazenda — cliente e cidade/UF: [PREENCHER autorização para citar o projeto]",
   linkObras: { label: "Ver projetos atendidos", href: ROTAS.obras },
   cta: "Pedir orçamento de solo",
 } as const;
 
-/** Como pedir — fonte: lib/whatsapp.ts (campos da mensagem), briefing360 (processo de compra); checklist oficial [PREENCHER]. */
+/** Como pedir — fonte: lib/whatsapp.ts (campos da mensagem), briefing360 (processo de compra). */
 export const COMO_PEDIR = {
   eyebrow: "ORÇAMENTO PELO WHATSAPP",
   titulo: "Para agilizar seu orçamento, mande junto:",
   checklist: ["Quantidade e modelo dos módulos", "Configuração: linear ou dupla", "Cidade/UF da obra", "Layout ou projeto, se houver"],
-  nota: "[PREENCHER: confirmar com o comercial quais dados pedem]",
   processoTitulo: "Do orçamento à expedição, sem burocracia.", // fonte: plano (como-funciona)
   cta: "Enviar dados pelo WhatsApp",
 } as const;

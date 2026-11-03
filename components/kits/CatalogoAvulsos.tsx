@@ -91,7 +91,6 @@ export function CatalogoAvulsos({ itens }: CatalogoAvulsosProps) {
                   ) : (
                     <div className="flex h-full flex-col items-center justify-center gap-3 bg-superficie grade-modulos text-aco">
                       <IconGrampo className="size-12 text-laranja" />
-                      <span className="font-mono text-[11px] uppercase tracking-[0.16em]">{ITENS_AVULSOS_SECAO.fotoPendente}</span>
                     </div>
                   )}
                   <span className="absolute top-3 left-3 bg-fundo/85 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-branco">

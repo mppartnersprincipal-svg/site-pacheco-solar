@@ -35,7 +35,7 @@ export const SITE = {
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=R.+Monsenhor+Celso+Quadra+72+Lote+08+Vila+Santa+Aparecida+de+Goi%C3%A2nia+GO+74912-590",
   },
-  /** Briefing: "Horário de Funcionamento: Horário Comercial" (horas exatas: [PREENCHER]) */
+  /** Briefing: "Horário de Funcionamento: Horário Comercial" */
   horario: "Atendimento em horário comercial",
   /** Descrição institucional (briefing + site atual), usada em metadata e Schema.org */
   descricao:

@@ -62,8 +62,8 @@ export const FAQ_SOLO: Faq[] = [
   },
   {
     pergunta: "Qual a diferença entre Solo Linear e Solo Dupla?",
-    resposta: "São as duas configurações da linha de solo. A especificação técnica de cada uma está em confirmação: [PREENCHER].",
-    fonte: "acervo (fotos) — especificações [PREENCHER]",
+    resposta: "Solo Linear tem uma fileira de módulos por estrutura; Solo Dupla tem duas. A engenharia indica a configuração ideal para o seu layout.",
+    fonte: "acervo (fotos) + Lucas (02/11/2026)",
   },
   {
     pergunta: "Tem pronta entrega de estrutura de solo?",
@@ -113,16 +113,6 @@ export const FAQ_KITS: Faq[] = [
     resposta:
       "Estrutura e fixação no mesmo pedido. No layout de 4 módulos da Linha Titan, por exemplo, o manual lista perfis, hastes, grampos intermediários e finais (fibrocimento) ou mini-trilhos, parafusos brocantes, espuma EPDM e grampos (metálico).",
     fonte: "manuais Linha Titan",
-  },
-  {
-    pergunta: "Vendem quantidade pequena de itens avulsos?",
-    resposta: "Política de quantidade mínima: [PREENCHER]. Fale com o comercial pelo WhatsApp.",
-    fonte: "[PREENCHER]",
-  },
-  {
-    pergunta: "Posso misturar itens de solo e telhado no mesmo pedido?",
-    resposta: "[PREENCHER]. Fale com o comercial pelo WhatsApp.",
-    fonte: "[PREENCHER]",
   },
   {
     pergunta: "Tem pronta entrega de avulsos?",

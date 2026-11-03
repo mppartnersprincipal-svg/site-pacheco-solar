@@ -10,7 +10,7 @@ export function img(key: MediaKey): MediaEntry {
   return m;
 }
 
-/** Variante tolerante: null quando a foto ainda não entrou no acervo (ex.: fotos do Lucas [PREENCHER]). */
+/** Variante tolerante: null quando a foto ainda não entrou no acervo. */
 export function imgOpcional(key: string): MediaEntry | null {
   return (manifest as Record<string, MediaEntry>)[key] ?? null;
 }
@@ -27,7 +27,7 @@ export const VIDEOS = {
   heroMobile: { mp4: "/videos/hero-mobile.mp4", webm: "/videos/hero-mobile.webm", poster: "/videos/hero.webp", width: 854, height: 480 },
 } as const;
 
-/** Clipes da galeria "estrutura em campo" (9:16, 540×960, ≤ 8 s). Terra vermelha = solo dupla; usina com brita = solo linear (Lucas, 02/11/2026). Legendas: [PREENCHER cidade/UF]. */
+/** Clipes da galeria "estrutura em campo" (9:16, 540×960, ≤ 8 s). Terra vermelha = solo dupla; usina com brita = solo linear (Lucas, 02/11/2026). */
 export const CLIPES = [
   { id: "solo-dupla-1638", legenda: "Solo dupla · estrutura montada" },
   { id: "solo-dupla-1639", legenda: "Solo dupla · perfis e módulos" },

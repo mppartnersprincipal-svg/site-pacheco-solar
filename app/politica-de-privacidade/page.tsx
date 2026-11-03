@@ -55,8 +55,7 @@ export default function PoliticaDePrivacidadePage() {
         </div>
 
         <footer className="mt-12 max-w-prose border-t border-linha pt-6 font-mono text-xs uppercase tracking-[0.14em] text-aco/80">
-          <p>{PRIVACIDADE_RODAPE.revisao}</p>
-          <p className="mt-2">{PRIVACIDADE_RODAPE.atualizacao}</p>
+          <p>{PRIVACIDADE_RODAPE.atualizacao}</p>
           <p className="mt-2 normal-case tracking-normal">
             {SITE.razaoSocial} · CNPJ {SITE.cnpj}
           </p>

@@ -99,6 +99,5 @@ export const PRIVACIDADE_SECOES: SecaoPrivacidade[] = [
 export const PRIVACIDADE_DIREITOS_CONTATO = `Para exercer qualquer um desses direitos, escreva para ${SITE.email}.`;
 
 export const PRIVACIDADE_RODAPE = {
-  revisao: "[PREENCHER revisão jurídica]",
-  atualizacao: "Última atualização: [PREENCHER data]",
+  atualizacao: "Última atualização: 3 de novembro de 2026",
 };

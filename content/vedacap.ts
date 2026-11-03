@@ -30,12 +30,12 @@ export const VEDACAP_HERO = {
   cta: "Pedir Vedacap no WhatsApp",
   logoAlt: "Vedacap — logo",
   corte: {
-    // fonte: roteirosVedacap (nomes das peças) + blueprint (legenda PREENCHER)
+    // fonte: roteirosVedacap (nomes das peças)
     titulo: "Corte transversal",
     toggleSem: "Sem Vedacap",
     toggleCom: "Com Vedacap",
     corLabel: "Cor da capa",
-    legenda: "[PREENCHER foto real do produto nas 3 cores]",
+    legenda: "Ilustração esquemática",
     rotulos: {
       telha: "Telha metálica",
       parafuso: "Parafuso autobrocante",
@@ -85,7 +85,7 @@ export const VEDACAP_ALUZINCO = {
 } as const;
 
 export const VEDACAP_APLICACAO = {
-  // fonte: roteirosVedacap + claudeMd ("aplicação simples com cola PU"; "não adianta silicone, fita ou massa"; passo a passo PREENCHER)
+  // fonte: roteirosVedacap + claudeMd ("aplicação simples com cola PU"; "não adianta silicone, fita ou massa")
   eyebrow: "03 · APLICAÇÃO",
   titulo: "Aplicação simples com cola PU.",
   aviso: "Não adianta silicone, fita ou massa: todos são orgânicos, todos ressecam pelo mesmo motivo.",
@@ -97,13 +97,12 @@ export const VEDACAP_APLICACAO = {
 } as const;
 
 export const VEDACAP_VERSOES = {
-  // fonte: roteirosVedacap (3 versões) + blueprint (PREENCHER foto por cor)
+  // fonte: roteirosVedacap (3 versões)
   eyebrow: "04 · VERSÕES",
   titulo: "Três versões: aluzinco natural, branco e preto.",
   sub: "Para combinar com a cor da telha metálica.", // fonte: lib/faq.ts (FAQ_VEDACAP "Quais cores existem?") — uso restrito a telhado metálico
   versoes: VEDACAP.versoes,
   ctaPrefixo: "Pedir na cor",
-  fotoPendente: "[PREENCHER foto de produto por cor]",
 } as const;
 
 export const VEDACAP_PUBLICOS = {

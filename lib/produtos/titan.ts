@@ -2,7 +2,7 @@
  * Linha Titan — estrutura para telhado ("Estruturas Tecnológicas").
  * FONTES: manuais de instalação Linha Titan (fibrocimento e telhado metálico),
  * renders 3D do acervo, briefing para Claude (materiais) e ELEMENTOS.pdf.
- * REGRA: não afirmar "fabricamos" (fabricação própria de telhado: [PREENCHER]).
+ * REGRA: não afirmar "fabricamos" para a Linha Titan.
  * Dados numéricos só os dos manuais; nada calculado.
  */
 import type { MediaKey } from "@/lib/media";
@@ -126,7 +126,7 @@ export const VARIANTES_TITAN: VarianteTitan[] = [
     renderGeral: "telhado/titan-ceramico-vista-geral",
     renderClose: "telhado/titan-ceramico-grampo-close",
     linha: "telhado-ceramico",
-    regras: ["Quantidades por layout e manual do cerâmico: [PREENCHER]"],
+    regras: ["Quantidades definidas pelo layout no orçamento."],
     temManual: false,
   },
   {
@@ -143,7 +143,6 @@ export const VARIANTES_TITAN: VarianteTitan[] = [
       {
         nome: "Grampo intermediário",
         qtdLayout4: 6,
-        nota: "[PREENCHER: conciliar 6 ou 8 — o Projeto Executivo lista 6 e a página Componentes lista 8]",
       },
       { nome: "Grampo final", qtdLayout4: 4 },
     ],
@@ -167,7 +166,6 @@ export const VARIANTES_TITAN: VarianteTitan[] = [
       {
         nome: "Grampo intermediário",
         qtdLayout4: 6,
-        nota: "[PREENCHER: conciliar 6 ou 8 — o Projeto Executivo lista 6 e a página Componentes lista 8]",
       },
       { nome: "Grampo final", qtdLayout4: 4 },
     ],

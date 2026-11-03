@@ -1,3 +1,5 @@
+> **IDs em uso (levantados do site WordPress em 03/11/2026):** o site atual carrega DOIS containers. `GTM-WKV5QM3B` (via plugin PixelYourSite) tem o GA4 `G-BMVXR9D8X9`, a tag do Google Ads `AW-10868283032` e um gatilho de clique em `wa.me`; `GTM-PFQPFV9` (snippet no tema) tem o Meta Pixel `1253856145352881`. O site novo instala só o `GTM-WKV5QM3B` (`NEXT_PUBLIC_GTM_ID` na Vercel); o Pixel deve ser migrado para dentro dele na configuração do container. A conta Google Ads das campanhas é a 518-024-8909 (MCC 603-989-2603); conferir no GTM a qual conta a tag `AW-10868283032` pertence.
+
 # Tracking — Pacheco Solar (padrão M|P)
 
 ## Arquitetura

@@ -48,7 +48,9 @@ Datas em horário de Brasília (UTC-3 fixo).
   scroll_25/50/75/100, navigation_click, video_play, file_download, cookie_consent) também vai ao coletor.
 - Desligado em `/dashboard`, `/api`, `navigator.webdriver` e UAs de bot. Lotes via `sendBeacon`
   (text/plain, 204); gravação em `after()`.
-- Rate limit por sessão (120/min) e por IP-hash (600/min), por instância.
+- Rate limit por sessão (120/min) e por IP-hash (600/min), por instância; só aceita `Origin`/`Sec-Fetch-Site`
+  do próprio site; teto de 2.000 eventos por sessão (trigger `pacheco_cap_events`). Os limites fortes devem ficar
+  no **WAF da Vercel** (Firewall → Rate limiting em `/api/collect` e `/dashboard/login`) — ver "Segurança".
 
 ## Banco (Supabase `khipnjfbxjgvmjvyxero`, prefixo `pacheco_`)
 
@@ -79,6 +81,18 @@ delete from public.pacheco_sessions where utm_content = 'qa-seed';
 Sem `SUPABASE_*` o coletor aceita e descarta (204) e o painel mostra o aviso "Coletor ainda não
 conectado". Sem `DASHBOARD_*` o login avisa que falta configurar. Sem `GOOGLE_ADS_*`/`GA4_*` as
 seções mostram "Conexão pendente".
+
+## Segurança (revisão de 03/11/2026)
+
+- Login: senha única + cookie HMAC. Tentativas erradas: 10 por IP ou 50 no total em 15 min bloqueiam por 15 min
+  (memória da instância). Recomendado: `DASHBOARD_PASSWORD` com 16+ caracteres e regra de rate limit no WAF da
+  Vercel para `/dashboard/login` (ex.: 20 req/min por IP).
+- Logout apaga o cookie, mas um cookie roubado vale até expirar (30 dias). Para revogar todos: trocar
+  `DASHBOARD_SECRET` e fazer redeploy.
+- Coletor: sem dado pessoal; limites por instância + Origin do próprio site + teto por sessão. Para abuso
+  distribuído, regra de rate limit no WAF da Vercel em `/api/collect` (ex.: 120 req/min por IP).
+- `visitor_id` é criado na primeira visita e apagado se a pessoa escolher "Só o essencial" (mesmo
+  comportamento da Sólida).
 
 ## Conferência depois do deploy
 

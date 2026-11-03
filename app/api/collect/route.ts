@@ -40,18 +40,35 @@ type Incoming = {
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-// ---------- rate limit best-effort (por instância) ----------
+// ---------- rate limit best-effort (por instância; o limite forte fica no WAF da Vercel) ----------
 const buckets = new Map<string, { n: number; reset: number }>();
+const MAX_BUCKETS = 20_000;
 function allow(key: string, limit: number) {
   const now = Date.now();
   const b = buckets.get(key);
   if (!b || b.reset < now) {
+    if (buckets.size >= MAX_BUCKETS) {
+      // Só descarta os expirados — nunca zera o limite por IP
+      for (const [k, v] of buckets) if (v.reset < now) buckets.delete(k);
+      if (buckets.size >= MAX_BUCKETS) return false;
+    }
     buckets.set(key, { n: 1, reset: now + 60_000 });
-    if (buckets.size > 5000) buckets.clear();
     return true;
   }
   b.n += 1;
   return b.n <= limit;
+}
+
+/** Só aceita lotes vindos do próprio site (sendBeacon manda Origin/Sec-Fetch-Site). */
+function sameOrigin(request: NextRequest) {
+  const fetchSite = request.headers.get("sec-fetch-site");
+  if (fetchSite && fetchSite !== "same-origin" && fetchSite !== "none") return false;
+  const origin = request.headers.get("origin");
+  if (!origin) return true;
+  const host = hostOf(origin);
+  if (!host) return false;
+  const allowed = [request.nextUrl.hostname, hostOf(process.env.NEXT_PUBLIC_SITE_URL) ?? ""].map((h) => h.replace(/^www\./, ""));
+  return allowed.includes(host);
 }
 
 function str(v: unknown, max: number): string | null {
@@ -64,14 +81,21 @@ function int(v: unknown, max: number): number | null {
   return Number.isFinite(n) && n >= 0 ? Math.min(Math.round(n), max) : null;
 }
 
+// Parâmetros que o SQL converte para número: só entram como inteiro válido
+const NUMERIC_PARAMS: Record<string, number> = { duration_ms: 86_400_000, max_scroll_pct: 100, percent_scrolled: 100, sw: 10_000, sh: 10_000, x_pct: 100, y_pct: 100 };
+
 function cleanParams(d: unknown): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
   if (!d || typeof d !== "object") return out;
   let keys = 0;
   for (const [k, v] of Object.entries(d as Record<string, unknown>)) {
     if (keys >= MAX_PARAM_KEYS) break;
-    if (!/^[a-z_][a-z0-9_]{0,39}$/.test(k)) continue;
-    if (typeof v === "string") out[k] = v.slice(0, 200);
+    if (!/^[a-z][a-z0-9_]{0,39}$/.test(k)) continue;
+    if (k in NUMERIC_PARAMS) {
+      const n = int(v, NUMERIC_PARAMS[k]);
+      if (n === null) continue;
+      out[k] = n;
+    } else if (typeof v === "string") out[k] = v.slice(0, 200);
     else if (typeof v === "number" && Number.isFinite(v)) out[k] = v;
     else if (typeof v === "boolean") out[k] = v;
     else continue;
@@ -116,7 +140,7 @@ export async function POST(request: NextRequest) {
   if (!uaRaw || BOT_RE.test(uaRaw)) return new Response(null, { status: 204 });
 
   const ua = userAgent(request);
-  if (ua.isBot) return new Response(null, { status: 204 });
+  if (ua.isBot || !sameOrigin(request)) return new Response(null, { status: 204 });
 
   const len = Number(request.headers.get("content-length") ?? 0);
   if (len > MAX_BODY) return new Response(null, { status: 413 });
@@ -124,11 +148,12 @@ export async function POST(request: NextRequest) {
   let body: Incoming;
   try {
     const text = await request.text();
-    if (text.length > MAX_BODY) return new Response(null, { status: 413 });
+    if (Buffer.byteLength(text) > MAX_BODY) return new Response(null, { status: 413 });
     body = JSON.parse(text) as Incoming;
   } catch {
     return new Response(null, { status: 400 });
   }
+  if (!body || typeof body !== "object" || Array.isArray(body)) return new Response(null, { status: 400 });
 
   const sid = typeof body.sid === "string" && UUID_RE.test(body.sid) ? body.sid.toLowerCase() : null;
   if (!sid || !Array.isArray(body.e)) return new Response(null, { status: 400 });
@@ -193,6 +218,9 @@ export async function POST(request: NextRequest) {
       if (session) {
         const { error } = await supabase.from("pacheco_sessions").upsert(session, { onConflict: "id", ignoreDuplicates: true });
         if (error) console.error("[collect] session", error.message);
+        // Se um lote de eventos chegou antes e criou um esqueleto, completa com os dados reais
+        const fix = await supabase.from("pacheco_sessions").update({ ...session, is_skeleton: false }).eq("id", sid).eq("is_skeleton", true);
+        if (fix.error) console.error("[collect] session fix", fix.error.message);
       }
       if (events.length) {
         const { error } = await supabase.from("pacheco_events").insert(events);
@@ -201,7 +229,7 @@ export async function POST(request: NextRequest) {
           if (error.code === "23503") {
             await supabase
               .from("pacheco_sessions")
-              .upsert({ id: sid, landing_path: events[0].path, channel: "direct" }, { onConflict: "id", ignoreDuplicates: true });
+              .upsert({ id: sid, landing_path: events[0].path, channel: "direct", is_skeleton: true }, { onConflict: "id", ignoreDuplicates: true });
             const retry = await supabase.from("pacheco_events").insert(events);
             if (retry.error) console.error("[collect] events retry", retry.error.message);
           } else {

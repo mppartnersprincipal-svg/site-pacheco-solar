@@ -1,5 +1,5 @@
 import "server-only";
-import { createHmac, timingSafeEqual } from "node:crypto";
+import { createHash, createHmac, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 
 /**
@@ -17,10 +17,10 @@ export const authConfigured = () => password().length >= 8 && secret().length >=
 
 const sign = (payload: string) => createHmac("sha256", secret()).update(payload).digest("base64url");
 
+// Compara hashes de tamanho fixo: não vaza o tamanho da senha pelo tempo de resposta
 function safeEqual(a: string, b: string) {
-  const ba = Buffer.from(a);
-  const bb = Buffer.from(b);
-  return ba.length === bb.length && timingSafeEqual(ba, bb);
+  const h = (v: string) => createHash("sha256").update(v).digest();
+  return timingSafeEqual(h(a), h(b));
 }
 
 export function checkPassword(candidate: string) {

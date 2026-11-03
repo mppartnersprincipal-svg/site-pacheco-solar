@@ -26,7 +26,7 @@ const CONSENT_EVENT = "pacheco-consent-change";
 const SESSION_TTL_MS = 30 * 60 * 1000;
 const FLUSH_EVERY_MS = 5000;
 const FLUSH_AT = 10;
-const MAX_BATCH_BYTES = 60 * 1024;
+const MAX_BATCH_BYTES = 28 * 1024; // abaixo do MAX_BODY (32 KB) do /api/collect
 const EXCLUDED_PREFIXES = ["/dashboard", "/api"];
 const BOT_RE = /bot|crawl|spider|headless|lighthouse|pagespeed|gtmetrix/i;
 
@@ -193,7 +193,8 @@ function flush() {
   queue = [];
 
   let payload = JSON.stringify(batch);
-  while (payload.length > MAX_BATCH_BYTES && batch.e.length > 1) {
+  const bytes = (t: string) => (typeof TextEncoder !== "undefined" ? new TextEncoder().encode(t).length : t.length * 2);
+  while (bytes(payload) > MAX_BATCH_BYTES && batch.e.length > 1) {
     batch.e = batch.e.slice(0, Math.ceil(batch.e.length / 2));
     payload = JSON.stringify(batch);
   }

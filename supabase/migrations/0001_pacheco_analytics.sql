@@ -42,8 +42,11 @@ create table if not exists public.pacheco_sessions (
   lang           text,
   page_views     integer not null default 0,
   events         integer not null default 0,
-  converted      boolean not null default false
+  converted      boolean not null default false,
+  -- true quando a linha foi criada pelo fallback do coletor (eventos chegaram antes da sessão)
+  is_skeleton    boolean not null default false
 );
+alter table public.pacheco_sessions add column if not exists is_skeleton boolean not null default false;
 
 create index if not exists pacheco_sessions_started_idx on public.pacheco_sessions (started_at desc);
 create index if not exists pacheco_sessions_channel_idx on public.pacheco_sessions (channel, started_at desc);
@@ -85,6 +88,20 @@ drop trigger if exists pacheco_events_bump on public.pacheco_events;
 create trigger pacheco_events_bump after insert on public.pacheco_events
   for each row execute function public.pacheco_bump_session();
 
+-- Teto de eventos por sessão (abuso): acima disso o insert é ignorado em silêncio
+create or replace function public.pacheco_cap_events()
+returns trigger language plpgsql security definer set search_path = public as $$
+begin
+  if (select events from public.pacheco_sessions where id = new.session_id) >= 2000 then
+    return null;
+  end if;
+  return new;
+end;
+$$;
+drop trigger if exists pacheco_events_cap on public.pacheco_events;
+create trigger pacheco_events_cap before insert on public.pacheco_events
+  for each row execute function public.pacheco_cap_events();
+
 create or replace function public.pacheco_mark_returning()
 returns trigger language plpgsql security definer set search_path = public as $$
 begin
@@ -123,7 +140,7 @@ language sql stable security invoker set search_path = public as $$
       (select count(*) from ev where name = 'page_view') as page_views,
       (select coalesce(round(avg(extract(epoch from (last_seen_at - started_at)) * 1000)), 0) from s) as avg_session_ms,
       (select coalesce(round(avg((params->>'duration_ms')::numeric)), 0) from ev
-        where name = 'page_leave' and (params->>'duration_ms') ~ '^[0-9]+$') as avg_page_ms,
+        where name = 'page_leave' and (params->>'duration_ms') ~ '^[0-9]{1,9}$') as avg_page_ms,
       (select count(*) from ev where name = 'click_whatsapp') as wa_clicks,
       (select count(*) from ev where name = 'click_phone') as phone_clicks,
       (select count(distinct session_id) from ev where name = 'click_whatsapp') as wa_sessions)
@@ -189,7 +206,9 @@ language sql stable security invoker set search_path = public as $$
   v as (select path, max(title) as title, count(*) as views from ev where name = 'page_view' group by path),
   l as (select path, round(avg((params->>'duration_ms')::numeric)) as avg_ms,
                round(avg((params->>'max_scroll_pct')::numeric)) as avg_scroll
-        from ev where name = 'page_leave' and (params->>'duration_ms') ~ '^[0-9]+$' group by path)
+        from ev where name = 'page_leave'
+          and (params->>'duration_ms') ~ '^[0-9]{1,9}$' and (params->>'max_scroll_pct') ~ '^[0-9]{1,3}$'
+        group by path)
   select v.path, v.title, v.views, coalesce(l.avg_ms, 0), coalesce(l.avg_scroll, 0)
   from v left join l on l.path = v.path order by v.views desc limit p_limit;
 $$;

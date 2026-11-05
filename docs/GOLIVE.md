@@ -48,6 +48,20 @@ Depois: trocar os servidores DNS do domínio para os do Registro.br. Propagaçã
 Recomendado em seguida (Google Admin → Apps → Gmail → Autenticar e-mail): publicar o DKIM
 (`google._domainkey` TXT) e um DMARC (`_dmarc` TXT `v=DMARC1; p=none; rua=mailto:…`).
 
+### Como foi na prática (05/11/2026)
+
+1. 13:05 — "Utilizar DNS do Registro.br": a delegação vai na hora para `a/b.auto.dns.br`, que servem
+   uma **zona provisória vazia** (sem A, MX nulo, SPF `v=spf1 -all`). Site e e-mail ficam fora do ar
+   a partir daí, e e-mails recebem bounce (MX nulo), não ficam em fila.
+2. ~13:20 — Modo avançado + 9 registros salvos. Nada aparece em `auto.dns.br`: o modo avançado usa
+   **outros servidores** (`d.sec.dns.br` / `e.sec.dns.br`) e a troca da delegação só sai depois de
+   uma janela de transição de ~2 h. O hostmaster do Registro.br respondeu o chamado em ~30 min.
+3. 15:15 — delegação trocada para `d/e.sec.dns.br`, já com os 9 registros. Google/Cloudflare
+   atualizaram em 1 min; HTTP na Vercel na hora; certificado emitido na sequência.
+
+Lição: em uma próxima virada, **ativar o DNS do Registro.br e cadastrar a zona no modo avançado fora
+do horário comercial**, avisando o cliente que o domínio fica ~2 h sem site e sem e-mail.
+
 ## Depois que propagar
 
 1. `https://pachecosolar.com.br` abre o site novo com cadeado (certificado automático da Vercel;

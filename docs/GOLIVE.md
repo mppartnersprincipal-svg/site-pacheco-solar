@@ -8,7 +8,7 @@ nameservers da **HostGator** (`ns980/ns981.hostgator.com.br`), onde também est�
 Na Vercel, `pachecosolar.com.br` e `www.pachecosolar.com.br` (308 → apex) já estão adicionados ao
 projeto `site-pacheco-solar` e verificados; falta só o DNS apontar.
 
-## Opção A — manter o DNS na HostGator (rápida, zero risco para o e-mail)
+## Opção A — manter o DNS na HostGator (descartada: o Pacheco não tem o login do cPanel)
 
 cPanel da HostGator → **Zone Editor** → `pachecosolar.com.br` → Manage:
 
@@ -22,10 +22,15 @@ cPanel da HostGator → **Zone Editor** → `pachecosolar.com.br` → Manage:
 Não mexer em MX, TXT, `mail`, `webmail`, `cpanel`, `ftp`. Propaga em minutos a poucas horas (TTL).
 Enquanto a HostGator for paga, esta opção basta.
 
-## Opção B — DNS no Registro.br (quando cancelar a HostGator)
+## Opção B — DNS no Registro.br (caminho escolhido em 05/11/2026: só há login do Registro.br)
 
-Registro.br → domínio → **Editar zona** / "Utilizar DNS do Registro.br" → cadastrar **todos** os
-registros abaixo ANTES de trocar os servidores DNS (senão o e-mail para):
+Conferido em 05/11/2026: a zona da HostGator só tem A, CNAME www, os 5 MX do Google e o SPF
+(sem DKIM, DMARC ou AAAA). Nada mais precisa ser copiado.
+
+registro.br → login → **Domínios** → `pachecosolar.com.br` → seção **DNS** → **Alterar servidores DNS**
+→ **Utilizar DNS do Registro.br** → **Editar zona** → cadastrar **todos** os registros abaixo na
+mesma tela, antes de salvar (salvar publica a zona e troca os servidores de uma vez; sem os MX o
+e-mail para):
 
 | Tipo | Nome | Valor |
 |---|---|---|

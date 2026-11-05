@@ -11,11 +11,12 @@ import { TITLE_DEFAULT, buildMetadata } from "@/lib/seo";
 import { VIDEOS } from "@/lib/media";
 import { SITE } from "@/lib/site";
 
-/** O template "%s | Pacheco Solar" do layout não vale para a própria página raiz: título completo aqui. */
+/** O título da home já traz a marca; `absolute` evita o template "%s | Pacheco Solar" do layout. */
 export const metadata = buildMetadata({
   title: TITLE_DEFAULT,
   description: SITE.descricao,
   path: "/",
+  absolute: true,
 });
 
 /** Home — 9 blocos enxutos (versão de 22/10/2026, referência aprovada pelo Lucas). */

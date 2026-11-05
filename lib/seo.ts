@@ -11,15 +11,18 @@ export function buildMetadata({
   description,
   path,
   image = "/opengraph-image",
+  absolute = false,
 }: {
   title: string;
   description: string;
   path: string;
   image?: string;
+  /** true = ignora o template "%s | Pacheco Solar" do layout (home, cujo título já traz a marca). */
+  absolute?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
   return {
-    title,
+    title: absolute ? { absolute: title } : title,
     description,
     alternates: { canonical: url },
     openGraph: {

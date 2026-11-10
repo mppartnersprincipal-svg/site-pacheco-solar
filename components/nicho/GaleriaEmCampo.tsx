@@ -13,7 +13,24 @@ export type Clipe = { id: string; legenda: string; mp4: string; webm: string; po
  * IntersectionObserver dá play em quem está ≥ 60% visível (máx. 2 tocando);
  * no mobile ou com saveData/reduced-motion, toque-para-tocar com poster.
  */
-export function GaleriaEmCampo({ clipes, className }: { clipes: Clipe[]; className?: string }) {
+interface GaleriaEmCampoProps {
+  clipes: Clipe[];
+  /** "faixa" = rolagem horizontal (padrão); "grade" = 2 colunas no celular, 4 no desktop, sem rolagem */
+  layout?: "faixa" | "grade";
+  className?: string;
+}
+
+const CLASSES_LISTA = {
+  faixa: "scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:px-0",
+  grade: "grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4",
+} as const;
+
+const CLASSES_ITEM = {
+  faixa: "w-[62vw] shrink-0 snap-start sm:w-64 lg:w-72",
+  grade: "",
+} as const;
+
+export function GaleriaEmCampo({ clipes, layout = "faixa", className }: GaleriaEmCampoProps) {
   const [auto, setAuto] = useState(false);
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -23,9 +40,9 @@ export function GaleriaEmCampo({ clipes, className }: { clipes: Clipe[]; classNa
   }, []);
 
   return (
-    <ul className={cn("scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:px-0", className)}>
+    <ul className={cn(CLASSES_LISTA[layout], className)}>
       {clipes.map((c) => (
-        <li key={c.id} className="w-[62vw] shrink-0 snap-start sm:w-64 lg:w-72">
+        <li key={c.id} className={CLASSES_ITEM[layout]}>
           <ClipeEmCampo clipe={c} auto={auto} />
         </li>
       ))}
@@ -136,6 +153,11 @@ function ClipeEmCampo({ clipe, auto }: { clipe: Clipe; auto: boolean }) {
           <Play className="ml-0.5 size-6" aria-hidden />
         </span>
       </button>
+      {/* Selo fixo: deixa claro que é vídeo mesmo quando o clipe está parado no poster */}
+      <span aria-hidden className="pointer-events-none absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-tinta/75 px-2.5 py-1 font-sans text-[11px] font-semibold text-branco backdrop-blur-sm">
+        <Play className="size-3 fill-current" />
+        Vídeo
+      </span>
       <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-fundo/90 to-transparent px-3 pb-3 pt-10 font-mono text-[11px] uppercase tracking-[0.14em] text-branco">
         {clipe.legenda}
       </figcaption>

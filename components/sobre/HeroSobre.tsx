@@ -4,7 +4,7 @@ import { img } from "@/lib/media";
 import { SOBRE_HERO } from "@/content/sobre";
 
 /**
- * Hero de /sobre: foto real de projeto (solo linear, usina com brita) ao fundo até existir a foto
+ * Hero de /sobre: foto real de projeto (solo dupla, usina com brita) ao fundo até existir a foto
  * do Lucas no acervo (pendência em content/sobre.ts). Overlay só na área de texto.
  * A <section> externa leva id + data-linha (PageHero não expõe esses atributos);
  * o IntersectionObserver do botão flutuante e o section_view leem essa section.

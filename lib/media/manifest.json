@@ -694,5 +694,21 @@
     "bytes": 172062,
     "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAkAA4BaJZwAAuisDhErMwAA/mxExJ52Zv1jnUO/BPxphdMraUpXX6uBPFhX+x4NT4YOKAA=",
     "alt": ""
+  },
+  "vedacap/vedacap-painel": {
+    "src": "/images/vedacap/vedacap-painel.webp",
+    "width": 900,
+    "height": 1600,
+    "bytes": 39940,
+    "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoJABAAA4BaJYwCdADdc3Gw9ssAAP6pz2sHsidMraVEG4nf43L0ov8kQN4JFpKRKHnTsVsvfPPEP4tnH1OdvLgRLqoiAghqBZnvsay2igAAAA==",
+    "alt": ""
+  },
+  "vedacap/vedacap-pecas": {
+    "src": "/images/vedacap/vedacap-pecas.webp",
+    "width": 1000,
+    "height": 1000,
+    "bytes": 26476,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoQABAAA4BaJQAAXvlv9CpTvHAA/vaNl+jBTUKWTnf4F5ANrv4CByRONIlZ8f02VqoqrF5SMpTLyUdLSXersOe2scFnnKmSAwDYoYCbYPW2+Bp+t3+AAA==",
+    "alt": ""
   }
 }

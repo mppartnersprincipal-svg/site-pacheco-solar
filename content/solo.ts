@@ -15,10 +15,10 @@ export const HERO_SOLO = {
   eyebrow: SOLO.eyebrow,
   titulo: SOLO.nome,
   subtitulo:
-    "Estrutura monoposte linear e dupla para usina fotovoltaica, fazenda e zona rural. Aço de qualidade premium, ideal para ambientes com atmosfera agressiva. Pronta entrega na maior parte do tempo.",
-  placas: ["Pronta entrega", "Solo Linear", "Solo Dupla", "Monoposte", "Entrega em todo o Brasil"],
+    "Estrutura monoposte linear e dupla para usina fotovoltaica, fazenda e zona rural. Aço de qualidade premium, ideal para ambientes com atmosfera agressiva. Pronta entrega sob consulta.",
+  placas: ["Pronta entrega sob consulta", "Solo Linear", "Solo Dupla", "Monoposte", "Entrega em todo o Brasil"],
   imagem: "solo-dupla/img-3961" as MediaKey,
-  imagemAlt: "Estrutura de solo linear vista por baixo dos módulos, com perfis de aço e brita",
+  imagemAlt: "Estrutura de solo dupla vista por baixo dos módulos, com perfis de aço e brita",
   cta: "Pedir orçamento de solo no WhatsApp",
   linkObras: { label: "Ver projetos", href: ROTAS.obras },
 } as const;
@@ -31,7 +31,7 @@ export const VARIANTES_SOLO = {
   rotuloTablist: "Configuração da estrutura de solo",
   rotuloConfiguracao: "Configuração",
   legendaFoto: "Usina de solo",
-  placas: ["Pronta entrega na maior parte do tempo", "Entrega em todo o Brasil"], // fonte: briefing360 + siteAtual
+  placas: ["Pronta entrega sob consulta", "Entrega em todo o Brasil"], // fonte: briefing360 + siteAtual
   itens: SOLO.variantes.map((v) => ({
     id: v.id,
     nome: v.nome,
@@ -49,7 +49,7 @@ export const COMPONENTES_SOLO = {
   titulo: "Da indústria para sua obra: cada peça com nome.",
   subtitulo: "Precisa só da peça? Vendemos itens avulsos.", // fonte: plano (componentes-solo)
   foto: "solo-dupla/img-3966" as MediaKey,
-  fotoAlt: "Perfis de aço e cabeamento sob os módulos de uma estrutura de solo linear",
+  fotoAlt: "Perfis de aço e cabeamento sob os módulos de uma estrutura de solo dupla",
   /**
    * Posições aproximadas (% da foto).
    * `avulso` = true só para peças da lista oficial (ITENS_AVULSOS: clipe de fixação e grampos);
@@ -82,9 +82,10 @@ export const AMBIENTE_AGRESSIVO = {
     { titulo: "Engenharia própria e suporte técnico", texto: "Fale com quem entende: suporte direto da nossa equipe de engenharia, do pré ao pós-venda." }, // fonte: siteAtual (diferencial 05)
   ],
   fotos: [
-    { key: "fazenda/fazenda-03" as MediaKey, alt: "Estrutura de solo montada em fazenda", legenda: "Fazenda · estrutura de solo" },
-    { key: "fazenda/fazenda-01" as MediaKey, alt: "Estacas cravadas em fazenda", legenda: "Fazenda · estacas cravadas" },
-    { key: "fazenda/fazenda-02" as MediaKey, alt: "Perfis sendo montados em fazenda", legenda: "Fazenda · montagem dos perfis" },
+    // fazenda-01/02 trocadas (10/11/2026): eram cópias de fotos da Cocalinho que já aparecem em "Solo em campo" nesta página
+    { key: "fazenda/fazenda-03" as MediaKey, alt: "Estrutura de solo montada em fazenda, ainda sem módulos", legenda: "Fazenda · estrutura de solo" },
+    { key: "fazenda/fazenda-08" as MediaKey, alt: "Mesa de módulos em estrutura de solo, em fazenda de terra vermelha", legenda: "Fazenda · módulos fixados" },
+    { key: "fazenda/fazenda-05" as MediaKey, alt: "Detalhe dos perfis de aço da estrutura de solo sobre base de concreto", legenda: "Fazenda · detalhe da estrutura" },
   ],
   cta: "Tenho obra em fazenda",
 } as const;
@@ -117,7 +118,7 @@ export const FAQ_SOLO_HEADING = {
 export const CTA_FINAL_SOLO = {
   titulo: "Seu projeto começa na estrutura certa.",
   subtitulo:
-    "Estrutura para usina de solo com pronta entrega na maior parte do tempo, engenharia própria e entrega em todo o Brasil.",
+    "Estrutura para usina de solo com pronta entrega sob consulta, engenharia própria e entrega em todo o Brasil.",
   rotulo: "Pedir orçamento de solo no WhatsApp",
   ctaId: "cta-final-solo",
 } as const;
@@ -126,5 +127,5 @@ export const CTA_FINAL_SOLO = {
 export const META_SOLO = {
   title: "Estrutura de Solo para Placa Solar: Linear e Dupla",
   description:
-    "Estrutura de solo para placa solar e usina fotovoltaica: monoposte linear (uma fileira) e dupla (duas fileiras). Aço de qualidade premium para fazendas e ambientes agressivos. Fabricante em Goiânia, pronta entrega na maior parte do tempo e entrega em todo o Brasil.",
+    "Estrutura de solo para placa solar e usina fotovoltaica: monoposte linear (uma fileira) e dupla (duas fileiras). Aço de qualidade premium para fazendas e ambientes agressivos. Fabricante em Goiânia, pronta entrega sob consulta e entrega em todo o Brasil.",
 } as const;

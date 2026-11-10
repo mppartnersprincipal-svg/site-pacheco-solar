@@ -8,7 +8,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { WaButton } from "@/components/cta/WaButton";
 import { GaleriaEmCampo } from "@/components/nicho/GaleriaEmCampo";
 import { SOLO_EM_CAMPO } from "@/content/solo";
-import { CLIPES, imageProps } from "@/lib/media";
+import { CLIPES_SOLO, imageProps } from "@/lib/media";
 import { FOTOS_OBRAS } from "@/lib/obras";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +29,7 @@ export function SoloEmCampo() {
       <Container className="py-20 sm:py-28">
         <SectionHeading eyebrow={SOLO_EM_CAMPO.eyebrow} title={SOLO_EM_CAMPO.titulo} subtitle={SOLO_EM_CAMPO.subtitulo} destaque="você entrega" />
 
-        <GaleriaEmCampo clipes={CLIPES.slice(4)} />
+        <GaleriaEmCampo clipes={CLIPES_SOLO} layout="grade" />
 
         <ul className="mt-10 grid grid-flow-dense auto-rows-[160px] grid-cols-2 gap-3 sm:auto-rows-[200px] sm:grid-cols-3 sm:gap-4 lg:auto-rows-[240px]">
           {fotos.map((f, i) => (

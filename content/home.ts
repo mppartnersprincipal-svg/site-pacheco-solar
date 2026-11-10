@@ -13,12 +13,13 @@ import { HISTORIA, PROPOSITO } from "@/content/institucional";
 // ------------------------------------------------------------------ 1. hero
 // fonte: FRASES_POSICIONAMENTO (H1) + pilares/diferenciais do site atual (sub)
 export const HERO = {
-  eyebrow: "ESTRUTURAS METÁLICAS PARA ENERGIA SOLAR · GOIÂNIA · TODO O BRASIL",
+  eyebrow: "ESTRUTURAS METÁLICAS PARA ENERGIA SOLAR",
   titulo: "Estrutura que não te deixa na mão.",
   /** Trecho do título em laranja (última ocorrência) */
   tituloDestaque: "na mão.",
+  /** Duas linhas: o "\n" vira quebra (whitespace-pre-line no HeroVideo) */
   subtitulo:
-    "Estrutura de solo para placa solar, Linha Titan para painel solar em telhado cerâmico, fibrocimento e metálico, kits de fixação e itens avulsos. Fabricante com engenharia própria e entrega em todo o Brasil.",
+    "Soluções: solo, telhado, kits e itens avulsos.\nFabricante com engenharia própria e entrega em todo o Brasil!",
   ctaPrimario: "Pedir orçamento no WhatsApp",
   ctaSecundario: "Ver linhas de produto",
   ctaSecundarioHref: "#linhas-de-produto",
@@ -59,10 +60,14 @@ export const SOBRE_RESUMO = {
 } as const;
 
 // ------------------------------------------------------------ 5. obras
-// fonte: gancho validado (CLAUDE.md do cliente). Fotos: OBRAS_DESTAQUE em lib/obras.ts
+// Projetos grandes, um por card (PROJETOS_DESTAQUE em lib/obras.ts). O gancho
+// "Resistência não é peso, é engenharia." fica só em /projetos-atendidos (estava repetido).
 export const OBRAS_SECAO = {
-  eyebrow: "PROVA DE CAMPO",
-  titulo: "Resistência não é peso, é engenharia.",
+  eyebrow: "PROJETOS ATENDIDOS",
+  titulo: "Usinas que levam estrutura Pacheco.",
+  /** Trecho do título em laranja */
+  destaque: "estrutura Pacheco",
+  rotuloPaineis: "painéis",
   cta: "Ver projetos atendidos",
   ctaHref: ROTAS.obras,
 } as const;

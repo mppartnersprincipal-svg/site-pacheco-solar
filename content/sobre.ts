@@ -20,7 +20,7 @@ export const SOBRE_HERO = {
   subtitulo: `${SITE_ATUAL.sobre1} Indústria de estruturas solares em Aparecida de Goiânia/GO, com entrega em todo o Brasil.`,
   placas: [...PALAVRAS_CHAVE],
   cta: "Falar com a Pacheco",
-  fotoAlt: "Estrutura de solo linear da Pacheco Solar montada em usina fotovoltaica",
+  fotoAlt: "Estrutura de solo dupla da Pacheco Solar montada em usina fotovoltaica com brita",
 };
 
 export const SOBRE_HISTORIA = {
@@ -36,21 +36,19 @@ export const SOBRE_HISTORIA = {
   fotoRotulo: "Fundador · Pacheco Solar",
 };
 
-/** Marcos da timeline — títulos do blueprint; textos são trechos literais de HISTORIA.texto. */
+/**
+ * Marcos da timeline — caminho passado pelo Pedro (10/11/2026), sem anos visíveis
+ * (referência interna: até 2020 integrador · 2021 · 2022 · 2023 · 2024 · 2025 · 2026).
+ * Linha Titan: "lançamento", nunca "fabricamos" (regra nº 2 do CLAUDE.md).
+ */
 export const SOBRE_MARCOS: Passo[] = [
-  {
-    titulo: "Na obra, como sócio de uma empresa de instalação de energia solar",
-    texto:
-      "Vendo a dificuldade de encontrar produtos de qualidade ou empresas que realmente atendem os prazos e se interessam em resolver os desafios enfrentados nas obras.",
-  },
-  {
-    titulo: "Nasce a Pacheco Solar",
-    texto: "Um parceiro estratégico 100% focado no integrador.",
-  },
-  {
-    titulo: "Linha Titan e Vedacap",
-    texto: "Tecnologia e inovação para levar as melhores soluções de estruturas para os integradores de todo o Brasil.",
-  },
+  { titulo: "Na obra, como integrador", texto: "Sentindo na pele a falta de produto de qualidade e de fornecedor que cumpre prazo." },
+  { titulo: "Nasce a Pacheco Solar", texto: "Um parceiro estratégico 100% focado no integrador." },
+  { titulo: "Vira indústria", texto: "Fabricação própria da estrutura de solo." },
+  { titulo: "Mais espaço e software", texto: "Ampliação do espaço e investimento em softwares de gestão." },
+  { titulo: "Tecnologia e IA", texto: "Agentes de IA para automatizar e organizar os processos." },
+  { titulo: "Linha Titan", texto: "Lançamento das estruturas para telhado." },
+  { titulo: "Vedacap", texto: "Novo item da linha de fixação." },
 ];
 
 export const SOBRE_MVP = {

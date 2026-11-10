@@ -58,7 +58,7 @@ export function HistoriaSobre() {
           </Reveal>
         </div>
 
-        <div className="mt-16 sm:mt-20 lg:[&_ol]:grid-cols-3">
+        <div className="mt-16 sm:mt-20">
           <EstacaTimeline passos={SOBRE_MARCOS} />
         </div>
       </Container>

@@ -1,4 +1,3 @@
-import { CtaFinal } from "@/components/cta/CtaFinal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { HeroSobre } from "@/components/sobre/HeroSobre";
 import { HistoriaSobre } from "@/components/sobre/HistoriaSobre";
@@ -8,7 +7,7 @@ import { ComoTrabalhamos } from "@/components/sobre/ComoTrabalhamos";
 import { LocalizacaoSobre } from "@/components/sobre/LocalizacaoSobre";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { ROTAS } from "@/lib/site";
-import { SOBRE_CTA_FINAL, SOBRE_META } from "@/content/sobre";
+import { SOBRE_META } from "@/content/sobre";
 
 export const metadata = buildMetadata({
   title: SOBRE_META.title,
@@ -25,13 +24,6 @@ export default function SobrePage() {
       <ValoresSobre />
       <ComoTrabalhamos />
       <LocalizacaoSobre />
-      <CtaFinal
-        linha="equipe"
-        titulo={SOBRE_CTA_FINAL.titulo}
-        subtitulo={SOBRE_CTA_FINAL.subtitulo}
-        rotulo={SOBRE_CTA_FINAL.rotulo}
-        ctaId="cta-final-sobre"
-      />
       <JsonLd
         data={[
           breadcrumbJsonLd([

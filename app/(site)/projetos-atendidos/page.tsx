@@ -5,13 +5,12 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buttonClasses } from "@/components/ui/Button";
 import { WaButton } from "@/components/cta/WaButton";
-import { CtaFinal } from "@/components/cta/CtaFinal";
 import { GaleriaEmCampo } from "@/components/nicho/GaleriaEmCampo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { GaleriaObras } from "@/components/obras/GaleriaObras";
 import { CasoCocalinho } from "@/components/obras/CasoCocalinho";
 import { DepoimentosObras } from "@/components/obras/DepoimentosObras";
-import { HERO_OBRAS, GALERIA_OBRAS, VIDEOS_OBRAS, CTA_FINAL_OBRAS, META_OBRAS } from "@/content/obras";
+import { HERO_OBRAS, GALERIA_OBRAS, VIDEOS_OBRAS, META_OBRAS } from "@/content/obras";
 import { CLIPES, img, imageProps } from "@/lib/media";
 import { FOTOS_OBRAS } from "@/lib/obras";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
@@ -29,7 +28,7 @@ export default function ObrasPage() {
         data={[
           breadcrumbJsonLd([
             { name: "Início", path: ROTAS.home },
-            { name: "Obras realizadas", path: ROTAS.obras },
+            { name: "Projetos atendidos", path: ROTAS.obras },
           ]),
         ]}
       />
@@ -84,7 +83,6 @@ export default function ObrasPage() {
 
       <DepoimentosObras />
 
-      <CtaFinal linha="obra" titulo={CTA_FINAL_OBRAS.titulo} subtitulo={CTA_FINAL_OBRAS.subtitulo} rotulo={CTA_FINAL_OBRAS.rotulo} ctaId={CTA_FINAL_OBRAS.ctaId} />
     </>
   );
 }

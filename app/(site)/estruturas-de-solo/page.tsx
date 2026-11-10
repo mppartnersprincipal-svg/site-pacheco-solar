@@ -5,15 +5,13 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buttonClasses } from "@/components/ui/Button";
 import { WaButton } from "@/components/cta/WaButton";
-import { CtaFinal } from "@/components/cta/CtaFinal";
 import { AccordionObjecoes } from "@/components/nicho/AccordionObjecoes";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { VariantesSolo } from "@/components/solo/VariantesSolo";
-import { HotspotsComponentes } from "@/components/solo/HotspotsComponentes";
 import { AmbienteAgressivo } from "@/components/solo/AmbienteAgressivo";
 import { SoloEmCampo } from "@/components/solo/SoloEmCampo";
 import { ComoPedir } from "@/components/solo/ComoPedir";
-import { HERO_SOLO, VARIANTES_SOLO, COMPONENTES_SOLO, FAQ_SOLO_HEADING, CTA_FINAL_SOLO, META_SOLO } from "@/content/solo";
+import { HERO_SOLO, VARIANTES_SOLO, FAQ_SOLO_HEADING, META_SOLO } from "@/content/solo";
 import { FAQ_SOLO } from "@/lib/faq";
 import { img, imageProps } from "@/lib/media";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd, productJsonLd } from "@/lib/seo";
@@ -31,7 +29,6 @@ export default function EstruturasDeSoloPage() {
     cta: v.cta,
     imagem: imageProps(v.imagem, v.imagemAlt),
   }));
-  const fotoComponentes = imageProps(COMPONENTES_SOLO.foto, COMPONENTES_SOLO.fotoAlt);
 
   return (
     <>
@@ -87,28 +84,7 @@ export default function EstruturasDeSoloPage() {
         </Container>
       </section>
 
-
-      <section id="componentes-solo" data-linha="solo" className="bg-superficie">
-        <Container className="py-20 sm:py-28">
-          <SectionHeading eyebrow={COMPONENTES_SOLO.eyebrow} title={COMPONENTES_SOLO.titulo} subtitle={COMPONENTES_SOLO.subtitulo} destaque="cada peça com nome" />
-          <HotspotsComponentes
-            foto={fotoComponentes}
-            pins={[...COMPONENTES_SOLO.pins]}
-            nota={COMPONENTES_SOLO.nota}
-            rotuloLista={COMPONENTES_SOLO.rotuloLista}
-            rotuloComponente={COMPONENTES_SOLO.rotuloComponente}
-            ctaItem={COMPONENTES_SOLO.ctaItem}
-            ctaEstrutura={COMPONENTES_SOLO.ctaEstrutura}
-            notaEstrutura={COMPONENTES_SOLO.notaEstrutura}
-          />
-          <div className="mt-10">
-            <Link href={COMPONENTES_SOLO.linkAvulsos.href} className="inline-flex min-h-11 items-center gap-2 font-display font-semibold text-laranja-texto underline-offset-4 hover:underline">
-              {COMPONENTES_SOLO.linkAvulsos.label}
-              <ArrowRight className="size-4" aria-hidden />
-            </Link>
-          </div>
-        </Container>
-      </section>
+      {/* Seção de componentes com hotspots removida a pedido do Pedro (10/11/2026): "meio bagunçado". */}
 
       <AmbienteAgressivo />
 
@@ -123,7 +99,6 @@ export default function EstruturasDeSoloPage() {
         </Container>
       </section>
 
-      <CtaFinal linha="solo" titulo={CTA_FINAL_SOLO.titulo} subtitulo={CTA_FINAL_SOLO.subtitulo} rotulo={CTA_FINAL_SOLO.rotulo} ctaId={CTA_FINAL_SOLO.ctaId} />
     </>
   );
 }

@@ -93,7 +93,7 @@ export function HeroVideo({ hero, heroMobile }: HeroVideoProps) {
             {antes}
             <span className="text-laranja-texto">{depois}</span>
           </h1>
-          <p style={ENTRADA[2]} className="animate-entrada mt-6 max-w-xl text-base leading-relaxed text-branco/80 sm:text-lg">
+          <p style={ENTRADA[2]} className="animate-entrada mt-6 max-w-xl whitespace-pre-line text-base leading-relaxed text-branco/80 sm:text-lg">
             {HERO.subtitulo}
           </p>
           <div style={ENTRADA[3]} className="animate-entrada mt-9 flex flex-wrap items-center gap-3">

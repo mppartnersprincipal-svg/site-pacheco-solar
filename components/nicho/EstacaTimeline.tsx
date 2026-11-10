@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 
 export type Passo = { numero?: string; titulo: string; texto?: string };
 
+const COLUNAS_PADRAO = 4;
+
 /**
  * Linha do tempo/processo desenhada como elevação de estrutura de solo:
  * estacas verticais unidas por um perfil que se preenche de laranja conforme
@@ -19,6 +21,9 @@ export function EstacaTimeline({ passos, className }: { passos: Passo[]; classNa
     transform: inView ? "translate3d(0,0,0)" : "translate3d(0,20px,0)",
     config: { tension: 210, friction: 26 },
   });
+  /** Até 4 passos: grade de 4 colunas (layout original). Mais que isso: uma coluna por passo, tudo numa linha só no desktop. */
+  const longa = passos.length > COLUNAS_PADRAO;
+  const colunas = longa ? passos.length : COLUNAS_PADRAO;
   const barra = useSpring({
     transform: `scaleX(${enabled ? Math.min(1, Math.max(0, (progress - 0.2) / 0.5)) : 1})`,
     config: { tension: 120, friction: 30 },
@@ -34,7 +39,11 @@ export function EstacaTimeline({ passos, className }: { passos: Passo[]; classNa
       <div aria-hidden className="absolute top-0 bottom-0 left-3 w-0.5 bg-linha lg:hidden">
         <div className="h-full w-full bg-laranja" />
       </div>
-      <ol ref={ref} className="relative grid gap-8 lg:grid-cols-4 lg:gap-6">
+      <ol
+        ref={ref}
+        style={{ "--colunas": colunas } as React.CSSProperties}
+        className={cn("relative grid gap-8 lg:[grid-template-columns:repeat(var(--colunas),minmax(0,1fr))]", longa ? "lg:gap-4" : "lg:gap-6")}
+      >
         {trail.map((style, i) => {
           const p = passos[i];
           return (
@@ -44,7 +53,7 @@ export function EstacaTimeline({ passos, className }: { passos: Passo[]; classNa
                 <span className="size-6 rounded-full border-2 border-laranja bg-fundo" />
               </span>
               <span className="font-mono text-xs text-laranja-texto">{p.numero ?? String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-1 font-display text-lg font-semibold text-branco">{p.titulo}</h3>
+              <h3 className={cn("mt-1 font-display font-semibold text-branco", longa ? "text-base leading-snug" : "text-lg")}>{p.titulo}</h3>
               {p.texto ? <p className="mt-2 text-sm leading-relaxed text-aco">{p.texto}</p> : null}
             </animated.li>
           );

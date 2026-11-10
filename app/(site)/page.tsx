@@ -6,7 +6,6 @@ import { ObrasDestaque } from "@/components/home/ObrasDestaque";
 import { Diferenciais } from "@/components/home/Diferenciais";
 import { ComoFunciona } from "@/components/home/ComoFunciona";
 import { ProvaSocial } from "@/components/home/ProvaSocial";
-import { CtaFinal } from "@/components/cta/CtaFinal";
 import { TITLE_DEFAULT, buildMetadata } from "@/lib/seo";
 import { VIDEOS } from "@/lib/media";
 import { SITE } from "@/lib/site";
@@ -31,7 +30,6 @@ export default function Home() {
       <Diferenciais />
       <ComoFunciona />
       <ProvaSocial />
-      <CtaFinal ctaId="cta-final-home" />
     </>
   );
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CtaFinal } from "@/components/cta/CtaFinal";
 import { AccordionObjecoes } from "@/components/nicho/AccordionObjecoes";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { HeroTelhado } from "@/components/telhado/HeroTelhado";
@@ -13,7 +12,6 @@ import { MateriaisTitan } from "@/components/telhado/MateriaisTitan";
 import { VedacapCross } from "@/components/telhado/VedacapCross";
 import {
   BREADCRUMB_TELHADO,
-  CTA_TELHADO,
   DADOS_TECNICOS,
   FAQ_TELHADO_HEADING,
   LISTA_DE_MATERIAIS,
@@ -154,7 +152,6 @@ export default function EstruturasParaTelhadoPage() {
         </Container>
       </section>
 
-      <CtaFinal linha="telhado" titulo={CTA_TELHADO.titulo} subtitulo={CTA_TELHADO.subtitulo} rotulo={CTA_TELHADO.rotulo} ctaId={CTA_TELHADO.ctaId} />
     </>
   );
 }

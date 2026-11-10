@@ -1,4 +1,3 @@
-import { CtaFinal } from "@/components/cta/CtaFinal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { HeroContato } from "@/components/contato/HeroContato";
 import { AtalhosPorLinha } from "@/components/contato/AtalhosPorLinha";
@@ -8,7 +7,7 @@ import { FaqAtendimento } from "@/components/contato/FaqAtendimento";
 import { FAQ_CONTATO } from "@/lib/faq";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { ROTAS } from "@/lib/site";
-import { CONTATO_CTA_FINAL, CONTATO_META } from "@/content/contato";
+import { CONTATO_META } from "@/content/contato";
 
 export const metadata = buildMetadata({
   title: CONTATO_META.title,
@@ -25,7 +24,6 @@ export default function ContatoPage() {
       <EnderecoMapa />
       <OQueEnviar />
       <FaqAtendimento />
-      <CtaFinal linha="geral" titulo={CONTATO_CTA_FINAL.titulo} subtitulo={CONTATO_CTA_FINAL.subtitulo} rotulo={CONTATO_CTA_FINAL.rotulo} ctaId="cta-final-contato" />
       <JsonLd
         data={[
           breadcrumbJsonLd([

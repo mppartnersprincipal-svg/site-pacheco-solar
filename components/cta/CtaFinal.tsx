@@ -1,5 +1,4 @@
 import { Phone, Mail } from "lucide-react";
-import { ArcoSolar } from "@/components/nicho/ArcoSolar";
 import { WaButton } from "@/components/cta/WaButton";
 import { TrackedLink } from "@/components/tracking/TrackedLink";
 import { Container } from "@/components/ui/Container";
@@ -8,7 +7,7 @@ import { SITE } from "@/lib/site";
 import type { Linha } from "@/lib/whatsapp";
 
 /**
- * Fechamento de página: faixa ciano com o arco solar e a marca d'água, H2 de
+ * Fechamento de página: faixa ciano lisa (o arco solar saiu a pedido do Pedro, 10/11/2026) com a marca d'água, H2 de
  * posicionamento, botão laranja de WhatsApp e os canais oficiais.
  * id="cta-final" é o sinal para o botão flutuante sumir.
  */
@@ -31,7 +30,6 @@ export function CtaFinal({
     "inline-flex items-center gap-2 px-2 py-3 font-sans font-semibold text-tinta underline-offset-4 hover:underline focus-visible:outline-tinta";
   return (
     <section id="cta-final" data-linha={linha} className="relative overflow-hidden bg-ciano text-tinta">
-      <ArcoSolar className="absolute -top-10 right-[-10%] h-[140%] w-[70%] text-tinta/15" espessura={2} />
       <p aria-hidden className="pointer-events-none absolute right-6 bottom-4 hidden select-none font-display text-[8rem] font-extrabold leading-none tracking-tight text-branco/10 xl:block">
         PACHECO
       </p>

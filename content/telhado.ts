@@ -14,7 +14,7 @@ export const TELHADO_META = {
   // fonte: plano (arquitetura de páginas — h1 com keyword) + site atual + briefing para Claude
   title: "Estrutura para Painel Solar em Telhado — Linha Titan",
   description:
-    "Estrutura para painel solar em telhado cerâmico, fibrocimento e metálico (telha de zinco e trapezoidal). Linha Titan: estrutura de alumínio 6005, parafusos em aço inox, mini trilho com ventilação e kit de fixação completo. Pronta entrega na maior parte do tempo e entrega em todo o Brasil.",
+    "Estrutura para painel solar em telhado cerâmico, fibrocimento e metálico (telha de zinco e trapezoidal). Linha Titan: estrutura de alumínio 6005, parafusos em aço inox, mini trilho com ventilação e kit de fixação completo. Pronta entrega sob consulta e entrega em todo o Brasil.",
   path: ROTAS.telhado,
   imagem: "telhado/titan-metalico-modulo-transparente" as MediaKey,
   imagemAlt: "Render da Linha Titan em telhado metálico com módulos transparentes mostrando os mini trilhos",
@@ -49,10 +49,10 @@ export const SELETOR_TELHADO = {
 
 export const LISTA_DE_MATERIAIS = {
   // fonte: plano (regra 11 — quantidades do Projeto Executivo) + manuais Linha Titan
-  eyebrow: "LISTA DE MATERIAIS · PROJETO EXECUTIVO",
+  eyebrow: "LISTA DE MATERIAIS · KIT DE 4 MÓDULOS",
   titulo: "Layout de 4 módulos — o que vem no kit.",
-  subtitulo: "Quantidades do Projeto Executivo dos manuais da Linha Titan, por tipo de telhado.",
-  caption: "Lista de materiais da Linha Titan para o layout de 4 módulos (Projeto Executivo do manual de instalação).",
+  subtitulo: "Composição do kit Pacheco da Linha Titan para 4 módulos, por tipo de telhado.",
+  caption: "Lista de materiais do kit Pacheco da Linha Titan para o layout de 4 módulos.",
   colunas: { item: "Item", material: "Material", qtd: "Qtd. (4 módulos)", nota: "Nota" },
   semQuantidade: "—",
   rodape: "Emendas na gaveta lateral do perfil. Quantidades de outros layouts: fale com a engenharia.",
@@ -123,7 +123,7 @@ export const FAQ_TELHADO_HEADING = {
 export const CTA_TELHADO = {
   // fonte: frase de posicionamento validada (CLAUDE.md do cliente) + diferenciais (briefing 360º)
   titulo: "Estrutura que não te deixa na mão.",
-  subtitulo: "Linha Titan com pronta entrega na maior parte do tempo e suporte técnico do pré ao pós-venda.",
+  subtitulo: "Linha Titan com pronta entrega sob consulta e suporte técnico do pré ao pós-venda.",
   rotulo: "Pedir orçamento Titan no WhatsApp",
   ctaId: "cta-final-telhado",
 } as const;

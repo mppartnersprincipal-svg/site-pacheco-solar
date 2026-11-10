@@ -1,5 +1,4 @@
 import { JsonLd } from "@/components/seo/JsonLd";
-import { CtaFinal } from "@/components/cta/CtaFinal";
 import { HeroKits } from "@/components/kits/HeroKits";
 import { KitCompleto } from "@/components/kits/KitCompleto";
 import { ItensAvulsos } from "@/components/kits/ItensAvulsos";
@@ -7,7 +6,7 @@ import type { ItemCatalogo } from "@/components/kits/CatalogoAvulsos";
 import { UmFornecedor } from "@/components/kits/UmFornecedor";
 import { ProntaEntregaExpedicao } from "@/components/kits/ProntaEntregaExpedicao";
 import { FaqKits } from "@/components/kits/FaqKits";
-import { KITS_CTA_FINAL, KITS_SEO } from "@/content/kits";
+import { KITS_SEO } from "@/content/kits";
 import { FAQ_KITS } from "@/lib/faq";
 import { img } from "@/lib/media";
 import { ITENS_AVULSOS, LINHAS } from "@/lib/produtos/catalogo";
@@ -29,7 +28,6 @@ function plain(key: Parameters<typeof img>[0]) {
 
 export default function KitsEItensAvulsosPage() {
   const linhaKits = LINHAS.find((l) => l.id === "kits");
-  const linhaAvulsos = LINHAS.find((l) => l.id === "avulsos");
 
   const itens: ItemCatalogo[] = ITENS_AVULSOS.map((i) => ({
     slug: i.slug,
@@ -38,6 +36,7 @@ export default function KitsEItensAvulsosPage() {
     imagem: i.imagem ? plain(i.imagem) : undefined,
     imagemAlt: i.imagemAlt,
     nota: i.nota,
+    logo: i.logo,
   }));
 
   const jsonLd = [
@@ -56,7 +55,8 @@ export default function KitsEItensAvulsosPage() {
       productJsonLd({
         name: i.nome,
         description: `${i.nome} — item avulso para estrutura solar (${i.uso === "ambos" ? "solo e telhado" : i.uso}).`,
-        image: i.imagem ? img(i.imagem).src : linhaAvulsos ? img(linhaAvulsos.imagem).src : OG_IMAGE,
+        // Sem foto própria, usa a imagem padrão do site (não a foto de outra peça)
+        image: i.imagem ? img(i.imagem).src : OG_IMAGE,
         // sem `sku`: o slug da URL não é código de produto real (códigos do ERP: [PREENCHER])
         path: `${ROTAS.kits}#itens-avulsos-${i.slug}`,
         category: "Itens avulsos",
@@ -74,7 +74,6 @@ export default function KitsEItensAvulsosPage() {
       <UmFornecedor />
       <ProntaEntregaExpedicao foto={plain("solo-dupla/img-2713")} />
       <FaqKits />
-      <CtaFinal linha="kit" titulo={KITS_CTA_FINAL.titulo} rotulo={KITS_CTA_FINAL.rotulo} ctaId={KITS_CTA_FINAL.ctaId} />
     </>
   );
 }

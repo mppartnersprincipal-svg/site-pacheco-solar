@@ -34,14 +34,14 @@ export const CONTATO_ATALHOS: Atalho[] = [
   { linha: "solo", titulo: "Estrutura de solo", descricao: "Linear ou dupla · usinas e fazendas" },
   { linha: "telhado", titulo: "Linha Titan", descricao: "Telhado cerâmico, fibrocimento e metálico" },
   { linha: "kit", titulo: "Kit completo", descricao: "Estrutura e fixação no mesmo pedido" },
-  { linha: "avulso", titulo: "Item avulso", descricao: "Grampos, parafusos, hastes, clipes e placas" },
+  { linha: "avulso", titulo: "Item avulso", descricao: "Parafuso martelo, hastes, mini trilhos, suporte L, grampos, placa de identificação e Vedacap" },
   { linha: "vedacap", titulo: "Vedacap", descricao: "Aluzinco natural, branco e preto" },
   { linha: "vedacap-lojista", titulo: "Sou lojista", descricao: "Tabela de atacado só pelo WhatsApp" },
   { linha: "engenharia", titulo: "Dúvida técnica com a engenharia", descricao: "Engenharia própria, do pré ao pós-venda" },
   {
     linha: "pronta-entrega",
     titulo: "Confirmar pronta entrega",
-    descricao: "Na maior parte do tempo temos pronta entrega. Consulte a disponibilidade.",
+    descricao: "Trabalhamos com pronta entrega. Consulte a disponibilidade.",
   },
 ];
 

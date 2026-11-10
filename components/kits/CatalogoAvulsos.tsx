@@ -16,6 +16,8 @@ export type ItemCatalogo = {
   imagem?: { src: string; width: number; height: number; blurDataURL?: string };
   imagemAlt?: string;
   nota?: string;
+  /** true = logo: centralizada com respiro, sem recorte */
+  logo?: boolean;
 };
 
 type Filtro = "todos" | "telhado" | "solo";
@@ -75,7 +77,7 @@ export function CatalogoAvulsos({ itens }: CatalogoAvulsosProps) {
           const item = filtrados[i];
           if (!item) return null;
           return (
-            <animated.li key={item.slug} style={style} className="flex">
+            <animated.li key={item.slug} id={`itens-avulsos-${item.slug}`} style={style} className="flex scroll-mt-28">
               <article className="group flex w-full flex-col rounded-2xl border border-linha bg-chapa transition-colors hover:border-laranja">
                 <div className="relative aspect-square w-full overflow-hidden bg-placa-clara">
                   {item.imagem ? (
@@ -86,7 +88,10 @@ export function CatalogoAvulsos({ itens }: CatalogoAvulsosProps) {
                       sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       placeholder={item.imagem.blurDataURL ? "blur" : undefined}
                       blurDataURL={item.imagem.blurDataURL}
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none"
+                      className={cn(
+                        "transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none",
+                        item.logo ? "bg-navy object-contain p-12" : "object-cover"
+                      )}
                     />
                   ) : (
                     <div className="flex h-full flex-col items-center justify-center gap-3 bg-superficie grade-modulos text-aco">

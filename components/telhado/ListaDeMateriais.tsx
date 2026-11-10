@@ -29,12 +29,14 @@ export type ListaDeMateriaisProps = {
 
 /**
  * Tabela do layout de 4 módulos (Projeto Executivo) com toggle
- * Fibrocimento | Metálico e a vista explodida do kit ao lado. A nota de
- * conciliação 6 vs 8 fica visível como [PREENCHER] na coluna Nota.
+ * Fibrocimento | Metálico e a vista explodida do kit ao lado. Quantidades
+ * confirmadas pelo Pedro (10/11/2026); a coluna Nota some quando não há nota.
  */
 export function ListaDeMateriais({ variantes, rotulos }: ListaDeMateriaisProps) {
   const [tipo, setTipo] = useState<Tipo>(variantes[0].id);
   const ativa = variantes.find((v) => v.id === tipo) ?? variantes[0];
+  /** A coluna Nota só aparece se algum item da aba tiver nota (hoje nenhum tem) */
+  const temNota = ativa.componentes.some((c) => c.nota);
 
   const trocar = (id: Tipo) => {
     if (id === tipo) return;
@@ -73,7 +75,7 @@ export function ListaDeMateriais({ variantes, rotulos }: ListaDeMateriaisProps) 
                 <th scope="col" className="py-3 pr-4 font-medium">{rotulos.colunas.item}</th>
                 <th scope="col" className="py-3 pr-4 font-medium">{rotulos.colunas.material}</th>
                 <th scope="col" className="py-3 pr-4 text-right font-medium">{rotulos.colunas.qtd}</th>
-                <th scope="col" className="py-3 font-medium">{rotulos.colunas.nota}</th>
+                {temNota && <th scope="col" className="py-3 font-medium">{rotulos.colunas.nota}</th>}
               </tr>
             </thead>
             <tbody className="divide-y divide-linha">
@@ -87,7 +89,7 @@ export function ListaDeMateriais({ variantes, rotulos }: ListaDeMateriaisProps) 
                   <td className="py-3 pr-4 text-right font-display text-xl font-bold tabular text-branco">
                     {c.qtdLayout4 !== undefined ? c.qtdLayout4 : <span className="text-aco">{rotulos.semQuantidade}</span>}
                   </td>
-                  <td className="py-3 text-xs leading-snug text-aco">{c.nota ?? ""}</td>
+                  {temNota && <td className="py-3 text-xs leading-snug text-aco">{c.nota ?? ""}</td>}
                 </tr>
               ))}
             </tbody>

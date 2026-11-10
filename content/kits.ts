@@ -16,7 +16,7 @@ export const KITS_SEO = {
   // fonte: blueprint (h1 com keyword) + briefingClaude + CLAUDE.md do cliente (lista oficial de avulsos)
   title: "Kit de Fixação para Placa Solar e Itens Avulsos",
   description:
-    "Kit de fixação para placa solar (estrutura + mini trilho, parafusos e grampos) e itens avulsos: grampos intermediários e finais, parafuso brocante inox e martelo, hastes estruturais inox, clipes de fixação e placas de identificação. Pronta entrega na maior parte do tempo e entrega em todo o Brasil.",
+    "Kit de fixação para placa solar (estrutura + mini trilho, parafusos e grampos) e itens avulsos: parafuso martelo, haste metal, haste madeira, mini trilho baixo e alto, suporte L, grampos intermediário e final, placa de identificação e Vedacap. Pronta entrega sob consulta e entrega em todo o Brasil.",
   path: ROTAS.kits,
 } as const;
 
@@ -24,8 +24,8 @@ export const KITS_HERO = {
   // fonte: blueprint (hero-kits) + briefingClaude (gancho "Fornecedor te deixa na mão por causa de um parafuso?")
   eyebrow: "KITS COMPLETOS · ITENS AVULSOS",
   titulo: "Kit de Fixação para Placa Solar e Itens Avulsos",
-  sub: "Fornecedor te deixa na mão por causa de um parafuso? Kit de estrutura e fixação completo para a obra e item avulso para a montagem não parar: grampos, parafusos, hastes, clipes e placas em um só fornecedor.",
-  placas: ["Pronta entrega", "Kit completo", "Itens avulsos"],
+  sub: "Fornecedor te deixa na mão por causa de um parafuso? Kit de estrutura e fixação completo para a obra e item avulso para a montagem não parar: grampos, hastes, mini trilhos, suporte L e placas em um só fornecedor.",
+  placas: ["Pronta entrega sob consulta", "Kit completo", "Itens avulsos"],
   ctaKit: "Pedir kit completo",
   ctaAvulso: "Pedir item avulso",
   imagemAlt: "Render de grampo intermediário fixando dois módulos no perfil da Linha Titan",
@@ -58,10 +58,10 @@ export const KIT_COMPLETO = {
   exemplo: {
     // fonte: manuais Linha Titan (Projeto Executivo, layout de 4 módulos)
     eyebrow: "EXEMPLO REAL · LINHA TITAN · LAYOUT DE 4 MÓDULOS",
-    titulo: "O que o manual lista no kit de telhado",
+    titulo: "O que vem no kit de telhado",
     variantes: [varianteKit("fibrocimento"), varianteKit("metalico")],
     colunas: { item: "Item", qtd: "Qtd.", material: "Material" },
-    rodape: "Quantidades do Projeto Executivo dos manuais da Linha Titan para o layout de 4 módulos.",
+    rodape: "Composição do kit Pacheco da Linha Titan para o layout de 4 módulos.",
     linkTelhado: { label: "Ver a Linha Titan completa", href: ROTAS.telhado },
   },
   kitSolo: "Kit de solo: composição definida pelo seu layout, sob consulta no WhatsApp.",
@@ -72,16 +72,16 @@ export const ITENS_AVULSOS_SECAO = {
   // fonte: blueprint (catalogo-avulsos) + CLAUDE.md do cliente (lista oficial)
   eyebrow: "02 · ITENS AVULSOS",
   titulo: "Faltou peça? Vendemos avulso.",
-  sub: "Placas de Identificação, parafusos grampos e muito mais.", // fonte: siteAtual (literal)
+  sub: "Placas de identificação, parafusos, grampos e muito mais.", // fonte: siteAtual (literal, pontuação corrigida)
   filtros: [
     { id: "todos", label: "Todos" },
     { id: "telhado", label: "Telhado" },
     { id: "solo", label: "Solo" },
   ],
   usoLabel: { telhado: "Telhado", solo: "Solo", ambos: "Solo · Telhado" },
-  ctaItem: "Pedir este item · quantidade: ___",
+  ctaItem: "Pedir este item",
   notaRender: "recorte de render",
-  aviso: "Precisa de outro componente (mini trilho, Chapa L, espuma EPDM)? Consulte a disponibilidade pelo WhatsApp.",
+  aviso: "Precisa do kit completo? Peça pelo WhatsApp.",
 } as const;
 
 export const UM_FORNECEDOR = {
@@ -102,14 +102,14 @@ export const UM_FORNECEDOR = {
 const EXPEDICAO = SETORES.find((s) => s.nome === "Expedição");
 
 export const PRONTA_ENTREGA_SECAO = {
-  // fonte: briefing360 (pronta entrega "na maior parte do tempo"; frase literal da expedição) + siteAtual (diferencial 02)
+  // fonte: briefing360 (frase literal da expedição) + siteAtual (diferencial 02); pronta entrega sempre com "consulte a disponibilidade" (Pedro, 10/11/2026)
   eyebrow: "04 · EXPEDIÇÃO",
-  titulo: "Na maior parte do tempo temos pronta entrega.",
+  titulo: "Expedição organizada para pronta entrega.",
   expedicao: EXPEDICAO?.texto ?? "O material produzido vai para a expedição, fica organizado e separado aguardando transporte.",
   beneficio: "Menos tempo de espera, mais eficiência no cronograma.",
   ressalva: "Consulte a disponibilidade da sua linha pelo WhatsApp.",
-  fotoLegenda: "Solo dupla · duas fileiras de módulos",
-  fotoAlt: "Estrutura de solo dupla com duas fileiras de módulos",
+  fotoLegenda: "Solo dupla · usina em terra vermelha",
+  fotoAlt: "Estrutura de solo dupla com módulos fixados, em usina de terra vermelha",
   cta: PRONTA_ENTREGA_CTA,
 } as const;
 

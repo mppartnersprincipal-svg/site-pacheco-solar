@@ -15,7 +15,7 @@ export function faqPublicavel<T extends { resposta: string }>(items: T[]): T[] {
 export const FAQ_HOME: Faq[] = [
   {
     pergunta: "Tem pronta entrega?",
-    resposta: "Na maior parte do tempo temos pronta entrega. Consulte a disponibilidade da sua linha pelo WhatsApp.",
+    resposta: "Trabalhamos com pronta entrega. Consulte a disponibilidade da sua linha pelo WhatsApp.",
     fonte: "briefing 360º",
   },
   {
@@ -26,7 +26,7 @@ export const FAQ_HOME: Faq[] = [
   {
     pergunta: "Vendem item avulso ou só kit?",
     resposta:
-      "Os dois: kits completos e itens avulsos — grampos intermediários e finais, parafusos (brocante inox e martelo), hastes estruturais inox, clipes de fixação e placas de identificação.",
+      "Os dois: kits completos e itens avulsos — parafuso martelo, haste metal, haste madeira, mini trilho baixo e alto, suporte L, grampos intermediário e final, placa de identificação e Vedacap.",
     fonte: "briefing para Claude + CLAUDE.md do cliente",
   },
   {
@@ -79,7 +79,7 @@ export const FAQ_SOLO: Faq[] = [
   },
   {
     pergunta: "Tem pronta entrega de estrutura de solo?",
-    resposta: "Na maior parte do tempo temos pronta entrega. Consulte a disponibilidade pelo WhatsApp.",
+    resposta: "Trabalhamos com pronta entrega. Consulte a disponibilidade pelo WhatsApp.",
     fonte: "briefing 360º",
   },
   {
@@ -93,7 +93,7 @@ export const FAQ_TELHADO: Faq[] = [
   {
     pergunta: "Serve para telhado cerâmico, fibrocimento e metálico?",
     resposta:
-      "Sim. A Linha Titan tem solução para telhado cerâmico, de fibrocimento e metálico (mini-trilho alto), adaptável a telhados residenciais e comerciais.",
+      "Sim. A Linha Titan tem solução para telhado cerâmico, de fibrocimento e metálico (mini trilho alto), adaptável a telhados residenciais e comerciais.",
     fonte: "renders + manuais + site atual",
   },
   {
@@ -135,12 +135,12 @@ export const FAQ_KITS: Faq[] = [
   {
     pergunta: "O que vem no kit completo?",
     resposta:
-      "Estrutura e fixação no mesmo pedido. No layout de 4 módulos da Linha Titan, por exemplo, o manual lista perfis, hastes, grampos intermediários e finais (fibrocimento) ou mini-trilhos, parafusos brocantes, espuma EPDM e grampos (metálico).",
+      "Estrutura e fixação no mesmo pedido. No layout de 4 módulos da Linha Titan, por exemplo, o kit vem com 2 perfis Titan, 8 hastes estruturais, 8 suportes L, 8 parafusos martelo, 8 grampos intermediários e 4 finais (fibrocimento) ou 10 mini trilhos altos, 40 parafusos brocantes, 1 espuma EPDM, 8 grampos intermediários e 4 finais (metálico).",
     fonte: "manuais Linha Titan",
   },
   {
     pergunta: "Tem pronta entrega de avulsos?",
-    resposta: "Na maior parte do tempo temos pronta entrega. Consulte a disponibilidade pelo WhatsApp.",
+    resposta: "Trabalhamos com pronta entrega. Consulte a disponibilidade pelo WhatsApp.",
     fonte: "briefing 360º",
   },
   {
@@ -152,8 +152,8 @@ export const FAQ_KITS: Faq[] = [
   {
     pergunta: "Vendem trilho para fixar placa solar avulso?",
     resposta:
-      "O mini trilho faz parte do kit da Linha Titan. Avulsos são grampos, parafusos brocante inox e martelo, hastes estruturais inox, clipes de fixação de solo e placas de identificação.",
-    fonte: "CLAUDE.md do cliente (lista oficial de avulsos)",
+      "Sim. O mini trilho é vendido avulso, nas versões baixo e alto, e também vem no kit da Linha Titan. Consulte a disponibilidade pelo WhatsApp.",
+    fonte: "lista oficial de avulsos (Pedro, 10/11/2026)",
   },
 ];
 
@@ -185,7 +185,7 @@ export const FAQ_VEDACAP: Faq[] = [
   },
   {
     pergunta: "Tem pronta entrega?",
-    resposta: "Temos o Vedacap a pronta entrega. Consulte a disponibilidade pelo WhatsApp.",
+    resposta: "Trabalhamos com pronta entrega do Vedacap. Consulte a disponibilidade pelo WhatsApp.",
     fonte: "roteiros Vedacap",
   },
 ];

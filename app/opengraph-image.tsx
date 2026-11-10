@@ -35,7 +35,7 @@ export default function OpenGraphImage() {
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 24, color: "#9aa3ad" }}>
-          <div>Pronta entrega na maior parte do tempo · Engenharia própria · Entrega em todo o Brasil</div>
+          <div>Pronta entrega sob consulta · Engenharia própria · Entrega em todo o Brasil</div>
           <div style={{ color: "#ffffff" }}>pachecosolar.com.br</div>
         </div>
       </div>

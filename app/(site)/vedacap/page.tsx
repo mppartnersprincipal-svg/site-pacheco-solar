@@ -1,5 +1,4 @@
 import { JsonLd } from "@/components/seo/JsonLd";
-import { CtaFinal } from "@/components/cta/CtaFinal";
 import { HeroVedacap } from "@/components/vedacap/HeroVedacap";
 import { ProblemaParafuso } from "@/components/vedacap/ProblemaParafuso";
 import { PorQueAluzinco } from "@/components/vedacap/PorQueAluzinco";
@@ -8,7 +7,7 @@ import { VersoesVedacap } from "@/components/vedacap/VersoesVedacap";
 import { ParaQuem } from "@/components/vedacap/ParaQuem";
 import { FaqVedacap } from "@/components/vedacap/FaqVedacap";
 import { AtacadoLojista } from "@/components/vedacap/AtacadoLojista";
-import { VEDACAP_CTA_FINAL, VEDACAP_SEO } from "@/content/vedacap";
+import { VEDACAP_SEO } from "@/content/vedacap";
 import { FAQ_VEDACAP } from "@/lib/faq";
 import { img } from "@/lib/media";
 import { VEDACAP } from "@/lib/produtos/catalogo";
@@ -49,19 +48,13 @@ export default function VedacapPage() {
       <JsonLd data={jsonLd} />
       <HeroVedacap logo={logo} />
       <ProblemaParafuso />
-      <PorQueAluzinco render={plain("telhado/titan-metalico-minitrilho-close")} />
+      {/* Foto real: quadro do reel "2 PACHECO SOLAR" (Drive › Posts VEDACAP), 10/11/2026 */}
+      <PorQueAluzinco foto={plain("vedacap/vedacap-painel")} />
       <AplicacaoVedacap />
       <VersoesVedacap />
       <ParaQuem />
       <FaqVedacap />
       <AtacadoLojista />
-      <CtaFinal
-        linha="vedacap"
-        titulo={VEDACAP_CTA_FINAL.titulo}
-        subtitulo={VEDACAP_CTA_FINAL.subtitulo}
-        rotulo={VEDACAP_CTA_FINAL.rotulo}
-        ctaId={VEDACAP_CTA_FINAL.ctaId}
-      />
     </>
   );
 }

@@ -39,7 +39,7 @@ export const SITE = {
   horario: "Atendimento em horário comercial",
   /** Descrição institucional (briefing + site atual), usada em metadata e Schema.org */
   descricao:
-    "Indústria de estruturas metálicas para energia solar em Aparecida de Goiânia/GO: estrutura de solo para placa solar (monoposte linear e dupla), Linha Titan para painel solar em telhado cerâmico, fibrocimento e metálico, kits de fixação, mini trilho, itens avulsos e Vedacap. Pronta entrega na maior parte do tempo, engenharia própria e entrega em todo o Brasil.",
+    "Indústria de estruturas metálicas para energia solar em Aparecida de Goiânia/GO: estrutura de solo para placa solar (monoposte linear e dupla), Linha Titan para painel solar em telhado cerâmico, fibrocimento e metálico, kits de fixação, mini trilho, itens avulsos e Vedacap. Pronta entrega sob consulta, engenharia própria e entrega em todo o Brasil.",
   fundador: "Lucas Pacheco",
 } as const;
 

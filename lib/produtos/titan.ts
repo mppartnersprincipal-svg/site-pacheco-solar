@@ -81,7 +81,7 @@ export const TITAN = {
       metalico: [
         "Instale a espuma EPDM de vedação entre o trilho e a telha nos pontos onde a telha será perfurada.",
         "Perfure o trilho e a telha com os parafusos autobrocantes, fixando os mini trilhos com no mínimo 4 parafusos.",
-        "Continue a fixação dos mini-trilhos seguindo o alinhamento dos dois primeiros de referência até obter o tamanho da fileira desejada.",
+        "Continue a fixação dos mini trilhos seguindo o alinhamento dos dois primeiros de referência até obter o tamanho da fileira desejada.",
       ],
     },
     {
@@ -134,16 +134,15 @@ export const VARIANTES_TITAN: VarianteTitan[] = [
     slug: "fibrocimento",
     nome: "Telhado de fibrocimento",
     nomeCurto: "Fibrocimento",
-    descricao: "Perfil Titan, Chapa L, haste estrutural inox, parafuso martelo e grampos final e intermediário.",
+    descricao: "Perfil Titan, suporte L, haste estrutural inox, parafuso martelo e grampos final e intermediário.",
     componentes: [
       { nome: "Perfil Titan", qtdLayout4: 2, material: "alumínio" },
       { nome: "Haste estrutural (completa)", qtdLayout4: 8, material: "inox" },
-      { nome: "Chapa L", material: "inox", nota: "Página Componentes do manual: 8 unidades" },
-      { nome: "Parafuso martelo", nota: "Página Componentes do manual: 8 unidades" },
-      {
-        nome: "Grampo intermediário",
-        qtdLayout4: 6,
-      },
+      // Quantidades do kit de 4 módulos confirmadas pelo Pedro (10/11/2026): 8 haste, 8 suporte L, 8 martelo, 8 intermediário, 4 final.
+      // "Suporte L" = a antiga "Chapa L" do manual (mesma peça, confirmado pelo Pedro); nome unificado com os avulsos
+      { nome: "Suporte L", qtdLayout4: 8, material: "inox" },
+      { nome: "Parafuso martelo", qtdLayout4: 8 },
+      { nome: "Grampo intermediário", qtdLayout4: 8 },
       { nome: "Grampo final", qtdLayout4: 4 },
     ],
     renderGeral: "telhado/titan-fibrocimento-vista-geral",
@@ -156,17 +155,15 @@ export const VARIANTES_TITAN: VarianteTitan[] = [
   {
     id: "metalico",
     slug: "metalico",
-    nome: "Telhado metálico (mini-trilho alto)",
+    nome: "Telhado metálico (mini trilho alto)",
     nomeCurto: "Metálico",
     descricao: "Mini trilho, espuma EPDM de vedação, parafuso brocante inox e grampos final e intermediário.",
     componentes: [
-      { nome: "Mini-trilho (alto)", qtdLayout4: 10, material: "alumínio" },
+      { nome: "Mini trilho alto", qtdLayout4: 10, material: "alumínio" },
       { nome: "Parafuso brocante", qtdLayout4: 40, material: "inox" },
-      { nome: "Espuma EPDM de vedação", nota: "Página Componentes do manual: 1 unidade (não consta no Projeto Executivo)" },
-      {
-        nome: "Grampo intermediário",
-        qtdLayout4: 6,
-      },
+      // Quantidades do kit de 4 módulos confirmadas pelo Pedro (10/11/2026): 1 espuma, 8 intermediário, 4 final
+      { nome: "Espuma EPDM de vedação", qtdLayout4: 1 },
+      { nome: "Grampo intermediário", qtdLayout4: 8 },
       { nome: "Grampo final", qtdLayout4: 4 },
     ],
     renderGeral: "telhado/titan-metalico-vista-geral",
@@ -175,7 +172,7 @@ export const VARIANTES_TITAN: VarianteTitan[] = [
     linha: "telhado-metalico",
     regras: [
       "Fixar os mini trilhos com no mínimo 4 parafusos autobrocantes.",
-      "A distância entre mini-trilhos e seus espaçamentos deve respeitar o manual de cada módulo solar.",
+      "A distância entre mini trilhos e seus espaçamentos deve respeitar o manual de cada módulo solar.",
       "Kit para fixar o microinversor vendido separadamente.",
     ],
     temManual: true,

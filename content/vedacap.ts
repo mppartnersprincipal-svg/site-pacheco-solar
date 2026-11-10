@@ -14,7 +14,7 @@ import { ROTAS } from "@/lib/site";
 export const VEDACAP_SEO = {
   // fonte: blueprint (h1 com nome do produto) + roteirosVedacap (definição) + prontaEntrega
   title: "Vedacap: capa para parafuso em telhado metálico",
-  description: `${VEDACAP.definicao} Três versões: aluzinco natural, branco e preto. Temos o Vedacap a pronta entrega — consulte a disponibilidade. Aplicação simples com cola PU.`,
+  description: `${VEDACAP.definicao} Três versões: aluzinco natural, branco e preto. Pronta entrega sob consulta. Aplicação simples com cola PU.`,
   path: ROTAS.vedacap,
   categoria: "Fixação para telhado metálico",
 } as const;
@@ -26,7 +26,7 @@ export const VEDACAP_HERO = {
   nomeSrOnly: "Vedacap — capa em aluzinco para a cabeça do parafuso em telhado metálico. ",
   headline: VEDACAP.headline,
   sub: `${VEDACAP.definicao} Três versões: aluzinco natural, branco e preto. Pronta entrega: consulte a disponibilidade.`,
-  placas: ["Novo", "Aluzinco", "Pronta entrega"],
+  placas: ["Novo", "Aluzinco", "Pronta entrega sob consulta"],
   cta: "Pedir Vedacap no WhatsApp",
   logoAlt: "Vedacap — logo",
   corte: {
@@ -80,8 +80,8 @@ export const VEDACAP_ALUZINCO = {
   eyebrow: "02 · POR QUE ALUZINCO",
   titulo: "Mesmo material da telha.",
   argumentos: VEDACAP.argumentos,
-  imagemAlt: "Render do mini trilho da Linha Titan fixado com parafuso brocante em telha metálica",
-  imagemLegenda: "RENDER · LINHA TITAN · TELHA METÁLICA",
+  imagemAlt: "Lucas Pacheco com peças do Vedacap em aluzinco sobre um painel solar",
+  imagemLegenda: "VEDACAP · ALUZINCO",
 } as const;
 
 export const VEDACAP_APLICACAO = {
@@ -89,7 +89,8 @@ export const VEDACAP_APLICACAO = {
   eyebrow: "03 · APLICAÇÃO",
   titulo: "Aplicação simples com cola PU.",
   aviso: "Não adianta silicone, fita ou massa: todos são orgânicos, todos ressecam pelo mesmo motivo.",
-  passoAPasso: VEDACAP.passoAPasso,
+  /** Enquanto o passo a passo oficial não chega, a seção só convida a pedir pelo WhatsApp */
+  passoAPassoWhatsapp: "O passo a passo completo de aplicação é enviado pelo comercial no WhatsApp.",
   nota: "Indicado para telhados metálicos e estruturas solares.",
   cta: "Tirar dúvida de aplicação",
   /** Pergunta enviada via mensagemPergunta() — fonte: blueprint */

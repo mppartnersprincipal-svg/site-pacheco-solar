@@ -36,7 +36,7 @@ export const MENSAGENS: Record<Linha, string> = {
   telhado: `${SAUDACAO} e quero orçamento da LINHA TITAN para telhado.\nTipo de telhado (cerâmico/fibrocimento/metálico): ___\nQtd de módulos: ___\nCidade/UF: ___`,
   "telhado-ceramico": `${SAUDACAO} e quero orçamento da LINHA TITAN para TELHADO CERÂMICO.\nQtd de módulos: ___\nCidade/UF: ___`,
   "telhado-fibrocimento": `${SAUDACAO} e quero orçamento da LINHA TITAN para TELHADO DE FIBROCIMENTO.\nQtd de módulos: ___\nCidade/UF: ___`,
-  "telhado-metalico": `${SAUDACAO} e quero orçamento da LINHA TITAN para TELHADO METÁLICO (mini-trilho).\nQtd de módulos: ___\nCidade/UF: ___`,
+  "telhado-metalico": `${SAUDACAO} e quero orçamento da LINHA TITAN para TELHADO METÁLICO (mini trilho).\nQtd de módulos: ___\nCidade/UF: ___`,
   kit: `${SAUDACAO} e quero orçamento de KIT COMPLETO.\nSolo ou telhado: ___\nQtd de módulos: ___\nCidade/UF: ___`,
   avulso: `${SAUDACAO} e preciso de ITENS AVULSOS.\nItem: ___\nQuantidade: ___\nCidade/UF: ___`,
   vedacap: `${SAUDACAO} e quero orçamento de VEDACAP.\nCor (aluzinco natural/branco/preto): ___\nQuantidade: ___\nCidade/UF: ___`,

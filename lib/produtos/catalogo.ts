@@ -36,7 +36,7 @@ export const LINHAS: LinhaProduto[] = [
     chips: ["Solo Linear", "Solo Dupla", "Zonas rurais"],
     href: ROTAS.solo,
     imagem: "solo-dupla/img-3961",
-    imagemAlt: "Estrutura de solo linear vista por baixo dos módulos, com perfis de aço e brita",
+    imagemAlt: "Estrutura de solo dupla vista por baixo dos módulos, com perfis de aço e brita",
     linha: "solo",
   },
   {
@@ -70,12 +70,13 @@ export const LINHAS: LinhaProduto[] = [
     numero: "04",
     nome: "Itens Avulsos",
     nomeCurto: "Avulsos",
-    frase: "Placas de Identificação, parafusos grampos e muito mais.",
+    frase: "Placas de identificação, parafusos, grampos e muito mais.",
     fonte: "site atual",
-    chips: ["Grampos", "Parafusos", "Hastes", "Clipes", "Placas"],
+    chips: ["Grampos", "Hastes", "Mini trilhos", "Suporte L", "Placas"],
     href: `${ROTAS.kits}#itens-avulsos`,
-    imagem: "solo-dupla/clamps-01",
-    imagemAlt: "Clipe de fixação e grampo sob módulo em estrutura de solo",
+    // clamps-01 (clipe de solo) saiu: clipe não é mais item avulso (lista do Pedro, 10/11/2026)
+    imagem: "telhado/titan-grampo-intermediario",
+    imagemAlt: "Grampo intermediário fixando dois módulos no perfil",
     linha: "avulso",
   },
   {
@@ -116,7 +117,7 @@ export const LINHAS_HOME: LinhaHome[] = [
     frase: "Estrutura de solo para placa solar, monoposte linear ou dupla, para usinas e fazendas.",
     href: ROTAS.solo,
     imagem: "solo-dupla/img-3961",
-    imagemAlt: "Estrutura de solo linear vista por baixo dos módulos, com perfis de aço e brita",
+    imagemAlt: "Estrutura de solo dupla vista por baixo dos módulos, com perfis de aço e brita",
   },
   {
     id: "telhado",
@@ -146,17 +147,26 @@ export type ItemAvulso = {
   imagemAlt?: string;
   /** Observação de fidelidade quando a imagem é um recorte de render e não foto do item */
   nota?: string;
+  /** true = a imagem é uma logo (centralizada com respiro, sem recorte) */
+  logo?: boolean;
 };
 
-/** Lista OFICIAL de itens avulsos (CLAUDE.md do cliente + briefing). Nada além destes. */
+/**
+ * Lista OFICIAL de itens avulsos, na ordem passada pelo Pedro (10/11/2026). Nada além destes.
+ * Imagem só quando um render mostra a própria peça em destaque; sem imagem, o card mostra o ícone.
+ * Fotos individuais das peças ainda não existem no acervo nem no Drive.
+ */
 export const ITENS_AVULSOS: ItemAvulso[] = [
+  { slug: "parafuso-martelo", nome: "Parafuso martelo", uso: "telhado" },
+  { slug: "haste-metal", nome: "Haste metal", uso: "telhado" },
+  { slug: "haste-madeira", nome: "Haste madeira", uso: "telhado", imagem: "telhado/titan-fibrocimento-close", imagemAlt: "Haste atravessando a telha de fibrocimento até a terça de madeira" },
+  { slug: "mini-trilho-baixo", nome: "Mini trilho baixo", uso: "telhado" },
+  { slug: "mini-trilho-alto", nome: "Mini trilho alto", uso: "telhado", imagem: "telhado/titan-metalico-minitrilho-close", imagemAlt: "Mini trilho alto fixado na telha metálica" },
+  { slug: "suporte-l", nome: "Suporte L", uso: "telhado", imagem: "telhado/titan-ceramico-grampo-close", imagemAlt: "Suporte L fixando o perfil sobre a telha cerâmica" },
   { slug: "grampo-intermediario", nome: "Grampo intermediário", uso: "ambos", imagem: "telhado/titan-grampo-intermediario", imagemAlt: "Grampo intermediário entre dois módulos" },
-  { slug: "grampo-final", nome: "Grampo final", uso: "ambos", imagem: "telhado/titan-ceramico-grampo-close", imagemAlt: "Grampo final na extremidade do módulo", nota: "recorte de render" },
-  { slug: "parafuso-brocante-inox", nome: "Parafuso brocante inox", uso: "telhado", imagem: "telhado/titan-metalico-minitrilho-close", imagemAlt: "Mini trilho fixado com parafuso brocante", nota: "recorte de render" },
-  { slug: "parafuso-martelo", nome: "Parafuso martelo", uso: "telhado", imagem: "telhado/titan-fibrocimento-close", imagemAlt: "Perfil Titan com parafuso martelo", nota: "recorte de render" },
-  { slug: "haste-estrutural-inox", nome: "Haste estrutural inox", uso: "telhado", imagem: "telhado/titan-fibrocimento-close", imagemAlt: "Haste estrutural atravessando a telha de fibrocimento", nota: "recorte de render" },
-  { slug: "clipe-de-fixacao", nome: "Clipe de fixação (solo)", uso: "solo", imagem: "solo-dupla/clamps-02", imagemAlt: "Clipe de fixação de solo sob o módulo" },
-  { slug: "placas-de-identificacao", nome: "Placas de identificação e sinalização", uso: "ambos" },
+  { slug: "grampo-final", nome: "Grampo final", uso: "ambos" },
+  { slug: "placa-de-identificacao", nome: "Placa de identificação", uso: "ambos" },
+  { slug: "vedacap", nome: "Vedacap", uso: "telhado", imagem: "vedacap/vedacap-pecas", imagemAlt: "Peças do Vedacap em aluzinco sobre um painel solar" },
 ];
 
 /** Vedacap — fatos dos roteiros/CLAUDE.md. */
@@ -170,7 +180,7 @@ export const VEDACAP = {
     { titulo: "Mesmo material da telha", texto: "Sem corrosão galvânica e com a mesma dilatação da telha metálica." },
     { titulo: "Aplicação simples com cola PU", texto: "Não adianta silicone, fita ou massa: todos são orgânicos, todos ressecam pelo mesmo motivo." },
     { titulo: "Indicado para telhados metálicos e estruturas solares", texto: "Protege a fixação que o integrador assinou na garantia." },
-    { titulo: "Custa menos de 1% do valor da obra", texto: "E protege a garantia de 25 anos que o integrador assinou." },
+    // Oculto a pedido do Pedro (10/11/2026): "Custa menos de 1% do valor da obra" / "garantia de 25 anos" (sem fonte confirmada)
   ],
   problema: "A borracha de vedação do parafuso resseca em cerca de 10 anos. Ela racha, abre uma fresta e a chuva entra pelo furo.",
   versoes: [
@@ -179,11 +189,11 @@ export const VEDACAP = {
     { id: "preto", nome: "Preto", cor: "preto" as const, swatch: "bg-preto border border-linha" },
   ],
   publicos: [
-    { id: "integrador", nome: "Integrador solar", texto: "Toda instalação solar em telhado metálico usa parafuso autobrocante que perfura a telha. O Vedacap protege a cabeça do parafuso e a borracha de vedação — e a garantia de 25 anos que você assinou.", linha: "vedacap" as const },
+    { id: "integrador", nome: "Integrador solar", texto: "Toda instalação solar em telhado metálico usa parafuso autobrocante que perfura a telha. O Vedacap protege a cabeça do parafuso e a borracha de vedação — e a garantia que você assinou.", linha: "vedacap" as const },
     { id: "telhadista", nome: "Telhadista", texto: "Quando a borracha do parafuso abre, é você quem sobe no telhado de novo. O Vedacap protege essa borracha do sol: seu seguro contra retrabalho.", linha: "vedacap-telhadista" as const },
     { id: "lojista", nome: "Lojista de material de construção", texto: "Todo cliente que compra parafuso autobrocante para telhado metálico precisa de proteção. Tabela de atacado pelo WhatsApp.", linha: "vedacap-lojista" as const },
   ],
-  prontaEntrega: "Temos o Vedacap a pronta entrega.",
+  prontaEntrega: "Vedacap com pronta entrega sob consulta.",
   passoAPasso: "Aplicação simples com cola PU, sem silicone, fita ou massa. O passo a passo completo é enviado pelo comercial no WhatsApp.",
 } as const;
 
@@ -197,16 +207,18 @@ export const SOLO = {
       id: "linear",
       nome: "Solo Linear",
       descricao: "Estrutura monoposte com uma fileira de módulos: suporte para placa solar no solo em áreas estreitas e propriedades rurais.",
-      imagem: "solo-linear/linear-wa-01" as MediaKey,
-      imagemAlt: "Estrutura de solo linear com módulos em pasto",
+      // Estrutura montada com módulos (pasta SOLO LINEAR do Drive); a anterior (linear-wa-01) só tinha estacas
+      imagem: "solo-linear/linear-post-01" as MediaKey,
+      imagemAlt: "Estrutura de solo linear monoposte montada, com os módulos fixados sobre o perfil de aço",
       linha: "solo-linear" as const,
     },
     {
       id: "dupla",
       nome: "Solo Dupla",
       descricao: "Duas fileiras de módulos por estrutura: estrutura de solo para usina solar de médio e grande porte, com melhor aproveitamento da área.",
-      imagem: "solo-dupla/img-2713" as MediaKey,
-      imagemAlt: "Estrutura de solo dupla com duas fileiras de módulos",
+      // Usina com brita (pasta SOLO DUPLA do Drive)
+      imagem: "solo-dupla/img-3969" as MediaKey,
+      imagemAlt: "Estrutura de solo dupla montada em usina com brita, mesa longa de módulos sobre os perfis de aço",
       linha: "solo-dupla" as const,
     },
   ],

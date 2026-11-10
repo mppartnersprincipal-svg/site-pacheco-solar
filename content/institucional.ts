@@ -103,17 +103,17 @@ export const SITE_ATUAL = {
 /** "Por que escolher a Pacheco Solar?" — site atual; o 03 sem a comparação numérica (regra claudeMd). */
 export const DIFERENCIAIS = [
   { numero: "01", titulo: "Da indústria para sua obra", texto: "Compre direto de quem fabrica e entende de estruturas." },
-  { numero: "02", titulo: "Pronta entrega, agilidade na obra", texto: "Na maior parte do tempo temos pronta entrega: menos tempo de espera, mais eficiência no cronograma de instalação." },
+  { numero: "02", titulo: "Pronta entrega, agilidade na obra", texto: "Trabalhamos com pronta entrega (consulte a disponibilidade): menos tempo de espera, mais eficiência no cronograma de instalação." },
   { numero: "03", titulo: "Aço de qualidade premium", texto: "Ideal para ambientes com atmosfera agressiva e zonas rurais." },
   { numero: "04", titulo: "Estruturas para solo e telhado", texto: "Seja qual for o tipo de projeto, temos a estrutura certa, precisa e compatível com o seu layout." },
   { numero: "05", titulo: "Atendimento técnico e personalizado", texto: "Fale com quem entende: suporte direto da nossa equipe de engenharia, pronta para orientar você do pré ao pós-venda." },
   { numero: "06", titulo: "Presença nacional", texto: "Entregamos em todo o Brasil com logística eficiente e suporte técnico de ponta a ponta." },
 ] as const;
-export const DIFERENCIAIS_FONTE = "siteAtual (02 com a ressalva 'na maior parte do tempo' do briefing360)";
+export const DIFERENCIAIS_FONTE = "siteAtual (02 com a ressalva 'consulte a disponibilidade'; Pedro, 10/11/2026)";
 
 /** Pilares de comunicação — briefingClaude; textos compostos só com frases permitidas. */
 export const PILARES = [
-  { nome: "Velocidade", texto: "Na maior parte do tempo temos pronta entrega: menos tempo de espera, mais eficiência no cronograma." },
+  { nome: "Velocidade", texto: "Trabalhamos com pronta entrega: menos tempo de espera, mais eficiência no cronograma." },
   { nome: "Confiabilidade", texto: "Engenharia própria e suporte técnico do pré ao pós-venda." },
   { nome: "Facilidade", texto: "Kits completos e itens avulsos: centralização de compras, menos fornecedores." },
   { nome: "Segurança", texto: "Material premium (liga estrutural + inox). Aço de qualidade premium, ideal para ambientes com atmosfera agressiva e zonas rurais." },
@@ -151,8 +151,8 @@ export const DORES = [
 
 /** Mapa dor → solução — briefingClaude (proposta de valor). */
 export const MAPA_DOR_SOLUCAO = [
-  { dor: "Obra travada", solucao: "Pronta entrega", detalhe: "Na maior parte do tempo temos pronta entrega.", href: `${ROTAS.kits}#pronta-entrega` },
-  { dor: "Falta de peça", solucao: "Kits completos + itens avulsos", detalhe: "Grampos, parafusos, hastes, clipes e placas de identificação.", href: ROTAS.kits },
+  { dor: "Obra travada", solucao: "Pronta entrega", detalhe: "Pronta entrega sob consulta.", href: `${ROTAS.kits}#pronta-entrega` },
+  { dor: "Falta de peça", solucao: "Kits completos + itens avulsos", detalhe: "Martelo, hastes, mini trilhos, suporte L, grampos, placa de identificação e Vedacap.", href: ROTAS.kits },
   { dor: "Erro técnico", solucao: "Suporte de engenharia", detalhe: "Engenharia própria, do pré ao pós-venda.", href: ROTAS.contato },
   { dor: "Baixa qualidade", solucao: "Material premium", detalhe: "Liga estrutural + inox.", href: ROTAS.telhado },
   { dor: "Logística ruim", solucao: "Centralização de compras", detalhe: "Tudo em um só fornecedor, entrega em todo o Brasil.", href: ROTAS.kits },
@@ -165,7 +165,7 @@ export const PROCESSO_COMPRA = [
   {
     titulo: "Aprovação",
     texto:
-      "Com a aprovação, o pedido entra em produção — ou, quando há disponibilidade em pronta entrega (na maior parte do tempo), segue direto para a expedição. Consulte a disponibilidade.",
+      "Com a aprovação, o pedido entra em produção — ou, quando há disponibilidade em pronta entrega, segue direto para a expedição. Consulte a disponibilidade.",
   },
   { titulo: "Expedição e entrega rápida", texto: "O material fica organizado e separado aguardando transporte. Entrega rápida, principalmente em Goiás." },
 ] as const;
@@ -173,7 +173,7 @@ export const PROCESSO_COMPRA = [
 export const FORCAS = [
   "Local estratégico (centro do Brasil)",
   "Rápida solução dos desafios diários (desburocratização da informação)",
-  "Compromissados em resolver as dores dos nossos clientes e não apenas gerar lucro",
+  "Comprometidos em resolver as dores dos nossos clientes e não apenas gerar lucro",
 ] as const;
 export const FORCAS_FONTE = "briefing360 (SWOT — forças)";
 

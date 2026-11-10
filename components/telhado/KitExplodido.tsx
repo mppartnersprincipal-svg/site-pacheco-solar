@@ -20,7 +20,7 @@ const CAMADAS: Record<Tipo, Camada[]> = {
   metalico: [
     { id: "telha", rotulo: "Telha metálica" },
     { id: "fixacao", rotulo: "Espuma EPDM + parafuso brocante" },
-    { id: "perfil", rotulo: "Mini-trilho" },
+    { id: "perfil", rotulo: "Mini trilho" },
     { id: "grampos", rotulo: "Grampos final e intermediário" },
     { id: "modulo", rotulo: "Módulos" },
   ],

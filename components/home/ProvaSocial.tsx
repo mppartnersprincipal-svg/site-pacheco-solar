@@ -1,15 +1,16 @@
-import { Quote } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ChapaCard } from "@/components/ui/ChapaCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { GoogleG, Estrelas } from "@/components/ui/Google";
+import { SeloAvaliacoesGoogle } from "@/components/ui/SeloAvaliacoesGoogle";
 import { Reveal } from "@/components/motion/Reveal";
 import { NUMEROS_PROVA, PROVA_SOCIAL } from "@/content/home";
 import { cn } from "@/lib/utils";
 
 /**
  * Seção 8 — números confirmados pelo Lucas (integradores atendidos, painéis
- * fixados) e os 5 depoimentos literais do site atual em grade "bento" (o
- * primeiro ocupa 2 colunas no desktop). Sem estrelas: só o que o cliente escreveu.
+ * fixados), selo da nota no Google e 5 avaliações reais do perfil do Google em
+ * grade "bento" (o primeiro ocupa 2 colunas no desktop).
  */
 export function ProvaSocial() {
   return (
@@ -26,15 +27,24 @@ export function ProvaSocial() {
             ))}
           </ul>
         </Reveal>
-        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5" aria-label="Depoimentos de clientes">
+        <Reveal className="mb-6 sm:mb-8">
+          <SeloAvaliacoesGoogle ctaId="prova-social-google" />
+        </Reveal>
+        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5" aria-label="Avaliações de clientes no Google">
           {PROVA_SOCIAL.depoimentos.map((d, i) => (
             <Reveal key={d.nome} as="li" delay={i * 60} className={cn(i === 0 && "lg:col-span-2")}>
               <ChapaCard as="div" className="flex h-full flex-col">
-                <Quote className="size-6 text-laranja-texto" aria-hidden />
+                <div className="flex items-center justify-between gap-3">
+                  <Estrelas className="h-4" />
+                  <GoogleG className="size-5" />
+                </div>
                 <blockquote className="mt-4 flex-1">
                   <p className={cn("leading-relaxed text-branco/90", i === 0 ? "text-lg sm:text-xl" : "text-base")}>“{d.texto}”</p>
                 </blockquote>
-                <figcaption className="mt-6 font-sans text-sm font-semibold text-ciano">{d.nome}</figcaption>
+                <figcaption className="mt-6 flex flex-col gap-0.5">
+                  <span className="font-sans text-sm font-semibold text-ciano">{d.nome}</span>
+                  <span className="text-xs text-aco">{d.rotulo}</span>
+                </figcaption>
               </ChapaCard>
             </Reveal>
           ))}

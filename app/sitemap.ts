@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { ROTAS, SITE_URL } from "@/lib/site";
 
-const LAST_MODIFIED = "2026-11-03";
+const LAST_MODIFIED = "2026-11-10";
 
 const ROTAS_PUBLICAS: Array<{ path: string; priority: number; changeFrequency: "weekly" | "monthly" | "yearly" }> = [
   { path: ROTAS.home, priority: 1, changeFrequency: "weekly" },

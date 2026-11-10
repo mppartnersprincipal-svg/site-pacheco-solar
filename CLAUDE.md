@@ -13,8 +13,8 @@ Site institucional multi-página da Pacheco Solar (indústria de estruturas met�
 
 1. **Nunca inventar dado factual.** Tudo que não vier dos briefings/site atual/manuais/CLAUDE.md do cliente fica `[PREENCHER]` em `content/` e listado em `docs/PENDENCIAS.md`.
 2. **Proibido:** "3x mais resistente"/"galvanizado a fogo", citar concorrentes, falar com consumidor final, preço/ticket/forma de pagamento, "fabricamos" para a Linha Titan, Carport, números de prova sem confirmação.
-3. **Pronta entrega** sempre "na maior parte do tempo" + "consulte disponibilidade".
-4. **Itens avulsos** = grampos (intermediário/final), parafusos (brocante inox, martelo), hastes estruturais inox, clipes de fixação (solo), placas de identificação/sinalização. EPDM, mini trilho e Chapa L são componentes de kit.
+3. **Pronta entrega** sempre com "consulte a disponibilidade" ou "sob consulta"; nunca "na maior parte do tempo" (Pedro, 10/11/2026) nem status de estoque.
+4. **Itens avulsos** (lista do Pedro, 10/11/2026) = parafuso martelo, haste metal, haste madeira, mini trilho baixo, mini trilho alto, suporte L, grampo intermediário, grampo final, placa de identificação e Vedacap. Nada além disso (brocante, clipe de solo e EPDM não entram como avulso).
 5. **Vedacap:** "aplicação simples com cola PU; não usar silicone"; passo a passo oficial `[PREENCHER]`; 3 versões: aluzinco natural, branco e preto; preço só no WhatsApp.
 6. **Contato oficial** só em `lib/site.ts`: (62) 4101-8101 · adm@pachecosolar.com.br · @solar.pacheco.
 7. **CTA único = WhatsApp** (sem formulário). Toda mensagem em `lib/whatsapp.ts`.

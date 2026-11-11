@@ -78,7 +78,8 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         <div id="kpis" className="flex flex-wrap items-end justify-between gap-4 scroll-mt-28">
           <div>
             <h1 className="font-display text-2xl font-bold sm:text-3xl">Dashboard</h1>
-            <p className="mt-1 text-sm text-ink-muted">
+            <span aria-hidden className="faixa-sol mt-2 block h-1 w-12 rounded-full" />
+            <p className="mt-2 text-sm text-ink-muted">
               Comportamento dos visitantes · {range.label}
               {range.channel ? ` · ${labelChannel(range.channel)}` : ""}
             </p>

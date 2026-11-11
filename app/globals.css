@@ -42,6 +42,11 @@
   --color-brand-action: oklch(58% 0.19 38);   /* = laranja */
   --color-brand-hover: oklch(52% 0.18 38);
   --color-brand-tint: oklch(96% 0.03 45);
+  /* Pontas do gradiente da logo (amostradas do PNG "Logo Vector Orange Gradient") —
+     só decoração (faixas, ícones, gráficos); texto branco não passa AA sobre elas */
+  --color-sol-laranja: #fe570e;
+  --color-sol-meio: #ff8d26;
+  --color-sol-amarelo: #ffb538;
 
   /* WhatsApp — só no ícone/botão */
   --color-whatsapp: #25d366;
@@ -76,8 +81,14 @@
 }
 
 @layer base {
-  /* Painel: fundo claro e títulos escuros (o resto do site é escuro) */
-  [data-painel] { background: var(--color-surface-alt); color: var(--color-ink-body); }
+  /* Painel: fundo claro (com um brilho de sol bem leve no canto, amarelo da logo) e
+     títulos escuros — o resto do site é escuro */
+  [data-painel] {
+    background:
+      radial-gradient(900px 420px at 100% -8%, color-mix(in oklch, var(--color-sol-amarelo) 16%, transparent), transparent 70%),
+      var(--color-surface-alt);
+    color: var(--color-ink-body);
+  }
   [data-painel] h1, [data-painel] h2, [data-painel] h3, [data-painel] h4 { color: var(--color-ink); }
   html {
     scroll-behavior: auto; /* Lenis cuida do smooth scroll */
@@ -144,6 +155,11 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Gradiente da logo (laranja → amarelo): faixas e detalhes do painel */
+@utility faixa-sol {
+  background-image: linear-gradient(90deg, var(--color-sol-laranja) 0%, var(--color-sol-meio) 60%, var(--color-sol-amarelo) 100%);
 }
 
 /* Números tabulares para dados técnicos */

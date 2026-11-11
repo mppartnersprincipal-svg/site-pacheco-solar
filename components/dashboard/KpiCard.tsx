@@ -32,7 +32,7 @@ export function KpiCard({
   previous?: number | null;
   format?: KpiFormat;
   icon: LucideIcon;
-  accent?: "ink" | "brand" | "whatsapp";
+  accent?: "ink" | "brand" | "sol" | "whatsapp";
   hint?: string;
 }) {
   const [ref, inView] = useInView({ once: true, rootMargin: "-20px" });
@@ -51,11 +51,12 @@ export function KpiCard({
   const accentClasses = {
     ink: "bg-ink/5 text-ink",
     brand: "bg-brand-tint text-brand-action",
+    sol: "faixa-sol text-white shadow-[0_4px_12px_rgba(254,87,14,0.25)]",
     whatsapp: "bg-whatsapp/10 text-whatsapp",
   }[accent];
 
   return (
-    <div ref={ref} className="flex flex-col gap-3 rounded-2xl border border-line bg-surface p-5 transition-shadow hover:shadow-[0_8px_24px_rgba(21,48,59,0.08)]">
+    <div ref={ref} className="flex flex-col gap-3 rounded-2xl border border-line bg-surface p-5 transition-[box-shadow,border-color] hover:border-brand-action/25 hover:shadow-[0_8px_24px_rgba(226,90,32,0.10)]">
       <div className="flex items-center justify-between gap-3">
         <p className="text-sm font-semibold text-ink-muted">{label}</p>
         <span className={cn("inline-flex size-9 shrink-0 items-center justify-center rounded-full", accentClasses)}>

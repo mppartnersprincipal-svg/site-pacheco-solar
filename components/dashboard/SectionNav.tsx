@@ -25,7 +25,7 @@ export function SectionNav() {
           <li key={s.id} className="shrink-0">
             <a
               href={`#${s.id}`}
-              className="inline-flex min-h-8 items-center rounded-full px-3 font-semibold text-ink-muted transition-colors hover:bg-surface hover:text-ink"
+              className="inline-flex min-h-8 items-center rounded-full px-3 font-semibold text-ink-muted transition-colors hover:bg-brand-tint hover:text-brand-hover"
             >
               {s.label}
             </a>

@@ -7,6 +7,8 @@ export const CHART = {
   ink: "#15303b", // petróleo escuro (= --color-ink)
   brand: "#e25a20", // laranja Pacheco (= --color-brand-action)
   brandSoft: "#f6b899",
+  solLaranja: "#fe570e", // ponta laranja do gradiente da logo (= --color-sol-laranja)
+  sol: "#ffb538", // ponta amarela do gradiente da logo (= --color-sol-amarelo)
   ciano: "#3f9fc4",
   whatsapp: "#25d366",
   muted: "#6b7280",
@@ -20,7 +22,7 @@ export const CHART = {
 } as const;
 
 /** Sequência categórica (donuts/barras com várias séries). */
-export const CATEGORICAL = [CHART.ink, CHART.brand, CHART.ciano, CHART.whatsapp, CHART.amber, CHART.violet, CHART.teal, CHART.muted];
+export const CATEGORICAL = [CHART.ink, CHART.brand, CHART.ciano, CHART.whatsapp, CHART.sol, CHART.violet, CHART.teal, CHART.muted];
 
 /** Cores fixas por canal, para a origem ter sempre a mesma cor em todo o painel. */
 export const CHANNEL_COLORS: Record<string, string> = {
@@ -29,7 +31,7 @@ export const CHANNEL_COLORS: Record<string, string> = {
   google_organic: CHART.ink,
   other_search: CHART.blue,
   social: CHART.violet,
-  referral: CHART.amber,
+  referral: CHART.sol,
   direct: CHART.muted,
 };
 

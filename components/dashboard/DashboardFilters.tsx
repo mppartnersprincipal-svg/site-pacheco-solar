@@ -68,7 +68,7 @@ export function DashboardFilters({ period, channel, de, ate }: { period: Period;
               }}
               className={cn(
                 "inline-flex min-h-9 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-sm font-semibold transition-colors",
-                active ? "bg-ink text-white" : "bg-surface-alt text-ink-body hover:bg-line"
+                active ? "bg-brand-action text-white shadow-[0_4px_12px_rgba(226,90,32,0.28)]" : "bg-surface-alt text-ink-body hover:bg-brand-tint hover:text-brand-hover"
               )}
             >
               {p.id === "custom" ? <CalendarDays aria-hidden className="size-3.5" /> : null}

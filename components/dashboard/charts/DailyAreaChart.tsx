@@ -17,8 +17,13 @@ export function DailyAreaChart({ data }: { data: DailyRow[] }) {
         <ComposedChart data={rows} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
           <defs>
             <linearGradient id="dash-sessions" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={CHART.ink} stopOpacity={0.18} />
-              <stop offset="100%" stopColor={CHART.ink} stopOpacity={0} />
+              <stop offset="0%" stopColor={CHART.solLaranja} stopOpacity={0.28} />
+              <stop offset="100%" stopColor={CHART.sol} stopOpacity={0.02} />
+            </linearGradient>
+            {/* Traço no gradiente da logo (laranja → amarelo, da esquerda para a direita) */}
+            <linearGradient id="dash-sessions-stroke" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor={CHART.solLaranja} />
+              <stop offset="100%" stopColor={CHART.sol} />
             </linearGradient>
           </defs>
           <CartesianGrid stroke={CHART.line} vertical={false} />
@@ -38,8 +43,8 @@ export function DailyAreaChart({ data }: { data: DailyRow[] }) {
             type="monotone"
             dataKey="sessions"
             name="Visitas"
-            stroke={CHART.ink}
-            strokeWidth={2}
+            stroke="url(#dash-sessions-stroke)"
+            strokeWidth={2.5}
             fill="url(#dash-sessions)"
             isAnimationActive={!reduceMotion}
             animationDuration={900}

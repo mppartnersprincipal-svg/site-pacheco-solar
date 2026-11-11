@@ -13,7 +13,8 @@ import { HISTORIA, PROPOSITO } from "@/content/institucional";
 // ------------------------------------------------------------------ 1. hero
 // fonte: FRASES_POSICIONAMENTO (H1) + pilares/diferenciais do site atual (sub)
 export const HERO = {
-  eyebrow: "ESTRUTURAS METÁLICAS PARA ENERGIA SOLAR",
+  /** H1 da home (exibido em caixa-alta via CSS) — keyword principal das campanhas */
+  eyebrow: "Estruturas metálicas para energia solar",
   titulo: "Estrutura que não te deixa na mão.",
   /** Trecho do título em laranja (última ocorrência) */
   tituloDestaque: "na mão.",
@@ -39,6 +40,8 @@ export const PROPOSITO_SECAO = {
 export const LINHAS_SECAO = {
   eyebrow: "CATÁLOGO · 03 LINHAS + VEDACAP",
   titulo: "Seja qual for o projeto, temos a estrutura solar certa.",
+  /** Termos das campanhas que caem na home (estrutura metálica, suporte para placa solar, fixação) */
+  subtitulo: "Estrutura metálica e suporte para placa solar no solo e no telhado, kit de fixação e itens avulsos, com engenharia própria e entrega em todo o Brasil.",
   verLinha: "Ver linha",
   placaNovo: "Novo",
   vedacapCta: "Conhecer o Vedacap",
@@ -105,4 +108,11 @@ export const NUMEROS_PROVA = [
 // fonte: frase de posicionamento + fechamento do site atual (CtaFinal usa os defaults)
 export const CTA_FINAL = {
   eyebrow: "ORÇAMENTO GRATUITO",
+} as const;
+
+// ------------------------------------------------------------- 9. faq
+// 11/11/2026: FAQ da home com os termos das campanhas (FAQ_HOME em lib/faq.ts) + FAQPage JSON-LD
+export const FAQ_HOME_HEADING = {
+  eyebrow: "PERGUNTAS FREQUENTES",
+  titulo: "Estrutura e suporte para placa solar: o que o integrador pergunta.",
 } as const;

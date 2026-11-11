@@ -86,13 +86,15 @@ export function HeroVideo({ hero, heroMobile }: HeroVideoProps) {
 
       <Container className="relative flex min-h-[calc(88svh-4rem)] flex-col justify-center py-24 sm:py-32 lg:min-h-[calc(92svh-4.5rem)]">
         <div className="max-w-3xl">
-          <p style={ENTRADA[0]} className="animate-entrada mb-5 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-laranja-texto">
+          {/* SEO (11/11/2026): o H1 é a frase com a keyword ("estruturas metálicas para energia solar");
+              o slogan mantém o visual de título, mas é parágrafo. Aparência idêntica à anterior. */}
+          <h1 style={ENTRADA[0]} className="animate-entrada mb-5 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-laranja-texto">
             {HERO.eyebrow}
-          </p>
-          <h1 style={ENTRADA[1]} className="animate-entrada font-display text-5xl font-extrabold leading-[0.98] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
+          </h1>
+          <p style={ENTRADA[1]} className="animate-entrada font-display text-5xl font-extrabold leading-[0.98] text-branco sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
             {antes}
             <span className="text-laranja-texto">{depois}</span>
-          </h1>
+          </p>
           <p style={ENTRADA[2]} className="animate-entrada mt-6 max-w-xl whitespace-pre-line text-base leading-relaxed text-branco/80 sm:text-lg">
             {HERO.subtitulo}
           </p>

@@ -21,7 +21,7 @@ export function LinhasDeProduto() {
   return (
     <section id="linhas-de-produto" data-linha="geral" className="scroll-mt-20 bg-fundo">
       <Container className="py-20 sm:py-28">
-        <SectionHeading eyebrow={LINHAS_SECAO.eyebrow} title={LINHAS_SECAO.titulo} destaque="estrutura certa" />
+        <SectionHeading eyebrow={LINHAS_SECAO.eyebrow} title={LINHAS_SECAO.titulo} subtitle={LINHAS_SECAO.subtitulo} destaque="estrutura certa" />
         <ul
           aria-label="Linhas de produto"
           className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0 md:gap-6"

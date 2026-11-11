@@ -13,6 +13,32 @@ export function faqPublicavel<T extends { resposta: string }>(items: T[]): T[] {
 }
 
 export const FAQ_HOME: Faq[] = [
+  // 11/11/2026: 4 primeiras perguntas com os termos das campanhas do Google Ads que caem na home
+  // (estrutura metálica, suporte para placa solar, estrutura fotovoltaica, fixação de painel solar)
+  {
+    pergunta: "Vocês vendem estrutura metálica para energia solar?",
+    resposta:
+      "Sim. A Pacheco Solar é uma indústria de estruturas metálicas para energia solar em Aparecida de Goiânia/GO: estrutura de solo para placa solar (Solo Linear e Solo Dupla), Linha Titan para telhado cerâmico, fibrocimento e metálico, kits de fixação e itens avulsos, com entrega em todo o Brasil.",
+    fonte: "briefing para Claude + lib/site.ts",
+  },
+  {
+    pergunta: "Vocês têm suporte para placa solar no solo e no telhado?",
+    resposta:
+      "Sim. No solo, a estrutura de solo em Solo Linear (uma fileira de módulos) ou Solo Dupla (duas fileiras). No telhado, a Linha Titan, com suporte para telha cerâmica, fibrocimento e telha metálica com mini trilho.",
+    fonte: "lib/produtos (solo e Titan)",
+  },
+  {
+    pergunta: "Qual estrutura fotovoltaica usar: de solo ou de telhado?",
+    resposta:
+      "Depende do projeto. Usinas, fazendas e áreas abertas usam estrutura de solo; residências, comércios e galpões usam estrutura de telhado. Mande o layout pelo WhatsApp e a engenharia da Pacheco indica a estrutura certa.",
+    fonte: "site atual (diferencial 04: estrutura certa para o layout) + engenharia própria",
+  },
+  {
+    pergunta: "Vocês vendem kit de fixação para painel solar?",
+    resposta:
+      "Sim. Kit de fixação completo para painel solar, com estrutura, grampos e parafusos no mesmo pedido, e itens avulsos para a montagem não parar.",
+    fonte: "content/kits.ts",
+  },
   {
     pergunta: "Tem pronta entrega?",
     resposta: "Trabalhamos com pronta entrega. Consulte a disponibilidade da sua linha pelo WhatsApp.",

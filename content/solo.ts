@@ -15,7 +15,7 @@ export const HERO_SOLO = {
   eyebrow: SOLO.eyebrow,
   titulo: SOLO.nome,
   subtitulo:
-    "Estrutura monoposte linear e dupla para usina fotovoltaica, fazenda e zona rural. Aço de qualidade premium, ideal para ambientes com atmosfera agressiva. Pronta entrega sob consulta.",
+    "Estrutura metálica de solo fabricada pela Pacheco Solar: monoposte linear e dupla para usina fotovoltaica, fazenda e zona rural. Aço de qualidade premium, ideal para ambientes com atmosfera agressiva. Pronta entrega sob consulta.",
   placas: ["Pronta entrega sob consulta", "Solo Linear", "Solo Dupla", "Monoposte", "Entrega em todo o Brasil"],
   imagem: "solo-dupla/img-3961" as MediaKey,
   imagemAlt: "Estrutura de solo dupla vista por baixo dos módulos, com perfis de aço e brita",

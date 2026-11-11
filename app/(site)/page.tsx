@@ -6,7 +6,10 @@ import { ObrasDestaque } from "@/components/home/ObrasDestaque";
 import { Diferenciais } from "@/components/home/Diferenciais";
 import { ComoFunciona } from "@/components/home/ComoFunciona";
 import { ProvaSocial } from "@/components/home/ProvaSocial";
-import { TITLE_DEFAULT, buildMetadata } from "@/lib/seo";
+import { FaqHome } from "@/components/home/FaqHome";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { FAQ_HOME } from "@/lib/faq";
+import { TITLE_DEFAULT, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { VIDEOS } from "@/lib/media";
 import { SITE } from "@/lib/site";
 
@@ -18,10 +21,11 @@ export const metadata = buildMetadata({
   absolute: true,
 });
 
-/** Home — 9 blocos enxutos (versão de 22/10/2026, referência aprovada pelo Lucas). */
+/** Home — blocos enxutos (versão de 22/10/2026, aprovada pelo Lucas) + FAQ fechado com FAQPage JSON-LD (11/11/2026, SEO/Ads). */
 export default function Home() {
   return (
     <>
+      <JsonLd data={[faqJsonLd(FAQ_HOME)]} />
       <HeroVideo hero={VIDEOS.hero} heroMobile={VIDEOS.heroMobile} />
       <Proposito />
       <LinhasDeProduto />
@@ -30,6 +34,7 @@ export default function Home() {
       <Diferenciais />
       <ComoFunciona />
       <ProvaSocial />
+      <FaqHome />
     </>
   );
 }

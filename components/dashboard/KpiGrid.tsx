@@ -1,6 +1,7 @@
 "use client";
 
-import { Clock, Eye, MessageCircle, Phone, Target, Timer, Users } from "lucide-react";
+import { Clock, Eye, Phone, Target, Timer, Users } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons";
 import type { KpisRow } from "@/lib/analytics-types";
 import { KpiCard } from "@/components/dashboard/KpiCard";
 import { Reveal } from "@/components/motion/Reveal";
@@ -11,7 +12,7 @@ export function KpiGrid({ kpis, previous }: { kpis: KpisRow; previous?: KpisRow 
     { label: "Páginas vistas", value: kpis.page_views, prev: previous?.page_views, icon: Eye, format: "int", accent: "brand" },
     { label: "Tempo médio por visita", value: kpis.avg_session_ms, prev: previous?.avg_session_ms, icon: Clock, format: "duration", accent: "brand" },
     { label: "Tempo médio por página", value: kpis.avg_page_ms, prev: previous?.avg_page_ms, icon: Timer, format: "duration", accent: "brand" },
-    { label: "Cliques no WhatsApp", value: kpis.wa_clicks, prev: previous?.wa_clicks, icon: MessageCircle, format: "int", accent: "whatsapp" },
+    { label: "Cliques no WhatsApp", value: kpis.wa_clicks, prev: previous?.wa_clicks, icon: WhatsAppIcon, format: "int", accent: "whatsapp" },
     { label: "Cliques no telefone", value: kpis.phone_clicks, prev: previous?.phone_clicks, icon: Phone, format: "int", accent: "brand" },
     { label: "Conversão (visitas → WhatsApp)", value: kpis.conv_rate, prev: previous?.conv_rate, icon: Target, format: "pct", accent: "sol" },
   ] as const;

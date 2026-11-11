@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ChevronRight, Download, Mail, MapPin, MessageCircle, Monitor, MousePointerClick, Phone, PlayCircle, Smartphone, Tablet } from "lucide-react";
+import { ChevronRight, Download, Mail, MapPin, Monitor, MousePointerClick, Phone, PlayCircle, Smartphone, Tablet } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons";
 import { getJourneys, withParams, type Range, type SearchParams } from "@/lib/analytics-queries";
 import { LINHA_LABELS, fmtDateTime, fmtDuration, fmtTime, labelChannel, type JourneyRow } from "@/lib/analytics-types";
 import { genericClicks, summarizeTrail, type JourneyStep } from "@/lib/journey";
@@ -17,8 +18,9 @@ const STEP_STYLE: Record<JourneyStep["kind"], string> = {
   download: "bg-violet-50 text-violet-700",
 };
 
-const STEP_ICON: Partial<Record<JourneyStep["kind"], typeof MessageCircle>> = {
-  whatsapp: MessageCircle,
+/** Ícones das etapas: lucide + o logo oficial do WhatsApp (components/icons). */
+const STEP_ICON: Partial<Record<JourneyStep["kind"], React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>>> = {
+  whatsapp: WhatsAppIcon,
   phone: Phone,
   email: Mail,
   cta: MousePointerClick,

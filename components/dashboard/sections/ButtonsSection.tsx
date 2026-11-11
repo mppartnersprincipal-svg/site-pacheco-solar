@@ -1,4 +1,5 @@
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons";
 import { getButtons, type Range } from "@/lib/analytics-queries";
 import { CHANNEL_ORDER, fmtInt, labelChannel, labelLinha, labelPosicao, type ButtonRow } from "@/lib/analytics-types";
 import { ChartCard } from "@/components/dashboard/ChartCard";
@@ -97,7 +98,7 @@ export async function ButtonsSection({ range }: { range: Range }) {
               <Reveal as="li" key={name} delay={i * 50} y={10}>
                 <div className={cn("flex h-full flex-col gap-2 rounded-2xl border p-4", i === 0 ? "border-whatsapp/40 bg-whatsapp/5" : "border-line bg-surface-alt/60")}>
                   <div className="flex items-center gap-2 text-whatsapp">
-                    <MessageCircle aria-hidden className="size-4" />
+                    <WhatsAppIcon className="size-4" />
                     <span className="text-xs font-semibold tracking-wide text-ink-muted uppercase">WhatsApp</span>
                   </div>
                   <p className="text-sm leading-snug font-semibold text-ink">{name}</p>

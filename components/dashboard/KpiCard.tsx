@@ -1,7 +1,7 @@
 "use client";
 
 import { animated, useInView, useSpring } from "@react-spring/web";
-import { TrendingDown, TrendingUp, type LucideIcon } from "lucide-react";
+import { TrendingDown, TrendingUp } from "lucide-react";
 import { fmtDuration, fmtInt, fmtPct } from "@/lib/analytics-types";
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "./useReducedMotion";
@@ -31,7 +31,8 @@ export function KpiCard({
   value: number;
   previous?: number | null;
   format?: KpiFormat;
-  icon: LucideIcon;
+  /** Ícone do lucide ou próprio (ex.: WhatsAppIcon de components/icons) */
+  icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
   accent?: "ink" | "brand" | "sol" | "whatsapp";
   hint?: string;
 }) {

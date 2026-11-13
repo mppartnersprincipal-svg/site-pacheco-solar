@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FaixaBlackNovember } from "@/components/layout/FaixaBlackNovember";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { BotaoWhatsAppInteligente } from "@/components/cta/BotaoWhatsAppInteligente";
@@ -21,6 +22,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       >
         Pular para o conteúdo
       </a>
+      <FaixaBlackNovember />
       <Header logo={{ src: logo.src, width: logo.width, height: logo.height }} />
       <main id="conteudo" className="flex-1">
         {children}
